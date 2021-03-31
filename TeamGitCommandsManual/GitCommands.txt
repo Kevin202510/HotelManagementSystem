@@ -1,0 +1,35 @@
+Git Commands Manual
+
+Team Malakas
+
+***** CLONING OUR PROJECT  *****
+
+1. git clone then copy the url from the github.
+
+***** END OF CLONING *****
+
+
+***** PUSHING YOUR WORK TO THE PROJECT *****
+
+1.git status
+2.git add .
+3.git commit -m "What You Do Or What You Are Pushing to the project"  .. note(para malaman namin kung ano ba ginawa nyo or may ginagawa ba kayo..)
+4.git push
+
+***** END OF PUSHING *****
+
+***** PULLING OUR PROJECT IF WE DID SOMETHING OR MAY GINALAW SA PROJECT *****
+
+1.git status
+2.git add .
+3.git commit -m "What You Do Or What You Are Pushing to the project"
+4.git push
+5.git pull
+
+***** END OF PULLING PROJECT THAT EXIST TO YOUR SYSTEM UNIT *****
+
+***** PULLING WITHOUT DOING ANYTHING *****
+
+1.git pull
+
+***** END OF PULLING *****
