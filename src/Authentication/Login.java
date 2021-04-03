@@ -6,8 +6,7 @@
 package Authentication;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import SQL.SQL;
 
 /**
  *
@@ -83,6 +82,11 @@ public class Login extends javax.swing.JFrame {
         login.setBackground(new java.awt.Color(255, 0, 0));
         login.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
         jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 520, 40));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
@@ -129,19 +133,6 @@ public class Login extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-//    String Username;
-//    String Password;
-//    
-//    public void connection() throws SQLException{
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","");
-//            Statement st = con.createStatement();
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
     
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         
@@ -150,26 +141,21 @@ public class Login extends javax.swing.JFrame {
         
         if (evt.getKeyCode()==10){
              try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","");
-                Statement st = con.createStatement();
-                String tanong = "Select * from users";
-                ResultSet rs = st.executeQuery(tanong);
-                while(rs.next()){
-
-                    String userName = rs.getString("user_username");
-                    String passWord = rs.getString("user_password");
-
-                      if (uname.equals(userName) && pass.equals(passWord)){
-                            JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
-                      }
-    //            con.close();
+                SQL sql = new SQL();
+                Connection con = sql.getConnection();
+                String tanong = "Select * from users where user_username= ? AND user_password= ?";
+                PreparedStatement st = con.prepareStatement(tanong);
+                st.setString(1,username.getText());
+                st.setString(2,password.getText());
+                ResultSet rs = st.executeQuery();
+                if(rs.next()){
+                    JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
+                }else{
+                    JOptionPane.showMessageDialog(this,"Error");
                 }
-            } catch (ClassNotFoundException ex) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this,"Mali");
-            }   catch (SQLException ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            }
         }
     }//GEN-LAST:event_passwordKeyPressed
 
@@ -185,6 +171,10 @@ public class Login extends javax.swing.JFrame {
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
 
     }//GEN-LAST:event_jButton1MouseEntered
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+      
+    }//GEN-LAST:event_loginActionPerformed
 
 //    jButton1.setBackground(new Color(213, 134, 145, 123));
     /**

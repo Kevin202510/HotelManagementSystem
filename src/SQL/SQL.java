@@ -6,8 +6,6 @@
 package SQL;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,17 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class SQL {
     
-    String Username;
-    String Password;
-    
-    public void connection() throws SQLException{
-        try {
+   public Connection getConnection(){
+        try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","");
-            Statement st = con.createStatement();
-                JOptionPane.showMessageDialog(null,"Tae");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
+            return con;
+        }catch(ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(null,e);
         }
-    }
+        return null;
+       }
 }

@@ -1,11 +1,18 @@
 /*
+/*
+/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package Authentication;
 
-import java.awt.Color;
+
+import SQL.SQL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -146,6 +153,11 @@ public class Register extends javax.swing.JFrame {
         Register.setBackground(new java.awt.Color(0, 0, 204));
         Register.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         Register.setText("REGISTER");
+        Register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterActionPerformed(evt);
+            }
+        });
         jPanel1.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 250, 30));
 
         Password.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -224,19 +236,19 @@ public class Register extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    
-    
-    
-       
-       
-    
-    
-    
-    
-    
-    
-    
+    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+         try{
+                SQL sql = new SQL();
+                Connection con = sql.getConnection();
+                String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +Fname.getText()+"','" +Mname.getText()+"','" +Lname.getText()+"','" +Address.getText()+"','" +DOB.getText()+"','" +Contactnum.getText()+"','" +Username.getText()+"','" +Password.getText()+"')";
+                PreparedStatement st = con.prepareStatement(insert);
+                st.executeUpdate();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,e);
+        }
+    }//GEN-LAST:event_RegisterActionPerformed
+
+
 //    viewpass.setVisible(true);
 //        hidepass.setVisible(false);
 //        Password.setEchoChar('*');
