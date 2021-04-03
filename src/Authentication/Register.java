@@ -5,6 +5,8 @@
  */
 package Authentication;
 
+import java.awt.Color;
+
 /**
  *
  * @author ❤Kevin Felix Caluag❤
@@ -54,7 +56,6 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(720, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -223,6 +224,19 @@ public class Register extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
+    
+    
+       
+       
+    
+    
+    
+    
+    
+    
+    
 //    viewpass.setVisible(true);
 //        hidepass.setVisible(false);
 //        Password.setEchoChar('*');
