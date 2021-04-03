@@ -7,6 +7,7 @@ package Authentication;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import SQL.SQL;
+import Dashboards.AdminDashboard;
 
 /**
  *
@@ -149,7 +150,12 @@ public class Login extends javax.swing.JFrame {
                 st.setString(2,password.getText());
                 ResultSet rs = st.executeQuery();
                 if(rs.next()){
+                    int role_id = Integer.parseInt(rs.getString("role_id"));
                     JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
+                    if (role_id==1) {
+                      new  AdminDashboard().setVisible(true);
+                        this.dispose();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(this,"Error");
                 }
