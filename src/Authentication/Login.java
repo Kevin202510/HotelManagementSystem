@@ -68,6 +68,8 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 118, 32));
 
         username.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        username.setBorder(null);
+        username.setName(""); // NOI18N
         jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 390, 50));
 
         register.setBackground(new java.awt.Color(0, 255, 0));
@@ -97,6 +99,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 550, 50));
 
         password.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        password.setBorder(null);
         password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 passwordKeyPressed(evt);
