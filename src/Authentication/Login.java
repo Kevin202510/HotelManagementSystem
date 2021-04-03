@@ -5,15 +5,15 @@
  */
 package Authentication;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author ❤Kevin Felix Caluag❤
  */
 public class Login extends javax.swing.JFrame {
-    
-    public String userName="superadmin";
-    public String passWord="password";
 
     /**
      * Creates new form Authentication
@@ -130,15 +130,46 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+//    String Username;
+//    String Password;
+//    
+//    public void connection() throws SQLException{
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","");
+//            Statement st = con.createStatement();
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(SQL.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        
         String uname=username.getText();
         String pass=password.getText();
+        
         if (evt.getKeyCode()==10){
-            if (userName.equals(uname) && passWord.equals(pass)){
-                JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
-            }else{
-                JOptionPane.showMessageDialog(this,"Error " + uname.toUpperCase() + "is not already Exist Try To Register!","Error",JOptionPane.ERROR_MESSAGE);
-            }
+             try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagement","root","");
+                Statement st = con.createStatement();
+                String tanong = "Select * from users";
+                ResultSet rs = st.executeQuery(tanong);
+                while(rs.next()){
+
+                    String userName = rs.getString("user_username");
+                    String passWord = rs.getString("user_password");
+
+                      if (uname.equals(userName) && pass.equals(passWord)){
+                            JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
+                      }
+    //            con.close();
+                }
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(this,"Mali");
+            }   catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
     }//GEN-LAST:event_passwordKeyPressed
 
@@ -159,7 +190,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws SQLException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
