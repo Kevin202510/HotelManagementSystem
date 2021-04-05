@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Authentication/Register.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Dashboards/AdminDashboard.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Authentication/Login.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Customers.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Users.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminDashboard.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Master/ContainerManipulator.java</file>
         </group>
     </open-files>
 </project-private>
