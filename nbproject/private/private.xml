@@ -5,9 +5,10 @@
         <group>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminDashboard.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Master/ContainerManipulator.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Users.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Home.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Customers.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/UserModel/Users.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
     </open-files>
 </project-private>
