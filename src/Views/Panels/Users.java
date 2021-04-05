@@ -12,6 +12,27 @@ package Views.Panels;
  */
 public class Users extends javax.swing.JPanel {
 
+
+    public ArrayList<Users> userList() throws SQLException{
+        ArrayList<Users> userList = new ArrayList<>();
+        SQL sql = new SQL();
+        Connection con = sql.getConnection();
+        String tanong = "Select * from users";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        Users users;
+        
+        while(rs.next()){
+            users=new Users(rs.getInt("user_id"),rs.getInt("role_id"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
+            userList.add(users);
+        }
+        return userList;   
+    }
+
+    public void showUsers(){
+         ArrayList<Users> list = userList();
+    }
+    
     /** Creates new form User */
     public Users() {
         initComponents();
