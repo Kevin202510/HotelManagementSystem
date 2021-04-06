@@ -194,7 +194,7 @@ public class Register extends javax.swing.JFrame {
                 viewpassActionPerformed(evt);
             }
         });
-        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 40, 30));
+        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 40, 30));
 
         hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
         hidepass.setBorderPainted(false);
