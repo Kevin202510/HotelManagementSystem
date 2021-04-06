@@ -12,6 +12,8 @@ package Views.Authentication;
 import SQL.SQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +39,7 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinField1 = new com.toedter.components.JSpinField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -51,18 +54,17 @@ public class Register extends javax.swing.JFrame {
         Mname = new javax.swing.JTextField();
         Lname = new javax.swing.JTextField();
         Address = new javax.swing.JTextField();
-        DOB = new javax.swing.JTextField();
         Contactnum = new javax.swing.JTextField();
         Username = new javax.swing.JTextField();
         Register = new javax.swing.JButton();
         Password = new javax.swing.JPasswordField();
+        DOB = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         viewpass = new javax.swing.JButton();
         hidepass = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,9 +143,6 @@ public class Register extends javax.swing.JFrame {
         Address.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jPanel1.add(Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 390, 30));
 
-        DOB.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jPanel1.add(DOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 390, 30));
-
         Contactnum.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jPanel1.add(Contactnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 390, 30));
 
@@ -162,6 +161,10 @@ public class Register extends javax.swing.JFrame {
 
         Password.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 390, 30));
+
+        DOB.setBackground(new java.awt.Color(255, 255, 255));
+        DOB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        jPanel1.add(DOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 390, 30));
 
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
@@ -240,9 +243,21 @@ public class Register extends javax.swing.JFrame {
          try{
                 SQL sql = new SQL();
                 Connection con = sql.getConnection();
-                String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +Fname.getText()+"','" +Mname.getText()+"','" +Lname.getText()+"','" +Address.getText()+"','" +DOB.getText()+"','" +Contactnum.getText()+"','" +Username.getText()+"','" +Password.getText()+"')";
+                DateFormat df = new SimpleDateFormat("yyyy-dd-mm");
+                String Birthdate = df.format(DOB.getDate());
+                String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +Fname.getText()+"','" +Mname.getText()+"','" +Lname.getText()+"','" +Address.getText()+"','" +Birthdate+"','" +Contactnum.getText()+"','" +Username.getText()+"','" +Password.getText()+"')";
+                JOptionPane.showMessageDialog(this,Birthdate);
+                DOB.setCalendar(null);
                 PreparedStatement st = con.prepareStatement(insert);
-                st.executeUpdate();
+//                st.executeUpdate();
+                int i = st.executeUpdate();
+                if (i > 0) {
+                    JOptionPane.showMessageDialog(this,"Successfully Register!!");
+                    new  Login().setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this,"Error");
+                }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this,e);
         }
@@ -294,7 +309,7 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Address;
     private javax.swing.JTextField Contactnum;
-    private javax.swing.JTextField DOB;
+    private com.toedter.calendar.JDateChooser DOB;
     private javax.swing.JTextField Fname;
     private javax.swing.JTextField Lname;
     private javax.swing.JTextField Mname;
@@ -314,6 +329,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private com.toedter.components.JSpinField jSpinField1;
     private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables
 }

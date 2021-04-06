@@ -48,7 +48,7 @@ public class Users {
     }public String getuser_password(){
         return user_password;
     }public String getuser_fullname(){
-        String fullname = user_Fname + "   " + user_Mname + "   " + user_Lname;
+        String fullname = user_Fname + " " + user_Mname + " " + user_Lname;
         return fullname;
     }
     
