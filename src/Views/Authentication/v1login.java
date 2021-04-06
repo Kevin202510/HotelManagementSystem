@@ -48,10 +48,13 @@ public class v1login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         viewpass = new javax.swing.JButton();
         hidepass = new javax.swing.JButton();
-        hov2 = new javax.swing.JPanel();
-        signIn1 = new javax.swing.JLabel();
         hov1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        hov3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,61 +160,12 @@ public class v1login extends javax.swing.JFrame {
         });
         jPanel2.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 30, 30));
 
-        hov2.setBackground(new java.awt.Color(0, 204, 255));
-
-        signIn1.setBackground(new java.awt.Color(255, 255, 255));
-        signIn1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        signIn1.setForeground(new java.awt.Color(255, 255, 255));
-        signIn1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signIn1.setText("Sign In");
-        signIn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signIn1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                signIn1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                signIn1MouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout hov2Layout = new javax.swing.GroupLayout(hov2);
-        hov2.setLayout(hov2Layout);
-        hov2Layout.setHorizontalGroup(
-            hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hov2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(signIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        hov2Layout.setVerticalGroup(
-            hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hov2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(signIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 140, 30));
-
         hov1.setBackground(new java.awt.Color(0, 204, 255));
-
-        javax.swing.GroupLayout hov1Layout = new javax.swing.GroupLayout(hov1);
-        hov1.setLayout(hov1Layout);
-        hov1Layout.setHorizontalGroup(
-            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        hov1Layout.setVerticalGroup(
-            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 69, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("ROOMS");
+        jLabel3.setText("Sign Up");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel3MouseEntered(evt);
@@ -220,7 +174,63 @@ public class v1login extends javax.swing.JFrame {
                 jLabel3MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 335, 138, 20));
+
+        javax.swing.GroupLayout hov1Layout = new javax.swing.GroupLayout(hov1);
+        hov1.setLayout(hov1Layout);
+        hov1Layout.setHorizontalGroup(
+            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hov1Layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        hov1Layout.setVerticalGroup(
+            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hov1Layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 150, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/username1.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/password.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 30, -1));
+
+        hov3.setBackground(new java.awt.Color(0, 204, 255));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Sign In");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel7MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hov3Layout = new javax.swing.GroupLayout(hov3);
+        hov3.setLayout(hov3Layout);
+        hov3Layout.setHorizontalGroup(
+            hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(hov3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        hov3Layout.setVerticalGroup(
+            hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hov3Layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 400, 480));
 
@@ -251,18 +261,6 @@ public class v1login extends javax.swing.JFrame {
         password.setEchoChar('*');
     }//GEN-LAST:event_hidepassActionPerformed
 
-    private void signIn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signIn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signIn1MouseClicked
-
-    private void signIn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signIn1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signIn1MouseEntered
-
-    private void signIn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signIn1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signIn1MouseExited
-
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
         setC(hov1);
     }//GEN-LAST:event_jLabel3MouseEntered
@@ -270,6 +268,14 @@ public class v1login extends javax.swing.JFrame {
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
         resetC(hov1);
     }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseExited
 
     /**
      * @param args the command line arguments
@@ -309,10 +315,14 @@ public class v1login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hidepass;
     private javax.swing.JPanel hov1;
-    private javax.swing.JPanel hov2;
+    private javax.swing.JPanel hov3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -320,7 +330,6 @@ public class v1login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPasswordField password;
-    private javax.swing.JLabel signIn1;
     private javax.swing.JTextField username;
     private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables
