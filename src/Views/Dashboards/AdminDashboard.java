@@ -270,14 +270,14 @@ public class AdminDashboard extends javax.swing.JFrame {
                     .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
 
-        getContentPane().add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 560));
+        getContentPane().add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 900));
 
-        lalagyanan.setPreferredSize(new java.awt.Dimension(970, 480));
+        lalagyanan.setPreferredSize(new java.awt.Dimension(1000, 780));
         lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 1000, 450));
+        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 1000, 780));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -302,7 +302,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 1000, 40));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 850, 1000, 40));
 
         pack();
         setLocationRelativeTo(null);
