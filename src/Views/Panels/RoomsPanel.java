@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Views.Panels;
+import Controllers.RoomController;
 import Models.RoomModels.Rooms;
-import Controllers.SQL.SQL;
+import Controllers.SQL;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
@@ -18,28 +19,9 @@ import javax.swing.table.DefaultTableModel;
  * 
  */
 public class RoomsPanel extends javax.swing.JPanel {
-
-
-    public ArrayList<Rooms> roomList() throws SQLException{
-        ArrayList<Rooms> roomList = new ArrayList<>();
-        SQL sql = new SQL();
-        Connection con = sql.getConnection();
-        String tanong = "Select * from rooms";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
-        Rooms rooms;
-        
-        while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getInt("bed_id"),rs.getInt("RT_id"),rs.getInt("rate_id"));
-            roomList.add(rooms);
-        }
-        return roomList;   
-    
-    }
-    
     
        public void showRooms() throws SQLException{
-         ArrayList<Rooms> list = roomList();
+         ArrayList<Rooms> list = new RoomController().roomList();
          DefaultTableModel model = (DefaultTableModel)roomsui.getModel();
          Object[] row = new Object[4];
          for (int i = 0; i < list.size(); i++) {

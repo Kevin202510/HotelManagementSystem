@@ -9,8 +9,8 @@
 package Views.Authentication;
 
 
-import Controllers.SQL.SQL;
-import Controllers.UserController.UserController;
+import Controllers.SQL;
+import Controllers.UserController;
 import Models.UserModel.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

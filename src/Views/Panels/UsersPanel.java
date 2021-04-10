@@ -7,8 +7,8 @@
 package Views.Panels;
 
 import Models.UserModel.Users;
-import Controllers.SQL.SQL;
-import Controllers.UserController.UserController;
+import Controllers.SQL;
+import Controllers.UserController;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
@@ -95,8 +95,6 @@ public class UsersPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(3).setPreferredWidth(200);
         }
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 51));
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -107,8 +105,9 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGap(357, 357, 357)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

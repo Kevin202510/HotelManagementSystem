@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers.UserController;
+package Controllers;
 
-import Controllers.SQL.SQL;
 import Models.UserModel.Users;
 import Views.Authentication.Login;
 import java.sql.Connection;

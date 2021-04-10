@@ -5,7 +5,7 @@
  */
 package Views.Panels;
 import Models.CustomerModel.Customers;
-import Controllers.SQL.SQL;
+import Controllers.SQL;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
