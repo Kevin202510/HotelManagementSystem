@@ -1,4 +1,4 @@
-Git Commands Manual
+wGit Commands Manual
 
 Team Malakas
 

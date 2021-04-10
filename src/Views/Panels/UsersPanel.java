@@ -7,7 +7,8 @@
 package Views.Panels;
 
 import Models.UserModel.Users;
-import SQL.SQL;
+import Controllers.SQL.SQL;
+import Controllers.UserController.UserController;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
@@ -19,26 +20,9 @@ import javax.swing.table.DefaultTableModel;
  * @author ❤Kevin Felix Caluag❤
  */
 public class UsersPanel extends javax.swing.JPanel {
-
-
-    public ArrayList<Users> userList() throws SQLException{
-        ArrayList<Users> userList = new ArrayList<>();
-        SQL sql = new SQL();
-        Connection con = sql.getConnection();
-        String tanong = "Select * from users INNER JOIN roles ON users.role_id = roles.role_id";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
-        Users users;
-        
-        while(rs.next()){
-            users=new Users(rs.getInt("user_id"),rs.getString("role_displayname"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
-            userList.add(users);
-        }
-        return userList;   
-    }
-
-    public void showUsers() throws SQLException{
-         ArrayList<Users> list = userList();
+     public void showUsers() throws SQLException{
+         UserController user = new UserController();
+         ArrayList<Users> list = user.userList();
          DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
          Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
@@ -53,12 +37,7 @@ public class UsersPanel extends javax.swing.JPanel {
             model.addRow(row);
          }
     }
-    
-//    
-//            row[3] = list.get(i).getuser_Mname();
-//            row[4] = list.get(i).getuser_Lname();
-    
-    /** Creates new form User */
+     
     public UsersPanel() throws SQLException {
         initComponents();
         showUsers();

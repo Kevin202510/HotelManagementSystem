@@ -9,11 +9,16 @@
 package Views.Authentication;
 
 
-import SQL.SQL;
+import Controllers.SQL.SQL;
+import Controllers.UserController.UserController;
+import Models.UserModel.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -163,6 +168,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 390, 30));
 
         DOB.setBackground(new java.awt.Color(255, 255, 255));
+        DOB.setDateFormatString("yyyy-MM-dd");
         DOB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jPanel1.add(DOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 390, 30));
 
@@ -197,7 +203,7 @@ public class Register extends javax.swing.JFrame {
                 viewpassActionPerformed(evt);
             }
         });
-        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 40, 30));
+        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 40, 30));
 
         hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
         hidepass.setBorderPainted(false);
@@ -239,27 +245,16 @@ public class Register extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public UserController users = new UserController();
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
-         try{
-                SQL sql = new SQL();
-                Connection con = sql.getConnection();
-                DateFormat df = new SimpleDateFormat("yyyy-dd-mm");
-                String Birthdate = df.format(DOB.getDate());
-                String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +Fname.getText()+"','" +Mname.getText()+"','" +Lname.getText()+"','" +Address.getText()+"','" +Birthdate+"','" +Contactnum.getText()+"','" +Username.getText()+"','" +Password.getText()+"')";
-                JOptionPane.showMessageDialog(this,Birthdate);
-                DOB.setCalendar(null);
-                PreparedStatement st = con.prepareStatement(insert);
-//                st.executeUpdate();
-                int i = st.executeUpdate();
-                if (i > 0) {
-                    JOptionPane.showMessageDialog(this,"Successfully Register!!");
-                    new  Login().setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this,"Error");
-                }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this,e);
+        Users userss;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//        Date Birthdate = df.format(DOB.getDate());
+        userss=new Users(0,null,Fname.getText(), Mname.getText(),Lname.getText(),Address.getText(),df.format(DOB.getDate()),Contactnum.getText(),Username.getText(),String.valueOf(Password.getPassword()));
+        try {
+            users.createUser(userss);
+        } catch (SQLException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_RegisterActionPerformed
 
