@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Views.Panels;
-import Models.CustomerModel.Customers;
+import Models.Customers;
 import Controllers.SQL;
 import java.awt.Font;
 import java.util.ArrayList;

@@ -6,7 +6,7 @@
 
 package Views.Panels;
 
-import Models.UserModel.Users;
+import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import java.awt.Font;

@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Models.UserModel.Users;
+import Models.Users;
 import Views.Authentication.Login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

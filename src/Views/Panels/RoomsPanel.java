@@ -5,7 +5,7 @@
  */
 package Views.Panels;
 import Controllers.RoomController;
-import Models.RoomModels.Rooms;
+import Models.Rooms;
 import Controllers.SQL;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ public class RoomsPanel extends javax.swing.JPanel {
          Object[] row = new Object[4];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
-            row[1] = list.get(i).getbed_id();
-            row[2] = list.get(i).getRT_id();
-            row[3] = list.get(i).getrate_id();
+            row[1] = list.get(i).getbed();
+            row[2] = list.get(i).getroomtype();
+            row[3] = list.get(i).getrates();
             model.addRow(row);
          }
        }

@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Models.RoomModels.Rooms;
+import Models.Rooms;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,13 +24,13 @@ public class RoomController {
     
     public ArrayList<Rooms> roomList() throws SQLException{
         Connection con = sql.getConnection();
-        String tanong = "Select * from rooms";
+        String tanong = "SELECT * FROM rooms LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         Rooms rooms;
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getInt("bed_id"),rs.getInt("RT_id"),rs.getInt("rate_id"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getString("room_type"),rs.getString("bed_quantity"),rs.getInt("rate_price"));
             roomList.add(rooms);
         }
         return roomList;   

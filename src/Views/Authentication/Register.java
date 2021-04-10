@@ -11,7 +11,7 @@ package Views.Authentication;
 
 import Controllers.SQL;
 import Controllers.UserController;
-import Models.UserModel.Users;
+import Models.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
