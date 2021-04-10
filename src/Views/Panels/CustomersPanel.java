@@ -4,18 +4,58 @@
  * and open the template in the editor.
  */
 package Views.Panels;
+import Models.CustomerModel.Customers;
+import Controllers.SQL.SQL;
+import java.awt.Font;
+import java.util.ArrayList;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class Customers extends javax.swing.JPanel {
+public class CustomersPanel extends javax.swing.JPanel {
+    public ArrayList<Customers> custList() throws SQLException{
+        ArrayList<Customers> custList = new ArrayList<>();
+        SQL sql = new SQL();
+        Connection con = sql.getConnection();
+        String tanong = "Select * from Customers";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        Customers customers;
+        
+        while(rs.next()){
+       customers=new Customers(rs.getInt("cust_id"),rs.getString("cust_Fname"),rs.getString("cust_Mname"),rs.getString("cust_Lname"),rs.getString("cust_address"),rs.getString("cust_contactnum"));
+         custList.add(customers);
+        }
+        return custList;   
+    }
+
+    public void showCustomers() throws SQLException{
+         ArrayList<Customers> list = custList();
+         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+         Object[] row = new Object[8];
+         for (int i = 0; i < list.size(); i++) {
+            row[0] = list.get(i).getcust_id();
+            row[1] = list.get(i).getcust_fullname();
+            row[2] = list.get(i).getcust_address();
+            row[3] = list.get(i).getcust_contactnum();
+ 
+            model.addRow(row);
+         }
+    }
+    
 
     /**
      * Creates new form Customers
      */
-    public Customers() {
-        initComponents();
+    public CustomersPanel() throws SQLException{
+        initComponents();  
+        showCustomers();
+        jTable1.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
+    
     }
 
     /**
@@ -41,10 +81,7 @@ public class Customers extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "Fullname", "Address", "Contact #"

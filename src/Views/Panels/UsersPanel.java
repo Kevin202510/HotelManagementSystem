@@ -7,7 +7,7 @@
 package Views.Panels;
 
 import Models.UserModel.Users;
-import SQL.SQL;
+import Controllers.SQL.SQL;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
@@ -124,12 +124,11 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1500, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1480, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1490, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

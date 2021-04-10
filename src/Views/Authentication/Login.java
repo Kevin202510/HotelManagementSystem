@@ -6,7 +6,7 @@
 package Views.Authentication;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import SQL.SQL;
+import Controllers.SQL.SQL;
 import Views.Dashboards.AdminDashboard;
 
 /**

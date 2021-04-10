@@ -24,7 +24,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     public AdminDashboard() {
         initComponents();
 //        this.setExtendedState(MAXIMIZED_BOTH);
-//        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(this);
 //        this.home.setSelected(true);
     }
 
@@ -45,16 +45,17 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         hov3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        lalagyanan = new javax.swing.JPanel();
         hov4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lalagyanan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel10.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -65,6 +66,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ROOMS");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel2MouseEntered(evt);
             }
@@ -77,9 +81,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         hov1.setLayout(hov1Layout);
         hov1Layout.setHorizontalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov1Layout.setVerticalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +114,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         hov2.setLayout(hov2Layout);
         hov2Layout.setHorizontalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov2Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov2Layout.setVerticalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,24 +139,15 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
-        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-
         javax.swing.GroupLayout hov3Layout = new javax.swing.GroupLayout(hov3);
         hov3.setLayout(hov3Layout);
         hov3Layout.setHorizontalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov3Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lalagyanan, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov3Layout.setVerticalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(hov3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lalagyanan, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
         hov4.setBackground(new java.awt.Color(0, 204, 255));
@@ -181,7 +172,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +187,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(hov1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(hov2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(hov3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(hov3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(hov4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
@@ -237,9 +228,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addGap(339, 339, 339)
+                .addContainerGap(603, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addGap(232, 232, 232)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -253,35 +244,28 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(lalagyanan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lalagyanan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel9);
 
         pack();
         setLocationRelativeTo(null);
@@ -343,8 +327,20 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        new ContainerManipulator(lalagyanan,new Views.Panels.Customers());
+        try {
+            new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        try {
+            new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
