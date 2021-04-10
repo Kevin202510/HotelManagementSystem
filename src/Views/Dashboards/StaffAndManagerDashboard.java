@@ -6,29 +6,23 @@
 package Views.Dashboards;
 
 import Views.Authentication.Login;
-import Views.Master.ContainerManipulator;
 import java.awt.Color;
-import java.awt.Component;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import Views.Master.ContainerManipulator;
 
 /**
  *
- * @author ❤Kevin Felix Caluag❤
+ * @author CALUAG FAMILY
  */
-public class AdminDashboard extends javax.swing.JFrame {
+public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     /**
-     * Creates new form Sample
+     * Creates new form NewJFrame
      */
-    public AdminDashboard() {
+    public StaffAndManagerDashboard() {
         initComponents();
-        new ContainerManipulator(lalagyanan,new Views.Panels.Home());
     }
 
     /**
@@ -40,8 +34,6 @@ public class AdminDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         sidebar = new javax.swing.JPanel();
         hov1 = new javax.swing.JPanel();
         rooms = new javax.swing.JLabel();
@@ -54,40 +46,14 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabelRound1 = new jroundborder.JLabelRound();
         jLabelRound2 = new jroundborder.JLabelRound();
         jLabelRound3 = new jroundborder.JLabelRound();
-        lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        lalagyanan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(297, 297, 297))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 1170, 70));
 
         sidebar.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -212,7 +178,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+            .addComponent(customers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +218,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,10 +241,6 @@ public class AdminDashboard extends javax.swing.JFrame {
         );
 
         getContentPane().add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 900));
-
-        lalagyanan.setPreferredSize(new java.awt.Dimension(1000, 780));
-        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 1170, 780));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -303,10 +265,39 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 850, 1170, 40));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 860, 1170, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(297, 297, 297))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 1170, 70));
+
+        lalagyanan.setPreferredSize(new java.awt.Dimension(1000, 780));
+        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 1170, 790));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -318,6 +309,17 @@ public class AdminDashboard extends javax.swing.JFrame {
           kev1.setBackground(new Color(0,204,255));
     }
     
+    
+    private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
+        if (rooms.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_roomsMouseClicked
+
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
         setC(hov1);
     }//GEN-LAST:event_roomsMouseEntered
@@ -328,7 +330,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         if (home.isEnabled()) {
-        new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         }
     }//GEN-LAST:event_homeMouseClicked
 
@@ -342,11 +344,11 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         if (home.isEnabled()) {
-        try {
-            new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        }
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
         }
     }//GEN-LAST:event_usersMouseClicked
 
@@ -361,12 +363,12 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         if (customers.isEnabled()) {
             try {
-            new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
         }
-        }
-        
+
     }//GEN-LAST:event_customersMouseClicked
 
     private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
@@ -377,37 +379,27 @@ public class AdminDashboard extends javax.swing.JFrame {
         resetC(hov4);
     }//GEN-LAST:event_customersMouseExited
 
-    private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        if (rooms.isEnabled()) {
-        try {
-            new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        }
-    }//GEN-LAST:event_roomsMouseClicked
-
     private void jLabelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound2MouseClicked
-         int result = JOptionPane.showConfirmDialog(this,"Are You Sure That You Want To Sign Out", "LogOut",
-               JOptionPane.YES_NO_OPTION,
-               JOptionPane.QUESTION_MESSAGE);
-         if (result==0){
+        int result = JOptionPane.showConfirmDialog(this,"Are You Sure That You Want To Sign Out", "LogOut",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+        if (result==0){
             new Login().setVisible(true);
             this.dispose();
-         }
-        
+        }
+
     }//GEN-LAST:event_jLabelRound2MouseClicked
 
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         if (home.isEnabled()) {
-                home.setEnabled(false);
-               users.setEnabled(false);
-               rooms.setEnabled(false);
-               customers.setEnabled(false);
-               hov1.setEnabled(false);
-               hov2.setEnabled(false);
-               hov3.setEnabled(false);
-               hov4.setEnabled(false);
+            home.setEnabled(false);
+            users.setEnabled(false);
+            rooms.setEnabled(false);
+            customers.setEnabled(false);
+            hov1.setEnabled(false);
+            hov2.setEnabled(false);
+            hov3.setEnabled(false);
+            hov4.setEnabled(false);
         }else{
             home.setEnabled(true);
             users.setEnabled(true);
@@ -437,13 +429,13 @@ public class AdminDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -451,7 +443,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDashboard().setVisible(true);
+                new StaffAndManagerDashboard().setVisible(true);
             }
         });
     }
