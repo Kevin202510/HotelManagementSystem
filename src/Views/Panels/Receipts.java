@@ -27,19 +27,90 @@ public class Receipts extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        Qrcode = new javax.swing.JLabel();
+        Cusname = new javax.swing.JLabel();
+        Cusadd = new javax.swing.JLabel();
+        Cuscontact = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HOTEL MANAGEMENT ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 257, 30));
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Pulong Matong General tinio Nueva Ecija");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 340, -1));
+
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel3.setText("Contact # 12345678910");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel4.setText("Customer Name :");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel5.setText("Address :");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel6.setText("Contact No. :");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        Qrcode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/qrcode.png"))); // NOI18N
+        add(Qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 290, 230));
+
+        Cusname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(Cusname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 260, 30));
+
+        Cusadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(Cusadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 320, 30));
+
+        Cuscontact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(Cuscontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 280, 20));
+
+        jLabel7.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Thank you !");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 290, 40));
+
+        jLabel8.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Come Visit Us Again ");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 340, -1));
+
+        jButton1.setText("jButton1");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Cusadd;
+    private javax.swing.JLabel Cuscontact;
+    private javax.swing.JLabel Cusname;
+    private javax.swing.JLabel Qrcode;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
