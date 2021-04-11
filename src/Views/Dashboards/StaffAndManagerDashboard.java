@@ -10,7 +10,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
-import Views.Master.ContainerManipulator;
+import Views.Dashboards.ContainerManipulator;
 
 /**
  *
