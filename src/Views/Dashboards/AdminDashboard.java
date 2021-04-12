@@ -77,7 +77,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotelmanagement.gif"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -229,6 +229,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         );
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
+        jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRound1MouseClicked(evt);
+            }
+        });
 
         jLabelRound2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         jLabelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,7 +249,13 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabelRound4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profile.png"))); // NOI18N
+        jLabelRound4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/about us.png"))); // NOI18N
+
+        user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        user_fullname.setForeground(new java.awt.Color(255, 255, 255));
+
+        userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        userrole.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
@@ -271,7 +282,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(user_fullname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(sidebarLayout.createSequentialGroup()
-                                .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -286,7 +297,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addComponent(user_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addComponent(hov2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -447,6 +458,11 @@ public class AdminDashboard extends javax.swing.JFrame {
             hov4.setEnabled(true);
         }
     }//GEN-LAST:event_jLabelRound3MouseClicked
+
+    private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
+        JOptionPane.showConfirmDialog(null, new Views.Panels.Receipts(), "Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+//            new Views.Panels.Receipts().setVisible(true);
+    }//GEN-LAST:event_jLabelRound1MouseClicked
 
     /**
      * @param args the command line arguments

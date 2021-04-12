@@ -21,8 +21,13 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public StaffAndManagerDashboard() {
+    public static String fullname,role;
+    
+    public StaffAndManagerDashboard(String fullname,String role) {
         initComponents();
+        new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+        user_fullname.setText(fullname);
+        userrole.setText(role);
     }
 
     /**
@@ -34,6 +39,8 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         sidebar = new javax.swing.JPanel();
         hov1 = new javax.swing.JPanel();
         rooms = new javax.swing.JLabel();
@@ -46,18 +53,45 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jLabelRound1 = new jroundborder.JLabelRound();
         jLabelRound2 = new jroundborder.JLabelRound();
         jLabelRound3 = new jroundborder.JLabelRound();
+        jLabelRound4 = new jroundborder.JLabelRound();
+        user_fullname = new javax.swing.JLabel();
+        userrole = new javax.swing.JLabel();
+        lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        lalagyanan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sidebar.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(83, 140, 198));
 
-        hov1.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotelmanagement.gif"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(297, 297, 297))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 1170, 70));
+
+        sidebar.setBackground(new java.awt.Color(51, 51, 51));
+
+        hov1.setBackground(new java.awt.Color(51, 51, 51));
 
         rooms.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,7 +115,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setLayout(hov1Layout);
         hov1Layout.setHorizontalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov1Layout.setVerticalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +125,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        hov2.setBackground(new java.awt.Color(0, 204, 255));
+        hov2.setBackground(new java.awt.Color(51, 51, 51));
 
         home.setBackground(new java.awt.Color(255, 255, 255));
         home.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -123,7 +157,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             .addComponent(home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
         );
 
-        hov3.setBackground(new java.awt.Color(0, 204, 255));
+        hov3.setBackground(new java.awt.Color(51, 51, 51));
 
         users.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         users.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,7 +188,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
         );
 
-        hov4.setBackground(new java.awt.Color(0, 204, 255));
+        hov4.setBackground(new java.awt.Color(51, 51, 51));
 
         customers.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         customers.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,16 +212,19 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov4Layout.createSequentialGroup()
-                .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
+        jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRound1MouseClicked(evt);
+            }
+        });
 
         jLabelRound2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         jLabelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,6 +240,14 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabelRound4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/about us.png"))); // NOI18N
+
+        user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        user_fullname.setForeground(new java.awt.Color(255, 255, 255));
+
+        userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        userrole.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
         sidebarLayout.setHorizontalGroup(
@@ -212,18 +257,39 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             .addComponent(hov3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(hov4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidebarLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidebarLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 38, Short.MAX_VALUE))
+                    .addGroup(sidebarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(user_fullname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(sidebarLayout.createSequentialGroup()
+                                .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         sidebarLayout.setVerticalGroup(
             sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidebarLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
+                .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidebarLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(sidebarLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(user_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addComponent(hov2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hov3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,7 +308,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
         getContentPane().add(sidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 900));
 
-        jPanel3.setBackground(new java.awt.Color(255, 102, 102));
+        lalagyanan.setPreferredSize(new java.awt.Dimension(1000, 780));
+        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 1170, 780));
+
+        jPanel3.setBackground(new java.awt.Color(83, 140, 198));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -265,51 +335,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 860, 1170, 40));
-
-        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(297, 297, 297))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 1170, 70));
-
-        lalagyanan.setPreferredSize(new java.awt.Dimension(1000, 780));
-        lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 1170, 790));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 850, 1170, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void setC(JPanel kev){
-         kev.setBackground(new Color(0,153,153));
-    }
-    
-    private void resetC(JPanel kev1){
-          kev1.setBackground(new Color(0,204,255));
-    }
-    
-    
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         if (rooms.isEnabled()) {
             try {
@@ -379,6 +409,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         resetC(hov4);
     }//GEN-LAST:event_customersMouseExited
 
+    private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
+        JOptionPane.showConfirmDialog(null, new Views.Panels.Receipts(), "Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        //            new Views.Panels.Receipts().setVisible(true);
+    }//GEN-LAST:event_jLabelRound1MouseClicked
+
     private void jLabelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound2MouseClicked
         int result = JOptionPane.showConfirmDialog(this,"Are You Sure That You Want To Sign Out", "LogOut",
             JOptionPane.YES_NO_OPTION,
@@ -412,6 +447,16 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelRound3MouseClicked
 
+    
+    private void setC(JPanel kev){
+         kev.setBackground(new Color(230,230,230));
+    }
+    
+    private void resetC(JPanel kev1){
+           kev1.setBackground(new Color(51,51,51));
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -443,7 +488,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StaffAndManagerDashboard().setVisible(true);
+                new StaffAndManagerDashboard(fullname,role).setVisible(true);
             }
         });
     }
@@ -460,11 +505,14 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound2;
     private jroundborder.JLabelRound jLabelRound3;
+    private jroundborder.JLabelRound jLabelRound4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
     private javax.swing.JLabel rooms;
     private javax.swing.JPanel sidebar;
+    private javax.swing.JLabel user_fullname;
+    private javax.swing.JLabel userrole;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 }

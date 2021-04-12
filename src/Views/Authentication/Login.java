@@ -7,6 +7,8 @@ package Views.Authentication;
 
 import Controllers.SQL;
 import Views.Dashboards.AdminDashboard;
+import Views.Dashboards.StaffAndManagerDashboard;
+import com.placeholder.PlaceHolder;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,9 +25,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form v1login
      */
+    PlaceHolder pl;
     public Login() {
         initComponents();
-        password.setEchoChar((char)0);
+//        new PlaceHolder()
+        pl = new PlaceHolder(username,"Username");
+        pl = new PlaceHolder(password,"Password");
     }
 
     /**
@@ -78,7 +83,6 @@ public class Login extends javax.swing.JFrame {
         username.setBackground(new java.awt.Color(0, 204, 255));
         username.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
-        username.setText("Username");
         username.setBorder(null);
         username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,7 +98,6 @@ public class Login extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(0, 204, 255));
         password.setForeground(new java.awt.Color(255, 255, 255));
-        password.setText("Password");
         password.setBorder(null);
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -298,21 +301,22 @@ public class Login extends javax.swing.JFrame {
              try {
                 SQL sql = new SQL();
                 Connection con = sql.getConnection();
-                String tanong = "Select * from users where user_username= ? AND user_password= ?";
+                String tanong = "Select * from users INNER JOIN roles ON users.role_id = roles.role_id where user_username= ? AND user_password= ?";
                 PreparedStatement st = con.prepareStatement(tanong);
                 st.setString(1,username.getText());
                 st.setString(2,password.getText());
                 ResultSet rs = st.executeQuery();
                 if(rs.next()){
                     int role_id = Integer.parseInt(rs.getString("role_id"));
-                    String fullname = rs.getString("user_Fname") + rs.getString("user_Mname")  + rs.getString("user_Lname");
-                    String roles = "Administrator";
+                    String fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname")  + " " + rs.getString("user_Lname");
+                    String roles = rs.getString("role_displayname");
                     JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
                     if (role_id==1) {
                       new  AdminDashboard(fullname,roles).setVisible(true);
-                        this.dispose();
+                      this.dispose();
                     }else{
-                        
+                      new  StaffAndManagerDashboard(fullname,roles).setVisible(true);
+                      this.dispose();
                     }
                 }else{
                     JOptionPane.showMessageDialog(this,"Error");
