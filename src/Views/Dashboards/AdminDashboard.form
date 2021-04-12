@@ -345,6 +345,9 @@
               <Image iconType="3" name="/Images/gearmoto.gif"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelRound1MouseClicked"/>
+          </Events>
         </Component>
         <Component class="jroundborder.JLabelRound" name="jLabelRound2">
           <Properties>
@@ -369,7 +372,7 @@
         <Component class="jroundborder.JLabelRound" name="jLabelRound4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/profile.png"/>
+              <Image iconType="3" name="/Images/QRCODE/about us.png"/>
             </Property>
           </Properties>
         </Component>

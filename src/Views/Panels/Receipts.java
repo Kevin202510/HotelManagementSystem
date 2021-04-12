@@ -5,6 +5,18 @@
  */
 package Views.Panels;
 
+import Controllers.CustomerController;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Maria Crystaline
@@ -16,6 +28,42 @@ public class Receipts extends javax.swing.JPanel {
      */
     public Receipts() {
         initComponents();
+        
+//        CustomerController vin = new CustomerController();
+        String cusname="kevin felix caluag";
+        String cusaddress="Bago general tinio NE";
+        String custimein="9am";
+        String custimeout="3pm";
+        GenerateQrCode(cusname,cusaddress,custimein,custimeout);
+    }
+    
+    
+     public void GenerateQrCode(String cusname,String cusaddress,String custimein,String custimeout){
+       try {
+//            String name = JOptionPane.showInputDialog(null,"Name");
+//            String age = JOptionPane.showInputDialog(null,"age");
+//            String timein = JOptionPane.showInputDialog(null,"timein");
+//            String timeout = JOptionPane.showInputDialog(null,"timeout");
+            String qrCodeData = cusname + "\n" + cusaddress + "\n" + custimein + "\n" + custimeout;
+            String filePath = "src\\Images\\QRCODE\\"+ cusname + ".png";
+            String charset = "UTF-8"; // or "ISO-8859-1"
+            Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
+            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+            BitMatrix matrix = new MultiFormatWriter().encode(
+                new String(qrCodeData.getBytes(charset), charset),
+                BarcodeFormat.QR_CODE, 200, 200, hintMap);
+            MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
+                .lastIndexOf('.') + 1), new File(filePath));
+            JOptionPane.showMessageDialog(null,"QR Code image created successfully!");
+            Cusname.setText(cusname);
+            Cusadd.setText(cusaddress);
+            Cuscontact.setText("09261364720");
+            checkintime.setText(custimein);
+            checkouttime.setText(custimeout);
+            Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/"+cusname+".png")));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
     }
 
     /**
@@ -39,7 +87,10 @@ public class Receipts extends javax.swing.JPanel {
         Cuscontact = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        checkintime = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        checkouttime = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,24 +115,23 @@ public class Receipts extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setText("Address :");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setText("Contact No. :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         Qrcode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/qrcode.png"))); // NOI18N
-        add(Qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 290, 230));
+        add(Qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 290, 220));
 
         Cusname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(Cusname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 260, 30));
+        add(Cusname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 260, 20));
 
         Cusadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(Cusadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 320, 30));
+        add(Cusadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 320, 20));
 
         Cuscontact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        add(Cuscontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 280, 20));
+        add(Cuscontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 280, 20));
 
         jLabel7.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,8 +143,19 @@ public class Receipts extends javax.swing.JPanel {
         jLabel8.setText("Come Visit Us Again ");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, 340, -1));
 
-        jButton1.setText("jButton1");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel9.setText("Check in time:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        checkintime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 270, 20));
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel10.setText("Checkout time:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        checkouttime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        add(checkouttime, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 260, 20));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -103,8 +164,10 @@ public class Receipts extends javax.swing.JPanel {
     private javax.swing.JLabel Cuscontact;
     private javax.swing.JLabel Cusname;
     private javax.swing.JLabel Qrcode;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel checkintime;
+    private javax.swing.JLabel checkouttime;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -112,5 +175,6 @@ public class Receipts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

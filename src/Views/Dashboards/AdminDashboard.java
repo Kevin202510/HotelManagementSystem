@@ -229,6 +229,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         );
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
+        jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRound1MouseClicked(evt);
+            }
+        });
 
         jLabelRound2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         jLabelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,7 +249,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabelRound4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profile.png"))); // NOI18N
+        jLabelRound4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/about us.png"))); // NOI18N
 
         javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
         sidebar.setLayout(sidebarLayout);
@@ -447,6 +452,11 @@ public class AdminDashboard extends javax.swing.JFrame {
             hov4.setEnabled(true);
         }
     }//GEN-LAST:event_jLabelRound3MouseClicked
+
+    private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
+        JOptionPane.showConfirmDialog(null, new Views.Panels.Receipts(), "Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+//            new Views.Panels.Receipts().setVisible(true);
+    }//GEN-LAST:event_jLabelRound1MouseClicked
 
     /**
      * @param args the command line arguments
