@@ -57,7 +57,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        actions = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -309,10 +309,10 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(753, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(557, 557, 557)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(371, 371, 371))
+                .addContainerGap(567, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,20 +324,9 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 850, 1480, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 160, 310, 690));
+        actions.setBackground(new java.awt.Color(255, 255, 255));
+        actions.setLayout(new javax.swing.BoxLayout(actions, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(actions, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 160, 310, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -363,6 +352,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         if (home.isEnabled()) {
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+            new ContainerManipulator(null,null);
         }
     }//GEN-LAST:event_homeMouseClicked
 
@@ -378,6 +368,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         if (home.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
+                new ContainerManipulator(actions,new Views.Panels.UserActions());
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex);
             }
@@ -496,6 +487,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel actions;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
@@ -507,7 +499,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound2;
     private jroundborder.JLabelRound jLabelRound3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;

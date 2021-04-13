@@ -62,7 +62,7 @@ public class UsersPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -70,7 +70,15 @@ public class UsersPanel extends javax.swing.JPanel {
             new String [] {
                 "ID", "Role", "Fullname", "Address", "DOB", "Contact #", "Username"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTable1.setRowHeight(40);
         jTable1.setShowGrid(false);
@@ -87,7 +95,7 @@ public class UsersPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(130);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setPreferredWidth(20);
             jTable1.getColumnModel().getColumn(5).setResizable(false);
