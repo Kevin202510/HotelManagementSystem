@@ -28,9 +28,16 @@ public class Login extends javax.swing.JFrame {
     PlaceHolder pl;
     public Login() {
         initComponents();
-//        new PlaceHolder()
+//        new PlaceHolder
         pl = new PlaceHolder(username,"Username");
+        pl.setSize(14);
+        pl.setColorSimple(Color.decode("#FFFFFF"));
+        pl.setColorHolder(Color.decode("#FFFFFF"));
         pl = new PlaceHolder(password,"Password");
+        password.setEchoChar((char)0);
+        pl.setSize(14);
+        pl.setColorHolder(Color.decode("#FFFFFF"));
+        pl.setColorSimple(Color.decode("#FFFFFF"));
     }
 
     /**
