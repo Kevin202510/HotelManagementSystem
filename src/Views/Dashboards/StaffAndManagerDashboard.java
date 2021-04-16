@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
 import Views.Dashboards.ContainerManipulator;
+import javax.swing.JFrame;
 
 /**
  *
@@ -57,7 +58,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        actions = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -236,15 +236,15 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(69, 69, 69)
-                        .addComponent(hov2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(92, 92, 92)
+                        .addComponent(hov2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(hov3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,9 +295,9 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 160));
 
-        lalagyanan.setPreferredSize(new java.awt.Dimension(1170, 780));
+        lalagyanan.setPreferredSize(new java.awt.Dimension(1480, 790));
         lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 1170, 690));
+        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, 790));
 
         jPanel3.setBackground(new java.awt.Color(83, 140, 198));
 
@@ -310,25 +310,22 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(557, 557, 557)
+                .addGap(553, 553, 553)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(567, Short.MAX_VALUE))
+                .addContainerGap(571, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 850, 1480, 50));
-
-        actions.setBackground(new java.awt.Color(255, 255, 255));
-        actions.setLayout(new javax.swing.BoxLayout(actions, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(actions, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 160, 310, 690));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 950, 1480, 50));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
@@ -368,7 +365,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         if (home.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
-                new ContainerManipulator(actions,new Views.Panels.UserActions());
+//                new ContainerManipulator(actions,new Views.Panels.UserActions());
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex);
             }
@@ -387,6 +384,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         if (customers.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
+//                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -487,7 +485,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel actions;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;

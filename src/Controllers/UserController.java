@@ -40,7 +40,7 @@ public class UserController {
     
     public void createUser(Users user) throws SQLException{
         Connection con = sql.getConnection();
-        String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +user.getuser_Fname()+"','" +user.getuser_Mname()+"','" +user.getuser_Lname()+"','" +user.getuser_address()+"','" +user.getuser_DOB()+"','" +user.getuser_contactnum()+"','" +user.getuser_username()+"','" +user.getuser_password()+"')";
+        String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +user.getuser_Fname()+ "','" +user.getuser_Mname()+"','" +user.getuser_Lname()+"','" +user.getuser_address()+"','" +user.getuser_DOB()+"','" +user.getuser_contactnum()+"','" +user.getuser_username()+"','" +user.getuser_password()+"')";
         PreparedStatement st = con.prepareStatement(insert);
         int i = st.executeUpdate();
         if (i > 0) {
