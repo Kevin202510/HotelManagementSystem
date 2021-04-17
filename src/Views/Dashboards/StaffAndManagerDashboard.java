@@ -10,7 +10,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
-import Views.Dashboards.ContainerManipulator;
 import javax.swing.JFrame;
 
 /**
@@ -110,7 +109,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         users.setForeground(new java.awt.Color(255, 255, 255));
         users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profile.png"))); // NOI18N
-        users.setText("USERS");
+        users.setText("Check In");
         users.setIconTextGap(50);
         users.setPreferredSize(new java.awt.Dimension(136, 40));
         users.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,7 +142,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room.png"))); // NOI18N
-        rooms.setText("ROOMS");
+        rooms.setText("Check Out");
         rooms.setIconTextGap(40);
         rooms.setPreferredSize(new java.awt.Dimension(136, 40));
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -363,12 +362,8 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         if (home.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
+            new ContainerManipulator(lalagyanan,new Views.Panels.Checkin());
 //                new ContainerManipulator(actions,new Views.Panels.UserActions());
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex);
-            }
         }
     }//GEN-LAST:event_usersMouseClicked
 
@@ -383,7 +378,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         if (customers.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
 //                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
