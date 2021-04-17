@@ -21,8 +21,9 @@ import javax.swing.table.DefaultTableModel;
 public class RoomsPanel extends javax.swing.JPanel {
     
        public void showRooms() throws SQLException{
-         ArrayList<Rooms> list = new RoomController().roomList();
-         DefaultTableModel model = (DefaultTableModel)roomsui.getModel();
+        RoomController rooms = new RoomController();
+         ArrayList<Rooms> list = rooms.roomList();
+         DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
          Object[] row = new Object[4];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
@@ -39,12 +40,9 @@ public class RoomsPanel extends javax.swing.JPanel {
      * Creates new form RoomsPanel
      */
     public RoomsPanel() throws SQLException{
-        initComponents();  
         initComponents();
         showRooms();
-        roomsui.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
- 
-        
+        roomstable.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
     }
 
     /**
@@ -59,7 +57,7 @@ public class RoomsPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        roomsui = new javax.swing.JTable();
+        roomstable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,8 +84,8 @@ public class RoomsPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        roomsui.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        roomsui.setModel(new javax.swing.table.DefaultTableModel(
+        roomstable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        roomstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -95,7 +93,7 @@ public class RoomsPanel extends javax.swing.JPanel {
                 "ID", "Room Type", "Bed Type", "Rate"
             }
         ));
-        jScrollPane1.setViewportView(roomsui);
+        jScrollPane1.setViewportView(roomstable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -118,6 +116,6 @@ public class RoomsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable roomsui;
+    private javax.swing.JTable roomstable;
     // End of variables declaration//GEN-END:variables
 }
