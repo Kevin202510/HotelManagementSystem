@@ -399,11 +399,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         if (customers.isEnabled()) {
-            try {
             new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel());
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         }
         
     }//GEN-LAST:event_customersMouseClicked
