@@ -299,7 +299,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         if (home.isEnabled()) {
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-            new ContainerManipulator(null,null);
         }
     }//GEN-LAST:event_homeMouseClicked
 
@@ -313,7 +312,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         if (home.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Checkin());
+            new ContainerManipulator(lalagyanan,new Views.Panels.CheckinPanels());
 //                new ContainerManipulator(actions,new Views.Panels.UserActions());
         }
     }//GEN-LAST:event_usersMouseClicked

@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,7 +24,7 @@ public class CheckinAndOutController{
     public  ArrayList<CheckinAndOut> checkinoutList = new ArrayList<>();
     
     
-//    show data
+//    store data
     
     public ArrayList<CheckinAndOut> checkinandoutlist() throws SQLException{
         
@@ -41,24 +40,4 @@ public class CheckinAndOutController{
         }
         return checkinoutList;   
     }
-    
-//    public void showCustomers() throws SQLException{
-//         ArrayList<CheckinAndOut> list = checkinandoutlist();
-//         Object[] row = new Object[7];
-//         for (int i = 0; i < list.size(); i++) {
-//            Object data =  list.get(i).getcusId() + " " +
-//            list.get(i).getroomId()+ " " +
-//            list.get(i).getcheckin_date()+
-//            list.get(i).getcheckout_date()+
-//            list.get(i).gettimein()+
-//            list.get(i).gettimeout();
-//            JOptionPane.showMessageDialog(null,data);
-//         }
-//    }
-    
-//    public static void main(String args[]) throws SQLException{
-//        CheckinAndOutController vin = new CheckinAndOutController();
-//        vin.showCustomers();
-//    }
-    
 }

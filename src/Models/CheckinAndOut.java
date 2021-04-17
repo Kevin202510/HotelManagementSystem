@@ -9,7 +9,7 @@ package Models;
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class CheckinAndOut {
+public class CheckinAndOut{
     
      private int cust_id,room_id;
     private String checkin_date,checkout_date,timein,timeout;
