@@ -40,8 +40,10 @@ public class CheckinPanels extends javax.swing.JPanel {
     
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
-        this.lalag=lalag;
         showRooms();
+        checkindate.setText(getDateNow());
+        checkintime.setText(getTimeNow());
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -233,6 +235,8 @@ public class CheckinPanels extends javax.swing.JPanel {
             cusLname1.setText("");
             cusAddress1.setText("");
             cusContact2.setText("");
+            rooms1.removeAllItems();
+            showRooms();
          }else{
              JOptionPane.showMessageDialog(null,"Error");
          }
