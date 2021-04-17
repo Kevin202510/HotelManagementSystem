@@ -235,6 +235,8 @@ public class CheckinPanels extends javax.swing.JPanel {
             cusLname1.setText("");
             cusAddress1.setText("");
             cusContact2.setText("");
+            rooms1.removeAllItems();
+            showRooms();
          }else{
              JOptionPane.showMessageDialog(null,"Error");
          }
