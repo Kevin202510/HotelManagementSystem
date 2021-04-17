@@ -63,22 +63,24 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(83, 140, 198));
         jPanel2.setPreferredSize(new java.awt.Dimension(1480, 894));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotelmanagement.gif"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 10, 563, -1));
 
-        hov2.setBackground(new java.awt.Color(51, 51, 51));
+        hov2.setBackground(new java.awt.Color(83, 140, 198));
         hov2.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        home.setBackground(new java.awt.Color(255, 255, 255));
-        home.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        home.setBackground(new java.awt.Color(51, 51, 255));
+        home.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         home.setForeground(new java.awt.Color(255, 255, 255));
         home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home.png"))); // NOI18N
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
         home.setText("HOME");
-        home.setIconTextGap(50);
+        home.setIconTextGap(10);
         home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 homeMouseClicked(evt);
@@ -95,22 +97,24 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov2.setLayout(hov2Layout);
         hov2Layout.setHorizontalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov2Layout.setVerticalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(home, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        hov3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 92, -1, 50));
+
+        hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        users.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        users.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         users.setForeground(new java.awt.Color(255, 255, 255));
         users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profile.png"))); // NOI18N
-        users.setText("Check In");
-        users.setIconTextGap(50);
+        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkin2.jpg"))); // NOI18N
+        users.setText("CHECK IN");
+        users.setIconTextGap(5);
         users.setPreferredSize(new java.awt.Dimension(136, 40));
         users.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,22 +132,25 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov3.setLayout(hov3Layout);
         hov3Layout.setHorizontalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov3Layout.setVerticalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hov1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 92, -1, 50));
+
+        hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        rooms.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        rooms.setBackground(new java.awt.Color(83, 140, 198));
+        rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room.png"))); // NOI18N
-        rooms.setText("Check Out");
-        rooms.setIconTextGap(40);
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkout.png"))); // NOI18N
+        rooms.setText("CHECK OUT");
+        rooms.setIconTextGap(10);
         rooms.setPreferredSize(new java.awt.Dimension(136, 40));
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,19 +168,21 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setLayout(hov1Layout);
         hov1Layout.setHorizontalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov1Layout.setVerticalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        hov4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
 
-        customers.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        hov4.setBackground(new java.awt.Color(83, 140, 198));
+
+        customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         customers.setForeground(new java.awt.Color(255, 255, 255));
         customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/customers.png"))); // NOI18N
+        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
         customers.setText("CUSTOMERS");
         customers.setIconTextGap(10);
         customers.setPreferredSize(new java.awt.Dimension(136, 40));
@@ -193,12 +202,14 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jPanel2.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1093, 88, -1, 54));
 
         jLabelRound2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         jLabelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,6 +217,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound2MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 56, 41, 39));
 
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,6 +225,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound3MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 40, 39));
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
         jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,79 +233,17 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound1MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 11, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 11, 310, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69)
-                        .addComponent(hov2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(hov3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(hov1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(user_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(hov4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jLabelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jLabelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hov3, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                            .addComponent(hov2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                            .addComponent(hov1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(user_fullname, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(userrole, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(hov4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 160));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         lalagyanan.setPreferredSize(new java.awt.Dimension(1480, 790));
         lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
@@ -435,11 +386,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     
     private void setC(JPanel kev){
-         kev.setBackground(new Color(230,230,230));
+         kev.setBackground(new Color(102, 140, 255));
     }
     
     private void resetC(JPanel kev1){
-           kev1.setBackground(new Color(51,51,51));
+           kev1.setBackground(new Color(83,140,198));
     }
     
     
