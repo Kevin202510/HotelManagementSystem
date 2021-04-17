@@ -40,7 +40,10 @@ public class CheckinPanels extends javax.swing.JPanel {
     
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
-        this.lalag=lalag;
+        showRooms();
+        checkindate.setText(getDateNow());
+        checkintime.setText(getTimeNow());
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
