@@ -76,7 +76,6 @@ public class CustomersPanel extends javax.swing.JPanel {
         initComponents();
         showCustomers();
         showRooms();
-        jTable1.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
         this.lalag=lalag;
     }
 

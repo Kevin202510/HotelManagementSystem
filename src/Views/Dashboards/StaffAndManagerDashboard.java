@@ -5,11 +5,14 @@
  */
 package Views.Dashboards;
 
+import Controllers.SQL;
 import Views.Authentication.Login;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -44,7 +47,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov2 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         hov3 = new javax.swing.JPanel();
-        users = new javax.swing.JLabel();
+        checkIn = new javax.swing.JLabel();
         hov1 = new javax.swing.JPanel();
         rooms = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
@@ -109,22 +112,22 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        users.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        users.setForeground(new java.awt.Color(255, 255, 255));
-        users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkin2.jpg"))); // NOI18N
-        users.setText("CHECK IN");
-        users.setIconTextGap(5);
-        users.setPreferredSize(new java.awt.Dimension(136, 40));
-        users.addMouseListener(new java.awt.event.MouseAdapter() {
+        checkIn.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        checkIn.setForeground(new java.awt.Color(255, 255, 255));
+        checkIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkin2.jpg"))); // NOI18N
+        checkIn.setText("CHECK IN");
+        checkIn.setIconTextGap(5);
+        checkIn.setPreferredSize(new java.awt.Dimension(136, 40));
+        checkIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usersMouseClicked(evt);
+                checkInMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                usersMouseEntered(evt);
+                checkInMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                usersMouseExited(evt);
+                checkInMouseExited(evt);
             }
         });
 
@@ -132,11 +135,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov3.setLayout(hov3Layout);
         hov3Layout.setHorizontalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov3Layout.setVerticalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 92, -1, 50));
@@ -299,7 +302,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         if (home.isEnabled()) {
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-            new ContainerManipulator(null,null);
         }
     }//GEN-LAST:event_homeMouseClicked
 
@@ -311,20 +313,32 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         resetC(hov2);
     }//GEN-LAST:event_homeMouseExited
 
-    private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
+    private void checkInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMouseClicked
         if (home.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Checkin());
-//                new ContainerManipulator(actions,new Views.Panels.UserActions());
+            try {
+                String tanong = "Select * from rooms where status=1";
+                Connection con = new SQL().getConnection();
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(tanong);
+                if (rs.next()){
+                   new ContainerManipulator(lalagyanan,new Views.Panels.CheckinPanels(lalagyanan));
+                }else{
+                    JOptionPane.showMessageDialog(null,"Sorry there's have no available rooms at this moment");
+                    new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+                }
+          } catch (SQLException ex) {
+                Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_usersMouseClicked
+    }//GEN-LAST:event_checkInMouseClicked
 
-    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
+    private void checkInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMouseEntered
         setC(hov3);
-    }//GEN-LAST:event_usersMouseEntered
+    }//GEN-LAST:event_checkInMouseEntered
 
-    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
+    private void checkInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMouseExited
         resetC(hov3);
-    }//GEN-LAST:event_usersMouseExited
+    }//GEN-LAST:event_checkInMouseExited
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         if (customers.isEnabled()) {
@@ -365,7 +379,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         if (home.isEnabled()) {
             home.setEnabled(false);
-            users.setEnabled(false);
+            checkIn.setEnabled(false);
             rooms.setEnabled(false);
             customers.setEnabled(false);
             hov1.setEnabled(false);
@@ -374,7 +388,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             hov4.setEnabled(false);
         }else{
             home.setEnabled(true);
-            users.setEnabled(true);
+            checkIn.setEnabled(true);
             rooms.setEnabled(true);
             customers.setEnabled(true);
             hov1.setEnabled(true);
@@ -431,6 +445,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel checkIn;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
@@ -448,6 +463,5 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;
-    private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 }

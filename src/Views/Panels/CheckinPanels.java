@@ -8,27 +8,40 @@ package Views.Panels;
 import Controllers.CustomerController;
 import Controllers.SQL;
 import Models.Customers;
+import Models.CheckinAndOut;
+import Views.Dashboards.ContainerManipulator;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class Checkin extends javax.swing.JPanel {
+public class CheckinPanels extends javax.swing.JPanel {
 
     /**
-     * Creates new form Checkin
+     * Creates new form CheckinPanels
      */
-    public Checkin() {
+    
+    public JPanel lalag;
+    
+    public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
-        checkindate.setText(getDateNow());
-        checkintime.setText(getTimeNow());
+        this.lalag=lalag;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,8 +72,10 @@ public class Checkin extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(51, 255, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 102, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -100,6 +115,11 @@ public class Checkin extends javax.swing.JPanel {
         jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 126, 61));
 
         delete1.setText("DELETE");
+        delete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 126, 61));
 
         jLabel14.setText("ROOMS");
@@ -119,12 +139,13 @@ public class Checkin extends javax.swing.JPanel {
         jLabel16.setText("Address");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 41));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 690));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 580));
     }// </editor-fold>//GEN-END:initComponents
 
     public CustomerController custo = new CustomerController();
     
      public  SQL sql = new SQL();
+     public Connection con = sql.getConnection();
      
      public Customers customers;
      
@@ -142,10 +163,79 @@ public class Checkin extends javax.swing.JPanel {
         return strTime;
      }
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
-
+        customers = new Customers(0,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
+        try {
+            createCustomer(customers);
+        } catch (SQLException ex) {
+            Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_save1ActionPerformed
 
+    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
+      
+    }//GEN-LAST:event_delete1ActionPerformed
 
+    public void createCustomer(Customers customers) throws SQLException{
+        String insert = "INSERT INTO customers(cust_Fname,cust_Mname,cust_Lname,cust_address,cust_contactnum) VALUES (?,?,?,?,?)";
+        PreparedStatement st = con.prepareStatement(insert);
+        st.setString(1, customers.getcust_Fname());
+        st.setString(2, customers.getcust_Mname());
+        st.setString(3, customers.getcust_Lname());
+        st.setString(4, customers.getcust_address());
+        st.setString(5, customers.getcust_contactnum());
+       st.executeUpdate();
+       checkIn() ;
+    }
+    
+     public void showRooms(){
+        String tanong = "Select * from rooms where status=1";
+        try{
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+//        Customers customers
+        while(rs.next()){
+         String vin = String.valueOf(rs.getInt("room_id"));
+         rooms1.addItem(vin);
+        }
+        }
+        catch (SQLException ex) {
+//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+     public void checkIn() throws SQLException{
+         ArrayList<Customers> list = new CustomerController().custList();
+         int id = list.size()-1;
+         int ids = list.get(id).getcust_id();
+         String room_id1 = rooms1.getSelectedItem().toString();
+         int room_id = Integer.parseInt(room_id1);
+         String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
+         PreparedStatement roomup = con.prepareStatement(roomupdate);
+         roomup.setInt(1,0);
+         roomup.executeUpdate();
+         
+         CheckinAndOut checkin;
+         checkin = new CheckinAndOut(ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
+         String insert = "INSERT INTO checkinandout(timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?)";
+        PreparedStatement st = con.prepareStatement(insert);
+        st.setString(1, checkin.gettimein());
+        st.setString(2, checkin.gettimeout());
+        st.setString(3, checkin.getcheckin_date());
+        st.setString(4, checkin.getcheckout_date());
+        st.setInt(5, ids);
+        st.setInt(6,checkin.getroomId());
+        int i = st.executeUpdate();
+         if (i>0) {
+             JOptionPane.showMessageDialog(null,"Successfully Check in!!");
+             cusFname1.setText("");
+            cusMname1.setText("");
+            cusLname1.setText("");
+            cusAddress1.setText("");
+            cusContact2.setText("");
+         }else{
+             JOptionPane.showMessageDialog(null,"Error");
+         }
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkindate;
     private javax.swing.JTextField checkintime;

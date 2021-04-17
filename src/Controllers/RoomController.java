@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+//import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +23,8 @@ public class RoomController {
     
     public ArrayList<Rooms> roomList = new ArrayList<>();
     public SQL sql = new SQL();
+    
+//    store data
     
     public ArrayList<Rooms> roomList() throws SQLException{
         Connection con = sql.getConnection();
