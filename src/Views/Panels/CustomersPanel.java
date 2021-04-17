@@ -7,12 +7,14 @@ package Views.Panels;
 import Controllers.CustomerController;
 import Models.Customers;
 import Controllers.SQL;
+import Views.Dashboards.ContainerManipulator;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -62,18 +64,20 @@ public class CustomersPanel extends javax.swing.JPanel {
         cusLname.setText("");
         cusAddress.setText("");
         cusContact.setText("");
+        new ContainerManipulator(lalag,new Views.Panels.RoomsPanel());
 ////            new  Login().setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null,"Error");
         }
     }
     
-    public CustomersPanel() throws SQLException{
+    public JPanel lalag;
+    public CustomersPanel(JPanel lalag) throws SQLException{
         initComponents();
         showCustomers();
         showRooms();
         jTable1.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
-    
+        this.lalag=lalag;
     }
 
 /**
@@ -110,7 +114,7 @@ public class CustomersPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 51, 51));
         setMinimumSize(new java.awt.Dimension(1480, 790));
-        setPreferredSize(new java.awt.Dimension(1486, 790));
+        setPreferredSize(new java.awt.Dimension(1480, 790));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -181,7 +185,7 @@ public class CustomersPanel extends javax.swing.JPanel {
 
         jPanel1.add(rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 210, 40));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, 690));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -189,7 +193,7 @@ public class CustomersPanel extends javax.swing.JPanel {
         try {
             createCustomer(customers);
         } catch (SQLException ex) {
-            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_saveActionPerformed
@@ -207,7 +211,7 @@ public class CustomersPanel extends javax.swing.JPanel {
          rooms.addItem(vin);
         }}
         catch (SQLException ex) {
-            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
