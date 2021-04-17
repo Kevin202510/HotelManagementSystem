@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,15 +33,15 @@ import javax.swing.table.DefaultTableModel;
 public class CheckinPanels extends javax.swing.JPanel {
 
     /**
-     * Creates new form Checkin
+     * Creates new form CheckinPanels
      */
-    public CheckinPanels() {
+    
+    public JPanel lalag;
+    
+    public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
-        showRooms();
-        checkindate.setText(getDateNow());
-        checkintime.setText(getTimeNow());
+        this.lalag=lalag;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,6 +115,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 126, 61));
 
         delete1.setText("DELETE");
+        delete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 126, 61));
 
         jLabel14.setText("ROOMS");
@@ -165,6 +171,10 @@ public class CheckinPanels extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_save1ActionPerformed
 
+    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
+      
+    }//GEN-LAST:event_delete1ActionPerformed
+
     public void createCustomer(Customers customers) throws SQLException{
         String insert = "INSERT INTO customers(cust_Fname,cust_Mname,cust_Lname,cust_address,cust_contactnum) VALUES (?,?,?,?,?)";
         PreparedStatement st = con.prepareStatement(insert);
@@ -182,12 +192,12 @@ public class CheckinPanels extends javax.swing.JPanel {
         try{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
-//        Customers customers;
-        
+//        Customers customers
         while(rs.next()){
          String vin = String.valueOf(rs.getInt("room_id"));
          rooms1.addItem(vin);
-        }}
+        }
+        }
         catch (SQLException ex) {
 //            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }
