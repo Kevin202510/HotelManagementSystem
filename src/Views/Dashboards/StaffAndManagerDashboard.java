@@ -49,7 +49,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov3 = new javax.swing.JPanel();
         checkIn = new javax.swing.JLabel();
         hov1 = new javax.swing.JPanel();
-        rooms = new javax.swing.JLabel();
+        checkOut = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
         jLabelRound2 = new jroundborder.JLabelRound();
@@ -147,23 +147,23 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        rooms.setBackground(new java.awt.Color(83, 140, 198));
-        rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
-        rooms.setForeground(new java.awt.Color(255, 255, 255));
-        rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkout.png"))); // NOI18N
-        rooms.setText("CHECK OUT");
-        rooms.setIconTextGap(10);
-        rooms.setPreferredSize(new java.awt.Dimension(136, 40));
-        rooms.addMouseListener(new java.awt.event.MouseAdapter() {
+        checkOut.setBackground(new java.awt.Color(83, 140, 198));
+        checkOut.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        checkOut.setForeground(new java.awt.Color(255, 255, 255));
+        checkOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkout.png"))); // NOI18N
+        checkOut.setText("CHECK OUT");
+        checkOut.setIconTextGap(10);
+        checkOut.setPreferredSize(new java.awt.Dimension(136, 40));
+        checkOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roomsMouseClicked(evt);
+                checkOutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                roomsMouseEntered(evt);
+                checkOutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                roomsMouseExited(evt);
+                checkOutMouseExited(evt);
             }
         });
 
@@ -171,11 +171,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setLayout(hov1Layout);
         hov1Layout.setHorizontalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov1Layout.setVerticalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
@@ -281,23 +281,23 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        if (rooms.isEnabled()) {
+    private void checkOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseClicked
+        if (checkOut.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels());
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_roomsMouseClicked
+    }//GEN-LAST:event_checkOutMouseClicked
 
-    private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
+    private void checkOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseEntered
         setC(hov1);
-    }//GEN-LAST:event_roomsMouseEntered
+    }//GEN-LAST:event_checkOutMouseEntered
 
-    private void roomsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseExited
+    private void checkOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseExited
         resetC(hov1);
-    }//GEN-LAST:event_roomsMouseExited
+    }//GEN-LAST:event_checkOutMouseExited
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         if (home.isEnabled()) {
@@ -380,7 +380,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         if (home.isEnabled()) {
             home.setEnabled(false);
             checkIn.setEnabled(false);
-            rooms.setEnabled(false);
+            checkOut.setEnabled(false);
             customers.setEnabled(false);
             hov1.setEnabled(false);
             hov2.setEnabled(false);
@@ -389,7 +389,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         }else{
             home.setEnabled(true);
             checkIn.setEnabled(true);
-            rooms.setEnabled(true);
+            checkOut.setEnabled(true);
             customers.setEnabled(true);
             hov1.setEnabled(true);
             hov2.setEnabled(true);
@@ -446,6 +446,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkIn;
+    private javax.swing.JLabel checkOut;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
@@ -460,7 +461,6 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
-    private javax.swing.JLabel rooms;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;
     // End of variables declaration//GEN-END:variables
