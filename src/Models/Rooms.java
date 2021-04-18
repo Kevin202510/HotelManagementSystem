@@ -13,7 +13,8 @@ public class Rooms {
     
     
         private int room_id ,bed_id,RT_id,rate_id,rates;
-        private String roomtype,bed;
+        private String roomtype,bed,statuss;
+        private boolean status;
     
     public Rooms(int room_id,int bed_id,int RT_id,int rate_id){
         this.room_id=room_id;
@@ -22,11 +23,12 @@ public class Rooms {
         this.rate_id=rate_id;
     }
     
-    public Rooms(int rooms_id,String bed,String roomtype,int rates){
+    public Rooms(int rooms_id,String bed,String roomtype,int rates,boolean status){
         this.room_id=rooms_id;
         this.bed=bed;
         this.roomtype=roomtype;
         this.rates=rates;
+        this.status=status;
     }
     
     public int getroom_id(){
@@ -43,6 +45,13 @@ public class Rooms {
         return bed; 
     }public String getroomtype(){
         return roomtype; 
+    }public String getstatus(){
+            if (status==true) {
+                statuss="Available";
+            }else{
+                statuss="Not Available";
+            }
+            return statuss;
     }
     
 

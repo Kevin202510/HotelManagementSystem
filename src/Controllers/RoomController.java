@@ -34,7 +34,7 @@ public class RoomController {
         Rooms rooms;
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getString("room_type"),rs.getString("bed_quantity"),rs.getInt("rate_price"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getString("room_type"),rs.getString("bed_quantity"),rs.getInt("rate_price"),rs.getBoolean("status"));
             roomList.add(rooms);
         }
         return roomList;   

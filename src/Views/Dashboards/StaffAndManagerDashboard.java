@@ -45,11 +45,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         hov2 = new javax.swing.JPanel();
-        home = new javax.swing.JLabel();
+        rooms = new javax.swing.JLabel();
         hov3 = new javax.swing.JPanel();
         checkIn = new javax.swing.JLabel();
         hov1 = new javax.swing.JPanel();
-        rooms = new javax.swing.JLabel();
+        checkOut = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
         jLabelRound2 = new jroundborder.JLabelRound();
@@ -57,6 +57,8 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jLabelRound1 = new jroundborder.JLabelRound();
         user_fullname = new javax.swing.JLabel();
         userrole = new javax.swing.JLabel();
+        hov5 = new javax.swing.JPanel();
+        home = new javax.swing.JLabel();
         lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -77,22 +79,22 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov2.setBackground(new java.awt.Color(83, 140, 198));
         hov2.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        home.setBackground(new java.awt.Color(51, 51, 255));
-        home.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        home.setForeground(new java.awt.Color(255, 255, 255));
-        home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
-        home.setText("HOME");
-        home.setIconTextGap(10);
-        home.addMouseListener(new java.awt.event.MouseAdapter() {
+        rooms.setBackground(new java.awt.Color(51, 51, 255));
+        rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        rooms.setForeground(new java.awt.Color(255, 255, 255));
+        rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        rooms.setText("ROOMS");
+        rooms.setIconTextGap(10);
+        rooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeMouseClicked(evt);
+                roomsMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeMouseEntered(evt);
+                roomsMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeMouseExited(evt);
+                roomsMouseExited(evt);
             }
         });
 
@@ -100,14 +102,16 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov2.setLayout(hov2Layout);
         hov2Layout.setHorizontalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addGroup(hov2Layout.createSequentialGroup()
+                .addComponent(rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         hov2Layout.setVerticalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 92, -1, 50));
+        jPanel2.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 150, 50));
 
         hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -147,23 +151,23 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        rooms.setBackground(new java.awt.Color(83, 140, 198));
-        rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
-        rooms.setForeground(new java.awt.Color(255, 255, 255));
-        rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkout.png"))); // NOI18N
-        rooms.setText("CHECK OUT");
-        rooms.setIconTextGap(10);
-        rooms.setPreferredSize(new java.awt.Dimension(136, 40));
-        rooms.addMouseListener(new java.awt.event.MouseAdapter() {
+        checkOut.setBackground(new java.awt.Color(83, 140, 198));
+        checkOut.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        checkOut.setForeground(new java.awt.Color(255, 255, 255));
+        checkOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/checkout.png"))); // NOI18N
+        checkOut.setText("CHECK OUT");
+        checkOut.setIconTextGap(10);
+        checkOut.setPreferredSize(new java.awt.Dimension(136, 40));
+        checkOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roomsMouseClicked(evt);
+                checkOutMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                roomsMouseEntered(evt);
+                checkOutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                roomsMouseExited(evt);
+                checkOutMouseExited(evt);
             }
         });
 
@@ -171,11 +175,11 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         hov1.setLayout(hov1Layout);
         hov1Layout.setHorizontalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         hov1Layout.setVerticalGroup(
             hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
@@ -246,6 +250,41 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         userrole.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
 
+        hov5.setBackground(new java.awt.Color(83, 140, 198));
+        hov5.setPreferredSize(new java.awt.Dimension(230, 40));
+
+        home.setBackground(new java.awt.Color(51, 51, 255));
+        home.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        home.setForeground(new java.awt.Color(255, 255, 255));
+        home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        home.setText("HOME");
+        home.setIconTextGap(10);
+        home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                homeMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hov5Layout = new javax.swing.GroupLayout(hov5);
+        hov5.setLayout(hov5Layout);
+        hov5Layout.setHorizontalGroup(
+            hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        );
+        hov5Layout.setVerticalGroup(
+            hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, 50));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         lalagyanan.setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -281,40 +320,44 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void checkOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseClicked
+        if (checkOut.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_checkOutMouseClicked
+
+    private void checkOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseEntered
+        setC(hov1);
+    }//GEN-LAST:event_checkOutMouseEntered
+
+    private void checkOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseExited
+        resetC(hov1);
+    }//GEN-LAST:event_checkOutMouseExited
+
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         if (rooms.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
-        setC(hov1);
+        setC(hov2);
     }//GEN-LAST:event_roomsMouseEntered
 
     private void roomsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseExited
-        resetC(hov1);
+        resetC(hov2);
     }//GEN-LAST:event_roomsMouseExited
 
-    private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
-        if (home.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        }
-    }//GEN-LAST:event_homeMouseClicked
-
-    private void homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseEntered
-        setC(hov2);
-    }//GEN-LAST:event_homeMouseEntered
-
-    private void homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseExited
-        resetC(hov2);
-    }//GEN-LAST:event_homeMouseExited
-
     private void checkInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInMouseClicked
-        if (home.isEnabled()) {
+        if (rooms.isEnabled()) {
             try {
                 String tanong = "Select * from rooms where status=1";
                 Connection con = new SQL().getConnection();
@@ -377,19 +420,19 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRound2MouseClicked
 
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
-        if (home.isEnabled()) {
-            home.setEnabled(false);
-            checkIn.setEnabled(false);
+        if (rooms.isEnabled()) {
             rooms.setEnabled(false);
+            checkIn.setEnabled(false);
+            checkOut.setEnabled(false);
             customers.setEnabled(false);
             hov1.setEnabled(false);
             hov2.setEnabled(false);
             hov3.setEnabled(false);
             hov4.setEnabled(false);
         }else{
-            home.setEnabled(true);
-            checkIn.setEnabled(true);
             rooms.setEnabled(true);
+            checkIn.setEnabled(true);
+            checkOut.setEnabled(true);
             customers.setEnabled(true);
             hov1.setEnabled(true);
             hov2.setEnabled(true);
@@ -397,6 +440,20 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             hov4.setEnabled(true);
         }
     }//GEN-LAST:event_jLabelRound3MouseClicked
+
+    private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
+         if (home.isEnabled()) {
+             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+         }
+    }//GEN-LAST:event_homeMouseClicked
+
+    private void homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseEntered
+        setC(hov5);
+    }//GEN-LAST:event_homeMouseEntered
+
+    private void homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseExited
+        resetC(hov5);
+    }//GEN-LAST:event_homeMouseExited
 
     
     private void setC(JPanel kev){
@@ -446,12 +503,14 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkIn;
+    private javax.swing.JLabel checkOut;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
     private javax.swing.JPanel hov2;
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
+    private javax.swing.JPanel hov5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private jroundborder.JLabelRound jLabelRound1;

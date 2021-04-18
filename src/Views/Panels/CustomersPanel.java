@@ -29,6 +29,10 @@ public class CustomersPanel extends javax.swing.JPanel {
      public  SQL sql = new SQL();
      
      public Customers customers;
+
+    public CustomersPanel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
      
      public void showCustomers() throws SQLException{
          ArrayList<Customers> list = custo.custList();
