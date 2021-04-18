@@ -24,12 +24,13 @@ public class RoomsPanel extends javax.swing.JPanel {
         RoomController rooms = new RoomController();
          ArrayList<Rooms> list = rooms.roomList();
          DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
-         Object[] row = new Object[4];
+         Object[] row = new Object[5];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
             row[1] = list.get(i).getbed();
             row[2] = list.get(i).getroomtype();
             row[3] = list.get(i).getrates();
+            row[4] = list.get(i).getstatus();
             model.addRow(row);
          }
        }
@@ -90,7 +91,7 @@ public class RoomsPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Room Type", "Bed Type", "Rate"
+                "ID", "Room Type", "Bed Type", "Rate", "Status"
             }
         ));
         jScrollPane1.setViewportView(roomstable);

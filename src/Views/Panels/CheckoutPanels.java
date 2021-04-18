@@ -34,7 +34,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
     public CheckoutPanels() throws SQLException {
         initComponents();
-        fillField();
+//        fillField();
     }
 
     /**
@@ -63,6 +63,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         co_custcontact = new javax.swing.JTextField();
         co_custdate = new javax.swing.JLabel();
+        search_cust_checkin_id = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,6 +125,13 @@ public class CheckoutPanels extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 580));
 
+        search_cust_checkin_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                search_cust_checkin_idKeyPressed(evt);
+            }
+        });
+        jPanel1.add(search_cust_checkin_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 170, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,9 +168,10 @@ public class CheckoutPanels extends javax.swing.JPanel {
         return strTime;
      }
      
+     public int id;
+     
     private void fillField() throws SQLException{
         ArrayList<Customers> list = new CustomerController().custList();
-        int id = 2;
         String room_id="";
         String tanong = "Select * from checkinandout where id='"+id+"'";
         Statement st = con.createStatement();
@@ -170,7 +179,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         while(rs.next()){
                 room_id = String.valueOf(rs.getInt("room_id"));
         }
-        int index = id;
+        int index = id+1;
         co_custfullname.setText(list.get(index).getcust_fullname());
         co_custaddress.setText(list.get(index).getcust_address());
         co_custcontact.setText(list.get(index).getcust_contactnum());
@@ -188,6 +197,17 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
 
     }//GEN-LAST:event_delete1ActionPerformed
+
+    private void search_cust_checkin_idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_cust_checkin_idKeyPressed
+        if (evt.getKeyCode()==10) {
+            id=Integer.parseInt(search_cust_checkin_id.getText());
+            try {
+                fillField();
+            } catch (SQLException ex) {
+                Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_search_cust_checkin_idKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -208,5 +228,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton pay;
+    private javax.swing.JTextField search_cust_checkin_id;
     // End of variables declaration//GEN-END:variables
 }
