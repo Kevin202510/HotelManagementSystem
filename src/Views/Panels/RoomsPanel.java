@@ -19,6 +19,11 @@ import javax.swing.table.DefaultTableModel;
  * 
  */
 public class RoomsPanel extends javax.swing.JPanel {
+    public RoomController roomso = new RoomController();
+    
+     public  SQL sql = new SQL();
+     
+     public Rooms roomss;
     
        public void showRooms() throws SQLException{
         RoomController rooms = new RoomController();
@@ -37,14 +42,38 @@ public class RoomsPanel extends javax.swing.JPanel {
     
 
 
-    /**
-     * Creates new form RoomsPanel
-     */
+  public void createRooms(Rooms rooms) throws SQLException{
+        
+        Connection con = sql.getConnection();
+        String insert = "INSERT INTO rooms(room_id,RT_id,bed_id,rate_id,status) VALUES (?,?,?,?,?)";
+        PreparedStatement st = con.prepareStatement(insert);
+        st.setInt(1, rooms.getroom_id());
+        st.setInt(2, rooms.getRT_id());
+        st.setInt(3, rooms.getbed_id());
+        st.setInt(4, rooms.getrate_id());
+        st.setString(5, rooms.getstatus());
+        int i = st.executeUpdate();
+        if (i > 0) {
+        DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
+        model.setRowCount(0);
+        showRooms();
+        JOptionPane.showMessageDialog(null,"Successfully Check in!!");
+        Roomid.setText("");
+        Roomtype.setText("");
+        Bedtype.setText("");
+        Rate.setText("");
+        Status.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+    }
+    
+  
     public RoomsPanel() throws SQLException{
         initComponents();
         showRooms();
-        roomstable.getTableHeader().setFont(new Font("Segoe UI", 1 , 16));
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +88,20 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomstable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Roomid = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        Roomtype = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        Bedtype = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        Rate = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        Status = new javax.swing.JTextField();
+        save = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -75,7 +118,7 @@ public class RoomsPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(502, 502, 502)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,27 +139,101 @@ public class RoomsPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(roomstable);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel2.setText("ROOM ACTIONS");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 54));
+
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel3.setText("Room ID");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 72, 73, 41));
+        jPanel2.add(Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 72, 213, 41));
+
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 0, 13)); // NOI18N
+        jLabel4.setText("Room Type");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 119, 70, 41));
+        jPanel2.add(Roomtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 119, 210, 41));
+
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel5.setText("Bed Type");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 73, 41));
+        jPanel2.add(Bedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 166, 213, 41));
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel6.setText("Rate");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 213, 73, 41));
+        jPanel2.add(Rate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 213, 210, 41));
+
+        jLabel7.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel7.setText("Status");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 73, 41));
+        jPanel2.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 260, 213, 41));
+
+        save.setText("SAVE");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 581, 126, 61));
+
+        delete.setText("DELETE");
+        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 581, 126, 61));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+//     roomss = new Rooms(Roomid.getText(),Roomtype.getText(),Bedtype.getText(),Rate.getText(),Status.getText());
+        try {
+            createRooms(roomss);
+        } catch (SQLException ex) {
+            //            Logger.getLogger(roomsomerActions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_saveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Bedtype;
+    private javax.swing.JTextField Rate;
+    private javax.swing.JTextField Roomid;
+    private javax.swing.JTextField Roomtype;
+    private javax.swing.JTextField Status;
+    private javax.swing.JButton delete;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable roomstable;
+    private javax.swing.JButton save;
     // End of variables declaration//GEN-END:variables
 }
