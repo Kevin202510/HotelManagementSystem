@@ -363,7 +363,11 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
         if (sales.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_salesMouseClicked
 
@@ -377,6 +381,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         // TODO add your handling code here:
+        if (sales.isEnabled()) {
+            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+        }
     }//GEN-LAST:event_homeMouseClicked
 
     private void homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseEntered
@@ -388,7 +395,13 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_homeMouseExited
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        
+        if (users.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
@@ -401,6 +414,13 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
+        if (rooms.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(StaffAndManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -413,6 +433,14 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         // TODO add your handling code here:
+        if (customers.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
+//                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_customersMouseClicked
 
     private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
