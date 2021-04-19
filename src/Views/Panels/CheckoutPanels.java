@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -156,7 +157,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
     
     public String getDateNow(){
          java.util.Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
         String strDate = dateFormat.format(date);
         return strDate;
      }
@@ -170,28 +171,51 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
      public int id;
      
+     public void addinventory() throws SQLException{
+        String insert = "INSERT INTO `inventories`(`id`, `sales_date`, `amount`, `user_id`) VALUES ('3','2021-05-21','900','3')";
+        PreparedStatement st = con.prepareStatement(insert);
+//        st.setString(1, customers.getcust_Fname());
+//        st.setString(2, customers.getcust_Mname());
+//        st.setString(3, customers.getcust_Lname());
+//        st.setString(4, customers.getcust_address());
+//        st.setString(5, customers.getcust_contactnum());
+       int i = st.executeUpdate();
+         if (i>0) {
+             JOptionPane.showMessageDialog(null,"successfully");
+         }
+     }
     private void fillField() throws SQLException{
         ArrayList<Customers> list = new CustomerController().custList();
         String room_id="";
         String tanong = "Select * from checkinandout where id='"+id+"'";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
-        while(rs.next()){
-                room_id = String.valueOf(rs.getInt("room_id"));
-        }
-        int index = id+1;
+        
+        if (!rs.next()) {
+            JOptionPane.showMessageDialog(null,"There's have no existing data in databased!");
+            search_cust_checkin_id.setText("");
+        }else{
+            while(rs.next()){
+                    room_id = String.valueOf(rs.getInt("room_id"));
+            }
+         int index = id+1;
         co_custfullname.setText(list.get(index).getcust_fullname());
         co_custaddress.setText(list.get(index).getcust_address());
         co_custcontact.setText(list.get(index).getcust_contactnum());
-        co_custtime.setText(getDateNow());
-        co_custdate.setText(getTimeNow());
-        co_rooms.setText(room_id);
+        co_custtime.setText(getTimeNow());
+        co_custdate.setText(getDateNow());
+        co_rooms.setText(room_id);  
+        }
     }
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
-        
-
+        search_cust_checkin_id.setText("");
+         try {
+             addinventory();
 //        customers = new Customers(0,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());
 //        createCustomer(customers);
+         } catch (SQLException ex) {
+             Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }//GEN-LAST:event_payActionPerformed
 
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed

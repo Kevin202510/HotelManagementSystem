@@ -253,6 +253,7 @@ public class Register extends javax.swing.JFrame {
         userss=new Users(0,null,Fname.getText(), Mname.getText(),Lname.getText(),Address.getText(),df.format(DOB.getDate()),Contactnum.getText(),Username.getText(),String.valueOf(Password.getPassword()));
         try {
             users.createUser(userss);
+            this.dispose();
         } catch (SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -294,10 +295,8 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Register().setVisible(true);
         });
     }
 

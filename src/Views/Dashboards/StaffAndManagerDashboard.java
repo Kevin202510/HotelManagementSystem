@@ -28,7 +28,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     
     public StaffAndManagerDashboard(String fullname,String role) {
         initComponents();
-        new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+        ContainerManipulator containerManipulator = new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
     }
@@ -73,7 +73,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotelmanagement.gif"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 10, 563, -1));
 
         hov2.setBackground(new java.awt.Color(83, 140, 198));

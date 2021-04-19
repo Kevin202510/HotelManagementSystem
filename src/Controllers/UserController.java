@@ -7,6 +7,7 @@ package Controllers;
 
 import Models.Users;
 import Views.Authentication.Login;
+import Views.Authentication.Register;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
