@@ -7,10 +7,13 @@ package Views.Panels;
 
 import Controllers.BedsController;
 import Models.Beds;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -30,15 +33,47 @@ public class test extends javax.swing.JFrame {
 
     public void showBeds() throws SQLException{
         ArrayList<Beds> list = new BedsController().bedList();
-        Object[] row = new Object[5];
-         for (int i = 0; i < list.size(); i++) {
-//            String name = list.get(i).getbed_id() + " " +
-//            list.get(i).getbed_quality();
-            JLabel jLabel1 = new javax.swing.JLabel();
-            jLabel1.setText("jLabel1");
-            jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 255, 51)));
-            lagyanan.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 160, 140));
+//        Object[] row = new Object[5];
+            int A=100;
+            int B=120;
+            int C=210;
+            int D=190;
+            
+             int E=100;
+            int F=360;
+            int G=210;
+            int H=190;
+        JLabel Jlabels []= new JLabel [9];
+        JButton but [] = new JButton[9];
+        
+         for (int i = 0; i < Jlabels.length; i++) {
+             if (i>4){
+                 Jlabels[i]=new JLabel("jLabel" + i);
+                 but[i]=new JButton("Room" + i);
+                 but[i].setBackground(Color.green);
+                 but[i].setForeground(Color.red);
+                 but[i].setFont(new Font("Times New Roman", Font.BOLD, 18));
+                Jlabels[i].setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 255, 51)));
+            Jlabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rooms/r"+i+".gif")));
+                lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E,F,G,H));
+                lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E, 560, G,30));
+                E+=250;
+             }else{
+            Jlabels[i]=new JLabel("jLabel" + i);
+            but[i]=new JButton("Room" + i);
+            but[i].setBackground(Color.yellow);
+            but[i].setForeground(Color.black);
+            but[i].setFont(new Font("Times New Roman", Font.BOLD, 18));
+            Jlabels[i].setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 255, 51)));
+            Jlabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rooms/r"+i+".gif")));
+            lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A,B,C,D));
+            lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A, 320, C,30));
+            A+=250;
+             }
          }
+         
+         lagyanan.validate();
+         lagyanan.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +90,7 @@ public class test extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lagyanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 590));
+        getContentPane().add(lagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1570, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
