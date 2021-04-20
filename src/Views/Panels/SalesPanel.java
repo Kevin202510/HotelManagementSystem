@@ -6,6 +6,7 @@
 package Views.Panels;
 
 import Controllers.SQL;
+import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,6 +58,7 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         salesTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -82,13 +84,30 @@ public class SalesPanel extends javax.swing.JPanel {
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 850, 370));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 120, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            salesTable.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String[] args) throws SQLException {
         JOptionPane.showMessageDialog(null,new SalesPanel());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable salesTable;
     // End of variables declaration//GEN-END:variables
