@@ -6,9 +6,12 @@
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminDashboard.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/RoomsPanel.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Home.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Authentication/Register.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Customers.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Authentication/Login.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CustomersPanel.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/StaffAndManagerDashboard.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
     </open-files>
 </project-private>

@@ -147,7 +147,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 150, 50));
+        jPanel2.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 90, 150, 50));
 
         hov6.setBackground(new java.awt.Color(83, 140, 198));
         hov6.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -217,7 +217,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 150, 50));
+        jPanel2.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 150, 50));
 
         hov8.setBackground(new java.awt.Color(83, 140, 198));
         hov8.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -252,7 +252,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 150, 50));
+        jPanel2.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 150, 50));
 
         hov9.setBackground(new java.awt.Color(83, 140, 198));
         hov9.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -287,7 +287,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 50));
+        jPanel2.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 90, 190, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
