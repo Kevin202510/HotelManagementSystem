@@ -283,6 +283,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel1.add(udob, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 220, 30));
 
         upass.setBackground(new java.awt.Color(0, 77, 77));
+        upass.setForeground(new java.awt.Color(255, 255, 255));
         upass.setBorder(null);
         jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 220, 30));
 

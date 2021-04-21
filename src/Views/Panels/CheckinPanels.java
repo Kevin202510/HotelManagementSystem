@@ -79,76 +79,94 @@ public class CheckinPanels extends javax.swing.JPanel {
         cusContact2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        checkintime = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 255, 0));
+        setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel2.setBackground(new java.awt.Color(128, 179, 255));
+        jPanel2.setForeground(new java.awt.Color(64, 63, 64));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(64, 63, 64));
         jLabel2.setText("CHECK IN");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, 54));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 54));
 
         checkindate.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
-        jPanel2.add(cusFname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 72, 213, 41));
+        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 210, 41));
+        jPanel2.add(cusFname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 213, 41));
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 0, 13)); // NOI18N
-        jLabel10.setText("Middle name");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 73, 41));
-        jPanel2.add(cusMname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 220, 41));
+        jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel10.setText("M.I");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 60, 41));
+        jPanel2.add(cusMname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 41));
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jLabel11.setText("Last name");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 73, 41));
-        jPanel2.add(cusLname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, 213, 41));
+        jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel11.setText("LAST NAME");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 110, 41));
+        jPanel2.add(cusLname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 213, 41));
 
-        jLabel12.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel12.setText("CHECK IN DATE");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 110, 41));
-        jPanel2.add(cusAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 220, 41));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, 41));
+        jPanel2.add(cusAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 210, 41));
 
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jLabel13.setText("Contact #");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 80, 41));
+        jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel13.setText("CONTACT #");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 100, 40));
+        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 210, 41));
 
+        save1.setBackground(new java.awt.Color(51, 102, 255));
+        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         save1.setText("SAVE");
+        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
         save1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 save1ActionPerformed(evt);
             }
         });
-        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 126, 61));
+        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 126, 61));
 
+        delete1.setBackground(new java.awt.Color(51, 102, 255));
+        delete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete1.setText("DELETE");
+        delete1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
         delete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete1ActionPerformed(evt);
             }
         });
-        jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 126, 61));
+        jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 126, 61));
 
+        jLabel14.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel14.setText("ROOMS");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 73, 36));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, 73, 36));
 
-        jPanel2.add(rooms1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 210, 40));
+        jPanel2.add(rooms1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, 210, 40));
 
+        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel1.setText("CHECK IN TIME");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 90, 40));
-        jPanel2.add(cusContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 120, 220, 41));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 130, 40));
+        jPanel2.add(cusContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 220, 41));
 
-        jLabel15.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jLabel15.setText("First name");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 72, 73, 41));
+        jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel15.setText("FIRST NAME");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 110, 41));
 
-        jLabel16.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jLabel16.setText("Address");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 41));
-        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 190, 30));
+        jLabel16.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel16.setText("ADDRESS");
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 80, 41));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 580));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 1120, 580));
+
+        jLabel3.setBackground(new java.awt.Color(102, 204, 255));
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("HOTEL MANAGEMENT");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 610, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
@@ -191,6 +209,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> rooms1;
     private javax.swing.JButton save1;

@@ -84,7 +84,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
         rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room2.png"))); // NOI18N
         rooms.setText("ROOMS");
         rooms.setIconTextGap(10);
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
