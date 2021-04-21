@@ -21,12 +21,19 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -38,13 +45,9 @@ public class CheckinAndOutController{
     
     public  SQL sql = new SQL();
     public  ArrayList<CheckinAndOut> checkinoutList = new ArrayList<>();
-    
-    
-//    store data
+    public Connection con = sql.getConnection();
     
     public ArrayList<CheckinAndOut> checkinandoutlist() throws SQLException{
-        
-        Connection con = sql.getConnection();
         String tanong = "Select * from checkInAndOut";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
@@ -103,10 +106,6 @@ public class CheckinAndOutController{
   
     public void GenerateQrCode(String cusname,String cusaddress,String custimein,String custimeout,int cusid){
        try {
-//            String name = JOptionPane.showInputDialog(null,"Name");
-//            String age = JOptionPane.showInputDialog(null,"age");
-//            String timein = JOptionPane.showInputDialog(null,"timein");
-//            String timeout = JOptionPane.showInputDialog(null,"timeout");
             String qrCodeData = cusname + "\n" + cusaddress + "\n" + custimein + "\n" + custimeout + "\n" + cusid;
             String filePath = "src\\Images\\QRCODE\\"+ cusname + ".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
@@ -117,10 +116,53 @@ public class CheckinAndOutController{
                 BarcodeFormat.QR_CODE, 200, 200, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));
-            JOptionPane.showMessageDialog(null,"QR Code image created successfully!");
         } catch (Exception e) {
             System.err.println(e);
         }
     }
     
+    public String getDateNow(){
+         Date date = Calendar.getInstance().getTime();  
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+        String strDate = dateFormat.format(date);
+        return strDate;
+     }
+     
+     public String getTimeNow(){
+         Date date = Calendar.getInstance().getTime();  
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");  
+        String strTime = timeFormat.format(date);
+        return strTime;
+     }
+     
+         public boolean checkIn(JLabel checkindate,JLabel checkintime,JComboBox rooms1) throws SQLException{
+            ArrayList<Customers> list = new CustomerController().custList();
+            int id = list.size()-1;
+            int ids = list.get(id).getcust_id();
+            String room_id1 = rooms1.getSelectedItem().toString();
+            int room_id = Integer.parseInt(room_id1);
+            String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
+            PreparedStatement roomup =con.prepareStatement(roomupdate);
+            roomup.setInt(1,0);
+            roomup.executeUpdate();
+
+            CheckinAndOut checkin;
+            checkin = new CheckinAndOut(ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
+            String insert = "INSERT INTO checkinandout(timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?)";
+           PreparedStatement st = con.prepareStatement(insert);
+           st.setString(1, checkin.gettimein());
+           st.setString(2, checkin.gettimeout());
+           st.setString(3, checkin.getcheckin_date());
+           st.setString(4, checkin.getcheckout_date());
+           st.setInt(5, ids);
+           st.setInt(6,checkin.getroomId());
+           int i = st.executeUpdate();
+            if (i>0) {
+                JOptionPane.showMessageDialog(null,"Successfully Check in!!");
+                return true;
+            }else{
+                JOptionPane.showMessageDialog(null,"Error");
+                return false;
+            }
+     }
 }

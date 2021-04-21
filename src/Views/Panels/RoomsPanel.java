@@ -19,59 +19,14 @@ import javax.swing.table.DefaultTableModel;
  * 
  */
 public class RoomsPanel extends javax.swing.JPanel {
-    public RoomController roomso = new RoomController();
     
-     public  SQL sql = new SQL();
-     
-     public Rooms roomss;
+    public RoomController roomControll = new RoomController();
+     public  SQL sql = new SQL(); 
+     public Rooms roomModel;
     
-       public void showRooms() throws SQLException{
-        RoomController rooms = new RoomController();
-         ArrayList<Rooms> list = rooms.roomList();
-         DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
-         Object[] row = new Object[5];
-         for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getroom_id();
-            row[1] = list.get(i).getbed();
-            row[2] = list.get(i).getroomtype();
-            row[3] = list.get(i).getrates();
-            row[4] = list.get(i).getstatus();
-            model.addRow(row);
-         }
-       }
-    
-
-
-  public void createRooms(Rooms rooms) throws SQLException{
-        
-        Connection con = sql.getConnection();
-        String insert = "INSERT INTO rooms(room_id,RT_id,bed_id,rate_id,status) VALUES (?,?,?,?,?)";
-        PreparedStatement st = con.prepareStatement(insert);
-        st.setInt(1, rooms.getroom_id());
-        st.setInt(2, rooms.getRT_id());
-        st.setInt(3, rooms.getbed_id());
-        st.setInt(4, rooms.getrate_id());
-        st.setString(5, rooms.getstatus());
-        int i = st.executeUpdate();
-        if (i > 0) {
-        DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
-        model.setRowCount(0);
-        showRooms();
-        JOptionPane.showMessageDialog(null,"Successfully Check in!!");
-        Roomid.setText("");
-        Roomtype.setText("");
-        Bedtype.setText("");
-        Rate.setText("");
-        Status.setText("");
-        } else {
-            JOptionPane.showMessageDialog(null,"Error");
-        }
-    }
-    
-  
     public RoomsPanel() throws SQLException{
         initComponents();
-        showRooms();
+        roomControll.Room(roomstable);
     }
 
 
@@ -176,10 +131,10 @@ public class RoomsPanel extends javax.swing.JPanel {
                 saveActionPerformed(evt);
             }
         });
-        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 581, 126, 61));
+        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 126, 61));
 
         delete.setText("DELETE");
-        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 581, 126, 61));
+        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 126, 61));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -207,9 +162,17 @@ public class RoomsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-//     roomss = new Rooms(Roomid.getText(),Roomtype.getText(),Bedtype.getText(),Rate.getText(),Status.getText());
+     int roomid=Integer.parseInt(Roomid.getText());
+     int roomtype=Integer.parseInt(Roomtype.getText());
+     int bedtype= Integer.parseInt(Bedtype.getText());
+     int rate=Integer.parseInt(Rate.getText());
+     int status=Integer.parseInt(Status.getText());
+        roomModel = new Rooms(roomid,roomtype,bedtype,rate,status);
         try {
-            createRooms(roomss);
+            boolean checkRoom = roomControll.createRooms(roomModel,roomstable);
+            if (checkRoom==true) {
+                roomControll.clearContent(Roomid, Roomtype, Bedtype, Rate, Status);
+            }
         } catch (SQLException ex) {
             //            Logger.getLogger(roomsomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }

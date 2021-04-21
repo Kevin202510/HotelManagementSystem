@@ -5,6 +5,7 @@
  */
 package Views.Panels;
 
+import Controllers.CheckinAndOutController;
 import Controllers.CustomerController;
 import Controllers.SQL;
 import Models.Customers;
@@ -32,6 +33,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
      public Connection con = sql.getConnection();
      
      public Customers customers;
+     public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
      
     public CheckoutPanels() throws SQLException {
         initComponents();
@@ -154,31 +156,12 @@ public class CheckoutPanels extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    public String getDateNow(){
-         java.util.Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-        String strDate = dateFormat.format(date);
-        return strDate;
-     }
-     
-     public String getTimeNow(){
-         java.util.Date date = Calendar.getInstance().getTime();  
-        DateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");  
-        String strTime = timeFormat.format(date);
-        return strTime;
-     }
      
      public int id;
      
      public void addinventory() throws SQLException{
         String insert = "INSERT INTO `inventories`(`id`, `sales_date`, `amount`, `user_id`) VALUES ('3','2021-05-21','900','3')";
         PreparedStatement st = con.prepareStatement(insert);
-//        st.setString(1, customers.getcust_Fname());
-//        st.setString(2, customers.getcust_Mname());
-//        st.setString(3, customers.getcust_Lname());
-//        st.setString(4, customers.getcust_address());
-//        st.setString(5, customers.getcust_contactnum());
        int i = st.executeUpdate();
          if (i>0) {
              JOptionPane.showMessageDialog(null,"successfully");
@@ -202,8 +185,8 @@ public class CheckoutPanels extends javax.swing.JPanel {
         co_custfullname.setText(list.get(index).getcust_fullname());
         co_custaddress.setText(list.get(index).getcust_address());
         co_custcontact.setText(list.get(index).getcust_contactnum());
-        co_custtime.setText(getTimeNow());
-        co_custdate.setText(getDateNow());
+        co_custtime.setText(check_in_out_controll.getTimeNow());
+        co_custdate.setText(check_in_out_controll.getDateNow());
         co_rooms.setText(room_id);  
         }
     }
@@ -211,8 +194,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
         search_cust_checkin_id.setText("");
          try {
              addinventory();
-//        customers = new Customers(0,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());
-//        createCustomer(customers);
          } catch (SQLException ex) {
              Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
          }

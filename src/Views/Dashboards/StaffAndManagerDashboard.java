@@ -24,7 +24,8 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public static String fullname,role;
+    public static String fullname;
+    public static String role="Staff";
     
     public StaffAndManagerDashboard(String fullname,String role) {
         initComponents();

@@ -34,27 +34,18 @@ public class CustomerController {
     
     public SQL sql = new SQL();
     public JTable tab;
+    public Connection con = sql.getConnection();
         
-    public void GenerateQrCode(String cusname,String cusage,String custimein,String custimeout){
-        try {
-//            String name = JOptionPane.showInputDialog(null,"Name");
-//            String age = JOptionPane.showInputDialog(null,"age");
-//            String timein = JOptionPane.showInputDialog(null,"timein");
-//            String timeout = JOptionPane.showInputDialog(null,"timeout");
-            String qrCodeData = cusname + "\n" + cusage + "\n" + custimein + "\n" + custimeout;
-            String filePath = "src\\Images\\QRCODE\\"+ cusname + ".png";
-            String charset = "UTF-8"; // or "ISO-8859-1"
-             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
-            hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-            BitMatrix matrix = new MultiFormatWriter().encode(
-                new String(qrCodeData.getBytes(charset), charset),
-                BarcodeFormat.QR_CODE, 200, 200, hintMap);
-            MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
-                .lastIndexOf('.') + 1), new File(filePath));
-            System.out.println("QR Code image created successfully!");
-        } catch (Exception e) {
-            System.err.println(e);
-        }
+    public void createCustomer(Customers customers) throws SQLException{
+        String insert = "INSERT INTO customers(cust_Fname,cust_Mname,cust_Lname,cust_address,cust_contactnum) VALUES (?,?,?,?,?)";
+        PreparedStatement st = con.prepareStatement(insert);
+        st.setString(1, customers.getcust_Fname());
+        st.setString(2, customers.getcust_Mname());
+        st.setString(3, customers.getcust_Lname());
+        st.setString(4, customers.getcust_address());
+        st.setString(5, customers.getcust_contactnum());
+       st.executeUpdate();
+//       checkIn() ;
     }
     
      public ArrayList<Customers> custList() throws SQLException{
@@ -71,6 +62,19 @@ public class CustomerController {
          custList.add(customers);
         }
         return custList;   
+    }
+     
+      public void showCustomers(JTable customerTable) throws SQLException{
+         ArrayList<Customers> list =custList();
+         DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+         Object[] row = new Object[8];
+         for (int i = 0; i < list.size(); i++) {
+            row[0] = list.get(i).getcust_id();
+            row[1] = list.get(i).getcust_fullname();
+            row[2] = list.get(i).getcust_address();
+            row[3] = list.get(i).getcust_contactnum();
+            model.addRow(row);
+         }
     }
      
 }

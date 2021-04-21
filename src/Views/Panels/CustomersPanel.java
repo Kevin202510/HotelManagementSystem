@@ -5,6 +5,7 @@
  */
 package Views.Panels;
 import Controllers.CustomerController;
+import Controllers.RoomController;
 import Models.Customers;
 import Controllers.SQL;
 import Views.Dashboards.ContainerManipulator;
@@ -22,64 +23,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class CustomersPanel extends javax.swing.JPanel {
-
-    public CustomerController custo = new CustomerController();
-    
-     public  SQL sql = new SQL();
-     
-     public Customers customers;
-
-    public CustomersPanel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-     
-     public void showCustomers() throws SQLException{
-         ArrayList<Customers> list = custo.custList();
-         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-         Object[] row = new Object[8];
-         for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getcust_id();
-            row[1] = list.get(i).getcust_fullname();
-            row[2] = list.get(i).getcust_address();
-            row[3] = list.get(i).getcust_contactnum();
-            model.addRow(row);
-         }
-    }
-    
-    public void createCustomer(Customers customers) throws SQLException{
+        public class CustomersPanel extends javax.swing.JPanel {
+        public RoomController roomControll = new RoomController();  
+        public CustomerController custo = new CustomerController();
+        public  SQL sql = new SQL();
+        public Customers customers;
+        public JPanel lalag;
         
-        Connection con = sql.getConnection();
-        String insert = "INSERT INTO customers(cust_Fname,cust_Mname,cust_Lname,cust_address,cust_contactnum) VALUES (?,?,?,?,?)";
-        PreparedStatement st = con.prepareStatement(insert);
-        st.setString(1, customers.getcust_Fname());
-        st.setString(2, customers.getcust_Mname());
-        st.setString(3, customers.getcust_Lname());
-        st.setString(4, customers.getcust_address());
-        st.setString(5, customers.getcust_contactnum());
-        int i = st.executeUpdate();
-        if (i > 0) {
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        model.setRowCount(0);
-        showCustomers();
-        JOptionPane.showMessageDialog(null,"Successfully Check in!!");
-        cusFname.setText("");
-        cusMname.setText("");
-        cusLname.setText("");
-        cusAddress.setText("");
-        cusContact.setText("");
-        new ContainerManipulator(lalag,new Views.Panels.RoomsPanel());
-////            new  Login().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null,"Error");
-        }
-    }
-    
-    public JPanel lalag;
     public CustomersPanel(JPanel lalag) throws SQLException{
         initComponents();
-        showCustomers();
-        showRooms();
+        custo.showCustomers(jTable1);
+        roomControll.showRooms(rooms);
         this.lalag=lalag;
     }
 
@@ -192,31 +146,9 @@ public class CustomersPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-       customers = new Customers(0,cusFname.getText(),cusMname.getText(),cusLname.getText(),cusAddress.getText(),cusContact.getText());
-        try {
-            createCustomer(customers);
-        } catch (SQLException ex) {
-//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
     }//GEN-LAST:event_saveActionPerformed
-    public void showRooms(){
-         SQL sql = new SQL();
-        Connection con = sql.getConnection();
-        String tanong = "Select * from rooms where status=1";
-        try{
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
-//        Customers customers;
-        
-        while(rs.next()){
-         String vin = String.valueOf(rs.getInt("room_id"));
-         rooms.addItem(vin);
-        }}
-        catch (SQLException ex) {
-//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cusAddress;
     private javax.swing.JTextField cusContact;

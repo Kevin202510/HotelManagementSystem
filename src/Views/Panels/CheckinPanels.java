@@ -5,7 +5,9 @@
  */
 package Views.Panels;
 
+import Controllers.CheckinAndOutController;
 import Controllers.CustomerController;
+import Controllers.RoomController;
 import Controllers.SQL;
 import Models.Customers;
 import Models.CheckinAndOut;
@@ -36,13 +38,17 @@ public class CheckinPanels extends javax.swing.JPanel {
      * Creates new form CheckinPanels
      */
     
-    public JPanel lalag;
+        public JPanel lalag;
+        public RoomController roomControll = new RoomController();   
+        public CustomerController custo = new CustomerController();
+        public Customers customers;
+        public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
     
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
-        showRooms();
-        checkindate.setText(getDateNow());
-        checkintime.setText(getTimeNow());
+        roomControll.showRooms(rooms1);
+        checkindate.setText(check_in_out_controll.getDateNow());
+        checkintime.setText(check_in_out_controll.getTimeNow());
         
     }
     /**
@@ -65,7 +71,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         cusAddress1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        checkintime = new javax.swing.JTextField();
         save1 = new javax.swing.JButton();
         delete1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -74,6 +79,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         cusContact2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        checkintime = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 255, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,7 +113,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jLabel13.setText("Contact #");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 80, 41));
-        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 220, 41));
 
         save1.setText("SAVE");
         save1.addActionListener(new java.awt.event.ActionListener() {
@@ -141,109 +146,36 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jLabel16.setText("Address");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 41));
+        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 190, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 580));
     }// </editor-fold>//GEN-END:initComponents
 
-    public CustomerController custo = new CustomerController();
-    
-     public  SQL sql = new SQL();
-     public Connection con = sql.getConnection();
-     
-     public Customers customers;
-     
-     public String getDateNow(){
-         Date date = Calendar.getInstance().getTime();  
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-        String strDate = dateFormat.format(date);
-        return strDate;
-     }
-     
-     public String getTimeNow(){
-         Date date = Calendar.getInstance().getTime();  
-        DateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");  
-        String strTime = timeFormat.format(date);
-        return strTime;
-     }
-    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
+    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         customers = new Customers(0,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
         try {
-            createCustomer(customers);
+            custo.createCustomer(customers);
+            boolean check =  check_in_out_controll.checkIn(checkindate, checkintime, rooms1);
+            if (check==true) {
+                cusFname1.setText("");
+               cusMname1.setText("");
+               cusLname1.setText("");
+               cusAddress1.setText("");
+               cusContact2.setText("");
+               rooms1.removeAllItems();
+               roomControll.showRooms(rooms1);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_save1ActionPerformed
+    }                                     
 
-    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete1ActionPerformed
+    private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
       
-    }//GEN-LAST:event_delete1ActionPerformed
-
-    public void createCustomer(Customers customers) throws SQLException{
-        String insert = "INSERT INTO customers(cust_Fname,cust_Mname,cust_Lname,cust_address,cust_contactnum) VALUES (?,?,?,?,?)";
-        PreparedStatement st = con.prepareStatement(insert);
-        st.setString(1, customers.getcust_Fname());
-        st.setString(2, customers.getcust_Mname());
-        st.setString(3, customers.getcust_Lname());
-        st.setString(4, customers.getcust_address());
-        st.setString(5, customers.getcust_contactnum());
-       st.executeUpdate();
-       checkIn() ;
-    }
-    
-     public void showRooms(){
-        String tanong = "Select * from rooms where status=1";
-        try{
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
-//        Customers customers
-        while(rs.next()){
-         String vin = String.valueOf(rs.getInt("room_id"));
-         rooms1.addItem(vin);
-        }
-        }
-        catch (SQLException ex) {
-//            Logger.getLogger(CustomerActions.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-     public void checkIn() throws SQLException{
-         ArrayList<Customers> list = new CustomerController().custList();
-         int id = list.size()-1;
-         int ids = list.get(id).getcust_id();
-         String room_id1 = rooms1.getSelectedItem().toString();
-         int room_id = Integer.parseInt(room_id1);
-         String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
-         PreparedStatement roomup = con.prepareStatement(roomupdate);
-         roomup.setInt(1,0);
-         roomup.executeUpdate();
-         
-         CheckinAndOut checkin;
-         checkin = new CheckinAndOut(ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
-         String insert = "INSERT INTO checkinandout(timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?)";
-        PreparedStatement st = con.prepareStatement(insert);
-        st.setString(1, checkin.gettimein());
-        st.setString(2, checkin.gettimeout());
-        st.setString(3, checkin.getcheckin_date());
-        st.setString(4, checkin.getcheckout_date());
-        st.setInt(5, ids);
-        st.setInt(6,checkin.getroomId());
-        int i = st.executeUpdate();
-         if (i>0) {
-             JOptionPane.showMessageDialog(null,"Successfully Check in!!");
-             cusFname1.setText("");
-            cusMname1.setText("");
-            cusLname1.setText("");
-            cusAddress1.setText("");
-            cusContact2.setText("");
-            rooms1.removeAllItems();
-            showRooms();
-         }else{
-             JOptionPane.showMessageDialog(null,"Error");
-         }
-     }
+    }                 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkindate;
-    private javax.swing.JTextField checkintime;
+    private javax.swing.JLabel checkintime;
     private javax.swing.JTextField cusAddress1;
     private javax.swing.JTextField cusContact2;
     private javax.swing.JTextField cusFname1;
