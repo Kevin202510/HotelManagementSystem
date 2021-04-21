@@ -170,7 +170,7 @@ public class Register extends javax.swing.JFrame {
         DOB.setBackground(new java.awt.Color(255, 255, 255));
         DOB.setDateFormatString("yyyy-MM-dd");
         DOB.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jPanel1.add(DOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 390, 30));
+        jPanel1.add(DOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 180, 30));
 
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
