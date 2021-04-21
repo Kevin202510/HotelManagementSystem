@@ -146,7 +146,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 92, -1, 50));
+        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, 50));
 
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -182,7 +182,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
             .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
+        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, -1, 50));
 
         hov4.setBackground(new java.awt.Color(83, 140, 198));
 
@@ -224,7 +224,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound2MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 56, 41, 39));
+        jPanel2.add(jLabelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 41, 39));
 
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +232,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound3MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 40, 39));
+        jPanel2.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 39));
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
         jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,7 +240,7 @@ public class StaffAndManagerDashboard extends javax.swing.JFrame {
                 jLabelRound1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 11, 40, 39));
+        jPanel2.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
