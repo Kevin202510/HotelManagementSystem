@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 12:59 PM
+-- Generation Time: Apr 18, 2021 at 01:07 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -29,21 +29,34 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `beds` (
   `bed_id` bigint(20) UNSIGNED NOT NULL,
-  `bed_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `bed_quantity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `beds`
 --
 
-INSERT INTO `beds` (`bed_id`, `bed_quantity`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'single', NULL, NULL, NULL),
-(2, 'double', NULL, NULL, NULL),
-(3, 'trio', NULL, NULL, NULL),
-(4, 'quadro', NULL, NULL, NULL);
+INSERT INTO `beds` (`bed_id`, `bed_quantity`) VALUES
+(1, 'single'),
+(2, 'double'),
+(3, 'trio'),
+(4, 'quadro');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkinandout`
+--
+
+CREATE TABLE `checkinandout` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `timein` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timeout` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `checkin_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `checkout_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cust_id` bigint(20) UNSIGNED NOT NULL,
+  `room_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,19 +70,29 @@ CREATE TABLE `customers` (
   `cust_Mname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cust_Lname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cust_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cust_contactnum` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `cust_contactnum` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`cust_id`, `cust_Fname`, `cust_Mname`, `cust_Lname`, `cust_address`, `cust_contactnum`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '09261364720', NULL, NULL, NULL),
-(2, 'marimar', 'Pagunio', 'diaza', 'San Pedro General Tinio Ne', '09551364720', NULL, NULL, NULL);
+INSERT INTO `customers` (`cust_id`, `cust_Fname`, `cust_Mname`, `cust_Lname`, `cust_address`, `cust_contactnum`) VALUES
+(1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '09261364720'),
+(2, 'marimar', 'Pagunio', 'diaza', 'San Pedro General Tinio Ne', '09551364720');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventories`
+--
+
+CREATE TABLE `inventories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sales_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -95,7 +118,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2011_02_19_161826_create_roles_table', 1),
 (6, '2011_03_02_134614_create_users_table', 1),
 (7, '2011_22_19_161826_create_rooms_table', 1),
-(8, '2013_03_02_134614_create_reservations_table', 1);
+(8, '2013_03_02_134614_create_checkInAndOut_table', 1),
+(9, '2021_04_18_105159_create_inventories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -105,47 +129,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `rates` (
   `rate_id` bigint(20) UNSIGNED NOT NULL,
-  `rate_price` int(11) NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `rate_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rates`
 --
 
-INSERT INTO `rates` (`rate_id`, `rate_price`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 700, NULL, NULL, NULL),
-(2, 900, NULL, NULL, NULL),
-(3, 1100, NULL, NULL, NULL),
-(4, 1500, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reservations`
---
-
-CREATE TABLE `reservations` (
-  `res_id` bigint(20) UNSIGNED NOT NULL,
-  `res_timein` timestamp NULL DEFAULT NULL,
-  `res_timeout` timestamp NULL DEFAULT NULL,
-  `res_checkin` date DEFAULT NULL,
-  `res_checkout` date DEFAULT NULL,
-  `cust_id` bigint(20) UNSIGNED NOT NULL,
-  `room_id` bigint(20) UNSIGNED NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `reservations`
---
-
-INSERT INTO `reservations` (`res_id`, `res_timein`, `res_timeout`, `res_checkin`, `res_checkout`, `cust_id`, `room_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, '2021-04-01 18:00:51', '2021-04-01 21:00:51', '2021-04-02', '2021-04-02', 2, 2, NULL, NULL, NULL);
+INSERT INTO `rates` (`rate_id`, `rate_price`) VALUES
+(1, 700),
+(2, 900),
+(3, 1100),
+(4, 1500);
 
 -- --------------------------------------------------------
 
@@ -155,20 +150,17 @@ INSERT INTO `reservations` (`res_id`, `res_timein`, `res_timeout`, `res_checkin`
 
 CREATE TABLE `roles` (
   `role_id` bigint(20) UNSIGNED NOT NULL,
-  `role_displayname` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `role_displayname` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`role_id`, `role_displayname`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', NULL, NULL, NULL),
-(2, 'Manager', NULL, NULL, NULL),
-(3, 'Staff', NULL, NULL, NULL);
+INSERT INTO `roles` (`role_id`, `role_displayname`) VALUES
+(1, 'Administrator'),
+(2, 'Manager'),
+(3, 'Staff');
 
 -- --------------------------------------------------------
 
@@ -181,20 +173,18 @@ CREATE TABLE `rooms` (
   `bed_id` bigint(20) UNSIGNED NOT NULL,
   `RT_id` bigint(20) UNSIGNED NOT NULL,
   `rate_id` bigint(20) UNSIGNED NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`room_id`, `bed_id`, `RT_id`, `rate_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, NULL, NULL, NULL),
-(2, 2, 2, 3, NULL, NULL, NULL),
-(3, 3, 3, 2, NULL, NULL, NULL),
-(4, 1, 1, 1, NULL, NULL, NULL);
+INSERT INTO `rooms` (`room_id`, `bed_id`, `RT_id`, `rate_id`, `status`) VALUES
+(1, 1, 1, 4, 1),
+(2, 2, 2, 3, 1),
+(3, 3, 3, 2, 1),
+(4, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -204,20 +194,17 @@ INSERT INTO `rooms` (`room_id`, `bed_id`, `RT_id`, `rate_id`, `deleted_at`, `cre
 
 CREATE TABLE `roomtypes` (
   `RT_id` bigint(20) UNSIGNED NOT NULL,
-  `room_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `room_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roomtypes`
 --
 
-INSERT INTO `roomtypes` (`RT_id`, `room_type`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'ordinary', NULL, NULL, NULL),
-(2, 'Air conditioned', NULL, NULL, NULL),
-(3, 'deluxe', NULL, NULL, NULL);
+INSERT INTO `roomtypes` (`RT_id`, `room_type`) VALUES
+(1, 'ordinary'),
+(2, 'Air conditioned'),
+(3, 'deluxe');
 
 -- --------------------------------------------------------
 
@@ -235,22 +222,17 @@ CREATE TABLE `users` (
   `user_DOB` date NOT NULL,
   `user_contactnum` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `user_password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `role_id`, `user_Fname`, `user_Mname`, `user_Lname`, `user_address`, `user_DOB`, `user_contactnum`, `user_username`, `user_password`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '2001-01-13', '09261364720', 'superadmin', 'password', NULL, NULL, NULL, NULL),
-(2, 2, 'Chelsea', 'Vannesa', 'Torres', 'Pulong Matong General Tinio Ne', '2002-01-13', '09261364720', 'chelsea', 'password', NULL, NULL, NULL, NULL),
-(3, 3, 'Jomari', 'Banayo', 'Mallare', 'Sampaguita General Tinio Ne', '2003-01-13', '09261364720', 'joms', 'password', NULL, NULL, NULL, NULL),
-(4, 3, 'kim', 'razel', 'manuel', 'Sampaguita General Tinio Ne', '2001-02-13', '1342342', 'kim21', 'password', NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`user_id`, `role_id`, `user_Fname`, `user_Mname`, `user_Lname`, `user_address`, `user_DOB`, `user_contactnum`, `user_username`, `user_password`) VALUES
+(1, 1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '2001-01-13', '09261364720', 'superadmin', 'password'),
+(2, 2, 'Chelsea', 'Vannesa', 'Torres', 'Pulong Matong General Tinio Ne', '2002-01-13', '09261364720', 'chelsea', 'password'),
+(3, 3, 'Jomari', 'Toto', 'Mallare', 'Sampaguita General Tinio Ne', '2003-01-13', '09261364720', 'joms', 'password');
 
 --
 -- Indexes for dumped tables
@@ -263,10 +245,25 @@ ALTER TABLE `beds`
   ADD PRIMARY KEY (`bed_id`);
 
 --
+-- Indexes for table `checkinandout`
+--
+ALTER TABLE `checkinandout`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `checkinandout_cust_id_foreign` (`cust_id`),
+  ADD KEY `checkinandout_room_id_foreign` (`room_id`);
+
+--
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`cust_id`);
+
+--
+-- Indexes for table `inventories`
+--
+ALTER TABLE `inventories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `inventories_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `migrations`
@@ -279,14 +276,6 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `rates`
   ADD PRIMARY KEY (`rate_id`);
-
---
--- Indexes for table `reservations`
---
-ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`res_id`),
-  ADD KEY `reservations_cust_id_foreign` (`cust_id`),
-  ADD KEY `reservations_room_id_foreign` (`room_id`);
 
 --
 -- Indexes for table `roles`
@@ -328,28 +317,34 @@ ALTER TABLE `beds`
   MODIFY `bed_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `checkinandout`
+--
+ALTER TABLE `checkinandout`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `cust_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `inventories`
+--
+ALTER TABLE `inventories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rates`
 --
 ALTER TABLE `rates`
   MODIFY `rate_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `reservations`
---
-ALTER TABLE `reservations`
-  MODIFY `res_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -373,18 +368,24 @@ ALTER TABLE `roomtypes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `reservations`
+-- Constraints for table `checkinandout`
 --
-ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`cust_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reservations_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE CASCADE;
+ALTER TABLE `checkinandout`
+  ADD CONSTRAINT `checkinandout_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`cust_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `checkinandout_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `inventories`
+--
+ALTER TABLE `inventories`
+  ADD CONSTRAINT `inventories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `rooms`

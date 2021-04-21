@@ -7,7 +7,6 @@ package Views.Authentication;
 
 import Controllers.SQL;
 import Views.Dashboards.AdminDashboard;
-import Views.Dashboards.StaffAndManagerDashboard;
 import com.placeholder.PlaceHolder;
 import java.awt.Color;
 import java.awt.HeadlessException;
@@ -329,7 +328,7 @@ public class Login extends javax.swing.JFrame {
                       new  AdminDashboard(fullname,roles).setVisible(true);
                       this.dispose();
                     }else{
-                      new  StaffAndManagerDashboard(fullname,roles).setVisible(true);
+                       new  AdminDashboard(fullname,roles).setVisible(true);
                       this.dispose();
                     }
                 }else{
