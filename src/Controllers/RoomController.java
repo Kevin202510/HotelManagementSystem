@@ -68,6 +68,7 @@ public class RoomController {
             row[3] = list.get(i).getrates();
             row[4] = list.get(i).getstatus();
             model.addRow(row);
+            JOptionPane.showMessageDialog(roomstable, i);
          }
        }
     

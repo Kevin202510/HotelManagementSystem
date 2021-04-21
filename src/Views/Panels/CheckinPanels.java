@@ -79,6 +79,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         cusContact2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        checkintime = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));

@@ -30,8 +30,7 @@ public class AdminDashboard extends javax.swing.JFrame {
      * 
      */
     
-    public static String fullname;
-     public static String role="Staff";
+    public static String fullname,role;
     
     public AdminDashboard(String fullname,String role) {
         initComponents();
