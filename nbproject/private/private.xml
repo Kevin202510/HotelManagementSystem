@@ -4,14 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminDashboard.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/SalesPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Home.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Receipts.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/test.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CustomerController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CustomersPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/StaffAndManagerDashboard.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Rooms.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/RoomsPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CheckinAndOutController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RatesController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Rates.java</file>
         </group>
     </open-files>
 </project-private>

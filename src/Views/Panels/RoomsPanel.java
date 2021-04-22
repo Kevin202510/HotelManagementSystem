@@ -55,13 +55,13 @@ public class RoomsPanel extends javax.swing.JPanel {
         Status = new javax.swing.JTextField();
         save = new javax.swing.JButton();
         delete = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        roomstable = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        roomstable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -169,8 +169,14 @@ public class RoomsPanel extends javax.swing.JPanel {
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
         jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 126, 61));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 210, -1));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, -1));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, -1));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, -1));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, -1));
 
-        roomstable.setBackground(new java.awt.Color(191, 191, 191));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, -1, 700));
+
         roomstable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         roomstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,17 +186,9 @@ public class RoomsPanel extends javax.swing.JPanel {
                 "ID", "Room Type", "Bed Type", "Rate", "Status"
             }
         ));
-        roomstable.setPreferredSize(new java.awt.Dimension(300, 0));
         jScrollPane1.setViewportView(roomstable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 1140, 700));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 210, -1));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, -1));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, -1));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, -1));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, -1));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, -1, 700));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 1140, 700));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed

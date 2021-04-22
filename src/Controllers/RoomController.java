@@ -31,7 +31,8 @@ public class RoomController {
     
     public ArrayList<Rooms> roomList() throws SQLException{
         ArrayList<Rooms> roomList = new ArrayList<>();
-        String tanong = "SELECT * FROM rooms LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id";
+//         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
+        String tanong = "SELECT * FROM rooms";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
@@ -63,12 +64,11 @@ public class RoomController {
          Object[] row = new Object[5];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
-            row[1] = list.get(i).getbed();
-            row[2] = list.get(i).getroomtype();
-            row[3] = list.get(i).getrates();
+            row[1] = list.get(i).getbed_id();
+            row[2] = list.get(i).getRT_id();
+            row[3] = list.get(i).getrate_id();
             row[4] = list.get(i).getstatus();
             model.addRow(row);
-            JOptionPane.showMessageDialog(roomstable, i);
          }
        }
     

@@ -39,17 +39,13 @@ public class RatesController {
     }
      public void showRates() throws SQLException{
         ArrayList<Rates> list = rateList();
-        Object[] row = new Object[5];
+//        Object[] row = new Object[2];
          for (int i = 0; i < list.size(); i++) {
-            String name = list.get(i).getrate_id() + " " +
+            list.get(i).getrate_id();
             list.get(i).getrate_price();
-            JOptionPane.showMessageDialog(null,name);
-          //model.addRow(row);
+            rateList.add(list.get(i));
+//model.addRow(row);
          }
-    }
-    
-    public static void main(String args[]) throws SQLException{
-        new RatesController().showRates();
     }
     
     
