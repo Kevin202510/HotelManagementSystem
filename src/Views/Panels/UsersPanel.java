@@ -9,11 +9,11 @@ package Views.Panels;
 import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
-import Views.Authentication.Register;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,27 +25,12 @@ import javax.swing.table.DefaultTableModel;
  * @author ❤Kevin Felix Caluag❤
  */
 public class UsersPanel extends javax.swing.JPanel {
-     public void showUsers() throws SQLException{
-         UserController user = new UserController();
-         ArrayList<Users> list = user.userList();
-         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-         Object[] row = new Object[8];
-         for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getuser_id();
-            row[1] = list.get(i).getrole_displayname();
-            row[2] = list.get(i).getuser_fullname();
-            row[3] = list.get(i).getuser_address();
-            row[4] = list.get(i).getuser_DOB();
-            row[5] = list.get(i).getuser_contactnum();
-            row[6] = list.get(i).getuser_username();
-            row[7] = list.get(i).getuser_password();
-            model.addRow(row);
-         }
-    }
      
+    public UserController userControll = new UserController();
+    
     public UsersPanel() throws SQLException {
         initComponents();
-        showUsers();
+        userControll.showUsers(jTable1);
     }
 
     /** This method is called from within the constructor to
@@ -85,10 +70,11 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
         udob = new com.toedter.calendar.JDateChooser();
         upass = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        Add = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -115,10 +101,16 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         });
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTable1.setOpaque(false);
         jTable1.setRowHeight(40);
         jTable1.setShowGrid(false);
         jTable1.setSurrendersFocusOnKeystroke(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setMinWidth(50);
@@ -266,15 +258,15 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel10.setText("PASS :");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 392, 61, 30));
 
-        jButton1.setBackground(new java.awt.Color(51, 102, 255));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jButton1.setText("DELETE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Delete.setBackground(new java.awt.Color(51, 102, 255));
+        Delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Delete.setText("DELETE");
+        Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 93, 36));
+        jPanel1.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 93, 36));
 
         udob.setBackground(new java.awt.Color(0, 77, 77));
         udob.setDateFormatString("yyyy-MM-dd");
@@ -287,15 +279,25 @@ public class UsersPanel extends javax.swing.JPanel {
         upass.setBorder(null);
         jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 220, 30));
 
-        jButton2.setBackground(new java.awt.Color(51, 102, 255));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jButton2.setText("ADD");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Add.setBackground(new java.awt.Color(51, 102, 255));
+        Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Add.setText("ADD");
+        Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AddActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 93, 36));
+        jPanel1.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 93, 36));
+
+        Update.setBackground(new java.awt.Color(51, 102, 255));
+        Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Update.setText("UPDATE");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 93, 36));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 306, 710));
     }// </editor-fold>//GEN-END:initComponents
@@ -303,27 +305,57 @@ public class UsersPanel extends javax.swing.JPanel {
     private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
-public UserController users = new UserController();
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+     
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         Users userss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //        Date Birthdate = df.format(DOB.getDate());
         userss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
-            users.createUser(userss);
+            boolean checkUser = userControll.createUser(userss,jTable1);
+            if (checkUser==true) {
+                userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AddActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        Users usersss;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        int id = jTable1.getSelectedRow();
+        usersss=new Users(id,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        try {
+            boolean checkUserUpdate = userControll.updateUser(usersss, id, jTable1);
+            if (checkUserUpdate==true) {
+                userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        try {
+            int id = jTable1.getSelectedRow();
+            userControll.fillUserForm(id,jTable1, uaname, umi, usn, uadd, udob, ucon, uname, upass);
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Add;
+    private javax.swing.JButton Delete;
+    private javax.swing.JButton Update;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

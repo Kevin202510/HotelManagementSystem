@@ -62,8 +62,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         viewpass = new javax.swing.JButton();
         hidepass = new javax.swing.JButton();
-        hov1 = new javax.swing.JPanel();
-        signup = new javax.swing.JLabel();
         hov3 = new javax.swing.JPanel();
         signin = new javax.swing.JLabel();
 
@@ -111,6 +109,11 @@ public class Login extends javax.swing.JFrame {
         password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passwordMouseClicked(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
         jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 278, 30));
@@ -175,43 +178,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 30, 30));
 
-        hov1.setBackground(new java.awt.Color(0, 204, 255));
-
-        signup.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        signup.setForeground(new java.awt.Color(255, 255, 255));
-        signup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signup.setText("Sign Up");
-        signup.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                signupMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                signupMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                signupMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout hov1Layout = new javax.swing.GroupLayout(hov1);
-        hov1.setLayout(hov1Layout);
-        hov1Layout.setHorizontalGroup(
-            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, hov1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        hov1Layout.setVerticalGroup(
-            hov1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 150, 40));
-
         hov3.setBackground(new java.awt.Color(0, 204, 255));
 
         signin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -234,20 +200,14 @@ public class Login extends javax.swing.JFrame {
         hov3.setLayout(hov3Layout);
         hov3Layout.setHorizontalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(signin, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(signin, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
         );
         hov3Layout.setVerticalGroup(
             hov3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(signin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(signin, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 40));
+        jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 400, 480));
 
@@ -279,14 +239,6 @@ public class Login extends javax.swing.JFrame {
         password.setEchoChar('*');
     }//GEN-LAST:event_hidepassActionPerformed
 
-    private void signupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseEntered
-        setC(hov1);
-    }//GEN-LAST:event_signupMouseEntered
-
-    private void signupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseExited
-        resetC(hov1);
-    }//GEN-LAST:event_signupMouseExited
-
     private void signinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseEntered
          setC(hov3);
     }//GEN-LAST:event_signinMouseEntered
@@ -303,10 +255,10 @@ public class Login extends javax.swing.JFrame {
         password.setText("");
         password.setEchoChar('*');
     }//GEN-LAST:event_passwordMouseClicked
-
-    private void signinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseClicked
-      String uname=username.getText();
-        String pass=String.valueOf(password.getPassword());
+    
+    public void signIn(){
+        String uname=username.getText();
+      String pass=String.valueOf(password.getPassword());
              try {
                 SQL sql = new SQL();
                 Connection con;
@@ -337,12 +289,17 @@ public class Login extends javax.swing.JFrame {
             } catch (HeadlessException | NumberFormatException | SQLException e) {
                 JOptionPane.showMessageDialog(this,e);
             }
+    }
+    
+    private void signinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseClicked
+        signIn();
     }//GEN-LAST:event_signinMouseClicked
 
-    private void signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseClicked
-        new Register().setVisible(true); 
-        this.dispose();//to close the current jframe
-    }//GEN-LAST:event_signupMouseClicked
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if(evt.getKeyCode()==10){
+            signIn();
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -386,7 +343,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hidepass;
-    private javax.swing.JPanel hov1;
     private javax.swing.JPanel hov3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -397,7 +353,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel signin;
-    private javax.swing.JLabel signup;
     private javax.swing.JTextField username;
     private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables
