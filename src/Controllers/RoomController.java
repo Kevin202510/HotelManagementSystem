@@ -77,18 +77,16 @@ public class RoomController {
   public boolean createRooms(Rooms rooms,JTable roomstable) throws SQLException{
         
         Connection con = sql.getConnection();
-        String insert = "INSERT INTO rooms(room_id,RT_id,bed_id,rate_id,status) VALUES (?,?,?,?,?)";
+        String insert = "INSERT INTO rooms(RT_id,bed_id,rate_id,status) VALUES (?,?,?,?)";
         PreparedStatement st = con.prepareStatement(insert);
-        st.setInt(1, rooms.getroom_id());
-        st.setInt(2, rooms.getRT_id());
-        st.setInt(3, rooms.getbed_id());
-        st.setInt(4, rooms.getrate_id());
-        st.setInt(5, rooms.getstatusid());
+        st.setInt(1, rooms.getRT_id());
+        st.setInt(2, rooms.getbed_id());
+        st.setInt(3, rooms.getrate_id());
+        st.setInt(4, rooms.getstatusid());
         int i = st.executeUpdate();
         if (i > 0) {
         DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
         model.setRowCount(0);
-        Room(roomstable);
         JOptionPane.showMessageDialog(null,"Successfully Check in!!");
         return true;
         } else {

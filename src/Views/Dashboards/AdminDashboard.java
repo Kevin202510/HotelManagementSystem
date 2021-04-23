@@ -659,7 +659,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         if (users.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -678,7 +678,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rooms.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -716,7 +716,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void rooms1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rooms1MouseClicked
         if (rooms.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -742,7 +742,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                     new ContainerManipulator(lalagyanan,new Views.Panels.CheckinPanels(lalagyanan));
                 }else{
                     JOptionPane.showMessageDialog(null,"Sorry there's have no available rooms at this moment");
-                    new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel());
+                    new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
                 }
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -761,7 +761,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void checkOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseClicked
         if (checkOut.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels());
+                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }

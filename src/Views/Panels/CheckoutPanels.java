@@ -12,11 +12,15 @@ import Models.Customers;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -35,7 +39,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
      public Customers customers;
      public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
      
-    public CheckoutPanels() throws SQLException {
+    public CheckoutPanels(JPanel lalagyanan) throws SQLException {
         initComponents();
 //        fillField();
     }
@@ -185,25 +189,32 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private void fillField() throws SQLException{
         ArrayList<Customers> list = new CustomerController().custList();
         String room_id="";
-        String tanong = "Select * from checkinandout where id='"+id+"'";
+        String datein="";
+        String tanong = "Select * from checkinandout where id=2";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
-        if (!rs.next()) {
-            JOptionPane.showMessageDialog(null,"There's have no existing data in databased!");
-            search_cust_checkin_id.setText("");
-        }else{
-            while(rs.next()){
+         while(rs.next()){
                     room_id = String.valueOf(rs.getInt("room_id"));
-            }
+                     datein = rs.getString("checkin_date");
+         }
+           
          int index = id+1;
         co_custfullname.setText(list.get(index).getcust_fullname());
         co_custaddress.setText(list.get(index).getcust_address());
         co_custcontact.setText(list.get(index).getcust_contactnum());
         co_custtime.setText(check_in_out_controll.getTimeNow());
         co_custdate.setText(check_in_out_controll.getDateNow());
-        co_rooms.setText(room_id);  
-        }
+        co_rooms.setText(room_id);
+        JOptionPane.showMessageDialog(null,datein);
+        String checkindate = datein;
+        String checkoutdate = String.valueOf(check_in_out_controll.getDateNow());
+        LocalDate checkin = LocalDate.parse(checkindate);
+        LocalDate checkout = LocalDate.parse(checkoutdate);
+        Long days = ChronoUnit.DAYS.between(checkin,checkout);
+        JOptionPane.showMessageDialog(null,days);
+        int total = (int) (500 * days);
+        JOptionPane.showMessageDialog(null,total);
     }
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
         search_cust_checkin_id.setText("");

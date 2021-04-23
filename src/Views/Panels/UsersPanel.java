@@ -9,6 +9,7 @@ package Views.Panels;
 import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
+import Views.Dashboards.ContainerManipulator;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
@@ -18,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,9 +30,14 @@ public class UsersPanel extends javax.swing.JPanel {
      
     public UserController userControll = new UserController();
     
-    public UsersPanel() throws SQLException {
+    public int id;
+    public JPanel lalagyanan;
+    
+    public UsersPanel(JPanel lalagyanan) throws SQLException {
         initComponents();
+        Update.setVisible(false);
         userControll.showUsers(jTable1);
+        this.lalagyanan=lalagyanan;
     }
 
     /** This method is called from within the constructor to
@@ -297,7 +304,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 UpdateActionPerformed(evt);
             }
         });
-        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 93, 36));
+        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 93, 36));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 306, 710));
     }// </editor-fold>//GEN-END:initComponents
@@ -307,7 +314,14 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_unameActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-     
+        try {
+            boolean checkDeleteUser = userControll.deleteUser(id, jTable1);
+            if (checkDeleteUser==true) {
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
@@ -319,6 +333,7 @@ public class UsersPanel extends javax.swing.JPanel {
             boolean checkUser = userControll.createUser(userss,jTable1);
             if (checkUser==true) {
                 userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -328,12 +343,13 @@ public class UsersPanel extends javax.swing.JPanel {
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         Users usersss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        int id = jTable1.getSelectedRow();
-        usersss=new Users(id,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        id = jTable1.getSelectedRow();
+        usersss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             boolean checkUserUpdate = userControll.updateUser(usersss, id, jTable1);
             if (checkUserUpdate==true) {
                 userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -342,8 +358,10 @@ public class UsersPanel extends javax.swing.JPanel {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         try {
-            int id = jTable1.getSelectedRow();
-            userControll.fillUserForm(id,jTable1, uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            Update.setVisible(true);
+            Add.setVisible(false);
+            id = jTable1.getSelectedRow();
+            userControll.fillUserForm(id, uaname, umi, usn, uadd, udob, ucon, uname, upass);
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
