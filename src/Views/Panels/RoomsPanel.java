@@ -179,6 +179,11 @@ public class RoomsPanel extends javax.swing.JPanel {
         delete.setBackground(new java.awt.Color(51, 102, 255));
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
         jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 126, 61));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 210, -1));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, -1));
@@ -223,6 +228,10 @@ public class RoomsPanel extends javax.swing.JPanel {
             //            Logger.getLogger(roomsomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_saveActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
