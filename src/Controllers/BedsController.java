@@ -38,20 +38,20 @@ public class BedsController {
         return roomList;   
     }
     
-//    public void showBeds() throws SQLException{
-//        ArrayList<Beds> list = bedList();
-//        Object[] row = new Object[5];
-//         for (int i = 0; i < list.size(); i++) {
-//            String name = list.get(i).getbed_id() + " " +
-//            list.get(i).getbed_quality();
-//            JOptionPane.showMessageDialog(null,name);
-////            model.addRow(row);
-//         }
-//    }
+   public void showBeds() throws SQLException{
+        ArrayList<Beds> list = bedList();
+        Object[] row = new Object[5];
+         for (int i = 0; i < list.size(); i++) {
+            String name = list.get(i).getbed_id() + " " +
+            list.get(i).getbed_quality();
+            JOptionPane.showMessageDialog(null,name);
+     //^       model.addRow(row);
+         }
+    }
     
-//    public static void main(String args[]) throws SQLException{
-//        new BedsController().showBeds();
-//    }
+    public static void main(String args[]) throws SQLException{
+        new BedsController().showBeds();
+    }
 
   
 }

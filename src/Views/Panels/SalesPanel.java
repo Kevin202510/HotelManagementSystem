@@ -6,6 +6,7 @@
 package Views.Panels;
 
 import Controllers.SQL;
+import Controllers.SaleController;
 import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,26 +26,10 @@ public class SalesPanel extends javax.swing.JPanel {
     /**
      * Creates new form SalesPanel
      */
+    public SaleController salesControll = new SaleController();
     public SalesPanel() throws SQLException {
         initComponents();
-        showSales();
-    }
-    
-    public void showSales() throws SQLException{
-          SQL sql = new SQL();
-         Connection con = sql.getConnection();
-        String tanong = "SELECT * FROM inventories";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
-        DefaultTableModel model = (DefaultTableModel)salesTable.getModel();
-         Object[] row = new Object[5];
-      while(rs.next()){
-            row[0] = rs.getInt("id");
-            row[1] = rs.getString("sales_date");
-            row[2] = rs.getInt("amount");
-            row[3] = rs.getInt("user_id");
-            model.addRow(row);
-      }
+        salesControll.showSales(salesTable);
     }
 
     /**

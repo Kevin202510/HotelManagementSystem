@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Users.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/UserController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Authentication/Login.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Rooms.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/SaleController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Saless.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/BedsController.java</file>
         </group>
     </open-files>
 </project-private>
