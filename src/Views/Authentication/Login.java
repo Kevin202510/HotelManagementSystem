@@ -29,16 +29,6 @@ public class Login extends javax.swing.JFrame {
     PlaceHolder pl;
     public Login() {
         initComponents();
-//        new PlaceHolder
-        pl = new PlaceHolder(username,"Username");
-        pl.setSize(14);
-        pl.setColorSimple(Color.decode("#FFFFFF"));
-        pl.setColorHolder(Color.decode("#FFFFFF"));
-        pl = new PlaceHolder(password,"Password");
-        password.setEchoChar((char)0);
-        pl.setSize(14);
-        pl.setColorHolder(Color.decode("#FFFFFF"));
-        pl.setColorSimple(Color.decode("#FFFFFF"));
     }
 
     /**
@@ -58,7 +48,6 @@ public class Login extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         viewpass = new javax.swing.JButton();
         hidepass = new javax.swing.JButton();
@@ -123,21 +112,6 @@ public class Login extends javax.swing.JFrame {
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 270, 10));
-
-        jPanel4.setBackground(new java.awt.Color(0, 204, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 211, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 21, -1, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 204, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -348,7 +322,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JPasswordField password;
