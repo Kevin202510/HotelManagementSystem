@@ -190,22 +190,36 @@ public class CheckoutPanels extends javax.swing.JPanel {
         ArrayList<Customers> list = new CustomerController().custList();
         String room_id="";
         String datein="";
-        String tanong = "Select * from checkinandout where id=2";
+        int customer_id=0;
+        int index=0;
+        String tanong = "Select * from checkinandout where id='"+id+"'";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
          while(rs.next()){
                     room_id = String.valueOf(rs.getInt("room_id"));
+                    customer_id = rs.getInt("cust_id");
                      datein = rs.getString("checkin_date");
          }
            
-         int index = id+1;
+         for(int i =0;i<list.size();i++){
+             int initid = list.get(i).getcust_id();
+             if (initid==customer_id) {
+               index=i;
+             }
+         }
+         
+         JOptionPane.showMessageDialog(null,index);
         co_custfullname.setText(list.get(index).getcust_fullname());
         co_custaddress.setText(list.get(index).getcust_address());
         co_custcontact.setText(list.get(index).getcust_contactnum());
         co_custtime.setText(check_in_out_controll.getTimeNow());
         co_custdate.setText(check_in_out_controll.getDateNow());
         co_rooms.setText(room_id);
+        String tanongs = "UPDATE checkinandout SET timeout = '"+check_in_out_controll.getTimeNow()+"' , checkout_date = '"+check_in_out_controll.getDateNow()+"'  where id='"+id+"'";
+        Statement sts = con.createStatement();
+        sts.executeUpdate(tanongs);
+        
         JOptionPane.showMessageDialog(null,datein);
         String checkindate = datein;
         String checkoutdate = String.valueOf(check_in_out_controll.getDateNow());

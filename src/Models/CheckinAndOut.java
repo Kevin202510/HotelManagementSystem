@@ -11,10 +11,11 @@ package Models;
  */
 public class CheckinAndOut{
     
-     private int cust_id,room_id;
+     private int cust_id,room_id,checkinout;
     private String checkin_date,checkout_date,timein,timeout;
     
-    public CheckinAndOut(int cust_id,int room_id,String checkin_date,String checkout_date,String timein,String timeout){
+    public CheckinAndOut(int checkinout,int cust_id,int room_id,String checkin_date,String checkout_date,String timein,String timeout){
+        this.checkinout=checkinout;
         this.cust_id=cust_id;
         this.room_id=room_id;
         this.checkin_date=checkin_date;
@@ -23,7 +24,9 @@ public class CheckinAndOut{
         this.timeout=timeout;
     }
     
-    public int getcusId(){
+    public int getcheckInOut(){
+        return checkinout;
+    } public int getcusId(){
         return cust_id;
     }public int getroomId(){
         return room_id;

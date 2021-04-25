@@ -31,23 +31,27 @@ public class UserController {
    
     public  SQL sql = new SQL();
     public  ArrayList<Users> userList = new ArrayList<>();
+    public ArrayList<Users> list;
+    public Connection con = sql.getConnection();
+    
+    public UserController() throws SQLException{
+         this.list = userList();
+    }
     
     public ArrayList<Users> userList() throws SQLException{
-        Connection con = sql.getConnection();
-        String tanong = "Select * from users INNER JOIN roles ON users.role_id = roles.role_id where users.role_id = 2 OR users.role_id=3;";
+        String tanong = "Select * from users where role_id > 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         Users users;
         
         while(rs.next()){
-            users=new Users(rs.getInt("user_id"),rs.getString("role_displayname"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
+            users=new Users(rs.getInt("user_id"),rs.getInt("role_id"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
             userList.add(users);
         }
         return userList;   
     }
     
     public boolean createUser(Users user,JTable roomstable) throws SQLException{
-        Connection con = sql.getConnection();
         String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +user.getuser_Fname()+ "','" +user.getuser_Mname()+"','" +user.getuser_Lname()+"','" +user.getuser_address()+"','" +user.getuser_DOB()+"','" +user.getuser_contactnum()+"','" +user.getuser_username()+"','" +user.getuser_password()+"')";
         PreparedStatement st = con.prepareStatement(insert);
         int i = st.executeUpdate();
@@ -63,12 +67,12 @@ public class UserController {
     }
     
     public void showUsers(JTable jTable1) throws SQLException{
-         ArrayList<Users> list = userList();
+//         ArrayList<Users> list = userList();
          DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
          Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getuser_id();
-            row[1] = list.get(i).getrole_displayname();
+            row[1] = list.get(i).getrole_id();
             row[2] = list.get(i).getuser_fullname();
             row[3] = list.get(i).getuser_address();
             row[4] = list.get(i).getuser_DOB();
@@ -91,7 +95,7 @@ public class UserController {
     }
     
      public void fillUserForm(int user_id,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
-        ArrayList<Users> list = userList();
+//        ArrayList<Users> list = userList();
             uaname.setText(list.get(user_id).getuser_Fname());
             umi.setText(list.get(user_id).getuser_Mname());
             usn.setText(list.get(user_id).getuser_Lname());
@@ -104,9 +108,8 @@ public class UserController {
     }
      
      public boolean updateUser(Users users,int user_id,JTable usertables) throws SQLException{
-        ArrayList<Users> list = userList();
+//        ArrayList<Users> list = userList();
         int id = list.get(user_id).getuser_id();
-        Connection con = sql.getConnection();
         String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + id + "'";
         PreparedStatement st = con.prepareStatement(updates);
         st.setString(1, users.getuser_Fname());
@@ -130,8 +133,7 @@ public class UserController {
      }
      
      public boolean deleteUser(int id,JTable jTable1) throws SQLException{
-        Connection con = sql.getConnection();
-        ArrayList<Users> list = userList();
+//        ArrayList<Users> list = userList();
         int deleteUserId = list.get(id).getuser_id();
         String delete = "DELETE FROM users WHERE user_id = ?";
         PreparedStatement st = con.prepareStatement(delete);
