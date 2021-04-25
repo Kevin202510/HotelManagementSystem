@@ -186,6 +186,10 @@ import javax.swing.table.DefaultTableModel;
         jLabel8.setText("ROOMS");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 73, 36));
 
+        rooms.setBackground(new java.awt.Color(0, 77, 77));
+        rooms.setForeground(new java.awt.Color(255, 255, 255));
+        rooms.setBorder(null);
+        rooms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 190, 40));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 200, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));

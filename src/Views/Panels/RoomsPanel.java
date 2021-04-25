@@ -64,9 +64,7 @@ public class RoomsPanel extends javax.swing.JPanel {
         Roomid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Bedtype = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        Rate = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Status = new javax.swing.JTextField();
         save = new javax.swing.JButton();
@@ -77,6 +75,8 @@ public class RoomsPanel extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         roomType = new javax.swing.JComboBox<>();
+        Bedtype = new javax.swing.JComboBox<>();
+        Rate = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomstable = new javax.swing.JTable();
 
@@ -138,22 +138,10 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel5.setText("Bed Type");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 90, 41));
 
-        Bedtype.setBackground(new java.awt.Color(0, 77, 77));
-        Bedtype.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
-        Bedtype.setForeground(new java.awt.Color(255, 255, 255));
-        Bedtype.setBorder(null);
-        jPanel2.add(Bedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 213, 30));
-
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Rate");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 73, 41));
-
-        Rate.setBackground(new java.awt.Color(0, 77, 77));
-        Rate.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
-        Rate.setForeground(new java.awt.Color(255, 255, 255));
-        Rate.setBorder(null);
-        jPanel2.add(Rate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,10 +179,25 @@ public class RoomsPanel extends javax.swing.JPanel {
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, -1));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, -1));
 
+        roomType.setBackground(new java.awt.Color(0, 77, 77));
         roomType.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         roomType.setForeground(new java.awt.Color(255, 255, 255));
         roomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        roomType.setBorder(null);
+        roomType.setOpaque(false);
         jPanel2.add(roomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 210, 40));
+
+        Bedtype.setBackground(new java.awt.Color(0, 77, 77));
+        Bedtype.setForeground(new java.awt.Color(255, 255, 255));
+        Bedtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Bedtype.setBorder(null);
+        jPanel2.add(Bedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 210, 40));
+
+        Rate.setBackground(new java.awt.Color(0, 77, 77));
+        Rate.setForeground(new java.awt.Color(255, 255, 255));
+        Rate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Rate.setBorder(null);
+        jPanel2.add(Rate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 210, 40));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 340, 700));
 
@@ -214,8 +217,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
 //     int roomtype=Integer.parseInt(Roomtype.getText());
-     int bedtype= Integer.parseInt(Bedtype.getText());
-     int rate=Integer.parseInt(Rate.getText());
+//     int bedtype= Integer.parseInt(Bedtype.getText());
+//     int rate=Integer.parseInt(Rate.getText());
      int status=Integer.parseInt(Status.getText());
 //        roomModel = new Rooms(index,roomtype,bedtype,rate,status);
         try {
@@ -235,8 +238,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Bedtype;
-    private javax.swing.JTextField Rate;
+    private javax.swing.JComboBox<String> Bedtype;
+    private javax.swing.JComboBox<String> Rate;
     private javax.swing.JTextField Roomid;
     private javax.swing.JTextField Status;
     private javax.swing.JButton delete;
