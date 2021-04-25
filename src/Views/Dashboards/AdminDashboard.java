@@ -113,7 +113,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabelRound2MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 56, 41, 39));
+        AdminButtons.add(jLabelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 41, 39));
 
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,7 +121,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabelRound3MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 40, 39));
+        AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 39));
 
         jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
         jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,7 +129,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 jLabelRound1MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 11, 40, 39));
+        AdminButtons.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -318,7 +318,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         lalagyanan.setPreferredSize(new java.awt.Dimension(1480, 790));
         lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, 790));
+        getContentPane().add(lalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, 800));
 
         jPanel3.setBackground(new java.awt.Color(83, 140, 198));
 

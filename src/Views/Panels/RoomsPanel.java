@@ -68,7 +68,9 @@ public class RoomsPanel extends javax.swing.JPanel {
         Roomid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        Bedtype = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        Rate = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Status = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -180,20 +182,8 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomType.setBackground(new java.awt.Color(0, 77, 77));
         roomType.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
         roomType.setForeground(new java.awt.Color(255, 255, 255));
-        roomType.setBorder(null);
+        roomType.setOpaque(false);
         jPanel2.add(roomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 213, 30));
-
-        Bedtype.setBackground(new java.awt.Color(0, 77, 77));
-        Bedtype.setForeground(new java.awt.Color(255, 255, 255));
-        Bedtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Bedtype.setBorder(null);
-        jPanel2.add(Bedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 210, 40));
-
-        Rate.setBackground(new java.awt.Color(0, 77, 77));
-        Rate.setForeground(new java.awt.Color(255, 255, 255));
-        Rate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Rate.setBorder(null);
-        jPanel2.add(Rate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 210, 40));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 340, 700));
 
@@ -267,8 +257,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Bedtype;
-    private javax.swing.JComboBox<String> Rate;
+    private javax.swing.JTextField Bedtype;
+    private javax.swing.JTextField Rate;
     private javax.swing.JTextField Roomid;
     private javax.swing.JTextField Status;
     private javax.swing.JLabel jLabel1;

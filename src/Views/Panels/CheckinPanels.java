@@ -47,6 +47,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
         roomControll.showRooms(rooms1);
+        roomControll.Room(roomsTable);
         checkindate.setText(check_in_out_controll.getDateNow());
         checkintime1.setText(check_in_out_controll.getTimeNow());
         
@@ -82,7 +83,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        roomsTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,19 +172,38 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel3.setText("HOTEL MANAGEMENT");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 610, 50));
 
-        jTable1.setBackground(new java.awt.Color(153, 153, 153));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        roomsTable.setBackground(new java.awt.Color(153, 153, 153));
+        roomsTable.setFont(new java.awt.Font("Bell MT", 1, 18)); // NOI18N
+        roomsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
                 "ID", "RoomType", "BedType", "Rate", "Status"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        roomsTable.setOpaque(false);
+        roomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roomsTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(roomsTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 1120, 220));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
+        JOptionPane.showMessageDialog(null,"hello world");
+    }//GEN-LAST:event_roomsTableMouseClicked
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         customers = new Customers(1,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
@@ -228,8 +248,8 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> rooms1;
+    private javax.swing.JTable roomsTable;
     private javax.swing.JButton save1;
     // End of variables declaration//GEN-END:variables
 }
