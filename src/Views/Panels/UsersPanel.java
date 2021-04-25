@@ -328,7 +328,7 @@ public class UsersPanel extends javax.swing.JPanel {
         Users userss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //        Date Birthdate = df.format(DOB.getDate());
-        userss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        userss=new Users(0,0,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             boolean checkUser = userControll.createUser(userss,jTable1);
             if (checkUser==true) {
@@ -344,7 +344,7 @@ public class UsersPanel extends javax.swing.JPanel {
         Users usersss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         id = jTable1.getSelectedRow();
-        usersss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        usersss=new Users(0,0,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             boolean checkUserUpdate = userControll.updateUser(usersss, id, jTable1);
             if (checkUserUpdate==true) {

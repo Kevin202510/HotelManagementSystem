@@ -8,14 +8,9 @@ package Views.Dashboards;
 import Controllers.CheckinAndOutController;
 import Controllers.SQL;
 import Views.Authentication.Login;
-import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
-import java.awt.Component;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import javax.swing.JPanel;
 import java.sql.*;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -608,19 +603,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRound3MouseClicked
 
     private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
-        
-        CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
-        int recieptConfirm=0;
-//JOptionPane.showConfirmDialog(null, new Views.Panels.Receipts(), "Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        do{
-            recieptConfirm = JOptionPane.showConfirmDialog(null,new Views.Panels.Receipts(),"Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-            if (recieptConfirm==0) {
-                check_in_out_controll.printReceipt(new Views.Panels.Receipts());
-                JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
-            }else{
-                JOptionPane.showMessageDialog(null,"You need to Print the Receipt","Error",JOptionPane.ERROR_MESSAGE);
-            }
-        }while(recieptConfirm!=0);
+      
     }//GEN-LAST:event_jLabelRound1MouseClicked
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
@@ -828,8 +811,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRound5MouseClicked
 
     private void jLabelRound6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound6MouseClicked
-        JOptionPane.showConfirmDialog(null, new Views.Panels.Receipts(), "Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-        //            new Views.Panels.Receipts().setVisible(true);
+         
     }//GEN-LAST:event_jLabelRound6MouseClicked
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home1MouseClicked

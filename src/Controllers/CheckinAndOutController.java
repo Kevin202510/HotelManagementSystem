@@ -54,7 +54,7 @@ public class CheckinAndOutController{
         CheckinAndOut checkInandOut;
         
         while(rs.next()){
-            checkInandOut=new CheckinAndOut(rs.getInt("cust_id"),rs.getInt("room_id"),rs.getString("checkin_date"),rs.getString("checkout_date"),rs.getString("timein"),rs.getString("timeout"));
+            checkInandOut=new CheckinAndOut(rs.getInt("id"),rs.getInt("cust_id"),rs.getInt("room_id"),rs.getString("checkin_date"),rs.getString("checkout_date"),rs.getString("timein"),rs.getString("timeout"));
             checkinoutList.add(checkInandOut);
         }
         return checkinoutList;   
@@ -62,6 +62,7 @@ public class CheckinAndOutController{
     
             // Method For To Print Panel Contents
     public void printReceipt(JPanel panel){
+        JOptionPane.showMessageDialog(null,panel);
         // Create PrinterJob Here
         PrinterJob printerJob = PrinterJob.getPrinterJob();
         // Set Printer Job Name
@@ -104,10 +105,10 @@ public class CheckinAndOutController{
         }
 }
   
-    public void GenerateQrCode(String cusname,String cusaddress,String custimein,String custimeout,int cusid){
+    public void GenerateQrCode(int cusid){
        try {
-            String qrCodeData = cusname + "\n" + cusaddress + "\n" + custimein + "\n" + custimeout + "\n" + cusid;
-            String filePath = "src\\Images\\QRCODE\\"+ cusname + ".png";
+            String qrCodeData = String.valueOf(cusid);
+            String filePath = "src\\Images\\QRCODE\\"+ cusid + ".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
@@ -116,9 +117,25 @@ public class CheckinAndOutController{
                 BarcodeFormat.QR_CODE, 200, 200, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));
+            fuck(cusid);
         } catch (Exception e) {
             System.err.println(e);
         }
+    }
+    
+    public void fuck(int ids){
+//         int recieptConfirm=0;
+//         do{
+////                    JOptionPane.showMessageDialog(null,"sadasd");
+//                    recieptConfirm = JOptionPane.showConfirmDialog(null,new Views.Panels.Receipts(ids),"Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+//                    if (recieptConfirm==0) {
+JOptionPane.showMessageDialog(null,ids);
+                        printReceipt(new Views.Panels.Receipts(ids));
+                        JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
+//                    }else{
+//                        JOptionPane.showMessageDialog(null,"You need to Print the Receipt","Error",JOptionPane.ERROR_MESSAGE);
+//                    }
+//                }while(recieptConfirm!=0);
     }
     
     public String getDateNow(){
@@ -137,8 +154,11 @@ public class CheckinAndOutController{
      
          public boolean checkIn(JLabel checkindate,JLabel checkintime,JComboBox rooms1) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
+            ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
             int id = list.size()-1;
             int ids = list.get(id).getcust_id();
+            int checkinout = checkinoutList.size()+1; 
+            JOptionPane.showMessageDialog(null,checkinout);
             String room_id1 = rooms1.getSelectedItem().toString();
             int room_id = Integer.parseInt(room_id1);
             String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
@@ -147,7 +167,7 @@ public class CheckinAndOutController{
             roomup.executeUpdate();
 
             CheckinAndOut checkin;
-            checkin = new CheckinAndOut(ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
+            checkin = new CheckinAndOut(checkinout,ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
             String insert = "INSERT INTO checkinandout(timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?)";
            PreparedStatement st = con.prepareStatement(insert);
            st.setString(1, checkin.gettimein());
@@ -159,6 +179,7 @@ public class CheckinAndOutController{
            int i = st.executeUpdate();
             if (i>0) {
                 JOptionPane.showMessageDialog(null,"Successfully Check in!!");
+                 GenerateQrCode(checkinout);
                 return true;
             }else{
                 JOptionPane.showMessageDialog(null,"Error");

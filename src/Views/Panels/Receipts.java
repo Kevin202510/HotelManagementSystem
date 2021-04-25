@@ -29,32 +29,24 @@ public class Receipts extends javax.swing.JPanel {
     /**
      * Creates new form Receipts
      */
+    public int cusid;
+//    public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
     
-    public String cusname="kevin felixs caluag";
-    public String cusaddress="Bago general tinio NE";
-    public String custimein="9am";
-    public String custimeout="3pm";
-    public int cusid=1;
-    public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
-    
-    public Receipts() {
+    public Receipts(int cusid) {
         initComponents();
-        File f = new File("/Images/QRCODE/"+cusname+".png");
+        this.cusid=cusid;
+        File f = new File("/Images/QRCODE/"+cusid+".png");
         if(f.exists()) { 
+            JOptionPane.showMessageDialog(null,"hello");
             displayReciept();
         }else{
-        check_in_out_controll.GenerateQrCode(cusname,cusaddress,custimein,custimeout,cusid);
-        }
+//        check_in_out_controll.GenerateQrCode(cusid);
         displayReciept();
+        }
     }
  
     public void displayReciept(){
-        Cusname.setText(cusname);
-        Cusadd.setText(cusaddress);
-        Cuscontact.setText("09261364720");
-        checkintime.setText(custimein);
-        checkouttime.setText(custimeout);
-        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/"+cusname+".png")));
+        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/"+cusid+".png")));
      }
 
     /**

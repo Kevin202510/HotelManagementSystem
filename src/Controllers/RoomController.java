@@ -37,7 +37,7 @@ public class RoomController {
         ResultSet rs = st.executeQuery(tanong);
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getInt("RT_id"),rs.getInt("bed_id"),rs.getInt("rate_id"),rs.getInt("status"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getInt("bed_id"),rs.getInt("RT_id"),rs.getInt("rate_id"),rs.getInt("status"));
             roomList.add(rooms);
         }
         return roomList;   
@@ -75,7 +75,6 @@ public class RoomController {
 
 
   public boolean createRooms(Rooms rooms,JTable roomstable) throws SQLException{
-        
         Connection con = sql.getConnection();
         String insert = "INSERT INTO rooms(RT_id,bed_id,rate_id,status) VALUES (?,?,?,?)";
         PreparedStatement st = con.prepareStatement(insert);
@@ -94,6 +93,35 @@ public class RoomController {
             return false;
         }
     }
+  
+  public void fillRoomForm(int id,JTextField Roomid,JTextField Roomtype,JTextField Bedtype,JTextField Rate,JTextField Status ) throws SQLException{
+        ArrayList<Rooms> list = roomList();
+        Roomid.setText(String.valueOf(list.get(id).getroom_id()));
+        Roomtype.setText(String.valueOf(list.get(id).getRT_id()));
+        Bedtype.setText(String.valueOf(list.get(id).getbed_id()));
+        Rate.setText(String.valueOf(list.get(id).getrate_id()));
+        Status.setText(String.valueOf(list.get(id).getstatusid()));
+  }
+  
+  public boolean updateRooms(Rooms rooms,int room_id,JTable usertables) throws SQLException{
+        ArrayList<Rooms> list = roomList(); 
+        int id = list.get(room_id).getroom_id();
+        String updateRooms = "UPDATE rooms SET bed_id=?,RT_id=?,rate_id=?,status=? WHERE room_id = '"+id+"'";
+        PreparedStatement st = con.prepareStatement(updateRooms);
+        st.setInt(1, rooms.getbed_id());
+        st.setInt(2, rooms.getRT_id());
+        st.setInt(3, rooms.getrate_id());
+        st.setInt(4, rooms.getstatusid());
+        
+        int i = st.executeUpdate();
+        if (i > 0) {
+           DefaultTableModel model = (DefaultTableModel)usertables.getModel();
+            model.setRowCount(0);
+            return true;
+        }else{
+            return false;
+        }
+     }
   
   public void clearContent(JTextField Roomid,JTextField Roomtype,JTextField Bedtype,JTextField Rate,JTextField Status){
         Roomid.setText("");

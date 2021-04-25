@@ -171,7 +171,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        customers = new Customers(0,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
+        customers = new Customers(1,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
         try {
             custo.createCustomer(customers);
             boolean check =  check_in_out_controll.checkIn(checkindate, checkintime, rooms1);
