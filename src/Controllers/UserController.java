@@ -34,26 +34,38 @@ public class UserController {
     public ArrayList<Users> list;
     public Connection con = sql.getConnection();
     
+//    QUERIES
+    public String kuninLahatNgUser = "SELECT * FROM users INNER JOIN roles ON roles.role_id = users.role_id where users.role_id > 1";
+    public String magdagdagNgUser = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES (?,?,?,?,?,?,?,?,?)";
+    
     public UserController() throws SQLException{
          this.list = userList();
     }
     
     public ArrayList<Users> userList() throws SQLException{
-        String tanong = "Select * from users where role_id > 1";
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(tanong);
+        ResultSet rs = st.executeQuery(kuninLahatNgUser);
         Users users;
         
         while(rs.next()){
-            users=new Users(rs.getInt("user_id"),rs.getInt("role_id"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
+            users=new Users(rs.getInt("user_id"),rs.getString("role_displayname"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
             userList.add(users);
         }
         return userList;   
     }
     
     public boolean createUser(Users user,JTable roomstable) throws SQLException{
-        String insert = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES ('3','" +user.getuser_Fname()+ "','" +user.getuser_Mname()+"','" +user.getuser_Lname()+"','" +user.getuser_address()+"','" +user.getuser_DOB()+"','" +user.getuser_contactnum()+"','" +user.getuser_username()+"','" +user.getuser_password()+"')";
-        PreparedStatement st = con.prepareStatement(insert);
+        PreparedStatement st = con.prepareStatement(magdagdagNgUser);
+        st.setInt(1, 3);
+        st.setString(2, user.getuser_Fname());
+        st.setString(3, user.getuser_Mname());
+        st.setString(4, user.getuser_Lname());
+        st.setString(5, user.getuser_address());
+        st.setString(6, user.getuser_DOB());
+        st.setString(7, user.getuser_contactnum());
+        st.setString(8, user.getuser_username());
+        st.setString(9, user.getuser_password());
+        
         int i = st.executeUpdate();
         if (i > 0) {
             DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
@@ -72,7 +84,7 @@ public class UserController {
          Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getuser_id();
-            row[1] = list.get(i).getrole_id();
+            row[1] = list.get(i).getrole_displayname();
             row[2] = list.get(i).getuser_fullname();
             row[3] = list.get(i).getuser_address();
             row[4] = list.get(i).getuser_DOB();
@@ -96,21 +108,26 @@ public class UserController {
     
      public void fillUserForm(int user_id,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
 //        ArrayList<Users> list = userList();
-            uaname.setText(list.get(user_id).getuser_Fname());
-            umi.setText(list.get(user_id).getuser_Mname());
-            usn.setText(list.get(user_id).getuser_Lname());
-            uadd.setText(list.get(user_id).getuser_address());
-            udob.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(list.get(user_id).getuser_DOB()));
-            ucon.setText(list.get(user_id).getuser_contactnum());
-            uname.setText(list.get(user_id).getuser_username());
-            upass.setText(list.get(user_id).getuser_password());
+            JOptionPane.showMessageDialog(null,user_id);
+            String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(tanong);
+
+            while(rs.next()){
+                uaname.setText(rs.getString("user_Fname"));
+                umi.setText(rs.getString("user_Mname"));
+                usn.setText(rs.getString("user_Lname"));
+                uadd.setText(rs.getString("user_address"));
+                udob.setDate(rs.getDate("user_DOB"));
+                ucon.setText(rs.getString("user_contactnum"));
+                uname.setText(rs.getString("user_username"));
+                upass.setText(rs.getString("user_password"));
+            }
         
     }
      
      public boolean updateUser(Users users,int user_id,JTable usertables) throws SQLException{
-//        ArrayList<Users> list = userList();
-        int id = list.get(user_id).getuser_id();
-        String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + id + "'";
+        String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + user_id + "'";
         PreparedStatement st = con.prepareStatement(updates);
         st.setString(1, users.getuser_Fname());
         st.setString(2, users.getuser_Mname());
@@ -133,11 +150,9 @@ public class UserController {
      }
      
      public boolean deleteUser(int id,JTable jTable1) throws SQLException{
-//        ArrayList<Users> list = userList();
-        int deleteUserId = list.get(id).getuser_id();
         String delete = "DELETE FROM users WHERE user_id = ?";
         PreparedStatement st = con.prepareStatement(delete);
-        st.setInt(1, deleteUserId);
+        st.setInt(1, id);
         int i = st.executeUpdate();
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
@@ -150,3 +165,7 @@ public class UserController {
 
      }
 }
+
+
+
+//         " +user.getuser_Fname()+ "','" +user.getuser_Mname()+"','" +user.getuser_Lname()+"','" +user.getuser_address()+"','" +user.getuser_DOB()+"','" +user.getuser_contactnum()+"','" +user.getuser_username()+"','" +user.getuser_password()+"

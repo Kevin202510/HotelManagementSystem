@@ -328,7 +328,7 @@ public class UsersPanel extends javax.swing.JPanel {
         Users userss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //        Date Birthdate = df.format(DOB.getDate());
-        userss=new Users(0,0,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        userss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             boolean checkUser = userControll.createUser(userss,jTable1);
             if (checkUser==true) {
@@ -343,8 +343,7 @@ public class UsersPanel extends javax.swing.JPanel {
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         Users usersss;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        id = jTable1.getSelectedRow();
-        usersss=new Users(0,0,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        usersss=new Users(0,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             boolean checkUserUpdate = userControll.updateUser(usersss, id, jTable1);
             if (checkUserUpdate==true) {
@@ -359,8 +358,9 @@ public class UsersPanel extends javax.swing.JPanel {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         try {
             Update.setVisible(true);
-            Add.setVisible(false);
-            id = jTable1.getSelectedRow();
+            Add.setVisible(false); 
+            id = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
+            JOptionPane.showMessageDialog(null,id);
             userControll.fillUserForm(id, uaname, umi, usn, uadd, udob, ucon, uname, upass);
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);

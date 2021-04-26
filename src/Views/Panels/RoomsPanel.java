@@ -41,11 +41,19 @@ public class RoomsPanel extends javax.swing.JPanel {
             index1 = roomlist.size()-1;
             index = roomlist.get(index1).getroom_id() + 1;
             Roomid.setText(String.valueOf(index));
+            roomControll.showRoomType(roomTypeId);
+            roomControll.showBedType(bedTypeId);
+            roomControll.showRate(rateId);
         }
         this.lalagyanan=lalagyanan;
-        roomType.setBackground(new Color(0, 0, 0, 0));
-//        roomType.setForeground(new Color(0, 0, 0, 0));
-        roomType.setOpaque(false);
+        roomTypeId.setBackground(new Color(0, 0, 0, 0));
+        roomTypeId.setOpaque(false);
+        bedTypeId.setBackground(new Color(0, 0, 0, 0));
+        bedTypeId.setOpaque(false);
+        rateId.setBackground(new Color(0, 0, 0, 0));
+        rateId.setOpaque(false);
+        statusId.setBackground(new Color(0, 0, 0, 0));
+        statusId.setOpaque(false);
     }
 
 
@@ -68,17 +76,17 @@ public class RoomsPanel extends javax.swing.JPanel {
         Roomid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Bedtype = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        Rate = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        Status = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        roomType = new javax.swing.JTextField();
+        statusId = new javax.swing.JComboBox<>();
+        roomTypeId = new javax.swing.JComboBox<>();
+        bedTypeId = new javax.swing.JComboBox<>();
+        rateId = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomstable = new javax.swing.JTable();
 
@@ -146,44 +154,29 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel5.setText("Bed Type");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 90, 41));
 
-        Bedtype.setBackground(new java.awt.Color(0, 77, 77));
-        Bedtype.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
-        Bedtype.setForeground(new java.awt.Color(255, 255, 255));
-        Bedtype.setBorder(null);
-        jPanel2.add(Bedtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 213, 30));
-
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Rate");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 73, 41));
 
-        Rate.setBackground(new java.awt.Color(0, 77, 77));
-        Rate.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
-        Rate.setForeground(new java.awt.Color(255, 255, 255));
-        Rate.setBorder(null);
-        jPanel2.add(Rate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 210, 30));
-
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Status");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 73, 41));
-
-        Status.setBackground(new java.awt.Color(0, 77, 77));
-        Status.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
-        Status.setForeground(new java.awt.Color(255, 255, 255));
-        Status.setBorder(null);
-        jPanel2.add(Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 213, 30));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 210, -1));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, -1));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, -1));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, -1));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, -1));
 
-        roomType.setBackground(new java.awt.Color(0, 77, 77));
-        roomType.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
-        roomType.setForeground(new java.awt.Color(255, 255, 255));
-        roomType.setOpaque(false);
-        jPanel2.add(roomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 213, 30));
+        statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
+        jPanel2.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 210, 30));
+
+        jPanel2.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 210, 30));
+
+        jPanel2.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 210, 30));
+
+        jPanel2.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 210, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 340, 700));
 
@@ -207,15 +200,15 @@ public class RoomsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-     int roomtype=Integer.parseInt(roomType.getText());
-     int bedtype= Integer.parseInt(Bedtype.getText());
-     int rate=Integer.parseInt(Rate.getText());
-     int status=Integer.parseInt(Status.getText());
-        roomModel = new Rooms(index,roomtype,bedtype,rate,status);
+//     int roomtype=Integer.parseInt(roomType.getText());
+//     int bedtype= Integer.parseInt(Bedtype.getText());
+//     int rate=Integer.parseInt(Rate.getText());
+//     int status=Integer.parseInt(Status.getText());
+//        roomModel = new Rooms(index,roomtype,bedtype,rate,status);
         try {
             boolean checkRoom = roomControll.createRooms(roomModel,roomstable);
             if (checkRoom==true) {
-                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
+//                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
             }
         } catch (SQLException ex) {
@@ -224,18 +217,18 @@ public class RoomsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_saveActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-         id = roomstable.getSelectedRow();
-         int roomtype=Integer.parseInt(roomType.getText());
-        int bedtype= Integer.parseInt(Bedtype.getText());
-        int rate=Integer.parseInt(Rate.getText());
-        int status=Integer.parseInt(Status.getText());
-        roomModel = new Rooms(id,roomtype,bedtype,rate,status);
+//         id = roomstable.getSelectedRow();
+//         int roomtype=Integer.parseInt(roomType.getText());
+//        int bedtype= Integer.parseInt(Bedtype.getText());
+//        int rate=Integer.parseInt(Rate.getText());
+//        int status=Integer.parseInt(Status.getText());
+//        roomModel = new Rooms(id,roomtype,bedtype,rate,status);
         boolean checkUpdate;
         try {
             checkUpdate = roomControll.updateRooms(roomModel, id, roomstable);
              if (checkUpdate==true) {
                 JOptionPane.showMessageDialog(null,"Successfully Updated!!");
-                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
+//                roomControll.clearContent();
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
             }
         } catch (SQLException ex) {
@@ -247,9 +240,10 @@ public class RoomsPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null,"hello");
         update.setVisible(true);
         save.setVisible(false);
-        id = roomstable.getSelectedRow();
+        id = (int) roomstable.getValueAt(roomstable.getSelectedRow(),0);
+//        roomTypeId.setSelectedIndex(2);
         try {
-            roomControll.fillRoomForm(id,Roomid, roomType, Bedtype, Rate, Status);
+            roomControll.fillRoomForm(id,Roomid, roomTypeId, bedTypeId, rateId, statusId);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -257,10 +251,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Bedtype;
-    private javax.swing.JTextField Rate;
     private javax.swing.JTextField Roomid;
-    private javax.swing.JTextField Status;
+    private javax.swing.JComboBox<String> bedTypeId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -276,9 +268,11 @@ public class RoomsPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField roomType;
+    private javax.swing.JComboBox<String> rateId;
+    private javax.swing.JComboBox<String> roomTypeId;
     private javax.swing.JTable roomstable;
     private javax.swing.JButton save;
+    private javax.swing.JComboBox<String> statusId;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

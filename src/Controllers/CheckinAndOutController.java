@@ -27,6 +27,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,6 +38,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -186,4 +189,53 @@ JOptionPane.showMessageDialog(null,ids);
                 return false;
             }
      }
+         
+         
+         
+//         checkout filler
+         
+         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms) throws SQLException{
+            ArrayList<Customers> list = new CustomerController().custList();
+            int room_id=0;
+            String datein="";
+            int customer_id=0;
+            int index=0;
+            String tanong = "Select * from checkinandout where id='"+id+"'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(tanong);
+
+             while(rs.next()){
+                        room_id = rs.getInt("room_id");
+                        customer_id = rs.getInt("cust_id");
+                         datein = rs.getString("checkin_date");
+             }
+
+             for(int i =0;i<list.size();i++){
+                 int initid = list.get(i).getcust_id();
+                 if (initid==customer_id) {
+                   index=i;
+                 }
+             }
+
+             JOptionPane.showMessageDialog(null,index);
+            co_custfullname.setText(list.get(index).getcust_fullname());
+            co_custaddress.setText(list.get(index).getcust_address());
+            co_custcontact.setText(list.get(index).getcust_contactnum());
+            co_custtime.setText(getTimeNow());
+            co_custdate.setText(getDateNow());
+            co_rooms.setText(String.valueOf(room_id));
+            String tanongs = "UPDATE checkinandout SET timeout = '"+getTimeNow()+"' , checkout_date = '"+getDateNow()+"'  where id='"+id+"'";
+            Statement sts = con.createStatement();
+            sts.executeUpdate(tanongs);
+
+            JOptionPane.showMessageDialog(null,datein);
+            String checkindate = datein;
+            String checkoutdate = String.valueOf(getDateNow());
+            LocalDate checkin = LocalDate.parse(checkindate);
+            LocalDate checkout = LocalDate.parse(checkoutdate);
+            Long days = ChronoUnit.DAYS.between(checkin,checkout);
+            JOptionPane.showMessageDialog(null,days);
+            int total = (int) (500 * days);
+            JOptionPane.showMessageDialog(null,total);
+            }
 }

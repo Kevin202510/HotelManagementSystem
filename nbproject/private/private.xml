@@ -7,7 +7,8 @@
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Rooms.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/RoomsPanel.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/UserController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Receipts.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomTypesController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
     </open-files>

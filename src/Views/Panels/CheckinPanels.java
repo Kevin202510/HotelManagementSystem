@@ -47,7 +47,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
         roomControll.showRooms(rooms1);
-        roomControll.Room(roomsTable);
+        roomControll.ShowRoomInCheckin(roomsTable);
         checkindate.setText(check_in_out_controll.getDateNow());
         checkintime1.setText(check_in_out_controll.getTimeNow());
         
@@ -130,7 +130,7 @@ public class CheckinPanels extends javax.swing.JPanel {
                 save1ActionPerformed(evt);
             }
         });
-        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 126, 50));
+        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 126, 50));
 
         delete1.setBackground(new java.awt.Color(51, 102, 255));
         delete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -141,7 +141,7 @@ public class CheckinPanels extends javax.swing.JPanel {
                 delete1ActionPerformed(evt);
             }
         });
-        jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 126, 50));
+        jPanel2.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 126, 50));
 
         jLabel14.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel14.setText("ROOMS");
