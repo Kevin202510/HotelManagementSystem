@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,19 +40,18 @@ public class BedsController {
         return roomList;   
     }
     
-   public void showBeds() throws SQLException{
+   public void showBeds(JTable bedtable) throws SQLException{
         ArrayList<Beds> list = bedList();
-        Object[] row = new Object[5];
+        DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
+         Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
-            String name = list.get(i).getbed_id() + " " +
-            list.get(i).getbed_quality();
-            JOptionPane.showMessageDialog(null,name);
-     //^       model.addRow(row);
-         }
+            row[0] = list.get(i).getbed_id();
+            row[1] = list.get(i).getbed_quality();
+            model.addRow(row);
     }
     
-    public static void main(String args[]) throws SQLException{
-        new BedsController().showBeds();
+   // public static void main(String args[]) throws SQLException{
+   //     new BedsController().showBeds();
     }
 
   

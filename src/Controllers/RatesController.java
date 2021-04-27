@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,13 +39,14 @@ public class RatesController {
         }
         return rateList;   
     }
-     public void showRates() throws SQLException{
+     public void showRates(JTable ratestable) throws SQLException{
         ArrayList<Rates> list = rateList();
-//        Object[] row = new Object[2];
+      DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
+         Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
-            list.get(i).getrate_id();
-            list.get(i).getrate_price();
-            rateList.add(list.get(i));
+            row[0] = list.get(i).getrate_id();
+            row[1] = list.get(i).getrate_price();
+            model.addRow(row);
 //model.addRow(row);
          }
     }

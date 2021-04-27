@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,21 +39,29 @@ public class RoomTypesController {
         }
         return rateList;   
     }
-     public void showRoomtypes() throws SQLException{
+     public void showRoomtypes(JTable RTtable) throws SQLException{
         ArrayList<Roomtypes> list = roomtypeList();
-        Object[] row = new Object[5];
+      DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+         Object[] row = new Object[8];
          for (int i = 0; i < list.size(); i++) {
-            String name = list.get(i).getRT_id() + " " +
-            list.get(i).getroom_type();
-            JOptionPane.showMessageDialog(null,name);
-          //model.addRow(row);
+            row[0] = list.get(i).getRT_id();
+            row[1] = list.get(i).getroom_type();
+            model.addRow(row);
          }
     }
     
-    public static void main(String args[]) throws SQLException{
-        new RoomTypesController().showRoomtypes();
+  //  public static void main(String args[]) throws SQLException{
+ //       new RoomTypesController().showRoomtypes();
+
+    public void showCustomers(JTable RTtable) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void showRoomtypes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     }
     
     
     
-}
+

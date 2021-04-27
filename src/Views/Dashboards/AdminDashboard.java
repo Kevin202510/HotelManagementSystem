@@ -11,6 +11,8 @@ import Views.Authentication.Login;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -71,6 +73,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         rooms = new javax.swing.JLabel();
         hov9 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
+        rate_RT_bed = new javax.swing.JButton();
         lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -313,6 +316,18 @@ public class AdminDashboard extends javax.swing.JFrame {
         );
 
         AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 50));
+
+        rate_RT_bed.setBackground(new java.awt.Color(83, 140, 198));
+        rate_RT_bed.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        rate_RT_bed.setForeground(new java.awt.Color(255, 255, 255));
+        rate_RT_bed.setText("RATE-RT-BED");
+        rate_RT_bed.setFocusPainted(false);
+        rate_RT_bed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rate_RT_bedActionPerformed(evt);
+            }
+        });
+        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, 200, 30));
 
         getContentPane().add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
@@ -827,6 +842,17 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void home1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home1MouseExited
         resetC(hov5);
     }//GEN-LAST:event_home1MouseExited
+
+    private void rate_RT_bedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rate_RT_bedActionPerformed
+        // TODO add your handling code here:
+        if (rate_RT_bed.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels());
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_rate_RT_bedActionPerformed
     
     private void setC(JPanel kev){
          kev.setBackground(new Color(102, 140, 255));
@@ -901,6 +927,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private jroundborder.JLabelRound jLabelRound6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
+    private javax.swing.JButton rate_RT_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel rooms1;
     private javax.swing.JLabel sales;

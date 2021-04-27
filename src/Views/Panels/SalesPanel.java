@@ -124,6 +124,9 @@ public class SalesPanel extends javax.swing.JPanel {
         JOptionPane.showConfirmDialog(null, df.format(Salesfr.getDate()),"",JOptionPane.YES_NO_OPTION);
          JOptionPane.showConfirmDialog(null, df.format(Salest.getDate()),"",JOptionPane.YES_NO_OPTION);
         
+         String benta ="SELECT * FROM inventories WHERE sales_date BETWEEN 'Salesfr.getDate()' AND 'Salest.getDate()'";
+         
+         JOptionPane.showMessageDialog(null, benta);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String[] args) throws SQLException {
