@@ -318,16 +318,25 @@ public class AdminDashboard extends javax.swing.JFrame {
         AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 50));
 
         rate_RT_bed.setBackground(new java.awt.Color(83, 140, 198));
-        rate_RT_bed.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        rate_RT_bed.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 16)); // NOI18N
         rate_RT_bed.setForeground(new java.awt.Color(255, 255, 255));
         rate_RT_bed.setText("RATE-RT-BED");
+        rate_RT_bed.setBorderPainted(false);
         rate_RT_bed.setFocusPainted(false);
+        rate_RT_bed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rate_RT_bedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rate_RT_bedMouseExited(evt);
+            }
+        });
         rate_RT_bed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rate_RT_bedActionPerformed(evt);
             }
         });
-        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, 200, 30));
+        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 90, 200, 50));
 
         getContentPane().add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
@@ -622,13 +631,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRound1MouseClicked
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
-        if (sales.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+        saleBotton();
     }//GEN-LAST:event_salesMouseClicked
 
     private void salesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseEntered
@@ -640,10 +643,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_salesMouseExited
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
-        // TODO add your handling code here:
-        if (sales.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        }
+        homeButton();
     }//GEN-LAST:event_homeMouseClicked
 
     private void homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseEntered
@@ -655,13 +655,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_homeMouseExited
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        if (users.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+       userBotton();
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
@@ -674,13 +668,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
-        if (rooms.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+       roomBotton();
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -693,14 +681,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         // TODO add your handling code here:
-        if (customers.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
-//                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+      costumerBotton();
     }//GEN-LAST:event_customersMouseClicked
 
     private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
@@ -712,13 +693,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_customersMouseExited
 
     private void rooms1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rooms1MouseClicked
-        if (rooms.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+        roomBotton();
     }//GEN-LAST:event_rooms1MouseClicked
 
     private void rooms1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rooms1MouseEntered
@@ -757,13 +732,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_checkInMouseExited
 
     private void checkOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseClicked
-        if (checkOut.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+       checkoutBotton();
     }//GEN-LAST:event_checkOutMouseClicked
 
     private void checkOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseEntered
@@ -775,14 +744,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_checkOutMouseExited
 
     private void customers1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customers1MouseClicked
-        if (customers.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
-                //                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
-            } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-        }
+       costumerBotton();
     }//GEN-LAST:event_customers1MouseClicked
 
     private void customers1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customers1MouseEntered
@@ -830,9 +792,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelRound6MouseClicked
 
     private void home1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home1MouseClicked
-        if (home.isEnabled()) {
-            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        }
+       homeButton();
     }//GEN-LAST:event_home1MouseClicked
 
     private void home1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home1MouseEntered
@@ -845,14 +805,17 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void rate_RT_bedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rate_RT_bedActionPerformed
         // TODO add your handling code here:
-        if (rate_RT_bed.isEnabled()) {
-            try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels());
-            } catch (SQLException ex) {
-                Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+      RRB_Botton();
     }//GEN-LAST:event_rate_RT_bedActionPerformed
+
+    private void rate_RT_bedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_RT_bedMouseEntered
+        // TODO add your handling code here:
+        rate_RT_bed.setBackground(new Color(102, 140, 255));
+    }//GEN-LAST:event_rate_RT_bedMouseEntered
+
+    private void rate_RT_bedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_RT_bedMouseExited
+        rate_RT_bed.setBackground(new Color(83,140,198));
+    }//GEN-LAST:event_rate_RT_bedMouseExited
     
     private void setC(JPanel kev){
          kev.setBackground(new Color(102, 140, 255));
@@ -861,6 +824,82 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void resetC(JPanel kev1){
            kev1.setBackground(new Color(83,140,198));
     }
+    
+    private void homeButton(){
+        if (sales.isEnabled()) {
+            new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+        }
+    }
+    
+    
+    private void costumerBotton(){
+    if (customers.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
+                //                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+    }
+    }
+    
+    
+     private void RRB_Botton(){
+         //RATE-ROOMTYPE-BEDS
+              if (rate_RT_bed.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels());
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+     
+     private void roomBotton(){
+     if (rooms.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+     
+     }
+     
+     private void userBotton(){
+      if (users.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+     }
+     
+     private void saleBotton(){
+   if (sales.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+}
+     
+     
+     private void checkoutBotton(){
+     if (checkOut.isEnabled()) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
+            } catch (SQLException ex) {
+                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+        }
+    }                         
+     
+     
+
+    
     /**
      * @param args the command line arguments
      */
