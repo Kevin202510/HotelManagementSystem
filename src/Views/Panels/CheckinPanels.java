@@ -43,6 +43,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         public CustomerController custo = new CustomerController();
         public Customers customers;
         public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
+        public int id;
     
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
@@ -202,7 +203,11 @@ public class CheckinPanels extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
-        JOptionPane.showMessageDialog(null,"hello world");
+        id = (int) roomsTable.getValueAt(roomsTable.getSelectedRow(),0);
+        int kev = JOptionPane.showConfirmDialog(null,"Room ID : " + id);
+        if (kev==0) {
+            rooms1.setSelectedItem(String.valueOf(id));
+        }
     }//GEN-LAST:event_roomsTableMouseClicked
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      

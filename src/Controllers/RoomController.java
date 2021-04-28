@@ -50,12 +50,12 @@ public class RoomController {
      public ArrayList<Rooms> showRoomsCheckin() throws SQLException{
         ArrayList<Rooms> checkinrooms = new ArrayList<>();
 //         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
-        String tanong = "SELECT * FROM rooms where status=1";
+        String tanong = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id WHERE rooms.status = 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getInt("bed_id"),rs.getInt("RT_id"),rs.getInt("rate_id"),rs.getInt("status"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getString("bed_quantity"),rs.getString("room_type"),rs.getInt("rate_price"),rs.getInt("status"));
             checkinrooms.add(rooms);
         }
         return checkinrooms;   
@@ -121,20 +121,6 @@ public class RoomController {
         catch (SQLException ex) {
         }
     }
-    
-//    public void showStatus(JComboBox rooms1){
-//        String tanong = "Select * from rates";
-//        try{
-//        Statement st = con.createStatement();
-//        ResultSet rs = st.executeQuery(tanong);
-//        while(rs.next()){
-//         String vin = String.valueOf(rs.getInt("rate_id"));
-//         rooms1.addItem(vin);
-//        }
-//        }
-//        catch (SQLException ex) {
-//        }
-//    }
      
      public void Room(JTable roomstable) throws SQLException{
          ArrayList<Rooms> list = roomList();
@@ -156,9 +142,9 @@ public class RoomController {
          Object[] row = new Object[5];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
-            row[1] = list.get(i).getbed_id();
-            row[2] = list.get(i).getRT_id();
-            row[3] = list.get(i).getrate_id();
+            row[1] = list.get(i).getroomtype();
+            row[2] = list.get(i).getbed();
+            row[3] = list.get(i).getrates();
             row[4] = list.get(i).getstatus();
             model.addRow(row);
          }

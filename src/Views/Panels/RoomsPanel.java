@@ -200,7 +200,7 @@ public class RoomsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-  int roomtype=roomTypeId.getSelectedIndex()+1;
+        int roomtype=roomTypeId.getSelectedIndex()+1;
         int bedtype=bedTypeId.getSelectedIndex()+1;
         int rate=rateId.getSelectedIndex()+1;
         int status=statusId.getSelectedIndex();

@@ -120,13 +120,22 @@ public class SalesPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");      
-       JOptionPane.showConfirmDialog(null, df.format(Salesfr.getDate()),"",JOptionPane.YES_NO_OPTION);
-         JOptionPane.showConfirmDialog(null, df.format(Salest.getDate()),"",JOptionPane.YES_NO_OPTION);
-        
-       //  String benta ="SELECT * FROM inventories WHERE sales_date BETWEEN '"df.format(Salesfr.getDate())"' AND '"df.format(Salest.getDate())"';
-         
-       // JOptionPane.showMessageDialog(null, benta);
+        try {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            JOptionPane.showConfirmDialog(null, df.format(Salesfr.getDate()),"",JOptionPane.YES_NO_OPTION);
+            JOptionPane.showConfirmDialog(null, df.format(Salest.getDate()),"",JOptionPane.YES_NO_OPTION);
+            
+            SQL sql = new SQL();
+            Connection con = sql.getConnection();
+            String benta ="SELECT SUM(amount) FROM inventories WHERE sales_date BETWEEN '"+df.format(Salesfr.getDate())+"' AND '"+df.format(Salest.getDate())+"'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(benta);
+            while(rs.next()){
+                JOptionPane.showMessageDialog(null, rs.getInt("SUM(amount)"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String[] args) throws SQLException {

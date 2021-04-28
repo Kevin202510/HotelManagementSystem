@@ -41,7 +41,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
     public CheckoutPanels(JPanel lalagyanan) throws SQLException {
         initComponents();
-//        fillField();
     }
 
     /**

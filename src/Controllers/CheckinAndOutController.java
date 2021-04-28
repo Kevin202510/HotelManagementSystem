@@ -207,7 +207,7 @@ JOptionPane.showMessageDialog(null,ids);
              while(rs.next()){
                         room_id = rs.getInt("room_id");
                         customer_id = rs.getInt("cust_id");
-                         datein = rs.getString("checkin_date");
+                        datein = rs.getString("checkin_date");
              }
 
              for(int i =0;i<list.size();i++){
@@ -223,6 +223,7 @@ JOptionPane.showMessageDialog(null,ids);
             co_custcontact.setText(list.get(index).getcust_contactnum());
             co_custtime.setText(getTimeNow());
             co_custdate.setText(getDateNow());
+            JOptionPane.showMessageDialog(null,room_id);
             co_rooms.setText(String.valueOf(room_id));
             String tanongs = "UPDATE checkinandout SET timeout = '"+getTimeNow()+"' , checkout_date = '"+getDateNow()+"'  where id='"+id+"'";
             Statement sts = con.createStatement();
