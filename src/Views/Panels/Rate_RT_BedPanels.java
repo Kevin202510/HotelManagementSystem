@@ -13,8 +13,15 @@ import Controllers.SQL;
 import Models.Roomtypes;
 import Models.Rates;
 import Models.Beds;
+import Views.Dashboards.ContainerManipulator;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,17 +39,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         public BedsController bed = new BedsController();   
         
         public  SQL sql = new SQL();
-        public JPanel lalag;
+        public JPanel lalagyanan;
     /**
      * Creates new form Rate_RT_BedPanels
      */
-    public Rate_RT_BedPanels() throws SQLException {
+    public Rate_RT_BedPanels(JPanel lalagyanan) throws SQLException {
         initComponents();
+        this.lalagyanan=lalagyanan;
         roomtype.showRoomtypes(RTtable);
         rate.showRates(ratestable);
         bed.showBeds(bedtable);
-       
-        this.lalag=lalag;
     }
 
     /**
@@ -382,7 +388,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_RTtableMouseClicked
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-
+         
     }//GEN-LAST:event_saveActionPerformed
 
     private void BedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BedIDActionPerformed
@@ -402,7 +408,24 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_RTidActionPerformed
 
     private void save2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save2ActionPerformed
-        // TODO add your handling code here:
+        Connection con = sql.getConnection();
+        String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
+        try {
+            PreparedStatement st = con.prepareStatement(insert);
+            st.setInt(1, Integer.parseInt(RTid.getText()));
+            st.setString(2, RoomType.getText());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+               model.setRowCount(0);
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+            } else {
+                JOptionPane.showMessageDialog(null,"Error");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_save2ActionPerformed
 
 

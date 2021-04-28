@@ -200,11 +200,15 @@ public class RoomsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-//     int roomtype=Integer.parseInt(roomType.getText());
-//     int bedtype= Integer.parseInt(Bedtype.getText());
-//     int rate=Integer.parseInt(Rate.getText());
-//     int status=Integer.parseInt(Status.getText());
-//        roomModel = new Rooms(index,roomtype,bedtype,rate,status);
+  int roomtype=roomTypeId.getSelectedIndex()+1;
+        int bedtype=bedTypeId.getSelectedIndex()+1;
+        int rate=rateId.getSelectedIndex()+1;
+        int status=statusId.getSelectedIndex();
+        if (status==0) {
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
+        }else{
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
+        }
         try {
             boolean checkRoom = roomControll.createRooms(roomModel,roomstable);
             if (checkRoom==true) {
@@ -217,12 +221,15 @@ public class RoomsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_saveActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-//         id = roomstable.getSelectedRow();
-//         int roomtype=Integer.parseInt(roomType.getText());
-//        int bedtype= Integer.parseInt(Bedtype.getText());
-//        int rate=Integer.parseInt(Rate.getText());
-//        int status=Integer.parseInt(Status.getText());
-//        roomModel = new Rooms(id,roomtype,bedtype,rate,status);
+         int roomtype=roomTypeId.getSelectedIndex()+1;
+        int bedtype=bedTypeId.getSelectedIndex()+1;
+        int rate=rateId.getSelectedIndex()+1;
+        int status=statusId.getSelectedIndex();
+        if (status==0) {
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
+        }else{
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
+        }
         boolean checkUpdate;
         try {
             checkUpdate = roomControll.updateRooms(roomModel, id, roomstable);
@@ -241,7 +248,6 @@ public class RoomsPanel extends javax.swing.JPanel {
         update.setVisible(true);
         save.setVisible(false);
         id = (int) roomstable.getValueAt(roomstable.getSelectedRow(),0);
-//        roomTypeId.setSelectedIndex(2);
         try {
             roomControll.fillRoomForm(id,Roomid, roomTypeId, bedTypeId, rateId, statusId);
         } catch (SQLException ex) {

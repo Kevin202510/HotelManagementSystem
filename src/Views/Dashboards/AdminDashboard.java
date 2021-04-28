@@ -848,7 +848,7 @@ public class AdminDashboard extends javax.swing.JFrame {
          //RATE-ROOMTYPE-BEDS
               if (rate_RT_bed.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels());
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             } catch (SQLException ex) {
                 Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
             }
