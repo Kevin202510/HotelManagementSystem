@@ -35,7 +35,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         initComponents();
         this.MainDashboard=this;
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        this.role=role;
+        this.role=role; 
         this.fullname=fullname;
 //        user_fullname.setText(fullname);
 //        userrole.setText(role);
@@ -48,10 +48,6 @@ public class AdminDashboard extends javax.swing.JFrame {
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.AdminButtons(MainDashboard,fullname, role, lalagyanan));
         }else if(role.equals("Staff")){
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.StaffButtons(MainDashboard,fullname, role, lalagyanan));
-//            AdminButtons.setVisible(false);
-//            StaffButtons.setVisible(true);
-//            user_fullname1.setText(fullname);
-//            userrole1.setText(role);
         }else{
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.ManagerButtons(MainDashboard,fullname, role, lalagyanan));
         }

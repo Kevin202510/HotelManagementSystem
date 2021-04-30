@@ -33,7 +33,7 @@ public class test extends javax.swing.JFrame {
     public test() throws SQLException {
         initComponents();
 //        vin.setModel(loadImg());
-   jComboBox1.setSelectedIndex(-1);
+//   jComboBox1.setSelectedIndex(0);
 jComboBox1.setModel(loadImg());
         
 //        int i = jComboBox1.getSelectedIndex();
@@ -43,11 +43,10 @@ jComboBox1.setModel(loadImg());
     
     private  DefaultComboBoxModel<Icon> loadImg(){
          DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
-//         String[] vin = {"unnamed.jpg"};
-         String name = " Kevin Felix Caluag";
-//         model.addElement(name);
-         model.addElement(new javax.swing.ImageIcon(getClass().getResource("/Images/user2.png")));
-         model.addElement(name);
+         
+//         model.insertElementAt(new javax.swing.ImageIcon(getClass().getResource("/Images/user2.png")),1);
+         
+           model.addElement("<html><div style='padding:5px;'><img src='src\\Images\\a.jpg'><b>KEVIN FELIX CALUAG</b></html>");
          return model;
     }
 
@@ -106,8 +105,6 @@ jComboBox1.setModel(loadImg());
 
         jMenu1 = new javax.swing.JMenu();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jButton1 = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -117,11 +114,7 @@ jComboBox1.setModel(loadImg());
 
         jComboBox1.setModel(jComboBox1.getModel());
         jComboBox1.setSelectedItem(0);
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 260, 50));
-        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 780, 120));
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 120, 260, 50));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 260, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -166,9 +159,7 @@ jComboBox1.setModel(loadImg());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Icon> jComboBox1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }

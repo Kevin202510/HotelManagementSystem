@@ -33,6 +33,7 @@ public class UserController {
     public  ArrayList<Users> userList = new ArrayList<>();
     public ArrayList<Users> list;
     public Connection con = sql.getConnection();
+    public static int key = 6;
     
 //    QUERIES
     public String kuninLahatNgUser = "SELECT * FROM users INNER JOIN roles ON roles.role_id = users.role_id where users.role_id > 1";
@@ -54,6 +55,19 @@ public class UserController {
         return userList;   
     }
     
+    public String encrypt(String str){
+	String storen = "";
+		
+        for(int i = 0; i<str.length(); i++){
+            char c = str.charAt(i);
+		
+            int asci = (int)c + 5;
+	    storen += (char) asci;
+        }
+	JOptionPane.showMessageDialog(null,storen);
+        return storen;
+    }
+    
     public boolean createUser(Users user,JTable roomstable) throws SQLException{
         PreparedStatement st = con.prepareStatement(magdagdagNgUser);
         st.setInt(1, 3);
@@ -64,7 +78,7 @@ public class UserController {
         st.setString(6, user.getuser_DOB());
         st.setString(7, user.getuser_contactnum());
         st.setString(8, user.getuser_username());
-        st.setString(9, user.getuser_password());
+        st.setString(9, encrypt(user.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {

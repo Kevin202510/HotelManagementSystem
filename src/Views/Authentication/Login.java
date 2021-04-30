@@ -5,6 +5,7 @@
  */
 package Views.Authentication;
 
+import Controllers.Authentication;
 import Controllers.SQL;
 import Views.Dashboards.AdminDashboard;
 import com.placeholder.PlaceHolder;
@@ -14,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -26,8 +28,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    Authentication auth = new Authentication();
     PlaceHolder pl;
+    JFrame out;
+    
     public Login() {
+        this.out=this;
         initComponents();
     }
 
@@ -235,51 +242,13 @@ public class Login extends javax.swing.JFrame {
         password.setEchoChar('*');
     }//GEN-LAST:event_passwordMouseClicked
     
-    public void signIn(){
-        String uname=username.getText();
-        String pass=String.valueOf(password.getPassword());
-             try {
-                SQL sql = new SQL();
-                Connection con;
-                con = sql.getConnection();
-                String tanong = "Select * from users INNER JOIN roles ON users.role_id = roles.role_id where user_username= ? AND user_password= ?";
-                PreparedStatement st = con.prepareStatement(tanong);
-                st.setString(1,uname);
-                st.setString(2,pass);
-                ResultSet rs = st.executeQuery();
-                if(rs.next()){
-                    int role_id;
-                    role_id = Integer.parseInt(rs.getString("role_id"));
-                    String fullname;
-                    fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname")  + " " + rs.getString("user_Lname");
-                    String roles;
-                    roles = rs.getString("role_displayname");
-                    JOptionPane.showMessageDialog(this,"Welcome to Our System " + uname.toUpperCase());
-                    if (role_id==1) {
-                      new  AdminDashboard(fullname,roles).setVisible(true);
-                      this.dispose();
-                    }else if (role_id==2) {
-                      new  AdminDashboard(fullname,roles).setVisible(true);
-                      this.dispose();  
-                    }else{
-                      new  AdminDashboard(fullname,roles).setVisible(true);
-                      this.dispose();  
-                    }
-                }else{
-                    JOptionPane.showMessageDialog(this,"Error");
-                }
-            } catch (HeadlessException | NumberFormatException | SQLException e) {
-                JOptionPane.showMessageDialog(this,e);
-            }
-    }
-    
     private void signinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseClicked
-        signIn();
+        auth.signIn(out,username,password);
     }//GEN-LAST:event_signinMouseClicked
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
         if(evt.getKeyCode()==10){
-            signIn();
+            auth.signIn(out,username,password);
         }
     }//GEN-LAST:event_passwordKeyPressed
 
