@@ -237,7 +237,7 @@ public class Login extends javax.swing.JFrame {
     
     public void signIn(){
         String uname=username.getText();
-      String pass=String.valueOf(password.getPassword());
+        String pass=String.valueOf(password.getPassword());
              try {
                 SQL sql = new SQL();
                 Connection con;
@@ -258,9 +258,11 @@ public class Login extends javax.swing.JFrame {
                     if (role_id==1) {
                       new  AdminDashboard(fullname,roles).setVisible(true);
                       this.dispose();
+                    }else if (role_id==2) {
+                      JOptionPane.showMessageDialog(null,"MANAGER KA");
                     }else{
-                       new  AdminDashboard(fullname,roles).setVisible(true);
-                      this.dispose();
+                      new  AdminDashboard(fullname,roles).setVisible(true);
+                      this.dispose();  
                     }
                 }else{
                     JOptionPane.showMessageDialog(this,"Error");

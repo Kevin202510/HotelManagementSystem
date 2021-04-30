@@ -35,7 +35,7 @@ public class RoomController {
     public ArrayList<Rooms> roomList() throws SQLException{
         ArrayList<Rooms> roomList = new ArrayList<>();
 //         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
-        String tanong = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id";
+        String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
@@ -50,7 +50,7 @@ public class RoomController {
      public ArrayList<Rooms> showRoomsCheckin() throws SQLException{
         ArrayList<Rooms> checkinrooms = new ArrayList<>();
 //         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
-        String tanong = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id WHERE rooms.status = 1";
+        String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id WHERE rooms.status = 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         

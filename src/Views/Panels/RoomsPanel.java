@@ -33,19 +33,23 @@ public class RoomsPanel extends javax.swing.JPanel {
     
     public RoomsPanel(JPanel lalagyanan) throws SQLException{
         initComponents();
-        update.setVisible(false);
         roomControll.Room(roomstable);
+        
         if (roomlist.size()==0) {
-            Roomid.setText("0");
+            Roomid.setText("1");
+            InitRun();
         }else{
             index1 = roomlist.size()-1;
-            index = roomlist.get(index1).getroom_id() + 1;
+            index = roomlist.get(index1).getroom_id() + 1;        
             Roomid.setText(String.valueOf(index));
-            roomControll.showRoomType(roomTypeId);
-            roomControll.showBedType(bedTypeId);
-            roomControll.showRate(rateId);
+            InitRun();
         }
         this.lalagyanan=lalagyanan;
+    }
+    
+//    UDF
+    private void InitRun(){
+        update.setVisible(false);
         roomTypeId.setBackground(new Color(0, 0, 0, 0));
         roomTypeId.setOpaque(false);
         bedTypeId.setBackground(new Color(0, 0, 0, 0));
@@ -54,6 +58,9 @@ public class RoomsPanel extends javax.swing.JPanel {
         rateId.setOpaque(false);
         statusId.setBackground(new Color(0, 0, 0, 0));
         statusId.setOpaque(false);
+        roomControll.showRoomType(roomTypeId);
+        roomControll.showBedType(bedTypeId);
+        roomControll.showRate(rateId);
     }
 
 

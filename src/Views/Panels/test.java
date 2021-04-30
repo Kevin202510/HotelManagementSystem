@@ -13,7 +13,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -28,7 +32,23 @@ public class test extends javax.swing.JFrame {
      */
     public test() throws SQLException {
         initComponents();
-        showBeds();
+//        vin.setModel(loadImg());
+   jComboBox1.setSelectedIndex(-1);
+jComboBox1.setModel(loadImg());
+        
+//        int i = jComboBox1.getSelectedIndex();
+//        jComboBox1.removeItemAt(1);
+          
+    }
+    
+    private  DefaultComboBoxModel<Icon> loadImg(){
+         DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+//         String[] vin = {"unnamed.jpg"};
+         String name = " Kevin Felix Caluag";
+//         model.addElement(name);
+         model.addElement(new javax.swing.ImageIcon(getClass().getResource("/Images/user2.png")));
+         model.addElement(name);
+         return model;
     }
 
     public void showBeds() throws SQLException{
@@ -55,8 +75,8 @@ public class test extends javax.swing.JFrame {
                  but[i].setFont(new Font("Times New Roman", Font.BOLD, 18));
                 Jlabels[i].setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 255, 51)));
             Jlabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rooms/r"+i+".gif")));
-                lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E,F,G,H));
-                lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E, 560, G,30));
+//                lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E,F,G,H));
+//                lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(E, 560, G,30));
                 E+=250;
              }else{
             Jlabels[i]=new JLabel("jLabel" + i);
@@ -66,14 +86,14 @@ public class test extends javax.swing.JFrame {
             but[i].setFont(new Font("Times New Roman", Font.BOLD, 18));
             Jlabels[i].setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(51, 255, 51)));
             Jlabels[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/rooms/r"+i+".gif")));
-            lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A,B,C,D));
-            lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A, 320, C,30));
+//            lagyanan.add(Jlabels[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A,B,C,D));
+//            lagyanan.add(but[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(A, 320, C,30));
             A+=250;
              }
          }
-         
-         lagyanan.validate();
-         lagyanan.repaint();
+//         
+//         lagyanan.validate();
+//         lagyanan.repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,13 +104,24 @@ public class test extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lagyanan = new javax.swing.JPanel();
+        jMenu1 = new javax.swing.JMenu();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jButton1 = new javax.swing.JButton();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1564, 589));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lagyanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1570, 590));
+        jComboBox1.setModel(jComboBox1.getModel());
+        jComboBox1.setSelectedItem(0);
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 260, 50));
+        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 780, 120));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 120, 260, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,6 +166,9 @@ public class test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel lagyanan;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<Icon> jComboBox1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
 }
