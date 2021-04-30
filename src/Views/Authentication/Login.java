@@ -259,7 +259,8 @@ public class Login extends javax.swing.JFrame {
                       new  AdminDashboard(fullname,roles).setVisible(true);
                       this.dispose();
                     }else if (role_id==2) {
-                      JOptionPane.showMessageDialog(null,"MANAGER KA");
+                      new  AdminDashboard(fullname,roles).setVisible(true);
+                      this.dispose();  
                     }else{
                       new  AdminDashboard(fullname,roles).setVisible(true);
                       this.dispose();  
