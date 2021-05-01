@@ -6,9 +6,14 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.ImageTextRenderer;
+import Controllers.ImagesNText;
 import Controllers.SQL;
 import Views.Authentication.Login;
+import static Views.Dashboards.AdminButtons.fullname;
 import java.sql.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,12 +35,24 @@ public class StaffButtons extends javax.swing.JPanel {
     public StaffButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
         this.out=out;
+         this.fullname=fullname;
+        jComboBox1.setModel(pop());
+        jComboBox1.setRenderer(new ImageTextRenderer());
         this.lalagyanan=lalagyanan;
         this.role=role;
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
+    }
+    
+    public DefaultComboBoxModel pop(){
+//         JOptionPane.showMessageDialog(null,name);
+        DefaultComboBoxModel kev = new DefaultComboBoxModel();
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        return kev;
     }
 
     /**
@@ -64,6 +81,7 @@ public class StaffButtons extends javax.swing.JPanel {
         userrole = new javax.swing.JLabel();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -243,11 +261,11 @@ public class StaffButtons extends javax.swing.JPanel {
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 11, 310, 39));
+        StaffButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 310, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
+        StaffButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 168, 27));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -283,6 +301,15 @@ public class StaffButtons extends javax.swing.JPanel {
         );
 
         StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -406,6 +433,17 @@ public class StaffButtons extends javax.swing.JPanel {
         userButton.resetC(hov10);
     }//GEN-LAST:event_homeMouseExited
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+        int vin = model.getSize();
+        for (int i = 0; i < vin; i++) {
+            if (i==jComboBox1.getSelectedIndex()) {
+                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
+                JOptionPane.showMessageDialog(this,name);
+            }
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StaffButtons;
@@ -418,6 +456,7 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov2;
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private jroundborder.JLabelRound jLabelRound6;

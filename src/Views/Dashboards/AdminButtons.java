@@ -6,11 +6,20 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.ImagesNText;
+import Controllers.ImageTextRenderer;
 import Views.Authentication.Login;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ListCellRenderer;
 
 /**
  *
@@ -25,15 +34,29 @@ public class AdminButtons extends javax.swing.JPanel {
     JPanel lalagyanan;
     Buttons userButton;
     JFrame out;
-    
+//    ImagesNText vk = new ImagesNText();
     public AdminButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
+        this.fullname=fullname;
+        jComboBox1.setModel(pop());
+        jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
         this.lalagyanan=lalagyanan;
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
+        jComboBox1.setBackground(new Color(83,140,198,255));
+        jComboBox1.setOpaque(false);
+    }
+    
+     public DefaultComboBoxModel pop(){
+//         JOptionPane.showMessageDialog(null,name);
+        DefaultComboBoxModel kev = new DefaultComboBoxModel();
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        return kev;
     }
 
     /**
@@ -63,6 +86,7 @@ public class AdminButtons extends javax.swing.JPanel {
         hov9 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
         rate_RT_bed = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,11 +127,11 @@ public class AdminButtons extends javax.swing.JPanel {
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        AdminButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 11, 310, 39));
+        AdminButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 200, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
+        AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 90, 27));
 
         hov5.setBackground(new java.awt.Color(83, 140, 198));
         hov5.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -303,7 +327,16 @@ public class AdminButtons extends javax.swing.JPanel {
                 rate_RT_bedActionPerformed(evt);
             }
         });
-        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 90, 200, 50));
+        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 90, -1, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        AdminButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 240, 50));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -422,6 +455,18 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.RRB_Button(rate_RT_bed);
     }//GEN-LAST:event_rate_RT_bedActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+        int vin = model.getSize();
+        for (int i = 0; i < vin; i++) {
+            if (i==jComboBox1.getSelectedIndex()) {
+                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
+                JOptionPane.showMessageDialog(this,name);
+            }
+        }
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
@@ -432,6 +477,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov7;
     private javax.swing.JPanel hov8;
     private javax.swing.JPanel hov9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel6;
     private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound3;
@@ -443,4 +489,5 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel userrole;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
+
 }
