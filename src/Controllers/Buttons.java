@@ -39,7 +39,7 @@ public class Buttons {
     }
     
     
-    public void costumerBotton(JLabel customers){
+    public void costumerButton(JLabel customers){
     if (customers.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
@@ -51,7 +51,7 @@ public class Buttons {
     }
     
     
-     public void RRB_Botton(JButton rate_RT_bed){
+     public void RRB_Button(JButton rate_RT_bed){
          //RATE-ROOMTYPE-BEDS
               if (rate_RT_bed.isEnabled()) {
             try {
@@ -62,7 +62,7 @@ public class Buttons {
         }
     }
      
-     public void roomBotton(JLabel rooms){
+     public void roomButton(JLabel rooms){
      if (rooms.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
@@ -73,7 +73,7 @@ public class Buttons {
      
      }
      
-     public void userBotton(JLabel users){
+     public void userButton(JLabel users){
       if (users.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
@@ -83,7 +83,7 @@ public class Buttons {
         }
      }
      
-     public void saleBotton(JLabel sales){
+     public void saleButton(JLabel sales){
    if (sales.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
@@ -94,7 +94,7 @@ public class Buttons {
 }
      
      
-     public void checkoutBotton(JLabel checkOut){
+     public void checkoutButton(JLabel checkOut){
      if (checkOut.isEnabled()) {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));

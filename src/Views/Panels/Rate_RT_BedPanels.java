@@ -83,7 +83,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         RateID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        RoomPrice = new javax.swing.JTextField();
+        RatePrice = new javax.swing.JTextField();
         save1 = new javax.swing.JButton();
         delete1 = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
@@ -256,11 +256,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel10.setText("Room Price");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, 41));
 
-        RoomPrice.setBackground(new java.awt.Color(0, 77, 77));
-        RoomPrice.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
-        RoomPrice.setForeground(new java.awt.Color(255, 255, 255));
-        RoomPrice.setBorder(null);
-        jPanel3.add(RoomPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 30));
+        RatePrice.setBackground(new java.awt.Color(0, 77, 77));
+        RatePrice.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        RatePrice.setForeground(new java.awt.Color(255, 255, 255));
+        RatePrice.setBorder(null);
+        jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 30));
 
         save1.setBackground(new java.awt.Color(51, 102, 255));
         save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -409,6 +409,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_save1ActionPerformed
 
     private void RTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTidActionPerformed
@@ -443,7 +444,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JTextField RTid;
     private javax.swing.JTable RTtable;
     private javax.swing.JTextField RateID;
-    private javax.swing.JTextField RoomPrice;
+    private javax.swing.JTextField RatePrice;
     private javax.swing.JTextField RoomType;
     private javax.swing.JTable bedtable;
     private javax.swing.JButton delete;

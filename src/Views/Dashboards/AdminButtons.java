@@ -347,7 +347,7 @@ public class AdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabelRound1MouseClicked
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
-        userButton.saleBotton(sales);
+        userButton.saleButton(sales);
     }//GEN-LAST:event_salesMouseClicked
 
     private void salesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseEntered
@@ -371,7 +371,7 @@ public class AdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_homeMouseExited
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        userButton.userBotton(users);
+        userButton.userButton(users);
     }//GEN-LAST:event_usersMouseClicked
 
     private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
@@ -384,7 +384,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
-        userButton.roomBotton(rooms);
+        userButton.roomButton(rooms);
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -397,7 +397,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
         // TODO add your handling code here:
-        userButton.costumerBotton(customers);
+        userButton.costumerButton(customers);
     }//GEN-LAST:event_customersMouseClicked
 
     private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
@@ -419,7 +419,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void rate_RT_bedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rate_RT_bedActionPerformed
         // TODO add your handling code here:
-        userButton.RRB_Botton(rate_RT_bed);
+        userButton.RRB_Button(rate_RT_bed);
     }//GEN-LAST:event_rate_RT_bedActionPerformed
 
 
