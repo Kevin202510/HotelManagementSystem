@@ -5,6 +5,7 @@
  */
 package Views.Panels;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
@@ -29,6 +30,7 @@ public class NewJFrame extends javax.swing.JFrame {
         initComponents();
         jComboBox1.setModel(pop());
         jComboBox1.setRenderer(new ImageTextRenderer());
+        jComboBox1.setBackground(new Color(25,20,255));
 //        JOptionPane.showMessageDialog(this,jComboBox1.getSelectedIndex());
     }
     
@@ -50,10 +52,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jComboBox1.setBackground(new java.awt.Color(83, 140, 198));
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +65,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 11, 242, 52));
+
+        jPanel1.setBackground(new java.awt.Color(83, 140, 198));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 140, 110));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,6 +122,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     

@@ -6,6 +6,8 @@
 package Controllers;
 
 import java.awt.Component;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
@@ -34,5 +36,13 @@ import javax.swing.ListCellRenderer;
            return this;
            
         }
+        
+         public DefaultComboBoxModel pop(String fullname){
+        DefaultComboBoxModel kev = new DefaultComboBoxModel();
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        return kev;
+    }
         
     }

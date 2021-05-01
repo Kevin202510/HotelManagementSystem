@@ -32,6 +32,10 @@ public class ManagerButtons extends javax.swing.JPanel {
         initComponents();
         this.out=out;
         this.lalagyanan=lalagyanan;
+         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
+        jComboBox1.setRenderer(new ImageTextRenderer());
+        jComboBox1.setBackground(new Color(25,20,255));
+        jComboBox1.setOpaque(false);
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
@@ -293,6 +297,15 @@ public class ManagerButtons extends javax.swing.JPanel {
             }
         });
         ManagerButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, 240, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        ManagerButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
