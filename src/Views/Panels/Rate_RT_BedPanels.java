@@ -74,10 +74,10 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         BedID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         BedQuantity = new javax.swing.JTextField();
-        save = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        save = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -99,9 +99,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(213, 221, 221));
         setPreferredSize(new java.awt.Dimension(1480, 790));
 
-        ratestable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        ratestable.setBackground(new java.awt.Color(191, 191, 191));
+        ratestable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         ratestable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -109,7 +111,15 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             new String [] {
                 "Rate ID", "Rate Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         ratestable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ratestableMouseClicked(evt);
@@ -117,7 +127,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(ratestable);
 
-        bedtable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        bedtable.setBackground(new java.awt.Color(191, 191, 191));
+        bedtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         bedtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -125,7 +136,15 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             new String [] {
                 "Bed ID", "Bed Quantity"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         bedtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bedtableMouseClicked(evt);
@@ -133,7 +152,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(bedtable);
 
-        RTtable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        RTtable.setBackground(new java.awt.Color(191, 191, 191));
+        RTtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         RTtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -141,7 +161,15 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             new String [] {
                 "RT ID", "Room Type"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         RTtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RTtableMouseClicked(evt);
@@ -151,7 +179,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ROOMTYPES-RATES-BEDS");
 
@@ -160,9 +188,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(672, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
+                .addContainerGap(353, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(349, 349, 349))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,8 +215,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 60, 60, 41));
 
         BedID.setBackground(new java.awt.Color(0, 77, 77));
-        BedID.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         BedID.setForeground(new java.awt.Color(255, 255, 255));
+        BedID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         BedID.setBorder(null);
         BedID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,10 +232,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 41));
 
         BedQuantity.setBackground(new java.awt.Color(0, 77, 77));
-        BedQuantity.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        BedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         BedQuantity.setForeground(new java.awt.Color(255, 255, 255));
+        BedQuantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         BedQuantity.setBorder(null);
-        jPanel2.add(BedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 30));
+        jPanel2.add(BedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 180, 30));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
 
         save.setBackground(new java.awt.Color(51, 102, 255));
         save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -216,14 +248,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 saveActionPerformed(evt);
             }
         });
-        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 126, 30));
+        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
         delete.setBackground(new java.awt.Color(51, 102, 255));
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
-        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 126, 30));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
-        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
+        delete.setPreferredSize(new java.awt.Dimension(63, 23));
+        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 77, 77));
         jPanel3.setPreferredSize(new java.awt.Dimension(310, 212));
@@ -233,7 +264,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(191, 191, 191));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("RATE ACTION");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 54));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 50));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -241,15 +272,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 73, 41));
 
         RateID.setBackground(new java.awt.Color(0, 77, 77));
-        RateID.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        RateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RateID.setForeground(new java.awt.Color(255, 255, 255));
+        RateID.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RateID.setBorder(null);
         RateID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RateIDActionPerformed(evt);
             }
         });
-        jPanel3.add(RateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 200, 30));
+        jPanel3.add(RateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 190, 30));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -257,10 +289,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, 41));
 
         RatePrice.setBackground(new java.awt.Color(0, 77, 77));
-        RatePrice.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        RatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RatePrice.setForeground(new java.awt.Color(255, 255, 255));
+        RatePrice.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RatePrice.setBorder(null);
-        jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 30));
+        jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 30));
 
         save1.setBackground(new java.awt.Color(51, 102, 255));
         save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -270,14 +303,15 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 save1ActionPerformed(evt);
             }
         });
-        jPanel3.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 126, 30));
+        jPanel3.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
         delete1.setBackground(new java.awt.Color(51, 102, 255));
         delete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete1.setText("DELETE");
-        jPanel3.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 126, 30));
-        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 200, 10));
-        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 200, 10));
+        delete1.setPreferredSize(new java.awt.Dimension(63, 23));
+        jPanel3.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 10));
+        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, 10));
 
         jPanel4.setBackground(new java.awt.Color(0, 77, 77));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -294,8 +328,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 41));
 
         RTid.setBackground(new java.awt.Color(0, 77, 77));
-        RTid.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        RTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RTid.setForeground(new java.awt.Color(255, 255, 255));
+        RTid.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         RTid.setBorder(null);
         RTid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,8 +345,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 100, 41));
 
         RoomType.setBackground(new java.awt.Color(0, 77, 77));
-        RoomType.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        RoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RoomType.setForeground(new java.awt.Color(255, 255, 255));
+        RoomType.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RoomType.setBorder(null);
         jPanel4.add(RoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 30));
 
@@ -323,12 +359,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 save2ActionPerformed(evt);
             }
         });
-        jPanel4.add(save2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 126, 30));
+        jPanel4.add(save2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 110, 30));
 
         delete2.setBackground(new java.awt.Color(51, 102, 255));
         delete2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete2.setText("DELETE");
-        jPanel4.add(delete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 126, 30));
+        delete2.setPreferredSize(new java.awt.Dimension(63, 23));
+        jPanel4.add(delete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 160, 110, 30));
         jPanel4.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 10));
         jPanel4.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, 10));
 
@@ -365,7 +402,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)

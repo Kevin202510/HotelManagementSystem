@@ -100,7 +100,7 @@ public class StaffButtons extends javax.swing.JPanel {
         rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room2.png"))); // NOI18N
         rooms.setText("ROOMS");
         rooms.setIconTextGap(10);
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,16 +119,14 @@ public class StaffButtons extends javax.swing.JPanel {
         hov2.setLayout(hov2Layout);
         hov2Layout.setHorizontalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov2Layout.createSequentialGroup()
-                .addComponent(rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         hov2Layout.setVerticalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 150, 50));
+        StaffButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 150, 50));
 
         hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -163,7 +161,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 92, -1, 50));
+        StaffButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, 50));
 
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -199,7 +197,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
+        StaffButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 90, -1, 50));
 
         hov4.setBackground(new java.awt.Color(83, 140, 198));
 
@@ -233,7 +231,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1093, 88, -1, 54));
+        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 90, -1, 54));
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,7 +239,7 @@ public class StaffButtons extends javax.swing.JPanel {
                 logoutMouseClicked(evt);
             }
         });
-        StaffButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 56, 41, 39));
+        StaffButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 41, 39));
 
         jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,7 +247,7 @@ public class StaffButtons extends javax.swing.JPanel {
                 jLabelRound5MouseClicked(evt);
             }
         });
-        StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 40, 39));
+        StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 40, 39));
 
         jLabelRound6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
         jLabelRound6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,7 +255,7 @@ public class StaffButtons extends javax.swing.JPanel {
                 jLabelRound6MouseClicked(evt);
             }
         });
-        StaffButtons.add(jLabelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 11, 40, 39));
+        StaffButtons.add(jLabelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +298,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, 50));
+        StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 170, 50));
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -309,7 +307,7 @@ public class StaffButtons extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 240, 50));
+        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

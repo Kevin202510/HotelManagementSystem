@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 01:07 PM
+-- Generation Time: May 01, 2021 at 08:04 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -58,6 +58,16 @@ CREATE TABLE `checkinandout` (
   `room_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `checkinandout`
+--
+
+INSERT INTO `checkinandout` (`id`, `timein`, `timeout`, `checkin_date`, `checkout_date`, `cust_id`, `room_id`) VALUES
+(5, '11:53:37', '12:31:17', '2021-04-30', '2021-05-01', 7, 14),
+(6, '12:59:12', '08:50:51', '2021-04-25', '2021-05-01', 8, 12),
+(7, '12:59:32', '01:02:01', '2021-04-30', '2021-05-01', 9, 13),
+(8, '12:59:32', '01:02:10', '2021-04-30', '2021-05-01', 10, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -78,8 +88,16 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`cust_id`, `cust_Fname`, `cust_Mname`, `cust_Lname`, `cust_address`, `cust_contactnum`) VALUES
-(1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '09261364720'),
-(2, 'marimar', 'Pagunio', 'diaza', 'San Pedro General Tinio Ne', '09551364720');
+(1, 'kevin', 'felix', 'caluag', 'BGTNE', '09261364720'),
+(2, 'kevin', 'felix', 'caluag', 'BGTNE', '093402394'),
+(3, 'kevin', 'felix', 'caluag', 'BGTNE', '4539847'),
+(4, 'ace ', 'efmkm', 'malmsdlm', 'lmamlk', 'mlmalsdmalsd'),
+(5, 'ako', 'lang ', 'sakalam', 'adnasjn', 'oandoajsd'),
+(6, 'kevin', 'felix', 'caluag', 'dmaklsjdk', '76987087679076'),
+(7, 'kevin', 'f', 'caluag', 'BGTNE', '092312312'),
+(8, 'askd', 'k;lk;lk;lk', ';lk;k;', 'lk;lk;lk;', 'lk;lk;lk;l'),
+(9, '', '', '', '', ''),
+(10, 'qokwepo`kpokpokpo', 'jnjnoj', 'ojo', 'jij', 'oij');
 
 -- --------------------------------------------------------
 
@@ -93,6 +111,15 @@ CREATE TABLE `inventories` (
   `amount` int(11) DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `inventories`
+--
+
+INSERT INTO `inventories` (`id`, `sales_date`, `amount`, `user_id`) VALUES
+(1, '2021-05-01', 900, 13),
+(2, '2021-05-01', 900, 13),
+(3, '2021-05-05', 1000, 14);
 
 -- --------------------------------------------------------
 
@@ -181,10 +208,15 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`room_id`, `bed_id`, `RT_id`, `rate_id`, `status`) VALUES
-(1, 1, 1, 4, 1),
-(2, 2, 2, 3, 1),
-(3, 3, 3, 2, 1),
-(4, 1, 1, 1, 1);
+(7, 2, 1, 1, 0),
+(8, 4, 3, 4, 0),
+(9, 1, 2, 1, 0),
+(10, 4, 3, 2, 0),
+(11, 4, 3, 1, 0),
+(12, 1, 1, 1, 0),
+(13, 1, 1, 1, 0),
+(14, 1, 1, 1, 1),
+(15, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -204,7 +236,11 @@ CREATE TABLE `roomtypes` (
 INSERT INTO `roomtypes` (`RT_id`, `room_type`) VALUES
 (1, 'ordinary'),
 (2, 'Air conditioned'),
-(3, 'deluxe');
+(3, 'deluxe'),
+(4, 'mamahalin'),
+(5, 'pangmahirap'),
+(6, 'pang eutan'),
+(7, 'pang laspagan');
 
 -- --------------------------------------------------------
 
@@ -221,8 +257,8 @@ CREATE TABLE `users` (
   `user_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_DOB` date NOT NULL,
   `user_contactnum` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+  `user_username` varchar(191) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `user_password` varchar(191) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -230,9 +266,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `role_id`, `user_Fname`, `user_Mname`, `user_Lname`, `user_address`, `user_DOB`, `user_contactnum`, `user_username`, `user_password`) VALUES
-(1, 1, 'Maria', 'Pagunio', 'Gadiaza', 'San Pedro General Tinio Ne', '2001-01-13', '09261364720', 'superadmin', 'password'),
-(2, 2, 'Chelsea', 'Vannesa', 'Torres', 'Pulong Matong General Tinio Ne', '2002-01-13', '09261364720', 'chelsea', 'password'),
-(3, 3, 'Jomari', 'Toto', 'Mallare', 'Sampaguita General Tinio Ne', '2003-01-13', '09261364720', 'joms', 'password');
+(1, 1, 'Kevin', 'F', 'Caluag', 'San Pedro General Tinio Ne', '2001-01-13', '09261364720', 'superadmin', 'ufxx|twi'),
+(13, 3, 'Jomari', 'B', 'Mallare', 'sampaguita general tinio ne', '2000-06-13', '874289347', 'joms', 'ufxx|twi'),
+(14, 2, 'ace', 'f', 'caluag', 'asdnaj', '2021-05-05', '9348273', 'ace', 'ufxx|twi');
 
 --
 -- Indexes for dumped tables
@@ -320,19 +356,19 @@ ALTER TABLE `beds`
 -- AUTO_INCREMENT for table `checkinandout`
 --
 ALTER TABLE `checkinandout`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `cust_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cust_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `inventories`
 --
 ALTER TABLE `inventories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -356,19 +392,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `room_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `room_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `roomtypes`
 --
 ALTER TABLE `roomtypes`
-  MODIFY `RT_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `RT_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

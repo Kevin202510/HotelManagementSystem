@@ -85,7 +85,8 @@ import javax.swing.table.DefaultTableModel;
         jLabel2.setText("Customers");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 301, 83));
 
-        jTable1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTable1.setBackground(new java.awt.Color(191, 191, 191));
+        jTable1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,7 +94,15 @@ import javax.swing.table.DefaultTableModel;
             new String [] {
                 "ID", "Fullname", "Address", "Contact #"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(3).setResizable(false);

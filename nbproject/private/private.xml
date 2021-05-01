@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/ContainerManipulator.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/ManagerButtons.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/StaffButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Rooms.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/RoomsPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/SalesPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Rate_RT_BedPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CustomersPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
     </open-files>
 </project-private>

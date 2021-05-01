@@ -59,6 +59,8 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(300, 300));
 
+        salesTable.setBackground(new java.awt.Color(191, 191, 191));
+        salesTable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         salesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -68,7 +70,7 @@ public class SalesPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

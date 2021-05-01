@@ -6,7 +6,9 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.ImagesNText;
 import Views.Authentication.Login;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -62,6 +64,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         userrole = new javax.swing.JLabel();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         ManagerButtons.setBackground(new java.awt.Color(83, 140, 198));
         ManagerButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -80,7 +83,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room2.png"))); // NOI18N
         rooms.setText("ROOMS");
         rooms.setIconTextGap(10);
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,16 +102,14 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov2.setLayout(hov2Layout);
         hov2Layout.setHorizontalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov2Layout.createSequentialGroup()
-                .addComponent(rooms, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         hov2Layout.setVerticalGroup(
             hov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        ManagerButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 150, 50));
+        ManagerButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 150, 50));
 
         hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -143,7 +144,7 @@ public class ManagerButtons extends javax.swing.JPanel {
             .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ManagerButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 92, -1, 50));
+        ManagerButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, 50));
 
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -179,7 +180,7 @@ public class ManagerButtons extends javax.swing.JPanel {
             .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ManagerButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(783, 92, -1, 50));
+        ManagerButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, -1, 50));
 
         hov4.setBackground(new java.awt.Color(83, 140, 198));
 
@@ -221,7 +222,7 @@ public class ManagerButtons extends javax.swing.JPanel {
                 logoutMouseClicked(evt);
             }
         });
-        ManagerButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 56, 41, 39));
+        ManagerButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 41, 39));
 
         jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,7 +230,7 @@ public class ManagerButtons extends javax.swing.JPanel {
                 jLabelRound5MouseClicked(evt);
             }
         });
-        ManagerButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 101, 40, 39));
+        ManagerButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 40, 39));
 
         jLabelRound6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
         jLabelRound6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -237,15 +238,15 @@ public class ManagerButtons extends javax.swing.JPanel {
                 jLabelRound6MouseClicked(evt);
             }
         });
-        ManagerButtons.add(jLabelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 11, 40, 39));
+        ManagerButtons.add(jLabelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        ManagerButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 11, 310, 39));
+        ManagerButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 280, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        ManagerButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
+        ManagerButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 168, 27));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -273,14 +274,25 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov10.setLayout(hov10Layout);
         hov10Layout.setHorizontalGroup(
             hov10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+            .addGroup(hov10Layout.createSequentialGroup()
+                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         hov10Layout.setVerticalGroup(
             hov10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ManagerButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, 50));
+        ManagerButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 170, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        ManagerButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -404,6 +416,17 @@ public class ManagerButtons extends javax.swing.JPanel {
         userButton.resetC(hov10);
     }//GEN-LAST:event_homeMouseExited
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+        int vin = model.getSize();
+        for (int i = 0; i < vin; i++) {
+            if (i==jComboBox1.getSelectedIndex()) {
+                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
+                JOptionPane.showMessageDialog(this,name);
+            }
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManagerButtons;
@@ -416,6 +439,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov2;
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private jroundborder.JLabelRound jLabelRound6;
