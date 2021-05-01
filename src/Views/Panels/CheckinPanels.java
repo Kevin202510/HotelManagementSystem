@@ -73,7 +73,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         cusAddress1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        save1 = new javax.swing.JButton();
         delete1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         rooms1 = new javax.swing.JComboBox<>();
@@ -85,6 +84,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomsTable = new javax.swing.JTable();
+        save1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,17 +121,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel13.setText("CONTACT #");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 100, 40));
-
-        save1.setBackground(new java.awt.Color(51, 102, 255));
-        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save1.setText("SAVE");
-        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
-        save1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 126, 50));
 
         delete1.setBackground(new java.awt.Color(51, 102, 255));
         delete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -200,6 +189,17 @@ public class CheckinPanels extends javax.swing.JPanel {
         jScrollPane1.setViewportView(roomsTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 1120, 220));
+
+        save1.setBackground(new java.awt.Color(51, 102, 255));
+        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        save1.setText("SAVE");
+        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
+        save1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save1ActionPerformed(evt);
+            }
+        });
+        add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 126, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked

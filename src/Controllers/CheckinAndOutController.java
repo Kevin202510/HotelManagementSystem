@@ -193,50 +193,37 @@ JOptionPane.showMessageDialog(null,ids);
          
          
 //         checkout filler
-         
-         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms) throws SQLException{
-            ArrayList<Customers> list = new CustomerController().custList();
-            int room_id=0;
+         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime) throws SQLException{
+//            ArrayList<Customers> list = new CustomerController().custList();
             String datein="";
-            int customer_id=0;
-            int index=0;
-            String tanong = "Select * from checkinandout where id='"+id+"'";
+            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where id='"+id+"'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);
 
              while(rs.next()){
-                        room_id = rs.getInt("room_id");
-                        customer_id = rs.getInt("cust_id");
-                        datein = rs.getString("checkin_date");
+                    co_custfullname.setText(rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " + rs.getString("cust_lname"));
+                    co_custaddress.setText(rs.getString("cust_address"));
+                    co_custcontact.setText(rs.getString("cust_Lname"));
+                    co_custtime.setText(getTimeNow());
+                    co_custdate.setText(getDateNow());
+                    checkindate.setText(rs.getString("checkin_date"));
+                    checkintime.setText(rs.getString("timein"));
+                    co_rooms.setText(String.valueOf(rs.getInt("room_id")));
              }
-
-             for(int i =0;i<list.size();i++){
-                 int initid = list.get(i).getcust_id();
-                 if (initid==customer_id) {
-                   index=i;
-                 }
+         }
+         
+         public void payment(int id,String checkindate) throws SQLException{
+              String tanongs = "UPDATE checkinandout SET timeout = '"+getTimeNow()+"' , checkout_date = '"+getDateNow()+"'  where id='"+id+"'";
+                    Statement sts = con.createStatement();
+                    int i = sts.executeUpdate(tanongs);
+                    if (i>0) {
+                            String checkoutdate = String.valueOf(getDateNow());
+                            LocalDate checkin = LocalDate.parse(checkindate);
+                            LocalDate checkout = LocalDate.parse(checkoutdate);
+                            Long days = ChronoUnit.DAYS.between(checkin,checkout);
+                            JOptionPane.showMessageDialog(null,days);
+                            int total = (int) (500 * days);
+                            JOptionPane.showMessageDialog(null,"Your Total Amount Is " + total);
              }
-
-             JOptionPane.showMessageDialog(null,index);
-            co_custfullname.setText(list.get(index).getcust_fullname());
-            co_custaddress.setText(list.get(index).getcust_address());
-            co_custcontact.setText(list.get(index).getcust_contactnum());
-            co_custtime.setText(getTimeNow());
-            co_custdate.setText(getDateNow());
-            JOptionPane.showMessageDialog(null,room_id);
-            co_rooms.setText(String.valueOf(room_id));
-            String tanongs = "UPDATE checkinandout SET timeout = '"+getTimeNow()+"' , checkout_date = '"+getDateNow()+"'  where id='"+id+"'";
-            Statement sts = con.createStatement();
-            sts.executeUpdate(tanongs);
-
-            JOptionPane.showMessageDialog(null,datein);
-            String checkindate = datein;
-            String checkoutdate = String.valueOf(getDateNow());
-            LocalDate checkin = LocalDate.parse(checkindate);
-            LocalDate checkout = LocalDate.parse(checkoutdate);
-            Long days = ChronoUnit.DAYS.between(checkin,checkout);
-            JOptionPane.showMessageDialog(null,days);
-            int total = (int) (500 * days);
-            JOptionPane.showMessageDialog(null,total);
-            }
+         }
 }

@@ -307,7 +307,7 @@ public class StaffButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        userButton.roomBotton(rooms,role);
+        userButton.roomButton(rooms,userrole.getText());
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -331,7 +331,7 @@ public class StaffButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_checkInMouseExited
 
     private void checkOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseClicked
-        userButton.checkoutBotton(checkOut);
+        userButton.checkoutButton(checkOut);
     }//GEN-LAST:event_checkOutMouseClicked
 
     private void checkOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutMouseEntered
@@ -343,7 +343,7 @@ public class StaffButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_checkOutMouseExited
 
     private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
-        userButton.costumerBotton(customers);
+        userButton.costumerButton(customers);
     }//GEN-LAST:event_customersMouseClicked
 
     private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
