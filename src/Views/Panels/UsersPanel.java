@@ -69,7 +69,6 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         uaname = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -101,6 +100,7 @@ public class UsersPanel extends javax.swing.JPanel {
         roles = new javax.swing.JComboBox<>();
         viewpass = new javax.swing.JButton();
         hidepass = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -171,16 +171,16 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(612, Short.MAX_VALUE)
+                .addContainerGap(741, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(598, 598, 598))
+                .addGap(469, 469, 469))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
@@ -188,12 +188,6 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(0, 77, 77));
         jPanel1.setPreferredSize(new java.awt.Dimension(306, 642));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(191, 191, 191));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("USER ACTION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 297, 53));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,7 +271,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("UNAME:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, 30));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 218, 5));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 190, 5));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,7 +297,7 @@ public class UsersPanel extends javax.swing.JPanel {
         upass.setBackground(new java.awt.Color(0, 77, 77));
         upass.setForeground(new java.awt.Color(255, 255, 255));
         upass.setBorder(null);
-        jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 220, 30));
+        jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 190, 30));
 
         Add.setBackground(new java.awt.Color(51, 102, 255));
         Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -350,7 +344,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 viewpassActionPerformed(evt);
             }
         });
-        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 30, 30));
+        jPanel1.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 30, 30));
 
         hidepass.setBackground(new java.awt.Color(0, 204, 255));
         hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
@@ -365,9 +359,15 @@ public class UsersPanel extends javax.swing.JPanel {
                 hidepassActionPerformed(evt);
             }
         });
-        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 30, 30));
+        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 30, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 306, 710));
+        jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(191, 191, 191));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("USER ACTION");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, 53));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 300, 710));
     }// </editor-fold>//GEN-END:initComponents
 
     private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed

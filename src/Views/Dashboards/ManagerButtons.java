@@ -6,7 +6,11 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.ImageTextRenderer;
+import Controllers.ImagesNText;
 import Views.Authentication.Login;
+import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,6 +34,10 @@ public class ManagerButtons extends javax.swing.JPanel {
         initComponents();
         this.out=out;
         this.lalagyanan=lalagyanan;
+         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
+        jComboBox1.setRenderer(new ImageTextRenderer());
+        jComboBox1.setBackground(new Color(25,20,255));
+        jComboBox1.setOpaque(false);
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
@@ -62,6 +70,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         userrole = new javax.swing.JLabel();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         ManagerButtons.setBackground(new java.awt.Color(83, 140, 198));
         ManagerButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -241,11 +250,11 @@ public class ManagerButtons extends javax.swing.JPanel {
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        ManagerButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 11, 310, 39));
+        ManagerButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 310, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        ManagerButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(1296, 50, 168, 27));
+        ManagerButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 168, 27));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -281,6 +290,15 @@ public class ManagerButtons extends javax.swing.JPanel {
         );
 
         ManagerButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        ManagerButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 240, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -404,6 +422,17 @@ public class ManagerButtons extends javax.swing.JPanel {
         userButton.resetC(hov10);
     }//GEN-LAST:event_homeMouseExited
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+        int vin = model.getSize();
+        for (int i = 0; i < vin; i++) {
+            if (i==jComboBox1.getSelectedIndex()) {
+                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
+                JOptionPane.showMessageDialog(this,name);
+            }
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ManagerButtons;
@@ -416,6 +445,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov2;
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private jroundborder.JLabelRound jLabelRound6;

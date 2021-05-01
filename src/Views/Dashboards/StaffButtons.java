@@ -11,6 +11,7 @@ import Controllers.ImagesNText;
 import Controllers.SQL;
 import Views.Authentication.Login;
 import static Views.Dashboards.AdminButtons.fullname;
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -36,23 +37,16 @@ public class StaffButtons extends javax.swing.JPanel {
         initComponents();
         this.out=out;
          this.fullname=fullname;
-        jComboBox1.setModel(pop());
+        jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
         jComboBox1.setRenderer(new ImageTextRenderer());
+        jComboBox1.setBackground(new Color(25,20,255));
+        jComboBox1.setOpaque(false);
         this.lalagyanan=lalagyanan;
         this.role=role;
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-    }
-    
-    public DefaultComboBoxModel pop(){
-//         JOptionPane.showMessageDialog(null,name);
-        DefaultComboBoxModel kev = new DefaultComboBoxModel();
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
-        return kev;
     }
 
     /**

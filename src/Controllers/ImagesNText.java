@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import static Views.Dashboards.StaffButtons.fullname;
 import Views.Panels.NewJFrame;
 import java.awt.Component;
 import javax.swing.DefaultComboBoxModel;

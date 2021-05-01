@@ -38,7 +38,7 @@ public class AdminButtons extends javax.swing.JPanel {
     public AdminButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
         this.fullname=fullname;
-        jComboBox1.setModel(pop());
+         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
         jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
         this.lalagyanan=lalagyanan;
@@ -46,17 +46,8 @@ public class AdminButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-        jComboBox1.setBackground(new Color(83,140,198,255));
+        jComboBox1.setBackground(new Color(25,20,255));
         jComboBox1.setOpaque(false);
-    }
-    
-     public DefaultComboBoxModel pop(){
-//         JOptionPane.showMessageDialog(null,name);
-        DefaultComboBoxModel kev = new DefaultComboBoxModel();
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
-        return kev;
     }
 
     /**
