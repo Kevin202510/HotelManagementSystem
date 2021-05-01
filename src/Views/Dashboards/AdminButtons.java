@@ -384,7 +384,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
-        userButton.roomBotton(rooms);
+        userButton.roomBotton(rooms,userrole.getText());
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered

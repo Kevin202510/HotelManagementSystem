@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 public class Authentication {
     
-    public static String decrypt(String str){
+    public String decrypt(String str){
 	String storen2 = "";
 		
         for(int i = 0; i<str.length(); i++){

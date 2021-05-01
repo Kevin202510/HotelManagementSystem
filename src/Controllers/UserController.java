@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
@@ -34,9 +35,10 @@ public class UserController {
     public ArrayList<Users> list;
     public Connection con = sql.getConnection();
     public static int key = 6;
+    Authentication auth = new Authentication();
     
 //    QUERIES
-    public String kuninLahatNgUser = "SELECT * FROM users INNER JOIN roles ON roles.role_id = users.role_id where users.role_id > 1";
+    public String kuninLahatNgUser = "SELECT * FROM users where user_id>1";
     public String magdagdagNgUser = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES (?,?,?,?,?,?,?,?,?)";
     
     public UserController() throws SQLException{
@@ -49,28 +51,15 @@ public class UserController {
         Users users;
         
         while(rs.next()){
-            users=new Users(rs.getInt("user_id"),rs.getString("role_displayname"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
+            users=new Users(rs.getInt("user_id"),rs.getInt("role_Id"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
             userList.add(users);
         }
         return userList;   
     }
-    
-    public String encrypt(String str){
-	String storen = "";
-		
-        for(int i = 0; i<str.length(); i++){
-            char c = str.charAt(i);
-		
-            int asci = (int)c + 5;
-	    storen += (char) asci;
-        }
-	JOptionPane.showMessageDialog(null,storen);
-        return storen;
-    }
-    
+
     public boolean createUser(Users user,JTable roomstable) throws SQLException{
         PreparedStatement st = con.prepareStatement(magdagdagNgUser);
-        st.setInt(1, 3);
+        st.setInt(1, user.getrole_id());
         st.setString(2, user.getuser_Fname());
         st.setString(3, user.getuser_Mname());
         st.setString(4, user.getuser_Lname());
@@ -78,7 +67,7 @@ public class UserController {
         st.setString(6, user.getuser_DOB());
         st.setString(7, user.getuser_contactnum());
         st.setString(8, user.getuser_username());
-        st.setString(9, encrypt(user.getuser_password()));
+        st.setString(9, auth.encrypt(user.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {
@@ -120,7 +109,7 @@ public class UserController {
        upass.setText("");
     }
     
-     public void fillUserForm(int user_id,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
+     public void fillUserForm(int user_id,JComboBox roles,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
 //        ArrayList<Users> list = userList();
             JOptionPane.showMessageDialog(null,user_id);
             String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
@@ -128,6 +117,7 @@ public class UserController {
             ResultSet rs = st.executeQuery(tanong);
 
             while(rs.next()){
+                roles.setSelectedIndex(rs.getInt("role_id")-1);
                 uaname.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
                 usn.setText(rs.getString("user_Lname"));
@@ -135,22 +125,23 @@ public class UserController {
                 udob.setDate(rs.getDate("user_DOB"));
                 ucon.setText(rs.getString("user_contactnum"));
                 uname.setText(rs.getString("user_username"));
-                upass.setText(rs.getString("user_password"));
+                upass.setText(auth.decrypt(rs.getString("user_password")));
             }
         
     }
      
      public boolean updateUser(Users users,int user_id,JTable usertables) throws SQLException{
-        String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + user_id + "'";
+        String updates = "UPDATE users SET role_id = ? ,user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + user_id + "'";
         PreparedStatement st = con.prepareStatement(updates);
-        st.setString(1, users.getuser_Fname());
-        st.setString(2, users.getuser_Mname());
-        st.setString(3, users.getuser_Lname());
-        st.setString(4, users.getuser_address());
-        st.setString(5, users.getuser_DOB());
-        st.setString(6, users.getuser_contactnum());
-        st.setString(7, users.getuser_username());
-        st.setString(8, users.getuser_password());
+        st.setInt(1, users.getrole_id());
+        st.setString(2, users.getuser_Fname());
+        st.setString(3, users.getuser_Mname());
+        st.setString(4, users.getuser_Lname());
+        st.setString(5, users.getuser_address());
+        st.setString(6, users.getuser_DOB());
+        st.setString(7, users.getuser_contactnum());
+        st.setString(8, users.getuser_username());
+        st.setString(9, auth.encrypt(users.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {
@@ -178,6 +169,21 @@ public class UserController {
         }
 
      }
+     
+     public void showRoles(JComboBox roles){
+        String tanong = "Select * from roles";
+        try{
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        while(rs.next()){
+         String vin = rs.getString("role_displayname");
+         roles.addItem(vin);
+        }
+        }
+        catch (SQLException ex) {
+        }
+    }
+     
 }
 
 

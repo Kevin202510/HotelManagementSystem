@@ -62,10 +62,10 @@ public class Buttons {
         }
     }
      
-     public void roomBotton(JLabel rooms){
+     public void roomBotton(JLabel rooms,String role){
      if (rooms.isEnabled()) {
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
+                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
@@ -105,7 +105,8 @@ public class Buttons {
     }
      
      public void checkIn(){
-          try {
+         String role = "Staff";
+         try {
                 String tanong = "Select * from rooms where status=1";
                 Connection con = new SQL().getConnection();
                 Statement st = con.createStatement();
@@ -114,7 +115,7 @@ public class Buttons {
                     new ContainerManipulator(lalagyanan,new Views.Panels.CheckinPanels(lalagyanan));
                 }else{
                     JOptionPane.showMessageDialog(null,"Sorry there's have no available rooms at this moment");
-                    new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan));
+                    new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
                 }
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);

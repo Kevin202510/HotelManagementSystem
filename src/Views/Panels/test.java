@@ -114,7 +114,7 @@ jComboBox1.setModel(loadImg());
 
         jComboBox1.setModel(jComboBox1.getModel());
         jComboBox1.setSelectedItem(0);
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 260, 70));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 260, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

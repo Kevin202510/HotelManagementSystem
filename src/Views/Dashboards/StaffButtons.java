@@ -31,6 +31,7 @@ public class StaffButtons extends javax.swing.JPanel {
         initComponents();
         this.out=out;
         this.lalagyanan=lalagyanan;
+        this.role=role;
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
@@ -306,7 +307,7 @@ public class StaffButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        userButton.roomBotton(rooms);
+        userButton.roomBotton(rooms,role);
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered

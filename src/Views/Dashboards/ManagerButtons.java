@@ -305,7 +305,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        userButton.roomBotton(rooms);
+        userButton.roomBotton(rooms,userrole.getText());
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
