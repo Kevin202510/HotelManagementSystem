@@ -6,8 +6,10 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.ImageTextRenderer;
 import Controllers.ImagesNText;
 import Views.Authentication.Login;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
