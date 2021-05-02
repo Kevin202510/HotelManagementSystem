@@ -29,15 +29,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Rate_RT_BedPanels extends javax.swing.JPanel {
     
-    public RoomTypesController roomtypeControll = new RoomTypesController();  
-            public RoomTypesController roomtype = new RoomTypesController();
-            
-    public RatesController rateControll = new RatesController();  
-            public RatesController rate = new RatesController();
-            
-    public BedsController bedControll = new BedsController();  
-        public BedsController bed = new BedsController();   
-        
+    public RoomTypesController roomtypeControll; 
+    public RatesController ratesControll; 
+    public BedsController bedsControll; 
+    int id;
+   
         public  SQL sql = new SQL();
         public JPanel lalagyanan;
     /**
@@ -46,9 +42,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     public Rate_RT_BedPanels(JPanel lalagyanan) throws SQLException {
         initComponents();
         this.lalagyanan=lalagyanan;
-        roomtype.showRoomtypes(RTtable);
-        rate.showRates(ratestable);
-        bed.showBeds(bedtable);
+        roomtypeControll = new RoomTypesController(lalagyanan);
+        ratesControll=new RatesController(lalagyanan);
+        bedsControll=new BedsController(lalagyanan);
+        roomtypeControll.showRoomtypes(RTtable);
+        ratesControll.showRates(ratestable);
+       bedsControll.showBeds(bedtable);
+       
     }
 
     /**
@@ -76,16 +76,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         BedQuantity = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        save = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
+        Bedsave = new javax.swing.JButton();
+        Beddelete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         RateID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         RatePrice = new javax.swing.JTextField();
-        save1 = new javax.swing.JButton();
-        delete1 = new javax.swing.JButton();
+        Ratesave = new javax.swing.JButton();
+        Ratedelete = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
@@ -95,7 +95,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         RoomType = new javax.swing.JTextField();
         save2 = new javax.swing.JButton();
-        delete2 = new javax.swing.JButton();
+        RTdelete = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
 
@@ -240,21 +240,26 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
 
-        save.setBackground(new java.awt.Color(51, 102, 255));
-        save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save.setText("SAVE");
-        save.addActionListener(new java.awt.event.ActionListener() {
+        Bedsave.setBackground(new java.awt.Color(51, 102, 255));
+        Bedsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Bedsave.setText("SAVE");
+        Bedsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
+                BedsaveActionPerformed(evt);
             }
         });
-        jPanel2.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
+        jPanel2.add(Bedsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
-        delete.setBackground(new java.awt.Color(51, 102, 255));
-        delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        delete.setText("DELETE");
-        delete.setPreferredSize(new java.awt.Dimension(63, 23));
-        jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
+        Beddelete.setBackground(new java.awt.Color(51, 102, 255));
+        Beddelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Beddelete.setText("DELETE");
+        Beddelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        Beddelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BeddeleteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 77, 77));
         jPanel3.setPreferredSize(new java.awt.Dimension(310, 212));
@@ -295,21 +300,26 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         RatePrice.setBorder(null);
         jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 30));
 
-        save1.setBackground(new java.awt.Color(51, 102, 255));
-        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save1.setText("SAVE");
-        save1.addActionListener(new java.awt.event.ActionListener() {
+        Ratesave.setBackground(new java.awt.Color(51, 102, 255));
+        Ratesave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Ratesave.setText("SAVE");
+        Ratesave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
+                RatesaveActionPerformed(evt);
             }
         });
-        jPanel3.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
+        jPanel3.add(Ratesave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
-        delete1.setBackground(new java.awt.Color(51, 102, 255));
-        delete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        delete1.setText("DELETE");
-        delete1.setPreferredSize(new java.awt.Dimension(63, 23));
-        jPanel3.add(delete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
+        Ratedelete.setBackground(new java.awt.Color(51, 102, 255));
+        Ratedelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        Ratedelete.setText("DELETE");
+        Ratedelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        Ratedelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RatedeleteActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
         jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 10));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 190, 10));
 
@@ -361,11 +371,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         });
         jPanel4.add(save2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 110, 30));
 
-        delete2.setBackground(new java.awt.Color(51, 102, 255));
-        delete2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        delete2.setText("DELETE");
-        delete2.setPreferredSize(new java.awt.Dimension(63, 23));
-        jPanel4.add(delete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 160, 110, 30));
+        RTdelete.setBackground(new java.awt.Color(51, 102, 255));
+        RTdelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        RTdelete.setText("DELETE");
+        RTdelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        RTdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RTdeleteActionPerformed(evt);
+            }
+        });
+        jPanel4.add(RTdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 160, 110, 30));
         jPanel4.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 10));
         jPanel4.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, 10));
 
@@ -412,29 +427,59 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ratestableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ratestableMouseClicked
-       // JOptionPane.showMessageDialog(null,"hello");
-       // update.setVisible(true);
-       // save.setVisible(false);
-       // id = (int) roomstable.getValueAt(roomstable.getSelectedRow(),0);
-        //        roomTypeId.setSelectedIndex(2);
-       // try {
-           // roomControll.fillRoomForm(id,Roomid, roomTypeId, bedTypeId, rateId, statusId);
-       // } catch (SQLException ex) {
-           // Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
-       // }
+     try {
+            id = (int) ratestable.getValueAt(ratestable.getSelectedRow(),0);
+            ratesControll.fillForm(id, RateID, RatePrice);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
     }//GEN-LAST:event_ratestableMouseClicked
 
     private void bedtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bedtableMouseClicked
         // TODO add your handling code here:
+        
+         try {
+            id = (int) bedtable.getValueAt(bedtable.getSelectedRow(),0);
+            bedsControll.fillForm(id, BedID, BedQuantity);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_bedtableMouseClicked
 
     private void RTtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RTtableMouseClicked
         // TODO add your handling code here:
+        
+         try {
+            id = (int) RTtable.getValueAt(RTtable.getSelectedRow(),0);
+            ratesControll.fillForm(id, RTid, RoomType);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_RTtableMouseClicked
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-         
-    }//GEN-LAST:event_saveActionPerformed
+    private void BedsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BedsaveActionPerformed
+
+        
+           if (checkInputsBed()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+      }else{     
+        try {
+             
+            bedsControll.saveBeds(BedID, BedQuantity, bedtable);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
+            
+        
+    }              
+           }   
+        
+    }//GEN-LAST:event_BedsaveActionPerformed
 
     private void BedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BedIDActionPerformed
         // TODO add your handling code here:
@@ -444,49 +489,139 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_RateIDActionPerformed
 
-    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
+    private void RatesaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatesaveActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_save1ActionPerformed
+        
+           if (checkInputsRate()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+      }else{     
+        try {
+             
+            ratesControll.saveRates(RateID, RatePrice, ratestable);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
+            
+        }
+           }   
+    }//GEN-LAST:event_RatesaveActionPerformed
 
     private void RTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RTidActionPerformed
 
     private void save2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save2ActionPerformed
-        Connection con = sql.getConnection();
-        String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
+      
+         if (checkInputsRT()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");
+          
+      }else{     
         try {
-            PreparedStatement st = con.prepareStatement(insert);
-            st.setInt(1, Integer.parseInt(RTid.getText()));
-            st.setString(2, RoomType.getText());
-            int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
-               model.setRowCount(0);
+              
+            roomtypeControll.saveRT(RTid,RoomType,RTtable);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+            
+            
+            
+        }
+         }
+    }//GEN-LAST:event_save2ActionPerformed
+
+    private void RTdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTdeleteActionPerformed
+        // TODO add your handling code here:
+        
+          try {
+            boolean checkDeleteRoomtypes = roomtypeControll.deleteRoomtypes(id, RTtable);
+            if (checkDeleteRoomtypes==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            JOptionPane.showMessageDialog(null,"Successfully Added!!");
-            } else {
-                JOptionPane.showMessageDialog(null,"Error");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_save2ActionPerformed
+    }//GEN-LAST:event_RTdeleteActionPerformed
 
+    private void RatedeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatedeleteActionPerformed
+        // TODO add your handling code here:
+        
+        
+        try {
+            boolean checkDeleteRates = ratesControll.deleteRates(id, ratestable);
+            if (checkDeleteRates==true) {
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_RatedeleteActionPerformed
+
+    private void BeddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeddeleteActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            boolean checkDeleteBeds = bedsControll.deleteBeds(id, bedtable);
+            if (checkDeleteBeds==true) {
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_BeddeleteActionPerformed
+      
+    
+     private boolean checkInputsRT(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (RTid.getText().isEmpty()||RoomType.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+      }
+    
+    
+    
+     private boolean checkInputsRate(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (RateID.getText().isEmpty()||RatePrice.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+      }
+     
+     
+     
+     private boolean checkInputsBed(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (BedID.getText().isEmpty()||BedQuantity.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+      }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BedID;
     private javax.swing.JTextField BedQuantity;
+    private javax.swing.JButton Beddelete;
+    private javax.swing.JButton Bedsave;
+    private javax.swing.JButton RTdelete;
     private javax.swing.JTextField RTid;
     private javax.swing.JTable RTtable;
     private javax.swing.JTextField RateID;
     private javax.swing.JTextField RatePrice;
+    private javax.swing.JButton Ratedelete;
+    private javax.swing.JButton Ratesave;
     private javax.swing.JTextField RoomType;
     private javax.swing.JTable bedtable;
-    private javax.swing.JButton delete;
-    private javax.swing.JButton delete1;
-    private javax.swing.JButton delete2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -511,8 +646,6 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable ratestable;
-    private javax.swing.JButton save;
-    private javax.swing.JButton save1;
     private javax.swing.JButton save2;
     // End of variables declaration//GEN-END:variables
 }

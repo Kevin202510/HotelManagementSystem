@@ -31,6 +31,13 @@ public class RoomTypesController {
      public ArrayList<Roomtypes> rateList = new ArrayList<>();
     public SQL sql = new SQL();
     
+    
+    public JPanel lalagyanan;
+    
+    public RoomTypesController(JPanel lalagyanan){
+        this.lalagyanan=lalagyanan;
+    }
+    
 //    store data
     
     public ArrayList<Roomtypes> roomtypeList() throws SQLException{
@@ -78,18 +85,61 @@ public class RoomTypesController {
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-  //  public static void main(String args[]) throws SQLException{
- //       new RoomTypesController().showRoomtypes();
-
-   // public void showCustomers(JTable RTtable) {
-   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   // }
-
-   // public void showRoomtypes() {
-  //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    }
+     
+     
+     public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable) throws SQLException{
+         //for Save Funktion :)
+         JOptionPane.showMessageDialog(null,"hello");
+          Connection con = sql.getConnection();
+         String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
+            JOptionPane.showMessageDialog(null,"hellolast");
+            PreparedStatement st = con.prepareStatement(insert);
+           st.setInt(1, Integer.parseInt(RTid.getText()));
+           st.setString(2, RoomType.getText());
+           int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+                model.setRowCount(0);
+               new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+            } else {
+                JOptionPane.showMessageDialog(null,"Error");
+            }
+     
+     
+      }
+     
+     public void fillForm(int id,JTextField RTid,JTextField RoomType) throws SQLException{
+         Connection con = sql.getConnection();
+        String selectRT = "SELECT * FROM roomtypes WHERE RT_id ='"+id+"'";
+        Statement st = con.createStatement();
+       ResultSet rs = st.executeQuery(selectRT);
+        while(rs.next()){
+            RTid.setText(rs.getString("RT_id"));
+            RoomType.setText(rs.getString("room_type"));
+        }
+     }
+     
+      public boolean deleteRoomtypes(int id,JTable RTtable) throws SQLException{
+       Connection con = sql.getConnection();
+        String delete = "DELETE FROM roomtypes WHERE RT_id = ?";
+        PreparedStatement st = con.prepareStatement(delete);
+        st.setInt(1, id);
+        int i = st.executeUpdate();
+        if (i > 0) {
+           DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+            return true;
+        }else{
+            return false;
+        }
+      }
+}
+     
+ 
+
     
     
     

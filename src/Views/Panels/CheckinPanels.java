@@ -212,6 +212,11 @@ public class CheckinPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_roomsTableMouseClicked
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        
+        if (checkInputs()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+        
+         }else{
         customers = new Customers(1,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
         try {
             custo.createCustomer(customers);
@@ -228,11 +233,23 @@ public class CheckinPanels extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }                                     
-
+        }
+    }    
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
       
-    }                 
+    } 
+       
+     private boolean checkInputs(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (cusFname1.getText().isEmpty()||cusMname1.getText().isEmpty()||cusLname1.getText().isEmpty()||cusAddress1.getText().isEmpty()||cusContact2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+      }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkindate;
     private javax.swing.JLabel checkintime1;
