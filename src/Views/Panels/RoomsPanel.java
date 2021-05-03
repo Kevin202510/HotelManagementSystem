@@ -41,7 +41,7 @@ public class RoomsPanel extends javax.swing.JPanel {
                 save.setVisible(false);
                 roomstable.setVisible(false);
                 roomscroll.setVisible(false);
-                roomstablestaff.getTableHeader().setFont(new Font("Tw Cen MT", 0, 50));
+                roomstablestaff.getTableHeader().setFont(new Font("Tw Cen MT", 0, 18));
                 roomstablestaff.getTableHeader().setBackground(Color.white);
                 roomscrollstaff.setVisible(true);
                 roomstablestaff.setVisible(true);
@@ -163,7 +163,7 @@ public class RoomsPanel extends javax.swing.JPanel {
 
         Roomid.setEditable(false);
         Roomid.setBackground(new java.awt.Color(0, 77, 77));
-        Roomid.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
+        Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         Roomid.setForeground(new java.awt.Color(255, 255, 255));
         Roomid.setBorder(null);
         roomAction.add(Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 213, 30));
@@ -193,18 +193,31 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 210, -1));
         roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 210, -1));
 
+        statusId.setBackground(new java.awt.Color(0, 77, 77));
+        statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        statusId.setForeground(new java.awt.Color(255, 255, 255));
         statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
         roomAction.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 210, 30));
 
+        roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 210, 30));
 
+        bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 210, 30));
 
+        rateId.setBackground(new java.awt.Color(0, 77, 77));
+        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        rateId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 210, 30));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 340, 700));
 
-        roomstable.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        roomstable.setBackground(new java.awt.Color(191, 191, 191));
+        roomstable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         roomstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -224,9 +237,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
         roomscrollstaff.setBackground(new java.awt.Color(0, 77, 77));
 
-        roomstablestaff.setBackground(new java.awt.Color(0, 77, 77));
-        roomstablestaff.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        roomstablestaff.setForeground(new java.awt.Color(255, 255, 255));
+        roomstablestaff.setBackground(new java.awt.Color(191, 191, 191));
+        roomstablestaff.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         roomstablestaff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

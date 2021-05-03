@@ -76,8 +76,9 @@ public class AdminButtons extends javax.swing.JPanel {
         rooms = new javax.swing.JLabel();
         hov9 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
-        rate_RT_bed = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        hov10 = new javax.swing.JPanel();
+        rate_rt_bed = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,11 +117,11 @@ public class AdminButtons extends javax.swing.JPanel {
         });
         AdminButtons.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 39));
 
-        user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        user_fullname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
         AdminButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 200, 39));
 
-        userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        userrole.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
         AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 90, 27));
 
@@ -131,7 +132,7 @@ public class AdminButtons extends javax.swing.JPanel {
         sales.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         sales.setForeground(new java.awt.Color(255, 255, 255));
         sales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        sales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales.png"))); // NOI18N
         sales.setText("SALES");
         sales.setIconTextGap(10);
         sales.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,14 +151,14 @@ public class AdminButtons extends javax.swing.JPanel {
         hov5.setLayout(hov5Layout);
         hov5Layout.setHorizontalGroup(
             hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov5Layout.setVerticalGroup(
             hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 150, 50));
+        AdminButtons.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 90, 150, 50));
 
         hov6.setBackground(new java.awt.Color(83, 140, 198));
         hov6.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -201,7 +202,7 @@ public class AdminButtons extends javax.swing.JPanel {
         users.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         users.setForeground(new java.awt.Color(255, 255, 255));
         users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user3.png"))); // NOI18N
         users.setText("USERS");
         users.setIconTextGap(10);
         users.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,14 +221,14 @@ public class AdminButtons extends javax.swing.JPanel {
         hov7.setLayout(hov7Layout);
         hov7Layout.setHorizontalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addComponent(users, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         hov7Layout.setVerticalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 150, 50));
+        AdminButtons.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 150, 50));
 
         hov8.setBackground(new java.awt.Color(83, 140, 198));
         hov8.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -236,7 +237,7 @@ public class AdminButtons extends javax.swing.JPanel {
         rooms.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         rooms.setForeground(new java.awt.Color(255, 255, 255));
         rooms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        rooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/room2.png"))); // NOI18N
         rooms.setText("ROOMS");
         rooms.setIconTextGap(10);
         rooms.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,7 +263,7 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 150, 50));
+        AdminButtons.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 150, 50));
 
         hov9.setBackground(new java.awt.Color(83, 140, 198));
         hov9.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -271,7 +272,7 @@ public class AdminButtons extends javax.swing.JPanel {
         customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         customers.setForeground(new java.awt.Color(255, 255, 255));
         customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
+        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
         customers.setText("CUSTOMERS");
         customers.setIconTextGap(10);
         customers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -297,37 +298,51 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 50));
+        AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 190, 50));
 
-        rate_RT_bed.setBackground(new java.awt.Color(83, 140, 198));
-        rate_RT_bed.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 16)); // NOI18N
-        rate_RT_bed.setForeground(new java.awt.Color(255, 255, 255));
-        rate_RT_bed.setText("RATE-RT-BED");
-        rate_RT_bed.setBorderPainted(false);
-        rate_RT_bed.setFocusPainted(false);
-        rate_RT_bed.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                rate_RT_bedMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                rate_RT_bedMouseExited(evt);
-            }
-        });
-        rate_RT_bed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rate_RT_bedActionPerformed(evt);
-            }
-        });
-        AdminButtons.add(rate_RT_bed, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 90, -1, 50));
-
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        AdminButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 240, 50));
+        AdminButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 10, 240, 50));
+
+        hov10.setBackground(new java.awt.Color(83, 140, 198));
+        hov10.setPreferredSize(new java.awt.Dimension(230, 40));
+
+        rate_rt_bed.setBackground(new java.awt.Color(51, 51, 255));
+        rate_rt_bed.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        rate_rt_bed.setForeground(new java.awt.Color(255, 255, 255));
+        rate_rt_bed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rate_rt_bed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Untitled.png"))); // NOI18N
+        rate_rt_bed.setText("RATE-RT-BED");
+        rate_rt_bed.setIconTextGap(10);
+        rate_rt_bed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rate_rt_bedMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rate_rt_bedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                rate_rt_bedMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout hov10Layout = new javax.swing.GroupLayout(hov10);
+        hov10.setLayout(hov10Layout);
+        hov10Layout.setHorizontalGroup(
+            hov10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rate_rt_bed, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+        );
+        hov10Layout.setVerticalGroup(
+            hov10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rate_rt_bed, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, 210, 50));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -345,25 +360,7 @@ public class AdminButtons extends javax.swing.JPanel {
         }
     }
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
-//        if (sales.isEnabled()) {
-//            sales.setEnabled(false);
-//            checkIn.setEnabled(false);
-//            checkOut.setEnabled(false);
-//            customers.setEnabled(false);
-//            hov1.setEnabled(false);
-//            hov2.setEnabled(false);
-//            hov3.setEnabled(false);
-//            hov4.setEnabled(false);
-//        }else{
-//            sales.setEnabled(true);
-//            checkIn.setEnabled(true);
-//            checkOut.setEnabled(true);
-//            customers.setEnabled(true);
-//            hov1.setEnabled(true);
-//            hov2.setEnabled(true);
-//            hov3.setEnabled(true);
-//            hov4.setEnabled(true);
-////        }
+        userButton.checkButtons();
     }//GEN-LAST:event_jLabelRound3MouseClicked
 
     private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
@@ -432,20 +429,6 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(hov9);
     }//GEN-LAST:event_customersMouseExited
 
-    private void rate_RT_bedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_RT_bedMouseEntered
-        // TODO add your handling code here:
-        rate_RT_bed.setBackground(new Color(102, 140, 255));
-    }//GEN-LAST:event_rate_RT_bedMouseEntered
-
-    private void rate_RT_bedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_RT_bedMouseExited
-        rate_RT_bed.setBackground(new Color(83,140,198));
-    }//GEN-LAST:event_rate_RT_bedMouseExited
-
-    private void rate_RT_bedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rate_RT_bedActionPerformed
-        // TODO add your handling code here:
-        userButton.RRB_Button(rate_RT_bed);
-    }//GEN-LAST:event_rate_RT_bedActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
         int vin = model.getSize();
@@ -458,11 +441,24 @@ public class AdminButtons extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void rate_rt_bedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_rt_bedMouseClicked
+       userButton.RRB_Button(rate_rt_bed);
+    }//GEN-LAST:event_rate_rt_bedMouseClicked
+
+    private void rate_rt_bedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_rt_bedMouseEntered
+        userButton.setC(hov10);
+    }//GEN-LAST:event_rate_rt_bedMouseEntered
+
+    private void rate_rt_bedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_rt_bedMouseExited
+        userButton.resetC(hov10);
+    }//GEN-LAST:event_rate_rt_bedMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
     private javax.swing.JLabel customers;
     private javax.swing.JLabel home;
+    private javax.swing.JPanel hov10;
     private javax.swing.JPanel hov5;
     private javax.swing.JPanel hov6;
     private javax.swing.JPanel hov7;
@@ -473,7 +469,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound3;
     private jroundborder.JLabelRound logout;
-    private javax.swing.JButton rate_RT_bed;
+    private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;
     private javax.swing.JLabel user_fullname;

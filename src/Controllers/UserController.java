@@ -88,7 +88,7 @@ public class UserController {
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getuser_id();
             row[1] = list.get(i).getrole_displayname();
-            row[2] = list.get(i).getuser_fullname();
+            row[2] = "<html>"+list.get(i).getuser_fullname()+"</html> ";
             row[3] = list.get(i).getuser_address();
             row[4] = list.get(i).getuser_DOB();
             row[5] = list.get(i).getuser_contactnum();

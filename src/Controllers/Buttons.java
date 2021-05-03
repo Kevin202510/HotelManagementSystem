@@ -26,6 +26,7 @@ import javax.swing.JPanel;
 public class Buttons {
     
     JPanel lalagyanan;
+    JLabel home,customers,rate_RT_bed,rooms,users,sales,checkOut;
     
     public Buttons(JPanel lalagyanan){
         this.lalagyanan=lalagyanan;
@@ -33,14 +34,13 @@ public class Buttons {
     
     
     public void homeButton(JLabel home){
-        if (home.isEnabled()) {
+        this.home=home;
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        }
     }
     
     
     public void costumerButton(JLabel customers){
-    if (customers.isEnabled()) {
+        this.customers=customers;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
                 //                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
@@ -48,60 +48,52 @@ public class Buttons {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
     }
-    }
     
     
-     public void RRB_Button(JButton rate_RT_bed){
-         //RATE-ROOMTYPE-BEDS
-              if (rate_RT_bed.isEnabled()) {
+     public void RRB_Button(JLabel rate_RT_bed){
+         this.rate_RT_bed=rate_RT_bed;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             } catch (SQLException ex) {
                 Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
     }
      
      public void roomButton(JLabel rooms,String role){
-     if (rooms.isEnabled()) {
+         this.rooms=rooms;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-        }
-     
      }
      
      public void userButton(JLabel users){
-      if (users.isEnabled()) {
+         this.users=users;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-        }
      }
      
      public void saleButton(JLabel sales){
-   if (sales.isEnabled()) {
+         this.sales=sales;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-        }
 }
      
      
      public void checkoutButton(JLabel checkOut){
-     if (checkOut.isEnabled()) {
+         this.checkOut=checkOut;
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-        }
     }
      
      public void checkIn(){
@@ -128,6 +120,26 @@ public class Buttons {
     
     public void resetC(JPanel kev1){
            kev1.setBackground(new Color(83,140,198));
+    }
+    
+    public void checkButtons(){
+        if (home.isEnabled()&& customers.isEnabled() && sales.isEnabled()&& checkOut.isEnabled()&& users.isEnabled()&& rooms.isEnabled()&& rate_RT_bed.isEnabled()) {
+            home.setEnabled(false);
+            customers.setEnabled(false);
+            sales.setEnabled(false);
+            checkOut.setEnabled(false);
+            users.setEnabled(false);
+            rooms.setEnabled(false);
+            rate_RT_bed.setEnabled(false);
+        }else{
+            home.setEnabled(true);
+            customers.setEnabled(true);
+            sales.setEnabled(true);
+            checkOut.setEnabled(true);
+            users.setEnabled(true);
+            rooms.setEnabled(true);
+            rate_RT_bed.setEnabled(true);
+        }
     }
 }
 //
