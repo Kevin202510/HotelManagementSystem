@@ -31,25 +31,26 @@ public class AdminDashboard extends javax.swing.JFrame {
     
     public static String fullname,role;
     JFrame MainDashboard;
-    public AdminDashboard(String fullname,String role) {
+    static int user_id;
+    
+    public AdminDashboard(int user_id,String fullname,String role) {
         initComponents();
+        this.user_id=user_id;
         this.MainDashboard=this;
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         this.role=role; 
         this.fullname=fullname;
-//        user_fullname.setText(fullname);
-//        userrole.setText(role);
         checkRole();
     }
 
     
     private void checkRole(){
         if (role.equals("Administrator")){
-            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.AdminButtons(MainDashboard,fullname, role, lalagyanan));
+            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.AdminButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }else if(role.equals("Staff")){
-            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.StaffButtons(MainDashboard,fullname, role, lalagyanan));
+            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.StaffButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }else{
-            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.ManagerButtons(MainDashboard,fullname, role, lalagyanan));
+            new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.ManagerButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }
     }
     /**
@@ -146,7 +147,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDashboard(fullname,role).setVisible(true);
+                new AdminDashboard(user_id,fullname,role).setVisible(true);
             }
         });
     }

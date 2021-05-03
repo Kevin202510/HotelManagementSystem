@@ -29,10 +29,10 @@ import javax.swing.table.DefaultTableModel;
  * @author ❤Kevin Felix Caluag❤
  */
 public class UserController {
-   
-    public  SQL sql = new SQL();
+    
     public  ArrayList<Users> userList = new ArrayList<>();
     public ArrayList<Users> list;
+    public  SQL sql = new SQL();
     public Connection con = sql.getConnection();
     public static int key = 6;
     Authentication auth = new Authentication();
