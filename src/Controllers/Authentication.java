@@ -20,6 +20,8 @@ import javax.swing.JTextField;
  *
  * @author CALUAG FAMILY
  */
+//ProfileSettings vins = new ProfileSettings();
+
 public class Authentication {
     
     public String decrypt(String str){
@@ -60,6 +62,9 @@ public class Authentication {
                 ResultSet rs = st.executeQuery();
                 if(rs.next()){
                     int role_id;
+                    int user_id;
+                    
+                    user_id=rs.getInt("user_id");
                     role_id = Integer.parseInt(rs.getString("role_id"));
                     String fullname;
                     fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname")  + " " + rs.getString("user_Lname");
@@ -67,13 +72,13 @@ public class Authentication {
                     roles = rs.getString("role_displayname");
                     JOptionPane.showMessageDialog(out,"Welcome to Our System " + uname.toUpperCase());
                     if (role_id==1) {
-                      new  AdminDashboard(fullname,roles).setVisible(true);
+                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();
                     }else if (role_id==2) {
-                      new  AdminDashboard(fullname,roles).setVisible(true);
+                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }else{
-                      new  AdminDashboard(fullname,roles).setVisible(true);
+                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }
                 }else{

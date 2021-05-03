@@ -12,6 +12,9 @@ import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.awt.Component;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -35,13 +38,15 @@ public class AdminButtons extends javax.swing.JPanel {
     JPanel lalagyanan;
     Buttons userButton;
     JFrame out;
+    static int user_id;
 //    ImagesNText vk = new ImagesNText();
-    public AdminButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
+    public AdminButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
         this.fullname=fullname;
         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
         jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
+        this.user_id=user_id;
         this.lalagyanan=lalagyanan;
         userButton = new Buttons(lalagyanan);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
@@ -437,8 +442,12 @@ public class AdminButtons extends javax.swing.JPanel {
             if (i==jComboBox1.getSelectedIndex()) {
                 String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
                 if (i==0) {
-//                    JOptionPane.showMessageDialog(out,new ProfileSettings());
-                        new ProfileSettings().setVisible(true);
+                    try {
+                        //                    JOptionPane.showMessageDialog(out,new ProfileSettings());
+                        new ProfileSettings(user_id).setVisible(true);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else if (i==1){
                     signOut(out);
                 }else{

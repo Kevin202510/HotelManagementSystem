@@ -11,6 +11,9 @@ import Controllers.ImagesNText;
 import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -29,11 +32,13 @@ public class ManagerButtons extends javax.swing.JPanel {
     JPanel lalagyanan;
     Buttons userButton;
     JFrame out;
+    static int user_id;
     
-    public ManagerButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
+    public ManagerButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
         this.out=out;
         this.lalagyanan=lalagyanan;
+        this.user_id=user_id;
          jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
         jComboBox1.setRenderer(new ImageTextRenderer());
         jComboBox1.setBackground(new Color(25,20,255));
@@ -427,8 +432,12 @@ public class ManagerButtons extends javax.swing.JPanel {
             if (i==jComboBox1.getSelectedIndex()) {
                 String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
                 if (i==0) {
-                    //                    JOptionPane.showMessageDialog(out,new ProfileSettings());
-                    new ProfileSettings().setVisible(true);
+                    try {
+                        //                    JOptionPane.showMessageDialog(out,new ProfileSettings());
+                        new ProfileSettings(user_id).setVisible(true);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ManagerButtons.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else if (i==1){
                     signOut(out);
                 }else{
