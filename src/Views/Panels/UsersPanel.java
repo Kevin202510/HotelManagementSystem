@@ -15,6 +15,7 @@ import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.sql.*;
@@ -110,6 +111,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -209,6 +211,11 @@ public class UsersPanel extends javax.swing.JPanel {
         uaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         uaname.setForeground(new java.awt.Color(255, 255, 255));
         uaname.setBorder(null);
+        uaname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                uanameKeyTyped(evt);
+            }
+        });
         jPanel1.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 210, 22));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 210, 10));
 
@@ -258,6 +265,11 @@ public class UsersPanel extends javax.swing.JPanel {
         ucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         ucon.setForeground(new java.awt.Color(255, 255, 255));
         ucon.setBorder(null);
+        ucon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                uconKeyTyped(evt);
+            }
+        });
         jPanel1.add(ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 22));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -371,7 +383,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 hidepassActionPerformed(evt);
             }
         });
-        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 30, 30));
+        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 30, 30));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(191, 191, 191));
@@ -480,6 +492,28 @@ public class UsersPanel extends javax.swing.JPanel {
             }
 //        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uconKeyTyped
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_uconKeyTyped
+
+    private void uanameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uanameKeyTyped
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_uanameKeyTyped
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
