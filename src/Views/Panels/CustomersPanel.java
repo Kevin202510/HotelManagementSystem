@@ -10,6 +10,7 @@ import Models.Customers;
 import Controllers.SQL;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.logging.Level;
@@ -129,6 +130,11 @@ import javax.swing.table.DefaultTableModel;
         cusFname.setForeground(new java.awt.Color(255, 255, 255));
         cusFname.setBorder(null);
         cusFname.setCaretColor(new java.awt.Color(255, 255, 255));
+        cusFname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusFnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(cusFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -140,6 +146,11 @@ import javax.swing.table.DefaultTableModel;
         cusMname.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
         cusMname.setForeground(new java.awt.Color(255, 255, 255));
         cusMname.setBorder(null);
+        cusMname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusMnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(cusMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
@@ -151,6 +162,11 @@ import javax.swing.table.DefaultTableModel;
         cusLname.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
         cusLname.setForeground(new java.awt.Color(255, 255, 255));
         cusLname.setBorder(null);
+        cusLname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusLnameKeyTyped(evt);
+            }
+        });
         jPanel1.add(cusLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 200, 30));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -162,6 +178,11 @@ import javax.swing.table.DefaultTableModel;
         cusAddress.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
         cusAddress.setForeground(new java.awt.Color(255, 255, 255));
         cusAddress.setBorder(null);
+        cusAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusAddressKeyTyped(evt);
+            }
+        });
         jPanel1.add(cusAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -173,6 +194,11 @@ import javax.swing.table.DefaultTableModel;
         cusContact.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
         cusContact.setForeground(new java.awt.Color(255, 255, 255));
         cusContact.setBorder(null);
+        cusContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusContactKeyTyped(evt);
+            }
+        });
         jPanel1.add(cusContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 200, 30));
 
         save.setBackground(new java.awt.Color(51, 102, 255));
@@ -212,6 +238,66 @@ import javax.swing.table.DefaultTableModel;
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
 
     }//GEN-LAST:event_saveActionPerformed
+
+    private void cusFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusFnameKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusFnameKeyTyped
+
+    private void cusMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusMnameKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusMnameKeyTyped
+
+    private void cusLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusLnameKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusLnameKeyTyped
+
+    private void cusAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusAddressKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusAddressKeyTyped
+
+    private void cusContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusContactKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusContactKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cusAddress;

@@ -11,7 +11,7 @@ import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import Views.Dashboards.ContainerManipulator;
-import com.github.sarxos.webcam.Webcam;
+//import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -42,7 +42,7 @@ public class UsersPanel extends javax.swing.JPanel {
     JPanel lalagyanan;
     Users userModel;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    Webcam wc;
+//    Webcam wc;
     Image img;
     
     public UsersPanel(JPanel lalagyanan) throws SQLException {
@@ -223,6 +223,11 @@ public class UsersPanel extends javax.swing.JPanel {
         umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         umi.setForeground(new java.awt.Color(255, 255, 255));
         umi.setBorder(null);
+        umi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                umiKeyTyped(evt);
+            }
+        });
         jPanel1.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 210, 22));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -235,6 +240,11 @@ public class UsersPanel extends javax.swing.JPanel {
         usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         usn.setForeground(new java.awt.Color(255, 255, 255));
         usn.setBorder(null);
+        usn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                usnKeyTyped(evt);
+            }
+        });
         jPanel1.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 210, 22));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -247,6 +257,11 @@ public class UsersPanel extends javax.swing.JPanel {
         uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         uadd.setForeground(new java.awt.Color(255, 255, 255));
         uadd.setBorder(null);
+        uadd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                uaddKeyTyped(evt);
+            }
+        });
         jPanel1.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 210, 22));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -285,6 +300,11 @@ public class UsersPanel extends javax.swing.JPanel {
         uname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unameActionPerformed(evt);
+            }
+        });
+        uname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                unameKeyTyped(evt);
             }
         });
         jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 210, 30));
@@ -514,6 +534,57 @@ public class UsersPanel extends javax.swing.JPanel {
              evt.consume();
           }
     }//GEN-LAST:event_uanameKeyTyped
+
+    private void umiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_umiKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+        
+        
+    }//GEN-LAST:event_umiKeyTyped
+
+    private void usnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usnKeyTyped
+        // TODO add your handling code here:
+        
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_usnKeyTyped
+
+    private void uaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uaddKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_uaddKeyTyped
+
+    private void unameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unameKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_unameKeyTyped
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";

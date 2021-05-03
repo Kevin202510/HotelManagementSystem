@@ -12,6 +12,7 @@ import Controllers.SQL;
 import Models.Customers;
 import Models.CheckinAndOut;
 import Views.Dashboards.ContainerManipulator;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -102,6 +103,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 210, 41));
 
         cusFname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        cusFname1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusFname1KeyTyped(evt);
+            }
+        });
         jPanel2.add(cusFname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 213, 30));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -109,6 +115,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 60, 41));
 
         cusMname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        cusMname1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusMname1KeyTyped(evt);
+            }
+        });
         jPanel2.add(cusMname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 30));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -116,6 +127,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 110, 41));
 
         cusLname1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cusLname1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusLname1KeyTyped(evt);
+            }
+        });
         jPanel2.add(cusLname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 213, 30));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -123,6 +139,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 130, 41));
 
         cusAddress1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cusAddress1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusAddress1KeyTyped(evt);
+            }
+        });
         jPanel2.add(cusAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 210, 30));
 
         jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -141,6 +162,11 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 130, 40));
 
         cusContact2.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        cusContact2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cusContact2KeyTyped(evt);
+            }
+        });
         jPanel2.add(cusContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 220, 30));
 
         jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -210,6 +236,66 @@ public class CheckinPanels extends javax.swing.JPanel {
             rooms1.setSelectedItem(String.valueOf(id));
         }
     }//GEN-LAST:event_roomsTableMouseClicked
+
+    private void cusFname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusFname1KeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusFname1KeyTyped
+
+    private void cusMname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusMname1KeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusMname1KeyTyped
+
+    private void cusLname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusLname1KeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusLname1KeyTyped
+
+    private void cusAddress1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusAddress1KeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusAddress1KeyTyped
+
+    private void cusContact2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusContact2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_cusContact2KeyTyped
 
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         

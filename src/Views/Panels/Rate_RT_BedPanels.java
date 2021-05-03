@@ -14,6 +14,7 @@ import Models.Roomtypes;
 import Models.Rates;
 import Models.Beds;
 import Views.Dashboards.ContainerManipulator;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -223,6 +224,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 BedIDActionPerformed(evt);
             }
         });
+        BedID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BedIDKeyTyped(evt);
+            }
+        });
         jPanel2.add(BedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 190, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -234,6 +240,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         BedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         BedQuantity.setForeground(new java.awt.Color(255, 255, 255));
         BedQuantity.setBorder(null);
+        BedQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BedQuantityKeyTyped(evt);
+            }
+        });
         jPanel2.add(BedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 180, 30));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
@@ -283,6 +294,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 RateIDActionPerformed(evt);
             }
         });
+        RateID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RateIDKeyTyped(evt);
+            }
+        });
         jPanel3.add(RateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 190, 30));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -294,6 +310,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         RatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RatePrice.setForeground(new java.awt.Color(255, 255, 255));
         RatePrice.setBorder(null);
+        RatePrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RatePriceKeyTyped(evt);
+            }
+        });
         jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 30));
 
         Ratesave.setBackground(new java.awt.Color(51, 102, 255));
@@ -342,7 +363,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 RTidActionPerformed(evt);
             }
         });
-        jPanel4.add(RTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 200, 30));
+        RTid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RTidKeyTyped(evt);
+            }
+        });
+        jPanel4.add(RTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 200, 30));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -353,6 +379,11 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         RoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         RoomType.setForeground(new java.awt.Color(255, 255, 255));
         RoomType.setBorder(null);
+        RoomType.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RoomTypeKeyTyped(evt);
+            }
+        });
         jPanel4.add(RoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 30));
 
         save2.setBackground(new java.awt.Color(51, 102, 255));
@@ -563,6 +594,81 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_BeddeleteActionPerformed
+
+    private void RTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RTidKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_RTidKeyTyped
+
+    private void RateIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RateIDKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }     
+        
+    }//GEN-LAST:event_RateIDKeyTyped
+
+    private void BedIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BedIDKeyTyped
+        // TODO add your handling code here:
+        
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_BedIDKeyTyped
+
+    private void RatePriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RatePriceKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= '0') && (c <= '9') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+        
+    }//GEN-LAST:event_RatePriceKeyTyped
+
+    private void RoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RoomTypeKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_RoomTypeKeyTyped
+
+    private void BedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BedQuantityKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+             (c == KeyEvent.VK_PERIOD) ||
+             (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_DELETE))) {
+               getToolkit().beep();
+             evt.consume();
+          }
+    }//GEN-LAST:event_BedQuantityKeyTyped
       
     
      private boolean checkInputsRT(){
