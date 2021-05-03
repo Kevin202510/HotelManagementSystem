@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -76,9 +77,9 @@ public class BedsController {
                 DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
                 model.setRowCount(0);
                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+            new Alerts("save").setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null,"Error");
+                new Alerts("error").setVisible(true);
             }
      }
         public void fillForm(int id,JTextField BedID,JTextField BedQuantity) throws SQLException{
@@ -104,9 +105,10 @@ public class BedsController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+            new Alerts("deleted").setVisible(true);
             return true;
         }else{
+            new Alerts("error").setVisible(true);
             return false;
         }
 

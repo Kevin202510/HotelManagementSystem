@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -70,7 +71,7 @@ public class Authentication {
                     fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname")  + " " + rs.getString("user_Lname");
                     String roles;
                     roles = rs.getString("role_displayname");
-                    JOptionPane.showMessageDialog(out,"Welcome to Our System " + uname.toUpperCase());
+                    
                     if (role_id==1) {
                       new  AdminDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();
@@ -81,8 +82,10 @@ public class Authentication {
                       new  AdminDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }
+                    new Alerts("success").setVisible(true);
+                    
                 }else{
-                    JOptionPane.showMessageDialog(out,"Error");
+                    new Alerts("error").setVisible(true);
                 }
             } catch (HeadlessException | NumberFormatException | SQLException e) {
                 JOptionPane.showMessageDialog(out,e);

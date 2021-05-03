@@ -33,7 +33,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     JFrame MainDashboard;
     static int user_id;
     
-    public AdminDashboard(int user_id,String fullname,String role) {
+    public AdminDashboard(int user_id,String fullname,String role) throws SQLException {
         initComponents();
         this.user_id=user_id;
         this.MainDashboard=this;
@@ -44,7 +44,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     
-    private void checkRole(){
+    private void checkRole() throws SQLException{
         if (role.equals("Administrator")){
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.AdminButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }else if(role.equals("Staff")){
@@ -147,7 +147,11 @@ public class AdminDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminDashboard(user_id,fullname,role).setVisible(true);
+                try {
+                    new AdminDashboard(user_id,fullname,role).setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

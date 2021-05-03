@@ -34,12 +34,12 @@ public class ManagerButtons extends javax.swing.JPanel {
     JFrame out;
     static int user_id;
     
-    public ManagerButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) {
+    public ManagerButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) throws SQLException {
         initComponents();
         this.out=out;
         this.lalagyanan=lalagyanan;
         this.user_id=user_id;
-         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
+         jComboBox1.setModel(new ImageTextRenderer().pop(fullname,user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         jComboBox1.setBackground(new Color(25,20,255));
         jComboBox1.setOpaque(false);

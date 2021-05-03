@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 //import javax.swing.table.DefaultTableModel;
 
 /**
@@ -164,10 +165,10 @@ public class RoomController {
         if (i > 0) {
         DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
         model.setRowCount(0);
-        JOptionPane.showMessageDialog(null,"Successfully Added!!");
+        new Alerts("save").setVisible(true);
         return true;
         } else {
-            JOptionPane.showMessageDialog(null,"Error");
+            new Alerts("error").setVisible(true);
             return false;
         }
     }
@@ -206,8 +207,10 @@ public class RoomController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)usertables.getModel();
             model.setRowCount(0);
+            new Alerts("update").setVisible(true);
             return true;
         }else{
+            new Alerts("error").setVisible(true);
             return false;
         }
      }

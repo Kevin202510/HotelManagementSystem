@@ -216,14 +216,19 @@ public class UsersPanel extends javax.swing.JPanel {
                 uanameKeyTyped(evt);
             }
         });
-        userActionPanel.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 210, 22));
+        userActionPanel.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 122, 210, 30));
         userActionPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 210, 10));
 
         umi.setBackground(new java.awt.Color(0, 77, 77));
         umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         umi.setForeground(new java.awt.Color(255, 255, 255));
         umi.setBorder(null);
-        userActionPanel.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 210, 22));
+        umi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                umiKeyTyped(evt);
+            }
+        });
+        userActionPanel.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 172, 210, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,6 +240,11 @@ public class UsersPanel extends javax.swing.JPanel {
         usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         usn.setForeground(new java.awt.Color(255, 255, 255));
         usn.setBorder(null);
+        usn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                usnKeyTyped(evt);
+            }
+        });
         userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 210, 22));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -247,6 +257,11 @@ public class UsersPanel extends javax.swing.JPanel {
         uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         uadd.setForeground(new java.awt.Color(255, 255, 255));
         uadd.setBorder(null);
+        uadd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                uaddKeyTyped(evt);
+            }
+        });
         userActionPanel.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 210, 22));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -287,6 +302,11 @@ public class UsersPanel extends javax.swing.JPanel {
                 unameActionPerformed(evt);
             }
         });
+        uname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                unameKeyTyped(evt);
+            }
+        });
         userActionPanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 210, 30));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -320,7 +340,7 @@ public class UsersPanel extends javax.swing.JPanel {
         upass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         upass.setForeground(new java.awt.Color(255, 255, 255));
         upass.setBorder(null);
-        userActionPanel.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 180, 30));
+        userActionPanel.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 170, 30));
 
         Add.setBackground(new java.awt.Color(51, 102, 255));
         Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -483,7 +503,7 @@ public class UsersPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(this, new Camera(uaname.getText()));
 //        if (k==0) {
-            File f = new File("/Images/Pictures/"+uaname.getText()+".jpg");
+            File f = new File("src/Images/Pictures/"+uaname.getText()+".jpg");
             if(f.exists()) { 
             ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
             Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
@@ -516,9 +536,8 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_uanameKeyTyped
 
     private void umiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_umiKeyTyped
-        // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -530,10 +549,8 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_umiKeyTyped
 
     private void usnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usnKeyTyped
-        // TODO add your handling code here:
-        
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -543,9 +560,8 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_usnKeyTyped
 
     private void uaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uaddKeyTyped
-        // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -557,7 +573,7 @@ public class UsersPanel extends javax.swing.JPanel {
     private void unameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {

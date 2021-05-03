@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -81,10 +82,10 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         checkintime1 = new javax.swing.JLabel();
-        save1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomsTable = new javax.swing.JTable();
+        save1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,17 +181,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jPanel2.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 190, 30));
 
-        save1.setBackground(new java.awt.Color(51, 102, 255));
-        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save1.setText("CHECK-IN");
-        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
-        save1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 126, 50));
-
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 1120, 380));
 
         jLabel3.setBackground(new java.awt.Color(102, 204, 255));
@@ -227,6 +217,17 @@ public class CheckinPanels extends javax.swing.JPanel {
         jScrollPane1.setViewportView(roomsTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 1120, 220));
+
+        save1.setBackground(new java.awt.Color(51, 102, 255));
+        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        save1.setText("CHECK-IN");
+        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
+        save1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save1ActionPerformed(evt);
+            }
+        });
+        add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 126, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
@@ -300,8 +301,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         
         if (checkInputs()==true) {
-             JOptionPane.showMessageDialog(this,"ERROR");        
-        
+             new Alerts("error").setVisible(true);  
          }else{
         customers = new Customers(1,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
         try {
@@ -328,11 +328,11 @@ public class CheckinPanels extends javax.swing.JPanel {
      private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (cusFname1.getText().isEmpty()||cusMname1.getText().isEmpty()||cusLname1.getText().isEmpty()||cusAddress1.getText().isEmpty()||cusContact2.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,notice);
-            return true;
-        }else{
-            return false;
+//            new Alerts("fillfield").setVisible(true);
+                return true;
         }
+            return false;
+        
       }
     
     

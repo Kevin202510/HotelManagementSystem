@@ -8,6 +8,7 @@ package Views.Panels;
 import Controllers.Authentication;
 import Controllers.SQL;
 import Models.Users;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,9 +20,11 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.relation.Role;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -52,7 +55,6 @@ public class ProfileSettings extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         userActionPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         uaname2 = new javax.swing.JTextField();
@@ -86,15 +88,12 @@ public class ProfileSettings extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
+        userProfile = new jroundborder.JLabelRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(447, 674));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kevz.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 240, 130));
 
         userActionPanel2.setBackground(new java.awt.Color(0, 77, 77));
         userActionPanel2.setPreferredSize(new java.awt.Dimension(306, 642));
@@ -281,6 +280,7 @@ public class ProfileSettings extends javax.swing.JFrame {
 
         userId.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         userActionPanel2.add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 50, 40));
+        userActionPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 190, 130));
 
         getContentPane().add(userActionPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 720));
 
@@ -321,6 +321,7 @@ public class ProfileSettings extends javax.swing.JFrame {
     public Connection con = sql.getConnection();
     int role_id;
     Authentication auth = new Authentication();
+    String userprofile;
     
     private void getUserInfo() throws SQLException{
         String tanong = "SELECT * FROM `users` WHERE user_id='"+UserIdSended+"';";
@@ -329,6 +330,7 @@ public class ProfileSettings extends javax.swing.JFrame {
 
             while(rs.next()){
                 role_id=rs.getInt("role_id");
+                userprofile=rs.getString("profile");
                 uaname2.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
                 usn.setText(rs.getString("user_Lname"));
@@ -338,6 +340,10 @@ public class ProfileSettings extends javax.swing.JFrame {
                 uname.setText(rs.getString("user_username"));
                 upass.setText(auth.decrypt(rs.getString("user_password")));
             }
+            ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+userprofile+".jpg"));
+            Image kev = vin.getImage().getScaledInstance(300, 150, Image.SCALE_SMOOTH);
+            ImageIcon shit = new ImageIcon(kev);
+            userProfile.setIcon(shit);
     }
     
     public boolean updateUser(Users users) throws SQLException{
@@ -354,7 +360,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         
         int i = st.executeUpdate();
         if (i > 0) {
-            JOptionPane.showMessageDialog(null,"Successfully Updated!!");
+            new Alerts("update").setVisible(true);
             this.dispose();
             return true;
         }else{
@@ -440,7 +446,6 @@ public class ProfileSettings extends javax.swing.JFrame {
     private javax.swing.JButton Update;
     private javax.swing.JButton hidepass;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -469,6 +474,7 @@ public class ProfileSettings extends javax.swing.JFrame {
     private javax.swing.JPasswordField upass;
     private javax.swing.JPanel userActionPanel2;
     public javax.swing.JLabel userId;
+    private jroundborder.JLabelRound userProfile;
     private javax.swing.JTextField usn;
     private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables

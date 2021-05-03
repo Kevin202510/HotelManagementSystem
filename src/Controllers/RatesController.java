@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -79,9 +80,9 @@ public class RatesController {
                 DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
                 model.setRowCount(0);
                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+            new Alerts("save").setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null,"Error");
+                new Alerts("error").setVisible(true);
             }
        
         }
@@ -108,9 +109,10 @@ public class RatesController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+            new Alerts("delete").setVisible(true);
             return true;
         }else{
+            new Alerts("error").setVisible(true);
             return false;
         }
 

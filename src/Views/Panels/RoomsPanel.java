@@ -309,8 +309,6 @@ public class RoomsPanel extends javax.swing.JPanel {
         try {
             checkUpdate = roomControll.updateRooms(roomModel, id, roomstable);
              if (checkUpdate==true) {
-                JOptionPane.showMessageDialog(null,"Successfully Updated!!");
-//                roomControll.clearContent();
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             }
         } catch (SQLException ex) {

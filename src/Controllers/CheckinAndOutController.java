@@ -41,6 +41,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -123,6 +124,7 @@ public class CheckinAndOutController{
                 BarcodeFormat.QR_CODE, 200, 200, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));
+            JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
             fuck(cusid);
         } catch (Exception e) {
             System.err.println(e);
@@ -130,17 +132,7 @@ public class CheckinAndOutController{
     }
     
     public void fuck(int ids){
-//         int recieptConfirm=0;
-//         do{
-////                    JOptionPane.showMessageDialog(null,"sadasd");
-//                    recieptConfirm = JOptionPane.showConfirmDialog(null,new Views.Panels.Receipts(ids),"Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-//                    if (recieptConfirm==0) {
-                        printReceipt(new Views.Panels.Receipts(ids));
-                        JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
-//                    }else{
-//                        JOptionPane.showMessageDialog(null,"You need to Print the Receipt","Error",JOptionPane.ERROR_MESSAGE);
-//                    }
-//                }while(recieptConfirm!=0);
+        printReceipt(new Views.Panels.Receipts(ids));
     }
     
     public String getDateNow(){
@@ -162,7 +154,7 @@ public class CheckinAndOutController{
             ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
             int id = list.size()-1;
             int checkid = checkinoutList.size()-1;
-            int ids = list.get(id).getcust_id()+1;
+            int ids = list.get(id).getcust_id();
             int checkinout = checkinoutList.get(checkid).getcheckInOut(); 
             JOptionPane.showMessageDialog(null,checkinout);
             String room_id1 = rooms1.getSelectedItem().toString();
@@ -189,7 +181,7 @@ public class CheckinAndOutController{
            st.setInt(6,checkin.getroomId());
            int i = st.executeUpdate();
             if (i>0) {
-                JOptionPane.showMessageDialog(null,"Successfully Check in!!");
+                new Alerts("checkin").setVisible(true);
                  GenerateQrCode(checkinout);
                 return true;
             }else{

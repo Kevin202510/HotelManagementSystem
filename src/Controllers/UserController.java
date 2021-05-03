@@ -23,6 +23,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -73,10 +74,10 @@ public class UserController {
         if (i > 0) {
             DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Register!!");
+            new Alerts("save").setVisible(true);
             return true;
         } else {
-            JOptionPane.showMessageDialog(null,"Error");
+            new Alerts("error").setVisible(true);
             return false;
         }
     }
@@ -145,9 +146,10 @@ public class UserController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)usertables.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Updated!!");
+            new Alerts("update").setVisible(true);
             return true;
         }else{
+            new Alerts("error").setVisible(true);
             return false;
         }
      }
@@ -160,9 +162,10 @@ public class UserController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+            new Alerts("delete").setVisible(true);
             return true;
         }else{
+            new Alerts("error").setVisible(true);
             return false;
         }
 

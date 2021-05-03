@@ -6,6 +6,11 @@
 package Controllers;
 
 import java.awt.Component;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -37,9 +42,23 @@ import javax.swing.ListCellRenderer;
            
         }
         
-         public DefaultComboBoxModel pop(String fullname){
+         public DefaultComboBoxModel pop(String fullname,int user_id) throws SQLException{
+             String profile="";
+           SQL sql = new SQL();
+           Connection con = sql.getConnection();
+           String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(tanong);
+            while(rs.next()){
+                  profile=rs.getString("profile");
+            }
+            
+             ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+profile+".jpg"));
+            Image kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            ImageIcon shit = new ImageIcon(kevs);
+            
         DefaultComboBoxModel kev = new DefaultComboBoxModel();
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\kevin.jpg"),fullname));
+        kev.addElement(new ImagesNText(shit,fullname));
         kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
         kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
         return kev;

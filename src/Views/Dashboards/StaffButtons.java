@@ -37,12 +37,12 @@ public class StaffButtons extends javax.swing.JPanel {
     JFrame out;
     static int user_id;
     
-    public StaffButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) {
+    public StaffButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) throws SQLException {
         initComponents();
         this.out=out;
          this.fullname=fullname;
          this.user_id=user_id;
-        jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
+        jComboBox1.setModel(new ImageTextRenderer().pop(fullname,user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         jComboBox1.setBackground(new Color(25,20,255));
         jComboBox1.setOpaque(false);
