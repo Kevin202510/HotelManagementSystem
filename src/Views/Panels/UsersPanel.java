@@ -11,8 +11,11 @@ import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import Views.Dashboards.ContainerManipulator;
+import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.io.File;
 import java.util.ArrayList;
 import java.sql.*;
 import java.text.DateFormat;
@@ -20,6 +23,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +41,8 @@ public class UsersPanel extends javax.swing.JPanel {
     JPanel lalagyanan;
     Users userModel;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    Webcam wc;
+    Image img;
     
     public UsersPanel(JPanel lalagyanan) throws SQLException {
         initComponents();
@@ -52,6 +58,7 @@ public class UsersPanel extends javax.swing.JPanel {
         roles.setForeground(Color.red);
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
+        
     }
 
     /** This method is called from within the constructor to
@@ -130,7 +137,8 @@ public class UsersPanel extends javax.swing.JPanel {
         });
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTable1.setOpaque(false);
-        jTable1.setRowHeight(40);
+        jTable1.setRowHeight(65);
+        jTable1.setRowMargin(0);
         jTable1.setShowGrid(false);
         jTable1.setSurrendersFocusOnKeystroke(true);
         jTable1.getTableHeader().setReorderingAllowed(false);
@@ -145,9 +153,8 @@ public class UsersPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(4);
             jTable1.getColumnModel().getColumn(0).setMaxWidth(5);
             jTable1.getColumnModel().getColumn(1).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(130);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(130);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
             jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setPreferredWidth(130);
@@ -173,8 +180,8 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
+                .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 591, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(469, 469, 469))
         );
@@ -184,9 +191,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 60));
@@ -198,68 +203,68 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FNAME :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 61, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 61, 30));
 
         uaname.setBackground(new java.awt.Color(0, 77, 77));
         uaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         uaname.setForeground(new java.awt.Color(255, 255, 255));
         uaname.setBorder(null);
-        jPanel1.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 210, 22));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 210, 10));
+        jPanel1.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 210, 22));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 210, 10));
 
         umi.setBackground(new java.awt.Color(0, 77, 77));
         umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         umi.setForeground(new java.awt.Color(255, 255, 255));
         umi.setBorder(null);
-        jPanel1.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 210, 22));
+        jPanel1.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 210, 22));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("MN:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 61, 30));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 210, 5));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 61, 30));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 210, 5));
 
         usn.setBackground(new java.awt.Color(0, 77, 77));
         usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         usn.setForeground(new java.awt.Color(255, 255, 255));
         usn.setBorder(null);
-        jPanel1.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 210, 22));
+        jPanel1.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 210, 22));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SN :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 61, 30));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 210, 5));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 61, 30));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 210, 5));
 
         uadd.setBackground(new java.awt.Color(0, 77, 77));
         uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         uadd.setForeground(new java.awt.Color(255, 255, 255));
         uadd.setBorder(null);
-        jPanel1.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 210, 22));
+        jPanel1.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 210, 22));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("ADD :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 61, 30));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 210, 5));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 61, 30));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 5));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("DOB :");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 61, 30));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 210, 5));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 61, 30));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 5));
 
         ucon.setBackground(new java.awt.Color(0, 77, 77));
         ucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         ucon.setForeground(new java.awt.Color(255, 255, 255));
         ucon.setBorder(null);
-        jPanel1.add(ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 210, 22));
+        jPanel1.add(ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 22));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CON.#");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 61, 30));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 214, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 61, 30));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 214, -1));
 
         uname.setBackground(new java.awt.Color(0, 77, 77));
         uname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -270,13 +275,13 @@ public class UsersPanel extends javax.swing.JPanel {
                 unameActionPerformed(evt);
             }
         });
-        jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 218, 30));
+        jPanel1.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 210, 30));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("UNAME:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 30));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 210, 5));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 30));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 180, 5));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,19 +296,19 @@ public class UsersPanel extends javax.swing.JPanel {
                 DeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 93, 36));
+        jPanel1.add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 93, 36));
 
         udob.setBackground(new java.awt.Color(0, 77, 77));
         udob.setDateFormatString("yyyy-MM-dd");
         udob.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         udob.setOpaque(false);
-        jPanel1.add(udob, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 210, 30));
+        jPanel1.add(udob, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 210, 30));
 
         upass.setBackground(new java.awt.Color(0, 77, 77));
         upass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         upass.setForeground(new java.awt.Color(255, 255, 255));
         upass.setBorder(null);
-        jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 180, 30));
+        jPanel1.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 180, 30));
 
         Add.setBackground(new java.awt.Color(51, 102, 255));
         Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -313,7 +318,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 AddActionPerformed(evt);
             }
         });
-        jPanel1.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 93, 36));
+        jPanel1.add(Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 93, 36));
 
         Update.setBackground(new java.awt.Color(51, 102, 255));
         Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -323,18 +328,18 @@ public class UsersPanel extends javax.swing.JPanel {
                 UpdateActionPerformed(evt);
             }
         });
-        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 93, 36));
+        jPanel1.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 93, 36));
 
         role.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         role.setForeground(new java.awt.Color(255, 255, 255));
         role.setText("ROLE :");
-        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 50, 30));
+        jPanel1.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 50, 30));
 
         roles.setBackground(new java.awt.Color(0, 77, 77));
         roles.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         roles.setForeground(new java.awt.Color(255, 255, 255));
         roles.setOpaque(false);
-        jPanel1.add(roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 220, 30));
+        jPanel1.add(roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 220, 30));
 
         viewpass.setBackground(new java.awt.Color(0, 204, 255));
         viewpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyes.png"))); // NOI18N
@@ -366,19 +371,27 @@ public class UsersPanel extends javax.swing.JPanel {
                 hidepassActionPerformed(evt);
             }
         });
-        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 30, 30));
+        jPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, 30, 30));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(191, 191, 191));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USER ACTION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 220, 53));
-        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 210, 10));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 220, 53));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 210, 10));
 
-        jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 320, 530));
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 310, 480));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 340, 710));
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 40));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 330, 720));
     }// </editor-fold>//GEN-END:initComponents
 
     private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
@@ -455,6 +468,19 @@ public class UsersPanel extends javax.swing.JPanel {
         viewpass.setVisible(false);
     }//GEN-LAST:event_viewpassActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this, new Camera(uaname.getText()));
+//        if (k==0) {
+            File f = new File("/Images/Pictures/"+uaname.getText()+".jpg");
+            if(f.exists()) { 
+            ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
+            Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+            ImageIcon shit = new ImageIcon(kev);
+            profileimg.setIcon(shit);
+            }
+//        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (uaname.getText().isEmpty()||umi.getText().isEmpty()||usn.getText().isEmpty()||uadd.getText().isEmpty()||udob.getDate()==null||ucon.getText().isEmpty()||uname.getText().isEmpty()||upass.getPassword().length==0){
@@ -471,6 +497,7 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JButton Delete;
     private javax.swing.JButton Update;
     private javax.swing.JButton hidepass;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
