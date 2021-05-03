@@ -11,6 +11,7 @@ import Controllers.ImagesNText;
 import Controllers.SQL;
 import Views.Authentication.Login;
 import static Views.Dashboards.AdminButtons.fullname;
+import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.sql.*;
 import javax.swing.DefaultComboBoxModel;
@@ -431,7 +432,14 @@ public class StaffButtons extends javax.swing.JPanel {
         for (int i = 0; i < vin; i++) {
             if (i==jComboBox1.getSelectedIndex()) {
                 String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
-                JOptionPane.showMessageDialog(this,name);
+                 if (i==0) {
+//                    JOptionPane.showMessageDialog(out,new ProfileSettings());
+                        new ProfileSettings().setVisible(true);
+                }else if (i==1){
+                    signOut(out);
+                }else{
+                    JOptionPane.showMessageDialog(out,"asdasdasd");
+                }
             }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed

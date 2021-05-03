@@ -80,10 +80,10 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         checkintime1 = new javax.swing.JLabel();
+        save1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         roomsTable = new javax.swing.JTable();
-        save1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,6 +154,17 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jPanel2.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 190, 30));
 
+        save1.setBackground(new java.awt.Color(51, 102, 255));
+        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        save1.setText("CHECK-IN");
+        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
+        save1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 126, 50));
+
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 1120, 380));
 
         jLabel3.setBackground(new java.awt.Color(102, 204, 255));
@@ -190,17 +201,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jScrollPane1.setViewportView(roomsTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 1120, 220));
-
-        save1.setBackground(new java.awt.Color(51, 102, 255));
-        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save1.setText("CHECK-IN");
-        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
-        save1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
-            }
-        });
-        add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 126, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
@@ -220,7 +220,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         customers = new Customers(1,cusFname1.getText(),cusMname1.getText(),cusLname1.getText(),cusAddress1.getText(),cusContact2.getText());   
         try {
             custo.createCustomer(customers);
-            boolean check =  check_in_out_controll.checkIn(checkindate, checkintime1, rooms1);
+            boolean check =  check_in_out_controll.checkIn(roomsTable,checkindate, checkintime1, rooms1);
             if (check==true) {
                 cusFname1.setText("");
                cusMname1.setText("");

@@ -173,7 +173,6 @@ public class RoomController {
     }
   
   public void fillRoomForm(int id,JTextField Roomid,JComboBox Roomtype,JComboBox Bedtype,JComboBox Rate,JComboBox Status ) throws SQLException{
-        JOptionPane.showMessageDialog(null,id);
         Statement st = con.createStatement();
         String selectRooms = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id where rooms.room_id ='"+ id +"'";
         ResultSet rs = st.executeQuery(selectRooms);

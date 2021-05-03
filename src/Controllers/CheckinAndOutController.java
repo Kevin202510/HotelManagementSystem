@@ -38,7 +38,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -49,9 +51,10 @@ public class CheckinAndOutController{
     public  SQL sql = new SQL();
     public  ArrayList<CheckinAndOut> checkinoutList = new ArrayList<>();
     public Connection con = sql.getConnection();
+    public RoomController roomControll = new RoomController();   
     
     public ArrayList<CheckinAndOut> checkinandoutlist() throws SQLException{
-        String tanong = "Select * from checkInAndOut";
+        String tanong = "Select * from checkinandout";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         CheckinAndOut checkInandOut;
@@ -132,7 +135,6 @@ public class CheckinAndOutController{
 ////                    JOptionPane.showMessageDialog(null,"sadasd");
 //                    recieptConfirm = JOptionPane.showConfirmDialog(null,new Views.Panels.Receipts(ids),"Receipt", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 //                    if (recieptConfirm==0) {
-JOptionPane.showMessageDialog(null,ids);
                         printReceipt(new Views.Panels.Receipts(ids));
                         JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
 //                    }else{
@@ -155,19 +157,25 @@ JOptionPane.showMessageDialog(null,ids);
         return strTime;
      }
      
-         public boolean checkIn(JLabel checkindate,JLabel checkintime,JComboBox rooms1) throws SQLException{
+         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
             ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
             int id = list.size()-1;
-            int ids = list.get(id).getcust_id();
-            int checkinout = checkinoutList.size()+1; 
+            int checkid = checkinoutList.size()-1;
+            int ids = list.get(id).getcust_id()+1;
+            int checkinout = checkinoutList.get(checkid).getcheckInOut(); 
             JOptionPane.showMessageDialog(null,checkinout);
             String room_id1 = rooms1.getSelectedItem().toString();
             int room_id = Integer.parseInt(room_id1);
             String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
             PreparedStatement roomup =con.prepareStatement(roomupdate);
             roomup.setInt(1,0);
-            roomup.executeUpdate();
+            int k = roomup.executeUpdate();
+             if (k>0) {
+                 DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
+                 model.setRowCount(0);
+                 roomControll.ShowRoomInCheckin(roomstable);
+             }
 
             CheckinAndOut checkin;
             checkin = new CheckinAndOut(checkinout,ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
@@ -196,7 +204,7 @@ JOptionPane.showMessageDialog(null,ids);
          public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime) throws SQLException{
 //            ArrayList<Customers> list = new CustomerController().custList();
             String datein="";
-            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where id='"+id+"'";
+            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);
 

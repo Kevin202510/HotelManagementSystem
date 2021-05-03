@@ -110,8 +110,6 @@ public class UserController {
     }
     
      public void fillUserForm(int user_id,JComboBox roles,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
-//        ArrayList<Users> list = userList();
-            JOptionPane.showMessageDialog(null,user_id);
             String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);

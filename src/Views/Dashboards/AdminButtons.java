@@ -9,6 +9,7 @@ import Controllers.Buttons;
 import Controllers.ImagesNText;
 import Controllers.ImageTextRenderer;
 import Views.Authentication.Login;
+import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.DefaultComboBoxModel;
@@ -38,7 +39,7 @@ public class AdminButtons extends javax.swing.JPanel {
     public AdminButtons(JFrame out,String fullname,String role,JPanel lalagyanan) {
         initComponents();
         this.fullname=fullname;
-         jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
+        jComboBox1.setModel(new ImageTextRenderer().pop(fullname));
         jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
         this.lalagyanan=lalagyanan;
@@ -348,7 +349,7 @@ public class AdminButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        signOut(out);
+//        signOut(out);
     }//GEN-LAST:event_logoutMouseClicked
     public void signOut(JFrame out){
         int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
@@ -435,7 +436,14 @@ public class AdminButtons extends javax.swing.JPanel {
         for (int i = 0; i < vin; i++) {
             if (i==jComboBox1.getSelectedIndex()) {
                 String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
-                JOptionPane.showMessageDialog(this,name);
+                if (i==0) {
+//                    JOptionPane.showMessageDialog(out,new ProfileSettings());
+                        new ProfileSettings().setVisible(true);
+                }else if (i==1){
+                    signOut(out);
+                }else{
+                    JOptionPane.showMessageDialog(out,"asdasdasd");
+                }
             }
         }
 
