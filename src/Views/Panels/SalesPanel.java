@@ -121,7 +121,13 @@ public class SalesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
+        
+        
+        if (checkInputs()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+        
+         }else{
         try {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             JOptionPane.showConfirmDialog(null, df.format(Salesfr.getDate()),"",JOptionPane.YES_NO_OPTION);
@@ -138,8 +144,19 @@ public class SalesPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+       private boolean checkInputs(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (Salesfr.getDate()==null||Salest.getDate()==null){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+      }
+    
     public static void main(String[] args) throws SQLException {
        // JOptionPane.showMessageDialog(null,new SalesPanel());
         

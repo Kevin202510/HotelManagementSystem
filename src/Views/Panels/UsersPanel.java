@@ -411,6 +411,11 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+      
+         if (checkInputs()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+        
+         }else{
         Role = roles.getSelectedIndex()+1;
         userModel=new Users(0,Role,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         
@@ -423,6 +428,7 @@ public class UsersPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+         }
     }//GEN-LAST:event_AddActionPerformed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
@@ -477,6 +483,16 @@ public class UsersPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private boolean checkInputs(){
+        String notice = "Theres Have A Field That Empty Please make an Input";
+        if (uaname.getText().isEmpty()||umi.getText().isEmpty()||usn.getText().isEmpty()||uadd.getText().isEmpty()||udob.getDate()==null||ucon.getText().isEmpty()||uname.getText().isEmpty()||upass.getPassword().length==0){
+            JOptionPane.showMessageDialog(this,notice);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
