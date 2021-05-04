@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/Authentication.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Authentication/Login.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Users.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/UserController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/ImageTextRenderer.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/ImagesNText.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/ProfileSettings.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/Users.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/UserController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/ImageTextRenderer.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/ImagesNText.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/ProfileSettings.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CustomersPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Rate_RT_BedPanels.java</file>
         </group>
     </open-files>
 </project-private>

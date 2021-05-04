@@ -369,7 +369,7 @@ public class ProfileSettings extends javax.swing.JFrame {
      }
     
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-            userModel=new Users(0,role_id,uaname2.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+            userModel=new Users(0,role_id,userProfile.getText(),uaname2.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             updateUser(userModel);
         } catch (SQLException ex) {

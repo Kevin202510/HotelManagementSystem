@@ -12,9 +12,9 @@ package Models;
 public class Users {
     
     private int user_id,role_id;
-    private String role_displayname, user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password;
+    private String role_displayname, user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password,profile;
     
-    public Users(int user_id,int role_id,String user_Fname,String user_Mname,String user_Lname,String user_address,String user_DOB,String user_contactnum,String user_username,String user_password){
+    public Users(int user_id,int role_id,String profile,String user_Fname,String user_Mname,String user_Lname,String user_address,String user_DOB,String user_contactnum,String user_username,String user_password){
         this.user_id=user_id;
         this.role_id=role_id;
         this.user_Fname=user_Fname;
@@ -25,6 +25,7 @@ public class Users {
         this.user_contactnum=user_contactnum;
         this.user_username=user_username;
         this.user_password=user_password; 
+        this.profile=profile;
     }
     
     public int getuser_id(){
@@ -42,6 +43,8 @@ public class Users {
             }
         return role_displayname;
         
+    }public String getprofile(){
+        return profile;
     }public String getuser_Fname(){
         return user_Fname;
     }public String getuser_Mname(){
