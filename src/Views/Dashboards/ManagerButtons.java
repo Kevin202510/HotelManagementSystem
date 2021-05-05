@@ -12,6 +12,10 @@ import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -47,6 +51,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
+        new VideoFeeder().start();
     }
 
     /**
@@ -76,6 +81,8 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        date = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -253,11 +260,11 @@ public class ManagerButtons extends javax.swing.JPanel {
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 310, 39));
+        StaffButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 39));
 
         userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 168, 27));
+        StaffButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, 27));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -302,6 +309,12 @@ public class ManagerButtons extends javax.swing.JPanel {
             }
         });
         StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 240, 50));
+
+        date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        StaffButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
+
+        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        StaffButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 170, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -447,12 +460,39 @@ public class ManagerButtons extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+     class VideoFeeder extends Thread {
+    
+          public void run(){
+          
+                while(true){
+                    Calendar cal = Calendar.getInstance();
+
+                    int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    int minute = cal.get(Calendar.MINUTE);
+                    int second = cal.get(Calendar.SECOND);
+
+                    SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+                    Date dat = cal.getTime();
+                    String times = kev.format(dat);
+                    
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+                    String strDate = dateFormat.format(dat);
+                    
+                    date.setText(strDate);
+                    time.setText(times);
+                }
+          
+          }
+    
+    }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StaffButtons;
     private javax.swing.JLabel checkIn;
     private javax.swing.JLabel checkOut;
     private javax.swing.JLabel customers;
+    private javax.swing.JLabel date;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
     private javax.swing.JPanel hov10;
@@ -465,6 +505,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     private jroundborder.JLabelRound jLabelRound6;
     private jroundborder.JLabelRound logout;
     private javax.swing.JLabel rooms;
+    private javax.swing.JLabel time;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;
     // End of variables declaration//GEN-END:variables
