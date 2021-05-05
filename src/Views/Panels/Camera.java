@@ -10,11 +10,13 @@ import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -28,14 +30,16 @@ public class Camera extends javax.swing.JPanel {
     Webcam wc;
     Image img;
     String name;
+    JPanel lalagyanan;
     
-    public Camera(String name) {
+    public Camera(JPanel lalagyanan,String name) {
         initComponents();
         this.name=name;
         wc = Webcam.getDefault();
          jTxtFileName.setText(name);
         wc.setViewSize(WebcamResolution.VGA.getSize());
         wc.open();
+        this.lalagyanan=lalagyanan;
         new VideoFeeder().start();
     }
 
@@ -122,8 +126,11 @@ public class Camera extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,new ImageIcon(img));
             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + name + ".jpg"));
             wc.close();
+            new UsersPanel(lalagyanan).profileimg.setText("kevin caluag");
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Camera.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBtnCaptureActionPerformed
 
@@ -134,8 +141,8 @@ public class Camera extends javax.swing.JPanel {
                while(true){
                    try {
                         img = wc.getImage();
-                         jLblPix.setIcon(new ImageIcon(img));
-                       Thread.sleep(80);
+                        jLblPix.setIcon(new ImageIcon(img));
+                       Thread.sleep(5);
                    } catch (InterruptedException ex) {
                        JOptionPane.showMessageDialog(null,ex);
                        Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);

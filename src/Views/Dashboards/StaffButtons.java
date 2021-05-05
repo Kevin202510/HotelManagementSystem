@@ -42,7 +42,7 @@ public class StaffButtons extends javax.swing.JPanel {
         this.out=out;
          this.fullname=fullname;
          this.user_id=user_id;
-        jComboBox1.setModel(new ImageTextRenderer().pop(fullname,user_id));
+        jComboBox1.setModel(new ImageTextRenderer().pop(user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         jComboBox1.setBackground(new Color(25,20,255));
         jComboBox1.setOpaque(false);

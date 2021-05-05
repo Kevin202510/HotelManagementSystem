@@ -119,7 +119,18 @@ public class UserController {
             ResultSet rs = st.executeQuery(tanong);
             ImageIcon vin = null;
             while(rs.next()){
-                vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+rs.getString("profile")+".jpg"));
+                String prof = rs.getString("profile");
+                if (prof==null) {
+                    ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+                    Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+                    ImageIcon shit = new ImageIcon(kev);
+                    profile.setIcon(shit);
+                }else{
+                ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/"+prof+".jpg"));
+                Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+                vin = new ImageIcon(kev);
+                profile.setIcon(vin);
+              }
                 roles.setSelectedIndex(rs.getInt("role_id")-1);
                 uaname.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
@@ -130,8 +141,15 @@ public class UserController {
                 uname.setText(rs.getString("user_username"));
                 upass.setText(auth.decrypt(rs.getString("user_password")));
             }
-             Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
-             profile.setIcon(new ImageIcon(kev));
+//            if (profile.getText()!=null) {
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                profile.setIcon(new ImageIcon(kev));
+//            }else{
+//                ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+//                Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+//                profile.setIcon(shit);
+//            }
         
     }
      

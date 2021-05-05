@@ -42,8 +42,9 @@ import javax.swing.ListCellRenderer;
            
         }
         
-         public DefaultComboBoxModel pop(String fullname,int user_id) throws SQLException{
+         public DefaultComboBoxModel pop(int user_id) throws SQLException{
              String profile="";
+             String fullname="";
            SQL sql = new SQL();
            Connection con = sql.getConnection();
            String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
@@ -51,6 +52,7 @@ import javax.swing.ListCellRenderer;
             ResultSet rs = st.executeQuery(tanong);
             while(rs.next()){
                   profile=rs.getString("profile");
+                  fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname") + " " + rs.getString("user_Lname");
             }
             
              ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+profile+".jpg"));

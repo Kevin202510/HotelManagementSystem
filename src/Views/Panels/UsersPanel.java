@@ -11,12 +11,15 @@ import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import Views.Dashboards.ContainerManipulator;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
 //import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.sql.*;
 import java.text.DateFormat;
@@ -24,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -44,6 +48,7 @@ public class UsersPanel extends javax.swing.JPanel {
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 //    Webcam wc;
     Image img;
+    Webcam wc;
     
     public UsersPanel(JPanel lalagyanan) throws SQLException {
         initComponents();
@@ -59,6 +64,10 @@ public class UsersPanel extends javax.swing.JPanel {
         roles.setForeground(Color.red);
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
+        wc = Webcam.getDefault();
+        wc.setViewSize(WebcamResolution.VGA.getSize());
+        wc.open();
+        this.lalagyanan=lalagyanan;
         
     }
 
@@ -76,7 +85,6 @@ public class UsersPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        profileimg = new javax.swing.JLabel();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         uaname = new javax.swing.JTextField();
@@ -111,7 +119,8 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        takepicture = new javax.swing.JButton();
+        profileimg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -182,8 +191,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 591, Short.MAX_VALUE)
+                .addContainerGap(741, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(469, 469, 469))
         );
@@ -193,7 +201,6 @@ public class UsersPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 60));
@@ -415,13 +422,16 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         userActionPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 310, 480));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        takepicture.setText("TAKE");
+        takepicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                takepictureActionPerformed(evt);
             }
         });
-        userActionPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 40));
+        userActionPanel.add(takepicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 40));
+
+        profileimg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        userActionPanel.add(profileimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 549, 340, 170));
 
         add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 330, 720));
     }// </editor-fold>//GEN-END:initComponents
@@ -500,18 +510,56 @@ public class UsersPanel extends javax.swing.JPanel {
         viewpass.setVisible(false);
     }//GEN-LAST:event_viewpassActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(this, new Camera(uaname.getText()));
-//        if (k==0) {
-            File f = new File("src/Images/Pictures/"+uaname.getText()+".jpg");
-            if(f.exists()) { 
-            ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
-            Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
-            ImageIcon shit = new ImageIcon(kev);
-            profileimg.setIcon(shit);
+    private void takepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takepictureActionPerformed
+//        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
+        
+        if (takepicture.getText().equals("TAKE")) {
+            new VideoFeeder().start();
+            takepicture.setText("SAVE");
+        }else{
+            try {
+                JOptionPane.showMessageDialog(null,new ImageIcon(img));
+                ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
+                wc.close();
+            }catch (IOException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-//        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+        
+        
+        
+//new Camera(lalagyanan,uaname.getText()).setVisible(true);
+////        if (k==0) {
+//            File f = new File("src/Images/Pictures/"+uaname.getText()+".jpg");
+//            if(f.exists()) {
+//                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+////                profileimg.setIcon(shit);
+//            }else{
+//                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+//                profileimg.setIcon(shit);
+//            }
+////        }
+        
+//new Camera(lalagyanan,uaname.getText()).setVisible(true);
+////        if (k==0) {
+//            File f = new File("src/Images/Pictures/"+uaname.getText()+".jpg");
+//            if(f.exists()) { 
+//                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+////                profileimg.setIcon(shit);
+//            }else{
+//                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+//                profileimg.setIcon(shit);
+//            }
+////        }
+    }//GEN-LAST:event_takepictureActionPerformed
 
     private void uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uconKeyTyped
         char c = evt.getKeyChar();
@@ -592,13 +640,31 @@ public class UsersPanel extends javax.swing.JPanel {
         }
     }
     
+    class VideoFeeder extends Thread {
+    
+          public void run(){
+          
+               while(true){
+                   try {
+                        img = wc.getImage();
+                        profileimg.setIcon(new ImageIcon(img));
+                       Thread.sleep(5);
+                   } catch (InterruptedException ex) {
+                       JOptionPane.showMessageDialog(null,ex);
+                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                }
+          
+          }
+    
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
     private javax.swing.JButton Delete;
     private javax.swing.JButton Update;
     private javax.swing.JButton hidepass;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -621,9 +687,10 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel profileimg;
+    public javax.swing.JLabel profileimg;
     private javax.swing.JLabel role;
     private javax.swing.JComboBox<String> roles;
+    private javax.swing.JButton takepicture;
     private javax.swing.JTextField uadd;
     private javax.swing.JTextField uaname;
     private javax.swing.JTextField ucon;

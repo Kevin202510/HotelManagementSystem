@@ -43,7 +43,7 @@ public class AdminButtons extends javax.swing.JPanel {
     public AdminButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) throws SQLException {
         initComponents();
         this.fullname=fullname;
-        jComboBox1.setModel(new ImageTextRenderer().pop(fullname,user_id));
+        jComboBox1.setModel(new ImageTextRenderer().pop(user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
         this.user_id=user_id;

@@ -35,9 +35,9 @@ public class Receipts extends javax.swing.JPanel {
     public Receipts(int cusid) {
         initComponents();
         this.cusid=cusid;
+        JOptionPane.showMessageDialog(null,cusid);
         File f = new File("/Images/QRCODE/"+cusid+".png");
         if(f.exists()) { 
-            JOptionPane.showMessageDialog(null,"hello");
             displayReciept();
         }else{
 //        check_in_out_controll.GenerateQrCode(cusid);
@@ -46,7 +46,8 @@ public class Receipts extends javax.swing.JPanel {
     }
  
     public void displayReciept(){
-        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/"+cusid+".png")));
+        JOptionPane.showMessageDialog(null,"hello");
+        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/31.png")));
      }
 
     /**

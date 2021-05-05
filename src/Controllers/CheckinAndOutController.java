@@ -112,10 +112,10 @@ public class CheckinAndOutController{
         }
 }
   
-    public void GenerateQrCode(int cusid){
+    public void GenerateQrCode(int checkinid){
        try {
-            String qrCodeData = String.valueOf(cusid);
-            String filePath = "src\\Images\\QRCODE\\"+ cusid + ".png";
+            String qrCodeData = String.valueOf(checkinid);
+            String filePath = "src\\Images\\QRCODE\\"+ checkinid + ".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
@@ -124,8 +124,9 @@ public class CheckinAndOutController{
                 BarcodeFormat.QR_CODE, 200, 200, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));
-            JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
-            fuck(cusid);
+            JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");     
+            JOptionPane.showMessageDialog(null,checkinid);
+            fuck(checkinid);
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -151,12 +152,8 @@ public class CheckinAndOutController{
      
          public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
-            ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
             int id = list.size()-1;
-            int checkid = checkinoutList.size()-1;
-            int ids = list.get(id).getcust_id();
-            int checkinout = checkinoutList.get(checkid).getcheckInOut(); 
-            JOptionPane.showMessageDialog(null,checkinout);
+             int ids = list.get(id).getcust_id();
             String room_id1 = rooms1.getSelectedItem().toString();
             int room_id = Integer.parseInt(room_id1);
             String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
@@ -170,7 +167,8 @@ public class CheckinAndOutController{
              }
 
             CheckinAndOut checkin;
-            checkin = new CheckinAndOut(checkinout,ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
+            checkin = new CheckinAndOut(0,ids,room_id,checkindate.getText(),null,checkintime.getText(),null);
+//             ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
             String insert = "INSERT INTO checkinandout(timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?)";
            PreparedStatement st = con.prepareStatement(insert);
            st.setString(1, checkin.gettimein());
@@ -182,7 +180,15 @@ public class CheckinAndOutController{
            int i = st.executeUpdate();
             if (i>0) {
                 new Alerts("checkin").setVisible(true);
-                 GenerateQrCode(checkinout);
+                int checkid = 0;
+                 String tanongs = "SELECT MAX(id) FROM checkinandout";
+                  Statement sts = con.createStatement();
+                   ResultSet rs = st.executeQuery(tanongs);
+                while(rs.next()){
+                    checkid=rs.getInt("MAX(id)");
+                }
+               JOptionPane.showMessageDialog(null,checkid);
+                 GenerateQrCode(checkid);
                 return true;
             }else{
                 JOptionPane.showMessageDialog(null,"Error");
