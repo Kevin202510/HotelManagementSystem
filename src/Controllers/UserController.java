@@ -127,7 +127,7 @@ public class UserController {
                     profile.setIcon(shit);
                 }else{
                 ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/"+prof+".jpg"));
-                Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+                Image kev = vins.getImage().getScaledInstance(340, 170, Image.SCALE_SMOOTH);
                 vin = new ImageIcon(kev);
                 profile.setIcon(vin);
               }

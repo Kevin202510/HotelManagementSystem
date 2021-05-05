@@ -7,6 +7,7 @@ package Controllers;
 
 import Models.CheckinAndOut;
 import Models.Customers;
+import Views.Panels.Receipts;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -34,6 +35,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -124,9 +126,10 @@ public class CheckinAndOutController{
                 BarcodeFormat.QR_CODE, 200, 200, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                 .lastIndexOf('.') + 1), new File(filePath));
-            JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");     
-            JOptionPane.showMessageDialog(null,checkinid);
-            fuck(checkinid);
+            ImageIcon kk = new ImageIcon(filePath);
+            printReceipt(new Views.Panels.Receipts(checkinid));
+            JOptionPane.showMessageDialog(null,"Thank you for Checking in in our Hotel");
+//            fuck(checkinid);
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -187,7 +190,7 @@ public class CheckinAndOutController{
                 while(rs.next()){
                     checkid=rs.getInt("MAX(id)");
                 }
-               JOptionPane.showMessageDialog(null,checkid);
+//               JOptionPane.showMessageDialog(null,checkid);
                  GenerateQrCode(checkid);
                 return true;
             }else{

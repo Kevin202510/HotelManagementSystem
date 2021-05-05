@@ -13,6 +13,10 @@ import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -54,6 +58,7 @@ public class AdminButtons extends javax.swing.JPanel {
         userrole.setText(role);
         jComboBox1.setBackground(new Color(25,20,255));
         jComboBox1.setOpaque(false);
+        new VideoFeeder().start();
     }
 
     /**
@@ -85,6 +90,8 @@ public class AdminButtons extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         hov10 = new javax.swing.JPanel();
         rate_rt_bed = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -350,6 +357,12 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, 210, 50));
 
+        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AdminButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 180, 30));
+
+        date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, 30));
+
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -470,10 +483,37 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(hov10);
     }//GEN-LAST:event_rate_rt_bedMouseExited
 
+    
+     class VideoFeeder extends Thread {
+    
+          public void run(){
+          
+                while(true){
+                    Calendar cal = Calendar.getInstance();
+
+                    int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    int minute = cal.get(Calendar.MINUTE);
+                    int second = cal.get(Calendar.SECOND);
+
+                    SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+                    Date dat = cal.getTime();
+                    String times = kev.format(dat);
+                    
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+                    String strDate = dateFormat.format(dat);
+                    
+                    date.setText(strDate);
+                    time.setText(times);
+                }
+          
+          }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
     private javax.swing.JLabel customers;
+    private javax.swing.JLabel date;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov10;
     private javax.swing.JPanel hov5;
@@ -489,9 +529,11 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;
+    private javax.swing.JLabel time;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 
+    
 }

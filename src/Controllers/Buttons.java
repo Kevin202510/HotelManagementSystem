@@ -12,6 +12,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -30,6 +33,22 @@ public class Buttons {
     
     public Buttons(JPanel lalagyanan){
         this.lalagyanan=lalagyanan;
+    }
+    
+    public void displayDateAndTime(JLabel date,JLabel time){
+        while(true){
+            Calendar cal = Calendar.getInstance();
+            
+            int hour = cal.get(Calendar.HOUR_OF_DAY);
+            int minute = cal.get(Calendar.MINUTE);
+            int second = cal.get(Calendar.SECOND);
+            
+            SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+            Date dat = cal.getTime();
+            String times = kev.format(dat);
+            
+            time.setText(times);
+        }
     }
     
     
