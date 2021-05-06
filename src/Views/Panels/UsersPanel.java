@@ -529,6 +529,7 @@ public class UsersPanel extends javax.swing.JPanel {
           if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -553,6 +554,7 @@ public class UsersPanel extends javax.swing.JPanel {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -564,6 +566,7 @@ public class UsersPanel extends javax.swing.JPanel {
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -576,6 +579,7 @@ public class UsersPanel extends javax.swing.JPanel {
            if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();

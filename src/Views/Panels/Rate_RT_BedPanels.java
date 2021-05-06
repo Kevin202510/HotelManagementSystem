@@ -18,6 +18,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -30,13 +31,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Rate_RT_BedPanels extends javax.swing.JPanel {
     
-    public RoomTypesController roomtypeControll; 
-    public RatesController ratesControll; 
-    public BedsController bedsControll; 
-    int id;
+    
+    
    
         public  SQL sql = new SQL();
         public JPanel lalagyanan;
+         public int index,index1,id;
+         RoomTypesController roomtypeControll = new RoomTypesController(lalagyanan); 
+         ArrayList<Roomtypes> roomtypelist = roomtypeControll.roomtypeList();
+         RatesController ratesControll = new RatesController(lalagyanan); 
+         ArrayList<Rates> ratelist = ratesControll.rateList();
+         BedsController bedsControll = new BedsController(lalagyanan); 
+         ArrayList<Beds> bedlist = bedsControll.bedList();
     /**
      * Creates new form Rate_RT_BedPanels
      */
@@ -49,8 +55,37 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         roomtypeControll.showRoomtypes(RTtable);
         ratesControll.showRates(ratestable);
        bedsControll.showBeds(bedtable);
-       
-    }
+   
+
+            if (roomtypelist.size()==0) {
+            RTid.setText("1");
+          
+        }else{
+            index1 = roomtypelist.size()-1;
+            index = roomtypelist.get(index1).getRT_id() + 1;        
+            RTid.setText(String.valueOf(index));
+    
+        }
+//    }
+
+         if (roomtypelist.size()==0) {
+            RateID.setText("1");
+          
+        }else{
+            index1 = ratelist.size()-1;
+            index = ratelist.get(index1).getrate_id() + 1;        
+            RateID.setText(String.valueOf(index));
+    
+        }
+          if (bedlist.size()==0) {
+            BedID.setText("1");
+          
+        }else{
+            index1 = bedlist.size()-1;
+            index = bedlist.get(index1).getbed_id() + 1;        
+            BedID.setText(String.valueOf(index));
+          }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,13 +107,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        BedID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         BedQuantity = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         Bedsave = new javax.swing.JButton();
         Beddelete = new javax.swing.JButton();
+        BedID = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -215,22 +250,6 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel6.setText("Bed ID");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 60, 60, 41));
 
-        BedID.setBackground(new java.awt.Color(0, 77, 77));
-        BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        BedID.setForeground(new java.awt.Color(255, 255, 255));
-        BedID.setBorder(null);
-        BedID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BedIDActionPerformed(evt);
-            }
-        });
-        BedID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                BedIDKeyTyped(evt);
-            }
-        });
-        jPanel2.add(BedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 190, 30));
-
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Bed Quantity");
@@ -269,6 +288,22 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             }
         });
         jPanel2.add(Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 110, 30));
+
+        BedID.setBackground(new java.awt.Color(0, 77, 77));
+        BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        BedID.setForeground(new java.awt.Color(255, 255, 255));
+        BedID.setBorder(null);
+        BedID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BedIDActionPerformed(evt);
+            }
+        });
+        BedID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BedIDKeyTyped(evt);
+            }
+        });
+        jPanel2.add(BedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 190, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 77, 77));
         jPanel3.setPreferredSize(new java.awt.Dimension(310, 212));
@@ -649,9 +684,10 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private void RoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RoomTypeKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -661,7 +697,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private void BedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BedQuantityKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -680,9 +716,6 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             return false;
         }
       }
-    
-    
-    
      private boolean checkInputsRate(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (RateID.getText().isEmpty()||RatePrice.getText().isEmpty()){
@@ -691,11 +724,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         }else{
             return false;
         }
-      }
-     
-     
-     
-     private boolean checkInputsBed(){
+      } 
+    private boolean checkInputsBed(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (BedID.getText().isEmpty()||BedQuantity.getText().isEmpty()){
             JOptionPane.showMessageDialog(this,notice);
