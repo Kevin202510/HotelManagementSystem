@@ -91,6 +91,8 @@ public class RatesController {
         String selectrate = "SELECT * FROM rates WHERE rate_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectrate);
+       RateID.setEditable(false);
+       RatePrice.setEditable(false);
         while(rs.next()){
             RateID.setText(rs.getString("rate_id"));
             RatePrice.setText(rs.getString("rate_price"));

@@ -87,6 +87,8 @@ public class BedsController {
         String selectbed = "SELECT * FROM beds WHERE bed_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectbed);
+       BedID.setEditable(false);
+       BedQuantity.setEditable(false);
         while(rs.next()){
             BedID.setText(rs.getString("bed_id"));
             BedQuantity.setText(rs.getString("bed_quantity"));

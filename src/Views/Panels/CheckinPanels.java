@@ -244,6 +244,7 @@ public class CheckinPanels extends javax.swing.JPanel {
           if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -253,7 +254,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     private void cusMname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusMname1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+       if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -265,9 +266,10 @@ public class CheckinPanels extends javax.swing.JPanel {
     private void cusLname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusLname1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -277,9 +279,10 @@ public class CheckinPanels extends javax.swing.JPanel {
     private void cusAddress1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusAddress1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();

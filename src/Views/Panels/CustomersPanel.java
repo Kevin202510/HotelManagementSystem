@@ -256,9 +256,10 @@ import javax.swing.table.DefaultTableModel;
     private void cusFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusFnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+                 (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -268,7 +269,7 @@ import javax.swing.table.DefaultTableModel;
     private void cusMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusMnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+        if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
@@ -280,9 +281,10 @@ import javax.swing.table.DefaultTableModel;
     private void cusLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusLnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
@@ -292,9 +294,10 @@ import javax.swing.table.DefaultTableModel;
     private void cusAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusAddressKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
-          if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
+          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
              (c == KeyEvent.VK_BACK_SPACE) ||
+             (c == KeyEvent.VK_SPACE) ||
              (c == KeyEvent.VK_DELETE))) {
                getToolkit().beep();
              evt.consume();
