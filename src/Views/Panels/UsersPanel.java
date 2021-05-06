@@ -11,9 +11,8 @@ import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import Views.Dashboards.ContainerManipulator;
-import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
-//import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -46,7 +45,6 @@ public class UsersPanel extends javax.swing.JPanel {
     JPanel lalagyanan;
     Users userModel;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//    Webcam wc;
     Image img;
     Webcam wc;
     
@@ -64,8 +62,8 @@ public class UsersPanel extends javax.swing.JPanel {
         roles.setForeground(Color.red);
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
-//        wc = Webcam.getDefault();
-//        wc.setViewSize(WebcamResolution.VGA.getSize());
+        wc = Webcam.getDefault();
+        wc.setViewSize(WebcamResolution.VGA.getSize());
 //        wc.open();
         this.lalagyanan=lalagyanan;
         
@@ -85,7 +83,6 @@ public class UsersPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        profileimg = new javax.swing.JLabel();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         uaname = new javax.swing.JTextField();
@@ -124,6 +121,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jSeparator10 = new javax.swing.JSeparator();
         profile = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        profileimg = new jroundborder.JLabelRound();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -189,16 +187,12 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("USERS");
 
-        profileimg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 411, Short.MAX_VALUE)
+                .addContainerGap(741, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(469, 469, 469))
         );
@@ -206,9 +200,7 @@ public class UsersPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profileimg, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -435,7 +427,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(191, 191, 191));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USER ACTION");
-        userActionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 220, 53));
+        userActionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 220, 53));
         userActionPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 210, 10));
 
         takepicture.setText("TAKE");
@@ -445,7 +437,6 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         });
         userActionPanel.add(takepicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 60, -1));
-
         userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 320, 540));
         userActionPanel.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 170, 5));
 
@@ -464,6 +455,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("PROFILE");
         userActionPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 61, 30));
+        userActionPanel.add(profileimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 260, 150));
 
         add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 340, 720));
     }// </editor-fold>//GEN-END:initComponents
@@ -546,12 +538,14 @@ public class UsersPanel extends javax.swing.JPanel {
 //        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
         
         if (takepicture.getText().equals("TAKE")) {
+            wc.open();
             new VideoFeeder().start();
             takepicture.setText("SAVE");
         }else{
             try {
                 JOptionPane.showMessageDialog(null,new ImageIcon(img));
                 ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
+                profile.setText(uaname.getText() + ".jpg");
                 wc.close();
             }catch (IOException ex) {
                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -700,7 +694,7 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField profile;
-    public javax.swing.JLabel profileimg;
+    private jroundborder.JLabelRound profileimg;
     private javax.swing.JLabel role;
     private javax.swing.JComboBox<String> roles;
     private javax.swing.JButton takepicture;

@@ -126,11 +126,9 @@ public class Camera extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,new ImageIcon(img));
             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + name + ".jpg"));
             wc.close();
-            new UsersPanel(lalagyanan).profileimg.setText("kevin caluag");
+//            new UsersPanel(lalagyanan).profileimg.setText("kevin caluag");
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Camera.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBtnCaptureActionPerformed
 

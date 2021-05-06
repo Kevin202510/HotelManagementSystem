@@ -148,8 +148,8 @@ public class CheckinAndOutController{
      
      public String getTimeNow(){
          Date date = Calendar.getInstance().getTime();  
-        DateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");  
-        String strTime = timeFormat.format(date);
+        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa"); 
+        String strTime = kevs.format(date);
         return strTime;
      }
      

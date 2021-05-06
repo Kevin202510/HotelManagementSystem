@@ -56,7 +56,8 @@ public class AdminButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-        jComboBox1.setBackground(new Color(25,20,255));
+        userrole.setForeground(Color.decode("#0039e6"));
+        jComboBox1.setBackground(Color.decode("#0039e6"));
         jComboBox1.setOpaque(false);
         new VideoFeeder().start();
     }
