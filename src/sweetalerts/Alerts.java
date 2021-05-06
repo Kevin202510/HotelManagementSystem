@@ -30,29 +30,29 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
     
     private void Notif(){
         if (notif.equals("success")) {
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/successs.gif")));
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("SUCCESSFULLY LOGIN");
-            Timer t = new Timer(4000, this);    // Timer in 10 seconds
+            Timer t = new Timer(8000, this);    // Timer in 10 seconds
              t.start();
         }else if (notif.equals("save")) {
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/successs.gif")));
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("ADDED SUCCESSFULLY");
-            Timer t = new Timer(4000, this);    // Timer in 10 seconds
+            Timer t = new Timer(8000, this);    // Timer in 10 seconds
              t.start();
         }else if (notif.equals("update")) {
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/successs.gif")));
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("UPDATED SUCCESSFULLY");
-            Timer t = new Timer(4000, this);    // Timer in 10 seconds
+            Timer t = new Timer(8000, this);    // Timer in 10 seconds
              t.start();
         }else if (notif.equals("delete")) {
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/successs.gif")));
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("DELETED SUCCESSFULLY");
-            Timer t = new Timer(4000, this);    // Timer in 10 seconds
+            Timer t = new Timer(8000, this);    // Timer in 10 seconds
              t.start();
         }else if (notif.equals("checkin")) {
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/successs.gif")));
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("CHECKIN SUCCESSFULLY");
-            Timer t = new Timer(6000, this);    // Timer in 10 seconds
+            Timer t = new Timer(8000, this);    // Timer in 10 seconds
              t.start();
         }else{
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/error.gif")));
@@ -78,24 +78,31 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 5));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 10));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 150, 90));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelRound1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 180, 120));
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 310, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 310, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

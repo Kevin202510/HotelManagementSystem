@@ -90,6 +90,8 @@ public class RoomsPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        update = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         roomAction = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -107,8 +109,6 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomTypeId = new javax.swing.JComboBox<>();
         bedTypeId = new javax.swing.JComboBox<>();
         rateId = new javax.swing.JComboBox<>();
-        update = new javax.swing.JButton();
-        save = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         roomscroll = new javax.swing.JScrollPane();
         roomstable = new javax.swing.JTable();
@@ -127,74 +127,6 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel1.setText("Rooms");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 22, 242, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
-
-        roomAction.setBackground(new java.awt.Color(0, 77, 77));
-        roomAction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(191, 191, 191));
-        jLabel2.setText("ROOM ACTIONS");
-        roomAction.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, 54));
-
-        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Room ID");
-        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 73, 41));
-
-        Roomid.setEditable(false);
-        Roomid.setBackground(new java.awt.Color(0, 77, 77));
-        Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        Roomid.setForeground(new java.awt.Color(255, 255, 255));
-        Roomid.setBorder(null);
-        roomAction.add(Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 213, 30));
-
-        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Room Type");
-        roomAction.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 41));
-
-        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bed Type");
-        roomAction.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, 41));
-
-        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Rate");
-        roomAction.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 73, 41));
-
-        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Status");
-        roomAction.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 73, 41));
-        roomAction.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 210, -1));
-        roomAction.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 210, -1));
-        roomAction.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 210, -1));
-        roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 210, -1));
-        roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 210, -1));
-
-        statusId.setBackground(new java.awt.Color(0, 77, 77));
-        statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        statusId.setForeground(new java.awt.Color(255, 255, 255));
-        statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
-        roomAction.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 210, 30));
-
-        roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 210, 30));
-
-        bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 210, 30));
-
-        rateId.setBackground(new java.awt.Color(0, 77, 77));
-        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rateId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 210, 30));
-
         update.setBackground(new java.awt.Color(51, 102, 255));
         update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         update.setText("UPDATE");
@@ -203,7 +135,7 @@ public class RoomsPanel extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
-        roomAction.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 126, 61));
+        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
 
         save.setBackground(new java.awt.Color(51, 102, 255));
         save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -213,11 +145,78 @@ public class RoomsPanel extends javax.swing.JPanel {
                 saveActionPerformed(evt);
             }
         });
-        roomAction.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 126, 61));
+        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
 
-        jLabel8.setText("jLabel8");
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
-        roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 340, 560));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
+
+        roomAction.setBackground(new java.awt.Color(0, 77, 77));
+        roomAction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(191, 191, 191));
+        jLabel2.setText("ROOM ACTIONS");
+        roomAction.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 54));
+
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Room ID");
+        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 73, 41));
+
+        Roomid.setEditable(false);
+        Roomid.setBackground(new java.awt.Color(0, 77, 77));
+        Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        Roomid.setForeground(new java.awt.Color(255, 255, 255));
+        Roomid.setBorder(null);
+        roomAction.add(Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 213, 30));
+
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Room Type");
+        roomAction.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 30));
+
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Bed Type");
+        roomAction.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 30));
+
+        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Rate");
+        roomAction.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 73, 30));
+
+        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Status");
+        roomAction.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 73, 30));
+        roomAction.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 210, -1));
+        roomAction.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, -1));
+        roomAction.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 210, -1));
+        roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 210, -1));
+        roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 210, -1));
+
+        statusId.setBackground(new java.awt.Color(0, 77, 77));
+        statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        statusId.setForeground(new java.awt.Color(255, 255, 255));
+        statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
+        roomAction.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 210, 30));
+
+        roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 210, 30));
+
+        bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 30));
+
+        rateId.setBackground(new java.awt.Color(0, 77, 77));
+        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        rateId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 30));
+
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
+        roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 340, 530));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 360, 700));
 

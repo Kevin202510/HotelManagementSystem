@@ -18,6 +18,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import java.awt.PrintJob;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,22 +32,18 @@ public class Receipts extends javax.swing.JPanel {
      */
     public int cusid;
 //    public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
+    ImageIcon vin;
     
     public Receipts(int cusid) {
         initComponents();
         this.cusid=cusid;
-        File f = new File("/Images/QRCODE/"+cusid+".png");
-        if(f.exists()) { 
-            JOptionPane.showMessageDialog(null,"hello");
-            displayReciept();
-        }else{
-//        check_in_out_controll.GenerateQrCode(cusid);
+        String filePath = "src\\Images\\QRCODE\\"+ cusid + ".png";
+        vin = new ImageIcon(filePath);
         displayReciept();
-        }
     }
  
     public void displayReciept(){
-        Qrcode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QRCODE/"+cusid+".png")));
+        Qrcode.setIcon(vin);
      }
 
     /**
@@ -151,7 +148,7 @@ public class Receipts extends javax.swing.JPanel {
     private javax.swing.JLabel Cusadd;
     private javax.swing.JLabel Cuscontact;
     private javax.swing.JLabel Cusname;
-    private javax.swing.JLabel Qrcode;
+    public javax.swing.JLabel Qrcode;
     private javax.swing.JPanel Resibo;
     private javax.swing.JLabel checkintime;
     private javax.swing.JLabel checkouttime;

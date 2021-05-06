@@ -112,9 +112,12 @@ public class RoomTypesController {
      
      public void fillForm(int id,JTextField RTid,JTextField RoomType) throws SQLException{
          Connection con = sql.getConnection();
+         JOptionPane.showMessageDialog(null,id);
         String selectRT = "SELECT * FROM roomtypes WHERE RT_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectRT);
+       RTid.setEditable(false);
+       RoomType.setEditable(false);
         while(rs.next()){
             RTid.setText(rs.getString("RT_id"));
             RoomType.setText(rs.getString("room_type"));

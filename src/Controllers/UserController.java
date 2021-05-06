@@ -8,6 +8,7 @@ package Controllers;
 import Models.Users;
 import Views.Authentication.Login;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
@@ -52,7 +55,7 @@ public class UserController {
         Users users;
         
         while(rs.next()){
-            users=new Users(rs.getInt("user_id"),rs.getInt("role_Id"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
+            users=new Users(rs.getInt("user_id"),rs.getInt("role_Id"),rs.getString("profile"),rs.getString("user_Fname"),rs.getString("user_Mname"),rs.getString("user_Lname"),rs.getString("user_address"),rs.getString("user_DOB"),rs.getString("user_contactnum"),rs.getString("user_username"),rs.getString("user_password"));
             userList.add(users);
         }
         return userList;   
@@ -110,12 +113,24 @@ public class UserController {
        upass.setText("");
     }
     
-     public void fillUserForm(int user_id,JComboBox roles,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
+     public void fillUserForm(int user_id,JComboBox roles,JLabel profile,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
             String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);
-
+            ImageIcon vin = null;
             while(rs.next()){
+                String prof = rs.getString("profile");
+                if (prof==null) {
+                    ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+                    Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+                    ImageIcon shit = new ImageIcon(kev);
+                    profile.setIcon(shit);
+                }else{
+                ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/"+prof+".jpg"));
+                Image kev = vins.getImage().getScaledInstance(340, 170, Image.SCALE_SMOOTH);
+                vin = new ImageIcon(kev);
+                profile.setIcon(vin);
+              }
                 roles.setSelectedIndex(rs.getInt("role_id")-1);
                 uaname.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
@@ -126,21 +141,32 @@ public class UserController {
                 uname.setText(rs.getString("user_username"));
                 upass.setText(auth.decrypt(rs.getString("user_password")));
             }
+//            if (profile.getText()!=null) {
+//                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                profile.setIcon(new ImageIcon(kev));
+//            }else{
+//                ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+//                Image kev = vins.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
+//                ImageIcon shit = new ImageIcon(kev);
+//                profile.setIcon(shit);
+//            }
         
     }
      
      public boolean updateUser(Users users,int user_id,JTable usertables) throws SQLException{
-        String updates = "UPDATE users SET role_id = ? ,user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + user_id + "'";
+        String updates = "UPDATE users SET role_id = ? ,profile = ?, user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + user_id + "'";
         PreparedStatement st = con.prepareStatement(updates);
         st.setInt(1, users.getrole_id());
-        st.setString(2, users.getuser_Fname());
-        st.setString(3, users.getuser_Mname());
-        st.setString(4, users.getuser_Lname());
-        st.setString(5, users.getuser_address());
-        st.setString(6, users.getuser_DOB());
-        st.setString(7, users.getuser_contactnum());
-        st.setString(8, users.getuser_username());
-        st.setString(9, auth.encrypt(users.getuser_password()));
+        st.setString(2, users.getprofile());
+        JOptionPane.showMessageDialog(null,users.getprofile());
+        st.setString(3, users.getuser_Fname());
+        st.setString(4, users.getuser_Mname());
+        st.setString(5, users.getuser_Lname());
+        st.setString(6, users.getuser_address());
+        st.setString(7, users.getuser_DOB());
+        st.setString(8, users.getuser_contactnum());
+        st.setString(9, users.getuser_username());
+        st.setString(10, auth.encrypt(users.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {
