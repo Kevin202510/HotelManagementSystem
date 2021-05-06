@@ -43,7 +43,7 @@ public class UserController {
     
 //    QUERIES
     public String kuninLahatNgUser = "SELECT * FROM users where user_id>1";
-    public String magdagdagNgUser = "INSERT INTO users(role_id,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES (?,?,?,?,?,?,?,?,?)";
+    public String magdagdagNgUser = "INSERT INTO users(role_id,profile,user_Fname,user_Mname,user_Lname,user_address,user_DOB,user_contactnum,user_username,user_password) VALUES (?,?,?,?,?,?,?,?,?,?)";
     
     public UserController() throws SQLException{
          this.list = userList();
@@ -64,14 +64,15 @@ public class UserController {
     public boolean createUser(Users user,JTable roomstable) throws SQLException{
         PreparedStatement st = con.prepareStatement(magdagdagNgUser);
         st.setInt(1, user.getrole_id());
-        st.setString(2, user.getuser_Fname());
-        st.setString(3, user.getuser_Mname());
-        st.setString(4, user.getuser_Lname());
-        st.setString(5, user.getuser_address());
-        st.setString(6, user.getuser_DOB());
-        st.setString(7, user.getuser_contactnum());
-        st.setString(8, user.getuser_username());
-        st.setString(9, auth.encrypt(user.getuser_password()));
+        st.setString(2, user.getprofile());
+        st.setString(3, user.getuser_Fname());
+        st.setString(4, user.getuser_Mname());
+        st.setString(5, user.getuser_Lname());
+        st.setString(6, user.getuser_address());
+        st.setString(7, user.getuser_DOB());
+        st.setString(8, user.getuser_contactnum());
+        st.setString(9, user.getuser_username());
+        st.setString(10, auth.encrypt(user.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {

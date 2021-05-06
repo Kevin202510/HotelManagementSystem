@@ -60,6 +60,7 @@ public class Login extends javax.swing.JFrame {
         hidepass = new javax.swing.JButton();
         hov3 = new javax.swing.JPanel();
         signin = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,7 +85,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         username.setBackground(new java.awt.Color(0, 204, 255));
-        username.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        username.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,9 +98,10 @@ public class Login extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 289, 30));
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 270, 30));
 
         password.setBackground(new java.awt.Color(0, 204, 255));
+        password.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setBorder(null);
         password.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,7 +119,7 @@ public class Login extends javax.swing.JFrame {
                 passwordKeyPressed(evt);
             }
         });
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 278, 30));
+        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 270, 30));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 270, -1));
@@ -126,7 +128,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 270, 10));
 
         jLabel2.setBackground(new java.awt.Color(0, 204, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("LOG IN");
@@ -195,6 +197,17 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, 40));
 
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("X");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 10, 40, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 400, 480));
 
         pack();
@@ -256,6 +269,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        out.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -301,6 +318,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel hov3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator4;

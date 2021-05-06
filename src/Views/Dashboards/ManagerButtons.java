@@ -308,7 +308,7 @@ public class ManagerButtons extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 240, 50));
+        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, 240, 50));
 
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         StaffButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
