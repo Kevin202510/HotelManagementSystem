@@ -92,6 +92,7 @@ public class AdminButtons extends javax.swing.JPanel {
         rate_rt_bed = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,7 +105,7 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
-        AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 10, 563, -1));
+        AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 10, 550, -1));
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,7 +321,7 @@ public class AdminButtons extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        AdminButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 10, 240, 50));
+        AdminButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 10, 240, 50));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -362,6 +363,17 @@ public class AdminButtons extends javax.swing.JPanel {
 
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, 30));
+
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("X");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 50, 36));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -483,6 +495,10 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(hov10);
     }//GEN-LAST:event_rate_rt_bedMouseExited
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        signOut(out);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     
      class VideoFeeder extends Thread {
     
@@ -522,6 +538,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov8;
     private javax.swing.JPanel hov9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound3;

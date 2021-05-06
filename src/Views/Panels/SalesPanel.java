@@ -52,6 +52,7 @@ public class SalesPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         Salest = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -82,7 +83,7 @@ public class SalesPanel extends javax.swing.JPanel {
             salesTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 1160, 690));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 1130, 690));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,23 +94,23 @@ public class SalesPanel extends javax.swing.JPanel {
         Salesfr.setDateFormatString("yyyy-MM-dd");
         Salesfr.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         Salesfr.setOpaque(false);
-        add(Salesfr, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 200, 30));
+        add(Salesfr, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Sales To:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 80, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sales From:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 100, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 100, 20));
 
         Salest.setBackground(new java.awt.Color(0, 77, 77));
         Salest.setDateFormatString("yyyy-MM-dd");
         Salest.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         Salest.setOpaque(false);
-        add(Salest, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 200, 30));
+        add(Salest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 200, 30));
 
         jButton1.setText("Show");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +118,10 @@ public class SalesPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 170, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
+
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 340));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -166,6 +170,7 @@ public class SalesPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser Salesfr;
     private com.toedter.calendar.JDateChooser Salest;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

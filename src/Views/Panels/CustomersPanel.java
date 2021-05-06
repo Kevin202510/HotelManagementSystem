@@ -65,8 +65,6 @@ import javax.swing.table.DefaultTableModel;
         cusAddress = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cusContact = new javax.swing.JTextField();
-        save = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         rooms = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
@@ -74,17 +72,20 @@ import javax.swing.table.DefaultTableModel;
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        save = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
         setPreferredSize(new java.awt.Dimension(1480, 790));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Customers");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 301, 83));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 340, 83));
 
         jTable1.setBackground(new java.awt.Color(191, 191, 191));
         jTable1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -109,7 +110,7 @@ import javax.swing.table.DefaultTableModel;
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 100, 1150, 690));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 100, 1120, 690));
 
         jPanel1.setBackground(new java.awt.Color(0, 77, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,15 +119,15 @@ import javax.swing.table.DefaultTableModel;
         jLabel1.setForeground(new java.awt.Color(191, 191, 191));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CUSTOMERS ACTION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 54));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 54));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("First name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 80, 80, 41));
+        jLabel3.setText("First name :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 111, 90, 50));
 
         cusFname.setBackground(new java.awt.Color(0, 77, 77));
-        cusFname.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        cusFname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cusFname.setForeground(new java.awt.Color(255, 255, 255));
         cusFname.setBorder(null);
         cusFname.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -135,31 +136,36 @@ import javax.swing.table.DefaultTableModel;
                 cusFnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 30));
+        jPanel1.add(cusFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("M.I");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 60, 41));
+        jLabel4.setText("M.I :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 171, 60, 50));
 
         cusMname.setBackground(new java.awt.Color(0, 77, 77));
-        cusMname.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        cusMname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cusMname.setForeground(new java.awt.Color(255, 255, 255));
         cusMname.setBorder(null);
+        cusMname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusMnameActionPerformed(evt);
+            }
+        });
         cusMname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cusMnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, 30));
+        jPanel1.add(cusMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Last name");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 90, 41));
+        jLabel5.setText("Last name :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 231, 100, 50));
 
         cusLname.setBackground(new java.awt.Color(0, 77, 77));
-        cusLname.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        cusLname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cusLname.setForeground(new java.awt.Color(255, 255, 255));
         cusLname.setBorder(null);
         cusLname.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -167,31 +173,36 @@ import javax.swing.table.DefaultTableModel;
                 cusLnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 200, 30));
+        jPanel1.add(cusLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 200, 30));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Address");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 73, 41));
+        jLabel6.setText("Address :");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 291, 80, 50));
 
         cusAddress.setBackground(new java.awt.Color(0, 77, 77));
-        cusAddress.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        cusAddress.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cusAddress.setForeground(new java.awt.Color(255, 255, 255));
         cusAddress.setBorder(null);
+        cusAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusAddressActionPerformed(evt);
+            }
+        });
         cusAddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cusAddressKeyTyped(evt);
             }
         });
-        jPanel1.add(cusAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 200, 30));
+        jPanel1.add(cusAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Contact #");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 90, 41));
+        jLabel7.setText("Contact # :");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 361, 90, 30));
 
         cusContact.setBackground(new java.awt.Color(0, 77, 77));
-        cusContact.setFont(new java.awt.Font("Bell MT", 0, 14)); // NOI18N
+        cusContact.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         cusContact.setForeground(new java.awt.Color(255, 255, 255));
         cusContact.setBorder(null);
         cusContact.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -199,7 +210,28 @@ import javax.swing.table.DefaultTableModel;
                 cusContactKeyTyped(evt);
             }
         });
-        jPanel1.add(cusContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 200, 30));
+        jPanel1.add(cusContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 30));
+
+        jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("ROOMS :");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 73, 36));
+
+        rooms.setBackground(new java.awt.Color(0, 77, 77));
+        rooms.setForeground(new java.awt.Color(255, 255, 255));
+        rooms.setBorder(null);
+        rooms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 190, 40));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 200, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 200, -1));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 200, -1));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 200, -1));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 200, 10));
+
+        jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 340, 580));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 360, 690));
 
         save.setBackground(new java.awt.Color(51, 102, 255));
         save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -209,30 +241,12 @@ import javax.swing.table.DefaultTableModel;
                 saveActionPerformed(evt);
             }
         });
-        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 126, 50));
+        add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 126, 50));
 
         delete.setBackground(new java.awt.Color(51, 102, 255));
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
-        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 126, 50));
-
-        jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ROOMS");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 73, 36));
-
-        rooms.setBackground(new java.awt.Color(0, 77, 77));
-        rooms.setForeground(new java.awt.Color(255, 255, 255));
-        rooms.setBorder(null);
-        rooms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 190, 40));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 200, -1));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 200, -1));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 200, -1));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 200, 10));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 310, 690));
+        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 126, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -299,6 +313,14 @@ import javax.swing.table.DefaultTableModel;
           }
     }//GEN-LAST:event_cusContactKeyTyped
 
+    private void cusMnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusMnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusMnameActionPerformed
+
+    private void cusAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusAddressActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cusAddress;
     private javax.swing.JTextField cusContact;
@@ -314,6 +336,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
