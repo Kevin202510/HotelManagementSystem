@@ -6,13 +6,18 @@
 package Views.Dashboards;
 
 import Controllers.Buttons;
+import Controllers.CheckinAndOutController;
 import Controllers.ImagesNText;
 import Controllers.ImageTextRenderer;
+import Controllers.SQL;
 import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
 import java.awt.Component;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,7 +48,10 @@ public class AdminButtons extends javax.swing.JPanel {
     Buttons userButton;
     JFrame out;
     static int user_id;
+//    CheckinAndOutController checks = new CheckinAndOutController();
+    
 //    ImagesNText vk = new ImagesNText();
+    
     public AdminButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) throws SQLException {
         initComponents();
         this.fullname=fullname;
@@ -60,6 +68,7 @@ public class AdminButtons extends javax.swing.JPanel {
         jComboBox1.setBackground(Color.decode("#0039e6"));
         jComboBox1.setOpaque(false);
         new VideoFeeder().start();
+//        checkCustomerCheckOut();
     }
 
     /**
@@ -501,27 +510,68 @@ public class AdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     
+    public  SQL sql = new SQL();
+    public Connection con = sql.getConnection();
+    
+    String kk;
+    
+    public String getTimeNow(){
+         Calendar date = Calendar.getInstance();  
+        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
+        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
+//        date.add(Calendar.MINUTE,+1);
+        Date strTime = date.getTime();
+        kk = kev.format(strTime);
+//        String kkk = kevs.format(strTime);
+//        orayt.setText(kkk);
+        return kk;
+     }
+    
+    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
+            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
+                        Statement st = con.createStatement();
+                        ResultSet rs = st.executeQuery(checkOutCheck);
+                        
+                        while(rs.next()){
+                            String checkouttime = rs.getString("timeout");
+//                            JOptionPane.showMessageDialog(null,timess);
+                            if (timess.equals(checkouttime)) {
+//                                JOptionPane.showMessageDialog(null,checkouttime);
+//                                JOptionPane.showMessageDialog(null,timess);
+                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
+//                                new VideoFeeder().sleep(5000);
+                            }
+                        }
+         }
+    
      class VideoFeeder extends Thread {
     
           public void run(){
-          
-                while(true){
-                    Calendar cal = Calendar.getInstance();
-
-                    int hour = cal.get(Calendar.HOUR_OF_DAY);
-                    int minute = cal.get(Calendar.MINUTE);
-                    int second = cal.get(Calendar.SECOND);
-
-                    SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
-                    Date dat = cal.getTime();
-                    String times = kev.format(dat);
-                    
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-                    String strDate = dateFormat.format(dat);
-                    
-                    date.setText(strDate);
-                    time.setText(times);
-                }
+              try {
+                  
+                  String ss = "00";
+                  
+                  while(true){
+                      Calendar cal = Calendar.getInstance();
+                      int hour = cal.get(Calendar.HOUR_OF_DAY);
+                      int minute = cal.get(Calendar.MINUTE);
+                      int second = cal.get(Calendar.SECOND);
+                      SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+                      Date dat = cal.getTime();
+                      String times = kev.format(dat);
+                      String timess = kevs.format(dat);
+                      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                      String strDate = dateFormat.format(dat);
+                      date.setText(strDate);
+                      time.setText(times);
+                      checkCustomerCheckOut(timess);
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+              } catch (InterruptedException ex) {
+                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+              }
           
           }
     

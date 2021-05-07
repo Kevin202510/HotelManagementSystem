@@ -42,6 +42,8 @@ public class AdminDashboard extends javax.swing.JFrame {
         this.fullname=fullname;
         checkRole();
     }
+    
+    
 
     
     private void checkRole() throws SQLException{

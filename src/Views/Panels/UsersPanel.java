@@ -493,7 +493,7 @@ public class UsersPanel extends javax.swing.JPanel {
              System.out.print("hello world");
          }else{
         Role = roles.getSelectedIndex()+1;
-        userModel=new Users(0,Role,uaname.getText(),uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        userModel=new Users(0,Role,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         
         try {
             boolean checkUser = userControll.createUser(userModel,jTable1);
@@ -528,7 +528,7 @@ public class UsersPanel extends javax.swing.JPanel {
         
         try { 
             id = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
-            userControll.fillUserForm(id,roles,profileimg,profile,uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            userControll.fillUserForm(id,roles,profileimg,uaname, umi, usn, uadd, udob, ucon, uname, upass);
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
