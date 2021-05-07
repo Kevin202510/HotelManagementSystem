@@ -68,10 +68,10 @@ public class RatesController {
     }
         public void saveRates(JTextField RateID,JTextField RatePrice,JTable ratestable) throws SQLException{
          //for Save Funktion :)
-         JOptionPane.showMessageDialog(null,"hello");
+      //   JOptionPane.showMessageDialog(null,"hello");
           Connection con = sql.getConnection();
          String insert = "INSERT INTO rates(rate_id,rate_price) VALUES (?,?)";
-            JOptionPane.showMessageDialog(null,"hellolast");
+       //     JOptionPane.showMessageDialog(null,"hellolast");
          PreparedStatement st = con.prepareStatement(insert);   
            st.setInt(1, Integer.parseInt(RateID.getText()));
            st.setInt(2, Integer.parseInt(RatePrice.getText()));
@@ -104,7 +104,7 @@ public class RatesController {
          public boolean deleteRates(int id,JTable ratestable) throws SQLException{
        Connection con = sql.getConnection();
         String delete = "DELETE FROM rates WHERE rate_id = ?";
-        JOptionPane.showMessageDialog(null,"hello");
+       // JOptionPane.showMessageDialog(null,"hello");
         PreparedStatement st = con.prepareStatement(delete);
         st.setInt(1, id);
         int i = st.executeUpdate();

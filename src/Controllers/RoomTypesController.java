@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -78,7 +79,7 @@ public class RoomTypesController {
                model.setRowCount(0);
               
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+        //    JOptionPane.showMessageDialog(null,"Successfully Added!!");
             } else {
                 JOptionPane.showMessageDialog(null,"Error");
             }
@@ -90,10 +91,10 @@ public class RoomTypesController {
      
      public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable) throws SQLException{
          //for Save Funktion :)
-         JOptionPane.showMessageDialog(null,"hello");
+       //  JOptionPane.showMessageDialog(null,"hello");
           Connection con = sql.getConnection();
          String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
-            JOptionPane.showMessageDialog(null,"hellolast");
+         //   JOptionPane.showMessageDialog(null,"hellolast");
             PreparedStatement st = con.prepareStatement(insert);
            st.setInt(1, Integer.parseInt(RTid.getText()));
            st.setString(2, RoomType.getText());
@@ -102,7 +103,7 @@ public class RoomTypesController {
                 DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
                 model.setRowCount(0);
                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            JOptionPane.showMessageDialog(null,"Successfully Added!!");
+             new Alerts("save").setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null,"Error");
             }
@@ -112,7 +113,7 @@ public class RoomTypesController {
      
      public void fillForm(int id,JTextField RTid,JTextField RoomType) throws SQLException{
          Connection con = sql.getConnection();
-         JOptionPane.showMessageDialog(null,id);
+      //   JOptionPane.showMessageDialog(null,id);
         String selectRT = "SELECT * FROM roomtypes WHERE RT_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectRT);
@@ -133,7 +134,7 @@ public class RoomTypesController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+           // JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
             return true;
         }else{
             return false;

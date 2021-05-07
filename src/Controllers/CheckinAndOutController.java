@@ -212,7 +212,7 @@ public class CheckinAndOutController{
              while(rs.next()){
                     co_custfullname.setText(rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " + rs.getString("cust_lname"));
                     co_custaddress.setText(rs.getString("cust_address"));
-                    co_custcontact.setText(rs.getString("cust_Lname"));
+                    co_custcontact.setText(rs.getString("cust_contactnum"));
                     co_custtime.setText(getTimeNow());
                     co_custdate.setText(getDateNow());
                     checkindate.setText(rs.getString("checkin_date"));

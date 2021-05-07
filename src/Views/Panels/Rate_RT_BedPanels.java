@@ -58,17 +58,18 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
    
 
             if (roomtypelist.size()==0) {
-            RTid.setText("1");
+                RTid.setText("1");
           
-        }else{
-            index1 = roomtypelist.size()-1;
-            index = roomtypelist.get(index1).getRT_id() + 1;        
-            RTid.setText(String.valueOf(index));
-    
-        }
+            }else{
+                index1 = roomtypelist.size()-1;
+                JOptionPane.showMessageDialog(null,index1);
+                index = roomtypelist.get(index1).getRT_id() + 1;        
+                RTid.setText(String.valueOf(index));
+
+            }
 //    }
 
-         if (roomtypelist.size()==0) {
+         if (ratelist.size()==0) {
             RateID.setText("1");
           
         }else{
@@ -713,7 +714,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
      private boolean checkInputsRT(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (RTid.getText().isEmpty()||RoomType.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,notice);
+         //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
             return false;
@@ -722,7 +723,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
      private boolean checkInputsRate(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (RateID.getText().isEmpty()||RatePrice.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,notice);
+         //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
             return false;
@@ -731,7 +732,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private boolean checkInputsBed(){
         String notice = "Theres Have A Field That Empty Please make an Input";
         if (BedID.getText().isEmpty()||BedQuantity.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this,notice);
+         //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
             return false;
