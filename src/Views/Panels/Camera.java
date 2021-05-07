@@ -32,7 +32,7 @@ public class Camera extends javax.swing.JPanel {
     String name;
     JPanel lalagyanan;
     
-    public Camera(JPanel lalagyanan,String name) {
+    public Camera(String name) {
         initComponents();
         this.name=name;
         wc = Webcam.getDefault();
@@ -123,7 +123,6 @@ public class Camera extends javax.swing.JPanel {
 
     private void jBtnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCaptureActionPerformed
         try {
-            JOptionPane.showMessageDialog(null,new ImageIcon(img));
             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + name + ".jpg"));
             wc.close();
 //            new UsersPanel(lalagyanan).profileimg.setText("kevin caluag");
