@@ -470,7 +470,7 @@ public class AdminButtons extends javax.swing.JPanel {
                 if (i==0) {
                     try {
                         //                    JOptionPane.showMessageDialog(out,new ProfileSettings());
-                        new ProfileSettings(user_id).setVisible(true);
+                        new ProfileSettings(user_id,out).setVisible(true);
                     } catch (SQLException ex) {
                         Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
                     }

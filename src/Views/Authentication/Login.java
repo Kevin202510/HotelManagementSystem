@@ -270,7 +270,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        out.dispose();
+        this.dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**

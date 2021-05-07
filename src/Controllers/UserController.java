@@ -114,7 +114,7 @@ public class UserController {
        upass.setText("");
     }
     
-     public void fillUserForm(int user_id,JComboBox roles,JLabel profile,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
+     public void fillUserForm(int user_id,JComboBox roles,JLabel profile,JTextField profiles,JTextField uaname,JTextField umi,JTextField usn,JTextField uadd,JDateChooser udob,JTextField ucon,JTextField uname,JPasswordField upass) throws SQLException, ParseException{
             String tanong = "SELECT * FROM `users` WHERE user_id='"+user_id+"';";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);
@@ -128,11 +128,10 @@ public class UserController {
                     profile.setIcon(shit);
                 }else{
                 ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/"+prof+".jpg"));
-                Image kev = vins.getImage().getScaledInstance(340, 170, Image.SCALE_SMOOTH);
-                vin = new ImageIcon(kev);
-                profile.setIcon(vin);
+                profile.setIcon(vins);
               }
                 roles.setSelectedIndex(rs.getInt("role_id")-1);
+                profiles.setText(prof);
                 uaname.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
                 usn.setText(rs.getString("user_Lname"));
@@ -173,7 +172,7 @@ public class UserController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)usertables.getModel();
             model.setRowCount(0);
-            new Alerts("update").setVisible(true);
+//            new Alerts("update").setVisible(true);
             return true;
         }else{
             new Alerts("error").setVisible(true);

@@ -296,7 +296,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 usnKeyTyped(evt);
             }
         });
-        userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 40));
+        userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -528,7 +528,7 @@ public class UsersPanel extends javax.swing.JPanel {
         
         try { 
             id = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
-            userControll.fillUserForm(id,roles,profileimg,uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            userControll.fillUserForm(id,roles,profileimg,profile,uaname, umi, usn, uadd, udob, ucon, uname, upass);
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -555,7 +555,6 @@ public class UsersPanel extends javax.swing.JPanel {
             takepicture.setText("SAVE");
         }else{
             try {
-                JOptionPane.showMessageDialog(null,new ImageIcon(img));
                 ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
                 profile.setText(uaname.getText() + ".jpg");
                 wc.close();
