@@ -33,6 +33,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -60,7 +61,7 @@ public class AdminButtons extends javax.swing.JPanel {
         this.out=out;
         this.user_id=user_id;
         this.lalagyanan=lalagyanan;
-        userButton = new Buttons(lalagyanan);
+        userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
@@ -112,7 +113,7 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1 (2).gif"))); // NOI18N
         AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 10, 550, -1));
 
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
@@ -356,7 +357,7 @@ public class AdminButtons extends javax.swing.JPanel {
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, 30));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("X");
@@ -365,18 +366,13 @@ public class AdminButtons extends javax.swing.JPanel {
                 jLabel2MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 50, 36));
+        AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
     public void signOut(JFrame out){
-        int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-        if (result==0){
             new Login().setVisible(true);
             out.dispose();
-        }
     }
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         userButton.checkButtons();
@@ -458,7 +454,12 @@ public class AdminButtons extends javax.swing.JPanel {
                         Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else if (i==1){
-                    signOut(out);
+                    int result = JOptionPane.showConfirmDialog(out,"You want to log out","LogOut",
+                    JOptionPane.YES_NO_OPTION,
+                   JOptionPane.QUESTION_MESSAGE);
+                    if (result==0) {
+                        signOut(out);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(out,"asdasdasd");
                 }
@@ -471,6 +472,7 @@ public class AdminButtons extends javax.swing.JPanel {
        userButton.RRB_Button(rate_rt_bed);
     }//GEN-LAST:event_rate_rt_bedMouseClicked
 
+    
     private void rate_rt_bedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_rt_bedMouseEntered
         userButton.setC(hov10);
     }//GEN-LAST:event_rate_rt_bedMouseEntered
@@ -483,23 +485,8 @@ public class AdminButtons extends javax.swing.JPanel {
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    
     public  SQL sql = new SQL();
     public Connection con = sql.getConnection();
-    
-    String kk;
-    
-    public String getTimeNow(){
-         Calendar date = Calendar.getInstance();  
-        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
-        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
-//        date.add(Calendar.MINUTE,+1);
-        Date strTime = date.getTime();
-        kk = kev.format(strTime);
-//        String kkk = kevs.format(strTime);
-//        orayt.setText(kkk);
-        return kk;
-     }
     
     public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
             String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
@@ -508,17 +495,15 @@ public class AdminButtons extends javax.swing.JPanel {
                         
                         while(rs.next()){
                             String checkouttime = rs.getString("timeout");
-//                            JOptionPane.showMessageDialog(null,timess);
                             if (timess.equals(checkouttime)) {
-//                                JOptionPane.showMessageDialog(null,checkouttime);
-//                                JOptionPane.showMessageDialog(null,timess);
-                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
-//                                new VideoFeeder().sleep(5000);
+                            String checkoutnato = "Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out";
+                            new Alerts(checkoutnato).setVisible(true);
+                            new VideoFeeder().sleep(3000);
                             }
                         }
          }
     
-     class VideoFeeder extends Thread {
+    class VideoFeeder extends Thread {
     
           public void run(){
               try {
@@ -527,18 +512,10 @@ public class AdminButtons extends javax.swing.JPanel {
                   
                   while(true){
                       Calendar cal = Calendar.getInstance();
-                      int hour = cal.get(Calendar.HOUR_OF_DAY);
-                      int minute = cal.get(Calendar.MINUTE);
-                      int second = cal.get(Calendar.SECOND);
-                      SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
                       SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
                       Date dat = cal.getTime();
-                      String times = kev.format(dat);
                       String timess = kevs.format(dat);
-                      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                      String strDate = dateFormat.format(dat);
-                      date.setText(strDate);
-                      time.setText(times);
+//                      time.setText(timess);
                       checkCustomerCheckOut(timess);
                   }
               } catch (SQLException ex) {

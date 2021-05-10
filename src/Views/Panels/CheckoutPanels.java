@@ -38,9 +38,12 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
      public Customers customers;
      public CheckinAndOutController check_in_out_controll = new CheckinAndOutController();
+     int user_ids;
      
-    public CheckoutPanels(JPanel lalagyanan) throws SQLException {
+    public CheckoutPanels(JPanel lalagyanan,int user_ids) throws SQLException {
         initComponents();
+        this.user_ids=user_ids;
+//        user_id.setText(String.valueOf(user_ids));
     }
 
     /**
@@ -75,6 +78,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         search_cust_checkin_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        user_id = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 77, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,9 +167,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
 
         searchIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
-        searchIcon.setMaximumSize(new java.awt.Dimension(40, 35));
-        searchIcon.setMinimumSize(new java.awt.Dimension(40, 35));
-        searchIcon.setPreferredSize(new java.awt.Dimension(40, 35));
         jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 40, 40));
 
         search_cust_checkin_id.setBackground(new java.awt.Color(230, 230, 230));
@@ -189,6 +190,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CHECK OUT");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, 54));
+        jPanel1.add(user_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -211,20 +213,13 @@ public class CheckoutPanels extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-     
+
+    
      public int id;
      
-     public void addinventory() throws SQLException{
-        String insert = "INSERT INTO `inventories`(`id`, `sales_date`, `amount`, `user_id`) VALUES ('3','2021-05-21','900','3')";
-        PreparedStatement st = con.prepareStatement(insert);
-       int i = st.executeUpdate();
-         if (i>0) {
-             JOptionPane.showMessageDialog(null,"successfully");
-         }
-     }
     private void payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionPerformed
          try {
-             check_in_out_controll.payment(Integer.parseInt(search_cust_checkin_id.getText()),checkindate.getText());
+             check_in_out_controll.payment(Integer.parseInt(search_cust_checkin_id.getText()),checkindate.getText(),user_ids);
          } catch (SQLException ex) {
              Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -267,5 +262,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JButton pay;
     private javax.swing.JLabel searchIcon;
     private javax.swing.JTextField search_cust_checkin_id;
+    public javax.swing.JLabel user_id;
     // End of variables declaration//GEN-END:variables
 }

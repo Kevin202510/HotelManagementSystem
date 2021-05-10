@@ -5,7 +5,8 @@
  */
 package Controllers;
 
-import Views.Dashboards.AdminDashboard;
+import Views.Dashboards.MainDashboard;
+import Views.Panels.CheckoutPanels;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,7 +50,7 @@ public class Authentication {
         return storen;
     }
     
-    public void signIn(JFrame out,JTextField username,JPasswordField password){
+    public void signIn(JFrame out,JTextField username,JPasswordField password) throws InterruptedException{
         String uname=username.getText();
         String pass=encrypt(String.valueOf(password.getPassword()));
              try {
@@ -71,15 +72,15 @@ public class Authentication {
                     fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname")  + " " + rs.getString("user_Lname");
                     String roles;
                     roles = rs.getString("role_displayname");
-                    
+//                    new CheckoutPanels(user_id).user_id.setText(String.valueOf(user_id));
                     if (role_id==1) {
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();
                     }else if (role_id==2) {
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }else{
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }
                     new Alerts("success").setVisible(true);

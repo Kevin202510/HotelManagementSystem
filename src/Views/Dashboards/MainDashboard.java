@@ -12,17 +12,21 @@ import Views.Authentication.Login;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 /**
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class AdminDashboard extends javax.swing.JFrame {
+public class MainDashboard extends javax.swing.JFrame {
 
     /**
      * Creates new form Sample
@@ -33,7 +37,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     JFrame MainDashboard;
     static int user_id;
     
-    public AdminDashboard(int user_id,String fullname,String role) throws SQLException {
+    public MainDashboard(int user_id,String fullname,String role) throws SQLException, InterruptedException {
         initComponents();
         this.user_id=user_id;
         this.MainDashboard=this;
@@ -41,6 +45,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         this.role=role; 
         this.fullname=fullname;
         checkRole();
+//        startTH(true);
+        
+    }
+    
+    private void startTH(boolean val) throws SQLException, InterruptedException{
+        while(true){
+            Calendar cal = Calendar.getInstance();
+            Date dat = cal.getTime();
+            SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+            String timess = kevs.format(dat);
+//            date.setText(strDate);
+//            JOptionPane.showMessageDialog(this,timess);
+//            checkCustomerCheckOut(timess);
+//            new VideoFeeder().start();
+            
+        }
     }
     
     
@@ -55,6 +75,23 @@ public class AdminDashboard extends javax.swing.JFrame {
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.ManagerButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }
     }
+    
+    public  SQL sql = new SQL();
+    public Connection con = sql.getConnection();
+    
+    String kk;
+    
+    public String getTimeNow(){
+         Calendar date = Calendar.getInstance();  
+        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
+        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
+//        date.add(Calendar.MINUTE,+1);
+        java.util.Date strTime = date.getTime();
+        kk = kev.format(strTime);
+//        String kkk = kevs.format(strTime);
+//        orayt.setText(kkk);
+        return kk;
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,6 +109,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainDashboard");
         setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,14 +173,16 @@ public class AdminDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -150,9 +190,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AdminDashboard(user_id,fullname,role).setVisible(true);
+                    try {
+                        new MainDashboard(user_id,fullname,role).setVisible(true);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } catch (SQLException ex) {
-                    Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -164,4 +208,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }

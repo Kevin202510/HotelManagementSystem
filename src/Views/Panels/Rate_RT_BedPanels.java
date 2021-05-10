@@ -30,10 +30,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Chelsea
  */
 public class Rate_RT_BedPanels extends javax.swing.JPanel {
-    
-    
-    
-   
+
         public  SQL sql = new SQL();
         public JPanel lalagyanan;
          public int index,index1,id;
@@ -43,6 +40,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
          ArrayList<Rates> ratelist = ratesControll.rateList();
          BedsController bedsControll = new BedsController(lalagyanan); 
          ArrayList<Beds> bedlist = bedsControll.bedList();
+         
     /**
      * Creates new form Rate_RT_BedPanels
      */
@@ -55,14 +53,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         roomtypeControll.showRoomtypes(RTtable);
         ratesControll.showRates(ratestable);
        bedsControll.showBeds(bedtable);
-   
-
+          
             if (roomtypelist.size()==0) {
                 RTid.setText("1");
           
             }else{
                 index1 = roomtypelist.size()-1;
-                JOptionPane.showMessageDialog(null,index1);
                 index = roomtypelist.get(index1).getRT_id() + 1;        
                 RTid.setText(String.valueOf(index));
 
@@ -88,6 +84,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
           }
           tagokamuna();
 }
+    
+    
+    
     
     public void tagokamuna(){
         RTdelete.setVisible(false);

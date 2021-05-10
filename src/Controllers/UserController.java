@@ -128,7 +128,6 @@ public class UserController {
                     ImageIcon shit = new ImageIcon(kev);
                     profile.setIcon(shit);
                 }else{
-                JOptionPane.showMessageDialog(null,prof);
                 ImageIcon vins = new ImageIcon(getClass().getResource("/Images/Pictures/"+prof+".jpg"));
                 profile.setIcon(vins);
               }
