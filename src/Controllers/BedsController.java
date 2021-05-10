@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -65,7 +64,7 @@ public class BedsController {
     }
      public void saveBeds(JTextField BedID,JTextField BedQuantity,JTable bedtable) throws SQLException{
    
-   //  JOptionPane.showMessageDialog(null,"hello");
+   //  JOptionPane.showMessageDialog(null,"hello");fn
           Connection con = sql.getConnection();
          String insert = "INSERT INTO beds(bed_id,bed_quantity) VALUES (?,?)";
        //     JOptionPane.showMessageDialog(null,"hellolast");

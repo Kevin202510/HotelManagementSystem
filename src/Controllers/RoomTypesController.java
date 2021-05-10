@@ -134,7 +134,7 @@ public class RoomTypesController {
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
             model.setRowCount(0);
-           // JOptionPane.showMessageDialog(null,"Successfully Deleted!!");
+          new Alerts("deleted").setVisible(true);
             return true;
         }else{
             return false;

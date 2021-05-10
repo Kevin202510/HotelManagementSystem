@@ -57,6 +57,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
        bedsControll.showBeds(bedtable);
    
 
+       
+       
             if (roomtypelist.size()==0) {
                 RTid.setText("1");
           
@@ -88,6 +90,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
           }
           tagokamuna();
 }
+    
+    
+    
     
     public void tagokamuna(){
         RTdelete.setVisible(false);
