@@ -51,8 +51,8 @@ import sweetalerts.Alerts;
  */
 public class CheckinAndOutController{
     
-    public  SQL sql = new SQL();
     public  ArrayList<CheckinAndOut> checkinoutList = new ArrayList<>();
+    public  SQL sql = new SQL();
     public Connection con = sql.getConnection();
     public RoomController roomControll = new RoomController();   
     
@@ -148,7 +148,7 @@ public class CheckinAndOutController{
      
      public String getTimeNow(){
          Date date = Calendar.getInstance().getTime();  
-        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa"); 
+        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:00 aa"); 
         String strTime = kevs.format(date);
         return strTime;
      }
@@ -233,6 +233,20 @@ public class CheckinAndOutController{
                             JOptionPane.showMessageDialog(null,days);
                             int total = (int) (500 * days);
                             JOptionPane.showMessageDialog(null,"Your Total Amount Is " + total);
+             }
+         }
+         
+         public void checkCustomerCheckOut() throws SQLException{
+             JOptionPane.showMessageDialog(null,"sdasdas");
+             String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(checkOutCheck);
+
+             while(rs.next()){
+                    String checkouttime = rs.getString("timeout");
+                    if (getTimeNow().equals(checkouttime)) {
+                           JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
+                 }
              }
          }
 }

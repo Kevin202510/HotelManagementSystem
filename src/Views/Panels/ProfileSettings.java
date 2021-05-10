@@ -230,7 +230,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         upass.setBorder(null);
         userActionPanel2.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 250, 30));
 
-        Update.setBackground(new java.awt.Color(51, 102, 255));
+        Update.setBackground(new java.awt.Color(0, 102, 255));
         Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         Update.setText("UPDATE");
         Update.addActionListener(new java.awt.event.ActionListener() {
@@ -379,16 +379,17 @@ public class ProfileSettings extends javax.swing.JFrame {
     }
     
     public boolean updateUser(Users users) throws SQLException{
-        String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + UserIdSended + "'";
+        String updates = "UPDATE users SET profile = ?, user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + UserIdSended + "'";
         PreparedStatement st = con.prepareStatement(updates);
         st.setString(1, users.getuser_Fname());
-        st.setString(2, users.getuser_Mname());
-        st.setString(3, users.getuser_Lname());
-        st.setString(4, users.getuser_address());
-        st.setString(5, users.getuser_DOB());
-        st.setString(6, users.getuser_contactnum());
-        st.setString(7, users.getuser_username());
-        st.setString(8, auth.encrypt(users.getuser_password()));
+        st.setString(2, users.getuser_Fname());
+        st.setString(3, users.getuser_Mname());
+        st.setString(4, users.getuser_Lname());
+        st.setString(5, users.getuser_address());
+        st.setString(6, users.getuser_DOB());
+        st.setString(7, users.getuser_contactnum());
+        st.setString(8, users.getuser_username());
+        st.setString(9, auth.encrypt(users.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {

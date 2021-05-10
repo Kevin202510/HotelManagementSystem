@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Views.Dashboards.AdminDashboard;
+import Views.Dashboards.MainDashboard;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
 import java.sql.Connection;
@@ -64,7 +64,7 @@ public class Buttons {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CustomersPanel(lalagyanan));
                 //                new ContainerManipulator(actions,new Views.Panels.CustomerActions());
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
     }
     
@@ -74,7 +74,7 @@ public class Buttons {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             } catch (SQLException ex) {
-                Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
      
@@ -83,7 +83,7 @@ public class Buttons {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
      }
      
@@ -92,7 +92,7 @@ public class Buttons {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
      }
      
@@ -101,7 +101,7 @@ public class Buttons {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
 }
      
@@ -111,7 +111,7 @@ public class Buttons {
             try {
                 new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
     }
      
@@ -129,7 +129,7 @@ public class Buttons {
                     new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
                 }
             } catch (SQLException ex) {
-                java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
      }
      

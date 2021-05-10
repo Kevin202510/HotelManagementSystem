@@ -3,15 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/SalesPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RatesController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Home.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomTypesController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/BedsController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/Rate_RT_BedPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CheckinAndOutController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/UserController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/BedsController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/RoomController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CheckinAndOutController.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/ManagerButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
         </group>
     </open-files>
 </project-private>

@@ -75,6 +75,7 @@ import javax.swing.table.DefaultTableModel;
         jLabel9 = new javax.swing.JLabel();
         save = new javax.swing.JButton();
         delete = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
@@ -247,6 +248,11 @@ import javax.swing.table.DefaultTableModel;
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
         add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 126, 50));
+
+        jButton1.setBackground(new java.awt.Color(51, 102, 255));
+        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
+        jButton1.setText("Generate QR");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 130, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -331,6 +337,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JTextField cusLname;
     private javax.swing.JTextField cusMname;
     private javax.swing.JButton delete;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
