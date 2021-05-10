@@ -76,6 +76,7 @@ import javax.swing.table.DefaultTableModel;
         save = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jtxcussearch = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
@@ -86,7 +87,7 @@ import javax.swing.table.DefaultTableModel;
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Customers");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 340, 83));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 33, 470, 60));
 
         jTable1.setBackground(new java.awt.Color(191, 191, 191));
         jTable1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -111,7 +112,7 @@ import javax.swing.table.DefaultTableModel;
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 100, 1120, 690));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 130, 1120, 660));
 
         jPanel1.setBackground(new java.awt.Color(0, 77, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,7 +121,7 @@ import javax.swing.table.DefaultTableModel;
         jLabel1.setForeground(new java.awt.Color(191, 191, 191));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CUSTOMERS ACTION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 54));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 40));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,17 +243,18 @@ import javax.swing.table.DefaultTableModel;
                 saveActionPerformed(evt);
             }
         });
-        add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 126, 50));
+        add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 126, 50));
 
         delete.setBackground(new java.awt.Color(51, 102, 255));
         delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         delete.setText("DELETE");
-        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 126, 50));
+        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 126, 50));
 
         jButton1.setBackground(new java.awt.Color(51, 102, 255));
         jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jButton1.setText("Generate QR");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 130, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
+        add(jtxcussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -355,6 +357,7 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jtxcussearch;
     private javax.swing.JComboBox<String> rooms;
     private javax.swing.JButton save;
     // End of variables declaration//GEN-END:variables
