@@ -7,13 +7,16 @@ package Views.Panels;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.ComboBoxEditor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
+import javax.swing.UIManager;
 
 /**
  *
@@ -28,9 +31,19 @@ public class NewJFrame extends javax.swing.JFrame {
     
     public NewJFrame() {
         initComponents();
-        jComboBox1.setModel(pop());
-        jComboBox1.setRenderer(new ImageTextRenderer());
-        jComboBox1.setBackground(new Color(25,20,255));
+        jComboBox1.setEditable(true);
+        ComboBoxEditor editor = jComboBox1.getEditor();
+        if (editor != null) {
+        Component editorComp = editor.getEditorComponent();
+        if (editorComp instanceof JComponent) {
+        JComponent editorJComp = (JComponent) editorComp;
+        editorJComp.setForeground(Color.red);
+//        jComboBox1.setEditable(false);
+        }
+        }
+//        jComboBox1.setModel(pop());
+//        jComboBox1.setRenderer(new ImageTextRenderer());
+//        jComboBox1.setBackground(new Color(25,20,255));
 //        JOptionPane.showMessageDialog(this,jComboBox1.getSelectedIndex());
     }
     
@@ -59,6 +72,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jComboBox1.setBackground(new java.awt.Color(83, 140, 198));
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "asdasd", "asdasd", "asda", "sd", "asd", "sdfads" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -74,14 +89,14 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
-        int vin = model.getSize();
-        for (int i = 0; i < vin; i++) {
-            if (i==jComboBox1.getSelectedIndex()) {
-                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
-                JOptionPane.showMessageDialog(this,name);
-            }
-        }
+//        DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
+//        int vin = model.getSize();
+//        for (int i = 0; i < vin; i++) {
+//            if (i==jComboBox1.getSelectedIndex()) {
+//                String name = ((ImagesNText)jComboBox1.getSelectedItem()).getname();
+//                JOptionPane.showMessageDialog(this,name);
+//            }
+//        }
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 

@@ -308,6 +308,7 @@ public class AdminButtons extends javax.swing.JPanel {
         AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 190, 50));
 
         jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 0, 255), 5, true));
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

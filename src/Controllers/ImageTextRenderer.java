@@ -44,7 +44,7 @@ import jroundborder.JLabelRound;
            return this;
            
         }
-        
+        Image kevs;
          public DefaultComboBoxModel pop(int user_id) throws SQLException{
              String profile="";
              String fullname="";
@@ -57,10 +57,13 @@ import jroundborder.JLabelRound;
                   profile=rs.getString("profile");
                   fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname") + " " + rs.getString("user_Lname");
             }
-            
-            JLabelRound kkk;
-             ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+profile+".jpg"));
-            Image kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+             if (profile==null) {
+                   ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+                kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+             }else{
+                  ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+profile+".jpg"));
+                  kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);  
+             }
             ImageIcon shit = new ImageIcon(kevs);
             
              ImageIcon vin1 = new ImageIcon(getClass().getResource("/Images/gearmoto.gif"));

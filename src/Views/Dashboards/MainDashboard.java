@@ -101,17 +101,19 @@ public class MainDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        UserButtonsLalagyanan = new javax.swing.JPanel();
         lalagyanan = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        UserButtonsLalagyanan = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainDashboard");
         setLocationByPlatform(true);
-        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        UserButtonsLalagyanan.setLayout(new javax.swing.BoxLayout(UserButtonsLalagyanan, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(UserButtonsLalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         lalagyanan.setPreferredSize(new java.awt.Dimension(1480, 790));
         lalagyanan.setLayout(new javax.swing.BoxLayout(lalagyanan, javax.swing.BoxLayout.LINE_AXIS));
@@ -141,9 +143,6 @@ public class MainDashboard extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 950, 1480, 50));
-
-        UserButtonsLalagyanan.setLayout(new javax.swing.BoxLayout(UserButtonsLalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-        getContentPane().add(UserButtonsLalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         pack();
         setLocationRelativeTo(null);

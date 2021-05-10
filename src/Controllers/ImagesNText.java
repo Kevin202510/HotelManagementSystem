@@ -5,15 +5,7 @@
  */
 package Controllers;
 
-import static Views.Dashboards.StaffButtons.fullname;
-import Views.Panels.NewJFrame;
-import java.awt.Component;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
 
 /**
  *

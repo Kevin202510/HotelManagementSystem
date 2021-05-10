@@ -12,13 +12,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import sweetalerts.Alerts;
-//import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -81,18 +81,16 @@ public class RoomController {
 //INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id
 //INNER JOIN rates on rates.rate_id = rooms.rate_id
      
-    public void showRoomType(JComboBox rooms2){
+    public DefaultComboBoxModel showRoomType(JComboBox rooms2) throws SQLException{
+         DefaultComboBoxModel kev = (DefaultComboBoxModel)rooms2.getModel();
         String tanong = "Select * from roomtypes";
-        try{
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         while(rs.next()){
          String vin = rs.getString("room_type");
          rooms2.addItem(vin);
         }
-        }
-        catch (SQLException ex) {
-        }
+        return kev;
     }
     
     public void showBedType(JComboBox rooms3){

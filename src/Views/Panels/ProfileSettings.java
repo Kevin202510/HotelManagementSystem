@@ -13,6 +13,8 @@ import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +24,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.management.relation.Role;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -98,6 +101,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
         userProfile = new jroundborder.JLabelRound();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -277,7 +281,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 270, 10));
 
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 650));
+        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 650));
 
         jButton2.setBackground(new java.awt.Color(0, 204, 204));
         jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -311,6 +315,14 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 50, 40));
         userActionPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 250, 150));
 
+        jButton3.setText("++");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        userActionPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 50, 30));
+
         getContentPane().add(userActionPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 670));
 
         pack();
@@ -322,10 +334,12 @@ public class ProfileSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           Camera vin =  new Camera(uaname2.getText());
-           JOptionPane.showMessageDialog(this, vin);
-
-//                new VideoFeeder().start();
+//           Camera vin =  new Camera(uaname2.getText());
+//           JOptionPane.showMessageDialog(this, vin);
+                 wc.open();
+                new VideoFeeder().start();
+                jButton2.setVisible(false);
+                jButton3.setVisible(true);
 //                jButton3.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -345,7 +359,9 @@ public class ProfileSettings extends javax.swing.JFrame {
     public Connection con = sql.getConnection();
     int role_id;
     Authentication auth = new Authentication();
-    String userprofile;
+    String userprofiles;
+    Image kevs;
+    ImageIcon kevss;
     
     private void getUserInfo() throws SQLException{
         String tanong = "SELECT * FROM `users` WHERE user_id='"+UserIdSended+"';";
@@ -354,7 +370,7 @@ public class ProfileSettings extends javax.swing.JFrame {
 
             while(rs.next()){
                 role_id=rs.getInt("role_id");
-                userprofile=rs.getString("profile");
+                userprofiles=rs.getString("profile");
                 uaname2.setText(rs.getString("user_Fname"));
                 umi.setText(rs.getString("user_Mname"));
                 usn.setText(rs.getString("user_Lname"));
@@ -364,10 +380,16 @@ public class ProfileSettings extends javax.swing.JFrame {
                 uname.setText(rs.getString("user_username"));
                 upass.setText(auth.decrypt(rs.getString("user_password")));
             }
-            ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+userprofile+".jpg"));
-            Image kev = vin.getImage().getScaledInstance(300, 150, Image.SCALE_SMOOTH);
-            ImageIcon shit = new ImageIcon(kev);
-            userProfile.setIcon(shit);
+             if (userprofiles==null) {
+                  ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/sampleuser.jpg"));
+                  kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+                  kevss = new ImageIcon(kevs);
+             }else{
+                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+userprofiles+".jpg"));
+                kevs = vin.getImage().getScaledInstance(300, 150, Image.SCALE_SMOOTH);
+                kevss = new ImageIcon(kevs);
+             }
+             userProfile.setIcon(kevss);
     }
     
     static JFrame out;
@@ -407,7 +429,7 @@ public class ProfileSettings extends javax.swing.JFrame {
      }
     
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-            userModel=new Users(0,role_id,userProfile.getText(),uaname2.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+            userModel=new Users(0,role_id,uaname2.getText(),uaname2.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         try {
             updateUser(userModel);
         } catch (SQLException ex) {
@@ -441,6 +463,18 @@ public class ProfileSettings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_uaname2KeyTyped
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname2.getText() + ".jpg"));
+            wc.close();
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     Image img;
     
     class VideoFeeder extends Thread {
@@ -448,14 +482,9 @@ public class ProfileSettings extends javax.swing.JFrame {
           public void run(){
           
                while(true){
-                   try {
-                        img = wc.getImage();
-//                        userprofile.setIcon(new ImageIcon(img));
-                       Thread.sleep(5000);
-                   } catch (InterruptedException ex) {
-                       JOptionPane.showMessageDialog(null,ex);
-                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                   }
+                   img = wc.getImage();
+                   userProfile.setIcon(new ImageIcon(img));
+//                       Thread.sleep(5000);
                 }
           
           }
@@ -505,6 +534,7 @@ public class ProfileSettings extends javax.swing.JFrame {
     private javax.swing.JButton Update;
     private javax.swing.JButton hidepass;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

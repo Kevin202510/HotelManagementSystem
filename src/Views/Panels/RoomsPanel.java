@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package Views.Panels;
+import Controllers.ImagesNText;
 import Controllers.RoomController;
 import Models.Rooms;
-import Controllers.SQL;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ListCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,7 +27,27 @@ import javax.swing.table.DefaultTableModel;
  * @author Chelsea
  * 
  */
-public class RoomsPanel extends javax.swing.JPanel {
+//implements ListCellRenderer{
+//
+//        @Override
+//        public Component getListCellRendererComponent(JList list, Object val, int index, boolean selected, boolean focused) {
+//           ImagesNText it  = (ImagesNText) val;
+//           setIcon(it.getImg());
+//           setText(it.getname());
+//           
+//            if (selected) {
+//                setBackground(Color.decode("#538cc6"));
+//                setForeground(Color.WHITE);
+//            }else{
+//                setBackground(Color.decode("#538cc6"));
+//                setForeground(Color.WHITE);
+//            }
+//           setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12));
+//           
+//           return this;
+//           
+//        }
+public class RoomsPanel extends javax.swing.JPanel{
     
     public RoomController roomControll = new RoomController();
     public ArrayList<Rooms> roomlist = roomControll.roomList();
@@ -63,7 +87,7 @@ public class RoomsPanel extends javax.swing.JPanel {
     }
     
 //    UDF
-    private void InitRun(){
+    private void InitRun() throws SQLException{
         update.setVisible(false);
         roomTypeId.setBackground(new Color(0, 0, 0, 0));
         roomTypeId.setOpaque(false);
@@ -205,17 +229,17 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomAction.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 210, 30));
 
         roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 210, 30));
 
         bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 30));
 
         rateId.setBackground(new java.awt.Color(0, 77, 77));
-        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         rateId.setForeground(new java.awt.Color(255, 255, 255));
         roomAction.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 30));
 
@@ -364,4 +388,5 @@ public class RoomsPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> statusId;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
+
 }

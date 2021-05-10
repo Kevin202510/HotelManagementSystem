@@ -124,6 +124,7 @@ public class Camera extends javax.swing.JPanel {
     private void jBtnCaptureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCaptureActionPerformed
         try {
             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + name + ".jpg"));
+            
             wc.close();
 //            new UsersPanel(lalagyanan).profileimg.setText("kevin caluag");
         } catch (IOException ex) {
