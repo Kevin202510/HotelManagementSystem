@@ -608,7 +608,15 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxusunameKeyType
+    }//GEN-LAST:event_jtxusunameKeyTyped
+
+    private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rolesActionPerformed
+
+    private void jtxusumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxusumiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxusumiActionPerformed
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
