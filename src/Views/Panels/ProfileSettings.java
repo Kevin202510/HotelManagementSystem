@@ -222,7 +222,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         upass.setBorder(null);
         userActionPanel2.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 250, 30));
 
-        Update.setBackground(new java.awt.Color(51, 102, 255));
+        Update.setBackground(new java.awt.Color(0, 102, 255));
         Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         Update.setText("UPDATE");
         Update.addActionListener(new java.awt.event.ActionListener() {

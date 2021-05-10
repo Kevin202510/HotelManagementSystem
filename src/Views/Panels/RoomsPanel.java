@@ -160,7 +160,7 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Room ID");
-        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 73, 41));
+        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 73, 40));
 
         Roomid.setEditable(false);
         Roomid.setBackground(new java.awt.Color(0, 77, 77));
