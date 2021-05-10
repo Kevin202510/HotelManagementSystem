@@ -497,6 +497,7 @@ public class AdminButtons extends javax.swing.JPanel {
        userButton.RRB_Button(rate_rt_bed);
     }//GEN-LAST:event_rate_rt_bedMouseClicked
 
+    
     private void rate_rt_bedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rate_rt_bedMouseEntered
         userButton.setC(hov10);
     }//GEN-LAST:event_rate_rt_bedMouseEntered
