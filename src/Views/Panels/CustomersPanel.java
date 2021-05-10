@@ -33,8 +33,8 @@ import javax.swing.table.DefaultTableModel;
         
     public CustomersPanel(JPanel lalag) throws SQLException{
         initComponents();
-        custo.showCustomers(jTable1);
-        roomControll.showRooms(rooms);
+        custo.showCustomers(jtbl_custable);
+        roomControll.showRooms(jcbo_rooms);
         this.lalag=lalag;
     }
 
@@ -52,31 +52,31 @@ import javax.swing.table.DefaultTableModel;
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbl_custable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        cusFname = new javax.swing.JTextField();
+        jtxt_cusFname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cusMname = new javax.swing.JTextField();
+        jtxt_cusMname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        cusLname = new javax.swing.JTextField();
+        jtxt_cusLname = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        cusAddress = new javax.swing.JTextField();
+        jtxt_cusAddress = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cusContact = new javax.swing.JTextField();
+        jtxt_cusContact = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        rooms = new javax.swing.JComboBox<>();
+        jcbo_rooms = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        save = new javax.swing.JButton();
-        delete = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jtxcussearch = new javax.swing.JTextField();
+        jbtn_save = new javax.swing.JButton();
+        jbtn_delete = new javax.swing.JButton();
+        jbtn_GnrateQR = new javax.swing.JButton();
+        jtxt_cussearch = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
@@ -89,9 +89,9 @@ import javax.swing.table.DefaultTableModel;
         jLabel2.setText("Customers");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 33, 470, 60));
 
-        jTable1.setBackground(new java.awt.Color(191, 191, 191));
-        jTable1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_custable.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_custable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_custable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -107,9 +107,9 @@ import javax.swing.table.DefaultTableModel;
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(jtbl_custable);
+        if (jtbl_custable.getColumnModel().getColumnCount() > 0) {
+            jtbl_custable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 130, 1120, 660));
@@ -128,102 +128,102 @@ import javax.swing.table.DefaultTableModel;
         jLabel3.setText("First name :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 111, 90, 50));
 
-        cusFname.setBackground(new java.awt.Color(0, 77, 77));
-        cusFname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cusFname.setForeground(new java.awt.Color(255, 255, 255));
-        cusFname.setBorder(null);
-        cusFname.setCaretColor(new java.awt.Color(255, 255, 255));
-        cusFname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusFname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_cusFname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_cusFname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_cusFname.setBorder(null);
+        jtxt_cusFname.setCaretColor(new java.awt.Color(255, 255, 255));
+        jtxt_cusFname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cusFnameKeyTyped(evt);
+                jtxt_cusFnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 200, 30));
+        jPanel1.add(jtxt_cusFname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 200, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("M.I :");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 171, 60, 50));
 
-        cusMname.setBackground(new java.awt.Color(0, 77, 77));
-        cusMname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cusMname.setForeground(new java.awt.Color(255, 255, 255));
-        cusMname.setBorder(null);
-        cusMname.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_cusMname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_cusMname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_cusMname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_cusMname.setBorder(null);
+        jtxt_cusMname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cusMnameActionPerformed(evt);
+                jtxt_cusMnameActionPerformed(evt);
             }
         });
-        cusMname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusMname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cusMnameKeyTyped(evt);
+                jtxt_cusMnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 200, 30));
+        jPanel1.add(jtxt_cusMname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Last name :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 231, 100, 50));
 
-        cusLname.setBackground(new java.awt.Color(0, 77, 77));
-        cusLname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cusLname.setForeground(new java.awt.Color(255, 255, 255));
-        cusLname.setBorder(null);
-        cusLname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusLname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_cusLname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_cusLname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_cusLname.setBorder(null);
+        jtxt_cusLname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cusLnameKeyTyped(evt);
+                jtxt_cusLnameKeyTyped(evt);
             }
         });
-        jPanel1.add(cusLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 200, 30));
+        jPanel1.add(jtxt_cusLname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 200, 30));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address :");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 291, 80, 50));
 
-        cusAddress.setBackground(new java.awt.Color(0, 77, 77));
-        cusAddress.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cusAddress.setForeground(new java.awt.Color(255, 255, 255));
-        cusAddress.setBorder(null);
-        cusAddress.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_cusAddress.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_cusAddress.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_cusAddress.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_cusAddress.setBorder(null);
+        jtxt_cusAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cusAddressActionPerformed(evt);
+                jtxt_cusAddressActionPerformed(evt);
             }
         });
-        cusAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusAddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cusAddressKeyTyped(evt);
+                jtxt_cusAddressKeyTyped(evt);
             }
         });
-        jPanel1.add(cusAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 200, 30));
+        jPanel1.add(jtxt_cusAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 200, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Contact # :");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 361, 90, 30));
 
-        cusContact.setBackground(new java.awt.Color(0, 77, 77));
-        cusContact.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        cusContact.setForeground(new java.awt.Color(255, 255, 255));
-        cusContact.setBorder(null);
-        cusContact.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusContact.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_cusContact.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_cusContact.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_cusContact.setBorder(null);
+        jtxt_cusContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                cusContactKeyTyped(evt);
+                jtxt_cusContactKeyTyped(evt);
             }
         });
-        jPanel1.add(cusContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 30));
+        jPanel1.add(jtxt_cusContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 200, 30));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ROOMS :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 73, 36));
 
-        rooms.setBackground(new java.awt.Color(0, 77, 77));
-        rooms.setForeground(new java.awt.Color(255, 255, 255));
-        rooms.setBorder(null);
-        rooms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 190, 40));
+        jcbo_rooms.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_rooms.setForeground(new java.awt.Color(255, 255, 255));
+        jcbo_rooms.setBorder(null);
+        jcbo_rooms.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(jcbo_rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 190, 40));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 200, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 200, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 200, -1));
@@ -233,35 +233,38 @@ import javax.swing.table.DefaultTableModel;
         jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 340, 580));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 360, 690));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 360, 670));
 
-        save.setBackground(new java.awt.Color(51, 102, 255));
-        save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save.setText("SAVE");
-        save.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_save.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_save.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_save.setText("SAVE");
+        jbtn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
+                jbtn_saveActionPerformed(evt);
             }
         });
-        add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 126, 50));
+        add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 126, 50));
 
-        delete.setBackground(new java.awt.Color(51, 102, 255));
-        delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        delete.setText("DELETE");
-        add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 126, 50));
+        jbtn_delete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_delete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_delete.setText("DELETE");
+        add(jbtn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 126, 50));
 
-        jButton1.setBackground(new java.awt.Color(51, 102, 255));
-        jButton1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
-        jButton1.setText("Generate QR");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
-        add(jtxcussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
+        jbtn_GnrateQR.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_GnrateQR.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
+        jbtn_GnrateQR.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_GnrateQR.setText("Generate QR");
+        add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
+        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+    private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
 
-    }//GEN-LAST:event_saveActionPerformed
+    }//GEN-LAST:event_jbtn_saveActionPerformed
 
-    private void cusFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusFnameKeyTyped
+    private void jtxt_cusFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusFnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -272,9 +275,9 @@ import javax.swing.table.DefaultTableModel;
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_cusFnameKeyTyped
+    }//GEN-LAST:event_jtxt_cusFnameKeyTyped
 
-    private void cusMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusMnameKeyTyped
+    private void jtxt_cusMnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusMnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
         if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -284,9 +287,9 @@ import javax.swing.table.DefaultTableModel;
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_cusMnameKeyTyped
+    }//GEN-LAST:event_jtxt_cusMnameKeyTyped
 
-    private void cusLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusLnameKeyTyped
+    private void jtxt_cusLnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusLnameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -297,9 +300,9 @@ import javax.swing.table.DefaultTableModel;
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_cusLnameKeyTyped
+    }//GEN-LAST:event_jtxt_cusLnameKeyTyped
 
-    private void cusAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusAddressKeyTyped
+    private void jtxt_cusAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusAddressKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -310,9 +313,9 @@ import javax.swing.table.DefaultTableModel;
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_cusAddressKeyTyped
+    }//GEN-LAST:event_jtxt_cusAddressKeyTyped
 
-    private void cusContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cusContactKeyTyped
+    private void jtxt_cusContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusContactKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -322,24 +325,17 @@ import javax.swing.table.DefaultTableModel;
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_cusContactKeyTyped
+    }//GEN-LAST:event_jtxt_cusContactKeyTyped
 
-    private void cusMnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusMnameActionPerformed
+    private void jtxt_cusMnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cusMnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cusMnameActionPerformed
+    }//GEN-LAST:event_jtxt_cusMnameActionPerformed
 
-    private void cusAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusAddressActionPerformed
+    private void jtxt_cusAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cusAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cusAddressActionPerformed
+    }//GEN-LAST:event_jtxt_cusAddressActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cusAddress;
-    private javax.swing.JTextField cusContact;
-    private javax.swing.JTextField cusFname;
-    private javax.swing.JTextField cusLname;
-    private javax.swing.JTextField cusMname;
-    private javax.swing.JButton delete;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -356,9 +352,16 @@ import javax.swing.table.DefaultTableModel;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jtxcussearch;
-    private javax.swing.JComboBox<String> rooms;
-    private javax.swing.JButton save;
+    private javax.swing.JButton jbtn_GnrateQR;
+    private javax.swing.JButton jbtn_delete;
+    private javax.swing.JButton jbtn_save;
+    private javax.swing.JComboBox<String> jcbo_rooms;
+    private javax.swing.JTable jtbl_custable;
+    private javax.swing.JTextField jtxt_cusAddress;
+    private javax.swing.JTextField jtxt_cusContact;
+    private javax.swing.JTextField jtxt_cusFname;
+    private javax.swing.JTextField jtxt_cusLname;
+    private javax.swing.JTextField jtxt_cusMname;
+    private javax.swing.JTextField jtxt_cussearch;
     // End of variables declaration//GEN-END:variables
 }

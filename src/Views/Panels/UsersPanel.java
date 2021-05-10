@@ -54,12 +54,12 @@ public class UsersPanel extends javax.swing.JPanel {
     
 //    UDF
     private void InitRun() throws SQLException{
-        Update.setVisible(false);
-        roles.setBackground(new Color(0, 0, 0, 0));
-        roles.setOpaque(false);
-        roles.setForeground(Color.red);
-        userControll.showUsers(jTable1);
-        userControll.showRoles(roles);
+        jbtn_Update.setVisible(false);
+        jcbo_roles.setBackground(new Color(0, 0, 0, 0));
+        jcbo_roles.setOpaque(false);
+        jcbo_roles.setForeground(Color.red);
+        userControll.showUsers(jtbl_user);
+        userControll.showRoles(jcbo_roles);
         this.lalagyanan=lalagyanan;
         
     }
@@ -75,41 +75,41 @@ public class UsersPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtbl_user = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Update = new javax.swing.JButton();
-        Delete = new javax.swing.JButton();
-        Add = new javax.swing.JButton();
-        jtxussearch = new javax.swing.JTextField();
+        jbtn_Update = new javax.swing.JButton();
+        jbtn_Delete = new javax.swing.JButton();
+        jbtn_Add = new javax.swing.JButton();
+        jtxt_ussearch = new javax.swing.JTextField();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jtxusuaname = new javax.swing.JTextField();
+        jtxt_usuaname = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        jtxusumi = new javax.swing.JTextField();
+        jtxt_usumi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        jtxususn = new javax.swing.JTextField();
+        jtxt_ususn = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jtxusuadd = new javax.swing.JTextField();
+        jtxt_usuadd = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
-        jtxusucon = new javax.swing.JTextField();
+        jtxt_usucon = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jtxusuname = new javax.swing.JTextField();
+        jtxt_usuname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         udob = new com.toedter.calendar.JDateChooser();
-        jtxuspass = new javax.swing.JPasswordField();
+        uspass = new javax.swing.JPasswordField();
         role = new javax.swing.JLabel();
-        roles = new javax.swing.JComboBox<>();
-        viewpass = new javax.swing.JButton();
-        hidepass = new javax.swing.JButton();
+        jcbo_roles = new javax.swing.JComboBox<>();
+        jbtn_viewpass = new javax.swing.JButton();
+        jbtn_hidepass = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         profileimg = new jroundborder.JLabelRound();
@@ -120,10 +120,10 @@ public class UsersPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1480, 790));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(191, 191, 191));
-        jTable1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_user.setAutoCreateRowSorter(true);
+        jtbl_user.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_user.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_user.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -139,34 +139,34 @@ public class UsersPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setOpaque(false);
-        jTable1.setRowHeight(65);
-        jTable1.setRowMargin(0);
-        jTable1.setShowGrid(false);
-        jTable1.setSurrendersFocusOnKeystroke(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtbl_user.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jtbl_user.setOpaque(false);
+        jtbl_user.setRowHeight(65);
+        jtbl_user.setRowMargin(0);
+        jtbl_user.setShowGrid(false);
+        jtbl_user.setSurrendersFocusOnKeystroke(true);
+        jtbl_user.getTableHeader().setReorderingAllowed(false);
+        jtbl_user.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jtbl_userMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(4);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(5);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(130);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(6).setResizable(false);
+        jScrollPane1.setViewportView(jtbl_user);
+        if (jtbl_user.getColumnModel().getColumnCount() > 0) {
+            jtbl_user.getColumnModel().getColumn(0).setMinWidth(50);
+            jtbl_user.getColumnModel().getColumn(0).setPreferredWidth(4);
+            jtbl_user.getColumnModel().getColumn(0).setMaxWidth(5);
+            jtbl_user.getColumnModel().getColumn(1).setMinWidth(50);
+            jtbl_user.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jtbl_user.getColumnModel().getColumn(1).setMaxWidth(100);
+            jtbl_user.getColumnModel().getColumn(2).setPreferredWidth(90);
+            jtbl_user.getColumnModel().getColumn(3).setResizable(false);
+            jtbl_user.getColumnModel().getColumn(3).setPreferredWidth(130);
+            jtbl_user.getColumnModel().getColumn(4).setResizable(false);
+            jtbl_user.getColumnModel().getColumn(4).setPreferredWidth(20);
+            jtbl_user.getColumnModel().getColumn(5).setResizable(false);
+            jtbl_user.getColumnModel().getColumn(5).setPreferredWidth(20);
+            jtbl_user.getColumnModel().getColumn(6).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 1150, 690));
@@ -179,30 +179,33 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("USERS");
 
-        Update.setBackground(new java.awt.Color(51, 102, 255));
-        Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Update.setText("UPDATE");
-        Update.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Update.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Update.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Update.setText("UPDATE");
+        jbtn_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateActionPerformed(evt);
+                jbtn_UpdateActionPerformed(evt);
             }
         });
 
-        Delete.setBackground(new java.awt.Color(51, 102, 255));
-        Delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Delete.setText("DELETE");
-        Delete.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Delete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Delete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Delete.setText("DELETE");
+        jbtn_Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteActionPerformed(evt);
+                jbtn_DeleteActionPerformed(evt);
             }
         });
 
-        Add.setBackground(new java.awt.Color(51, 102, 255));
-        Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Add.setText("ADD");
-        Add.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Add.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Add.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Add.setText("ADD");
+        jbtn_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddActionPerformed(evt);
+                jbtn_AddActionPerformed(evt);
             }
         });
 
@@ -212,14 +215,14 @@ public class UsersPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jtxussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
+                .addComponent(jbtn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jtxt_ussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(559, Short.MAX_VALUE))
         );
@@ -228,13 +231,13 @@ public class UsersPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtn_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_Add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jtxussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxt_ussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -253,33 +256,33 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel3.setText("FNAME :");
         userActionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 61, 40));
 
-        jtxusuaname.setBackground(new java.awt.Color(0, 77, 77));
-        jtxusuaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxusuaname.setForeground(new java.awt.Color(255, 255, 255));
-        jtxusuaname.setBorder(null);
-        jtxusuaname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_usuaname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_usuaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usuaname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usuaname.setBorder(null);
+        jtxt_usuaname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxusuanameKeyTyped(evt);
+                jtxt_usuanameKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxusuaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 20));
+        userActionPanel.add(jtxt_usuaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 20));
         userActionPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 10));
 
-        jtxusumi.setBackground(new java.awt.Color(0, 77, 77));
-        jtxusumi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxusumi.setForeground(new java.awt.Color(255, 255, 255));
-        jtxusumi.setBorder(null);
-        jtxusumi.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_usumi.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_usumi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usumi.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usumi.setBorder(null);
+        jtxt_usumi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxusumiActionPerformed(evt);
+                jtxt_usumiActionPerformed(evt);
             }
         });
-        jtxusumi.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_usumi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxusumiKeyTyped(evt);
+                jtxt_usumiKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxusumi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 20));
+        userActionPanel.add(jtxt_usumi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 20));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,16 +290,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 40, 20));
         userActionPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 210, 5));
 
-        jtxususn.setBackground(new java.awt.Color(0, 77, 77));
-        jtxususn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxususn.setForeground(new java.awt.Color(255, 255, 255));
-        jtxususn.setBorder(null);
-        jtxususn.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_ususn.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_ususn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_ususn.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_ususn.setBorder(null);
+        jtxt_ususn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxususnKeyTyped(evt);
+                jtxt_ususnKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxususn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
+        userActionPanel.add(jtxt_ususn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -304,16 +307,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 50, 20));
         userActionPanel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 10));
 
-        jtxusuadd.setBackground(new java.awt.Color(0, 77, 77));
-        jtxusuadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxusuadd.setForeground(new java.awt.Color(255, 255, 255));
-        jtxusuadd.setBorder(null);
-        jtxusuadd.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_usuadd.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_usuadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usuadd.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usuadd.setBorder(null);
+        jtxt_usuadd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxusuaddKeyTyped(evt);
+                jtxt_usuaddKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxusuadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 20));
+        userActionPanel.add(jtxt_usuadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 20));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,16 +330,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 61, 30));
         userActionPanel.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 210, 5));
 
-        jtxusucon.setBackground(new java.awt.Color(0, 77, 77));
-        jtxusucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxusucon.setForeground(new java.awt.Color(255, 255, 255));
-        jtxusucon.setBorder(null);
-        jtxusucon.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_usucon.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_usucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usucon.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usucon.setBorder(null);
+        jtxt_usucon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxusuconKeyTyped(evt);
+                jtxt_usuconKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxusucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 40));
+        userActionPanel.add(jtxt_usucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 40));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -344,21 +347,21 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 50, 20));
         userActionPanel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 214, -1));
 
-        jtxusuname.setBackground(new java.awt.Color(0, 77, 77));
-        jtxusuname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxusuname.setForeground(new java.awt.Color(255, 255, 255));
-        jtxusuname.setBorder(null);
-        jtxusuname.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_usuname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_usuname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usuname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usuname.setBorder(null);
+        jtxt_usuname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxusunameActionPerformed(evt);
+                jtxt_usunameActionPerformed(evt);
             }
         });
-        jtxusuname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_usuname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxusunameKeyTyped(evt);
+                jtxt_usunameKeyTyped(evt);
             }
         });
-        userActionPanel.add(jtxusuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, 20));
+        userActionPanel.add(jtxt_usuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, 20));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -377,59 +380,59 @@ public class UsersPanel extends javax.swing.JPanel {
         udob.setOpaque(false);
         userActionPanel.add(udob, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 210, 30));
 
-        jtxuspass.setBackground(new java.awt.Color(0, 77, 77));
-        jtxuspass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxuspass.setForeground(new java.awt.Color(255, 255, 255));
-        jtxuspass.setBorder(null);
-        userActionPanel.add(jtxuspass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 170, 30));
+        uspass.setBackground(new java.awt.Color(0, 77, 77));
+        uspass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        uspass.setForeground(new java.awt.Color(255, 255, 255));
+        uspass.setBorder(null);
+        userActionPanel.add(uspass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 170, 30));
 
         role.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         role.setForeground(new java.awt.Color(255, 255, 255));
         role.setText("ROLE :");
         userActionPanel.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 50, 30));
 
-        roles.setBackground(new java.awt.Color(0, 77, 77));
-        roles.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        roles.setForeground(new java.awt.Color(255, 255, 255));
-        roles.setOpaque(false);
-        roles.addActionListener(new java.awt.event.ActionListener() {
+        jcbo_roles.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_roles.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jcbo_roles.setForeground(new java.awt.Color(255, 255, 255));
+        jcbo_roles.setOpaque(false);
+        jcbo_roles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rolesActionPerformed(evt);
+                jcbo_rolesActionPerformed(evt);
             }
         });
-        userActionPanel.add(roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 210, 30));
+        userActionPanel.add(jcbo_roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 210, 30));
 
-        viewpass.setBackground(new java.awt.Color(0, 204, 255));
-        viewpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyes.png"))); // NOI18N
-        viewpass.setBorderPainted(false);
-        viewpass.setContentAreaFilled(false);
-        viewpass.setFocusPainted(false);
-        viewpass.setFocusable(false);
-        viewpass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        viewpass.setMaximumSize(new java.awt.Dimension(55, 49));
-        viewpass.setMinimumSize(new java.awt.Dimension(55, 49));
-        viewpass.setPreferredSize(new java.awt.Dimension(60, 49));
-        viewpass.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_viewpass.setBackground(new java.awt.Color(0, 204, 255));
+        jbtn_viewpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyes.png"))); // NOI18N
+        jbtn_viewpass.setBorderPainted(false);
+        jbtn_viewpass.setContentAreaFilled(false);
+        jbtn_viewpass.setFocusPainted(false);
+        jbtn_viewpass.setFocusable(false);
+        jbtn_viewpass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_viewpass.setMaximumSize(new java.awt.Dimension(55, 49));
+        jbtn_viewpass.setMinimumSize(new java.awt.Dimension(55, 49));
+        jbtn_viewpass.setPreferredSize(new java.awt.Dimension(60, 49));
+        jbtn_viewpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewpassActionPerformed(evt);
+                jbtn_viewpassActionPerformed(evt);
             }
         });
-        userActionPanel.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 30, 30));
+        userActionPanel.add(jbtn_viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 30, 30));
 
-        hidepass.setBackground(new java.awt.Color(0, 204, 255));
-        hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
-        hidepass.setBorderPainted(false);
-        hidepass.setContentAreaFilled(false);
-        hidepass.setFocusPainted(false);
-        hidepass.setFocusable(false);
-        hidepass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        hidepass.setPreferredSize(new java.awt.Dimension(60, 49));
-        hidepass.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_hidepass.setBackground(new java.awt.Color(0, 204, 255));
+        jbtn_hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
+        jbtn_hidepass.setBorderPainted(false);
+        jbtn_hidepass.setContentAreaFilled(false);
+        jbtn_hidepass.setFocusPainted(false);
+        jbtn_hidepass.setFocusable(false);
+        jbtn_hidepass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_hidepass.setPreferredSize(new java.awt.Dimension(60, 49));
+        jbtn_hidepass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hidepassActionPerformed(evt);
+                jbtn_hidepassActionPerformed(evt);
             }
         });
-        userActionPanel.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 30, 30));
+        userActionPanel.add(jbtn_hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 30, 30));
         userActionPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 10));
 
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
@@ -442,82 +445,82 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel1.setText("USER ACTION");
         userActionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 220, 38));
 
-        add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 340, 720));
+        add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 340, 690));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtxusunameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxusunameActionPerformed
+    private void jtxt_usunameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usunameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxusunameActionPerformed
+    }//GEN-LAST:event_jtxt_usunameActionPerformed
 
-    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+    private void jbtn_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_DeleteActionPerformed
         try {
-            boolean checkDeleteUser = userControll.deleteUser(id, jTable1);
+            boolean checkDeleteUser = userControll.deleteUser(id, jtbl_user);
             if (checkDeleteUser==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_DeleteActionPerformed
+    }//GEN-LAST:event_jbtn_DeleteActionPerformed
 
-    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+    private void jbtn_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_AddActionPerformed
       
          if (checkInputs()==true) {
              System.out.print("hello world");
          }else{
-        Role = roles.getSelectedIndex()+1;
-        userModel=new Users(0,Role,null,jtxusuaname.getText(), jtxusumi.getText(),jtxususn.getText(),jtxusuadd.getText(),df.format(udob.getDate()),jtxusucon.getText(),jtxusuname.getText(),String.valueOf(jtxuspass.getPassword()));
+        Role = jcbo_roles.getSelectedIndex()+1;
+        userModel=new Users(0,Role,null,jtxt_usuaname.getText(), jtxt_usumi.getText(),jtxt_ususn.getText(),jtxt_usuadd.getText(),df.format(udob.getDate()),jtxt_usucon.getText(),jtxt_usuname.getText(),String.valueOf(uspass.getPassword()));
         
         try {
-            boolean checkUser = userControll.createUser(userModel,jTable1);
+            boolean checkUser = userControll.createUser(userModel,jtbl_user);
             if (checkUser==true) {
-                userControll.clearContent(jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
+                userControll.clearContent(jtxt_usuaname, jtxt_usumi, jtxt_ususn, jtxt_usuadd, udob, jtxt_usucon, jtxt_usuname, uspass);
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
          }
-    }//GEN-LAST:event_AddActionPerformed
+    }//GEN-LAST:event_jbtn_AddActionPerformed
 
-    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-        Role = roles.getSelectedIndex()+1;
-         userModel=new Users(0,Role,jtxusuaname.getText(),jtxusuaname.getText(), jtxusumi.getText(),jtxususn.getText(),jtxusuadd.getText(),df.format(udob.getDate()),jtxusucon.getText(),jtxusuname.getText(),String.valueOf(jtxuspass.getPassword()));
+    private void jbtn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_UpdateActionPerformed
+        Role = jcbo_roles.getSelectedIndex()+1;
+         userModel=new Users(0,Role,jtxt_usuaname.getText(),jtxt_usuaname.getText(), jtxt_usumi.getText(),jtxt_ususn.getText(),jtxt_usuadd.getText(),df.format(udob.getDate()),jtxt_usucon.getText(),jtxt_usuname.getText(),String.valueOf(uspass.getPassword()));
         
         try {
-            boolean checkUserUpdate = userControll.updateUser(userModel, id, jTable1);
+            boolean checkUserUpdate = userControll.updateUser(userModel, id, jtbl_user);
             if (checkUserUpdate==true) {
-                userControll.clearContent(jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
+                userControll.clearContent(jtxt_usuaname, jtxt_usumi, jtxt_ususn, jtxt_usuadd, udob, jtxt_usucon, jtxt_usuname, uspass);
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_UpdateActionPerformed
+    }//GEN-LAST:event_jbtn_UpdateActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        Update.setVisible(true);
-        Add.setVisible(false);
+    private void jtbl_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_userMouseClicked
+        jbtn_Update.setVisible(true);
+        jbtn_Add.setVisible(false);
         
         try { 
-            id = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
-            userControll.fillUserForm(id,roles,profileimg,jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
+            id = (int) jtbl_user.getValueAt(jtbl_user.getSelectedRow(),0);
+            userControll.fillUserForm(id,jcbo_roles,profileimg,jtxt_usuaname, jtxt_usumi, jtxt_ususn, jtxt_usuadd, udob, jtxt_usucon, jtxt_usuname, uspass);
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jtbl_userMouseClicked
 
-    private void hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidepassActionPerformed
-        viewpass.setVisible(true);
-        hidepass.setVisible(false);
-        jtxuspass.setEchoChar('*');
-    }//GEN-LAST:event_hidepassActionPerformed
+    private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
+        jbtn_viewpass.setVisible(true);
+        jbtn_hidepass.setVisible(false);
+        uspass.setEchoChar('*');
+    }//GEN-LAST:event_jbtn_hidepassActionPerformed
 
-    private void viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewpassActionPerformed
-        jtxuspass.setEchoChar((char)0);
-        hidepass.setVisible(true);
-        viewpass.setVisible(false);
-    }//GEN-LAST:event_viewpassActionPerformed
+    private void jbtn_viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_viewpassActionPerformed
+        uspass.setEchoChar((char)0);
+        jbtn_hidepass.setVisible(true);
+        jbtn_viewpass.setVisible(false);
+    }//GEN-LAST:event_jbtn_viewpassActionPerformed
 
     private void takepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takepictureActionPerformed
 //        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
@@ -537,7 +540,7 @@ public class UsersPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_takepictureActionPerformed
 
-    private void jtxusuconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuconKeyTyped
+    private void jtxt_usuconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usuconKeyTyped
         char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -546,9 +549,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxusuconKeyTyped
+    }//GEN-LAST:event_jtxt_usuconKeyTyped
 
-    private void jtxusuanameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuanameKeyTyped
+    private void jtxt_usuanameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usuanameKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -558,9 +561,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxusuanameKeyTyped
+    }//GEN-LAST:event_jtxt_usuanameKeyTyped
 
-    private void jtxusumiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusumiKeyTyped
+    private void jtxt_usumiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usumiKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -571,9 +574,9 @@ public class UsersPanel extends javax.swing.JPanel {
           }
         
         
-    }//GEN-LAST:event_jtxusumiKeyTyped
+    }//GEN-LAST:event_jtxt_usumiKeyTyped
 
-    private void jtxususnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxususnKeyTyped
+    private void jtxt_ususnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_ususnKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -583,9 +586,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxususnKeyTyped
+    }//GEN-LAST:event_jtxt_ususnKeyTyped
 
-    private void jtxusuaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuaddKeyTyped
+    private void jtxt_usuaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usuaddKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -595,9 +598,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxusuaddKeyTyped
+    }//GEN-LAST:event_jtxt_usuaddKeyTyped
 
-    private void jtxusunameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusunameKeyTyped
+    private void jtxt_usunameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usunameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
            if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -608,19 +611,19 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxusunameKeyTyped
+    }//GEN-LAST:event_jtxt_usunameKeyTyped
 
-    private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
+    private void jcbo_rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_rolesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rolesActionPerformed
+    }//GEN-LAST:event_jcbo_rolesActionPerformed
 
-    private void jtxusumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxusumiActionPerformed
+    private void jtxt_usumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usumiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxusumiActionPerformed
+    }//GEN-LAST:event_jtxt_usumiActionPerformed
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (jtxusuaname.getText().isEmpty()||jtxusumi.getText().isEmpty()||jtxususn.getText().isEmpty()||jtxusuadd.getText().isEmpty()||udob.getDate()==null||jtxusucon.getText().isEmpty()||jtxusuname.getText().isEmpty()||jtxuspass.getPassword().length==0){
+        if (jtxt_usuaname.getText().isEmpty()||jtxt_usumi.getText().isEmpty()||jtxt_ususn.getText().isEmpty()||jtxt_usuadd.getText().isEmpty()||udob.getDate()==null||jtxt_usucon.getText().isEmpty()||jtxt_usuname.getText().isEmpty()||uspass.getPassword().length==0){
             JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -649,10 +652,6 @@ public class UsersPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Add;
-    private javax.swing.JButton Delete;
-    private javax.swing.JButton Update;
-    private javax.swing.JButton hidepass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -674,21 +673,25 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JPasswordField jtxuspass;
-    private javax.swing.JTextField jtxussearch;
-    private javax.swing.JTextField jtxusuadd;
-    private javax.swing.JTextField jtxusuaname;
-    private javax.swing.JTextField jtxusucon;
-    private javax.swing.JTextField jtxusumi;
-    private javax.swing.JTextField jtxusuname;
-    private javax.swing.JTextField jtxususn;
+    private javax.swing.JButton jbtn_Add;
+    private javax.swing.JButton jbtn_Delete;
+    private javax.swing.JButton jbtn_Update;
+    private javax.swing.JButton jbtn_hidepass;
+    private javax.swing.JButton jbtn_viewpass;
+    private javax.swing.JComboBox<String> jcbo_roles;
+    private javax.swing.JTable jtbl_user;
+    private javax.swing.JTextField jtxt_ussearch;
+    private javax.swing.JTextField jtxt_usuadd;
+    private javax.swing.JTextField jtxt_usuaname;
+    private javax.swing.JTextField jtxt_usucon;
+    private javax.swing.JTextField jtxt_usumi;
+    private javax.swing.JTextField jtxt_usuname;
+    private javax.swing.JTextField jtxt_ususn;
     private jroundborder.JLabelRound profileimg;
     private javax.swing.JLabel role;
-    private javax.swing.JComboBox<String> roles;
     private com.toedter.calendar.JDateChooser udob;
     private javax.swing.JPanel userActionPanel;
-    private javax.swing.JButton viewpass;
+    private javax.swing.JPasswordField uspass;
     // End of variables declaration//GEN-END:variables
 
 }

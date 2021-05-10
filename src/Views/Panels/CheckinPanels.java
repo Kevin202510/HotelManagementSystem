@@ -52,7 +52,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     public CheckinPanels(JPanel lalag) throws SQLException {
         initComponents();
         roomControll.showRooms(rooms1);
-        roomControll.ShowRoomInCheckin(roomsTable);
+        roomControll.ShowRoomInCheckin(jtbl_roomsTable);
         checkindate.setText(check_in_out_controll.getDateNow());
         checkintime1.setText(check_in_out_controll.getTimeNow());
         
@@ -69,27 +69,27 @@ public class CheckinPanels extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         checkindate = new javax.swing.JLabel();
-        jtxcusFname1 = new javax.swing.JTextField();
+        jtxt_cusFname1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jtxcusMname1 = new javax.swing.JTextField();
+        jtxt_cusMname1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jtxcusLname1 = new javax.swing.JTextField();
+        jtxt_cusLname1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jtxcusAddress1 = new javax.swing.JTextField();
+        jtxt_cusAddress1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         rooms1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jtxcusContact2 = new javax.swing.JTextField();
+        jtxt_cusContact2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         checkintime1 = new javax.swing.JLabel();
-        hoursrange = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        roomsTable = new javax.swing.JTable();
-        save1 = new javax.swing.JButton();
-        jtxcussearch = new javax.swing.JTextField();
+        jtbl_roomsTable = new javax.swing.JTable();
+        jbtn_checkin = new javax.swing.JButton();
+        jtxt_cussearch = new javax.swing.JTextField();
+        jcbo_hoursrange = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,52 +104,52 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel2.setText("CHECK IN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 54));
 
-        checkindate.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 210, 41));
+        checkindate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 210, 40));
 
-        jtxcusFname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jtxcusFname1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusFname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jtxt_cusFname1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxcusFname1KeyTyped(evt);
+                jtxt_cusFname1KeyTyped(evt);
             }
         });
-        jPanel2.add(jtxcusFname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 213, 30));
+        jPanel2.add(jtxt_cusFname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 213, 30));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setText("M.I");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 60, 41));
 
-        jtxcusMname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jtxcusMname1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusMname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jtxt_cusMname1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxcusMname1KeyTyped(evt);
+                jtxt_cusMname1KeyTyped(evt);
             }
         });
-        jPanel2.add(jtxcusMname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 30));
+        jPanel2.add(jtxt_cusMname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 30));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel11.setText("LAST NAME");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 110, 41));
 
-        jtxcusLname1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jtxcusLname1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusLname1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jtxt_cusLname1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxcusLname1KeyTyped(evt);
+                jtxt_cusLname1KeyTyped(evt);
             }
         });
-        jPanel2.add(jtxcusLname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 213, 30));
+        jPanel2.add(jtxt_cusLname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 110, 213, 30));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel12.setText("CHECK IN DATE");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 140, 41));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 130, 30));
 
-        jtxcusAddress1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jtxcusAddress1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusAddress1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jtxt_cusAddress1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxcusAddress1KeyTyped(evt);
+                jtxt_cusAddress1KeyTyped(evt);
             }
         });
-        jPanel2.add(jtxcusAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 210, 30));
+        jPanel2.add(jtxt_cusAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 210, 30));
 
         jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel13.setText("CONTACT #");
@@ -164,15 +164,15 @@ public class CheckinPanels extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel1.setText("CHECK IN TIME");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 130, 40));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 130, 40));
 
-        jtxcusContact2.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jtxcusContact2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cusContact2.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
+        jtxt_cusContact2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxcusContact2KeyTyped(evt);
+                jtxt_cusContact2KeyTyped(evt);
             }
         });
-        jPanel2.add(jtxcusContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 220, 30));
+        jPanel2.add(jtxt_cusContact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 220, 30));
 
         jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel15.setText("FIRST NAME");
@@ -182,12 +182,8 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel16.setText("ADDRESS");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, 41));
 
-        checkintime1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
-        jPanel2.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 190, 30));
-
-        hoursrange.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        hoursrange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 Hours\t", "6 Hours", "12 Hours", "24 Hours", " " }));
-        jPanel2.add(hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 210, 30));
+        checkintime1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jPanel2.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 190, 40));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 1120, 380));
 
@@ -198,9 +194,9 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel3.setText("HOTEL MANAGEMENT");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 590, 50));
 
-        roomsTable.setBackground(new java.awt.Color(153, 153, 153));
-        roomsTable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        roomsTable.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_roomsTable.setBackground(new java.awt.Color(153, 153, 153));
+        jtbl_roomsTable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_roomsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -216,49 +212,54 @@ public class CheckinPanels extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        roomsTable.setOpaque(false);
-        roomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtbl_roomsTable.setOpaque(false);
+        jtbl_roomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roomsTableMouseClicked(evt);
+                jtbl_roomsTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(roomsTable);
+        jScrollPane1.setViewportView(jtbl_roomsTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 1120, 220));
 
-        save1.setBackground(new java.awt.Color(51, 102, 255));
-        save1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save1.setText("CHECK-IN");
-        save1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
-        save1.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_checkin.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_checkin.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_checkin.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_checkin.setText("CHECK-IN");
+        jbtn_checkin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.blue, null, null));
+        jbtn_checkin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
+                jbtn_checkinActionPerformed(evt);
             }
         });
-        add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 126, 50));
+        add(jbtn_checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 130, 50));
 
-        jtxcussearch.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_cussearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxcussearchActionPerformed(evt);
+                jtxt_cussearchActionPerformed(evt);
             }
         });
-        jtxcussearch.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_cussearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtxcussearchKeyPressed(evt);
+                jtxt_cussearchKeyPressed(evt);
             }
         });
-        add(jtxcussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 290, 30));
+        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 290, 30));
+
+        jcbo_hoursrange.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jcbo_hoursrange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 Hours\t", "6 Hours", "12 Hours", "24 Hours", " " }));
+        add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 50, 210, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
-        id = (int) roomsTable.getValueAt(roomsTable.getSelectedRow(),0);
+    private void jtbl_roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_roomsTableMouseClicked
+        id = (int) jtbl_roomsTable.getValueAt(jtbl_roomsTable.getSelectedRow(),0);
         int kev = JOptionPane.showConfirmDialog(null,"Room ID : " + id);
         if (kev==0) {
             rooms1.setSelectedItem(String.valueOf(id));
         }
-    }//GEN-LAST:event_roomsTableMouseClicked
+    }//GEN-LAST:event_jtbl_roomsTableMouseClicked
 
-    private void jtxcusFname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcusFname1KeyTyped
+    private void jtxt_cusFname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusFname1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
@@ -269,9 +270,9 @@ public class CheckinPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxcusFname1KeyTyped
+    }//GEN-LAST:event_jtxt_cusFname1KeyTyped
 
-    private void jtxcusMname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcusMname1KeyTyped
+    private void jtxt_cusMname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusMname1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
        if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -281,9 +282,9 @@ public class CheckinPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxcusMname1KeyTyped
+    }//GEN-LAST:event_jtxt_cusMname1KeyTyped
 
-    private void jtxcusLname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcusLname1KeyTyped
+    private void jtxt_cusLname1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusLname1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -294,9 +295,9 @@ public class CheckinPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxcusLname1KeyTyped
+    }//GEN-LAST:event_jtxt_cusLname1KeyTyped
 
-    private void jtxcusAddress1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcusAddress1KeyTyped
+    private void jtxt_cusAddress1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusAddress1KeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -307,9 +308,9 @@ public class CheckinPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxcusAddress1KeyTyped
+    }//GEN-LAST:event_jtxt_cusAddress1KeyTyped
 
-    private void jtxcusContact2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcusContact2KeyTyped
+    private void jtxt_cusContact2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusContact2KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -319,41 +320,41 @@ public class CheckinPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxcusContact2KeyTyped
+    }//GEN-LAST:event_jtxt_cusContact2KeyTyped
 
-    private void jtxcussearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxcussearchActionPerformed
+    private void jtxt_cussearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cussearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxcussearchActionPerformed
+    }//GEN-LAST:event_jtxt_cussearchActionPerformed
 
      public  SQL sql = new SQL();
      public Connection con = sql.getConnection();
      
     
     
-    private void jtxcussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxcussearchKeyPressed
-        DefaultTableModel model = (DefaultTableModel)roomsTable.getModel();
+    private void jtxt_cussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cussearchKeyPressed
+        DefaultTableModel model = (DefaultTableModel)jtbl_roomsTable.getModel();
 //        model.setRowCount(0);
         TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
-        roomsTable.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(jtxcussearch.getText().trim()));
+        jtbl_roomsTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_cussearch.getText().trim()));
            
-    }//GEN-LAST:event_jtxcussearchKeyPressed
+    }//GEN-LAST:event_jtxt_cussearchKeyPressed
 
-    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    private void jbtn_checkinActionPerformed(java.awt.event.ActionEvent evt) {                                      
         
         if (checkInputs()==true) {
              new Alerts("error").setVisible(true);  
          }else{
-        customers = new Customers(1,jtxcusFname1.getText(),jtxcusMname1.getText(),jtxcusLname1.getText(),jtxcusAddress1.getText(),jtxcusContact2.getText());   
+        customers = new Customers(1,jtxt_cusFname1.getText(),jtxt_cusMname1.getText(),jtxt_cusLname1.getText(),jtxt_cusAddress1.getText(),jtxt_cusContact2.getText());   
         try {
             custo.createCustomer(customers);
-            boolean check =  check_in_out_controll.checkIn(roomsTable,checkindate, checkintime1, rooms1);
+            boolean check =  check_in_out_controll.checkIn(jtbl_roomsTable,checkindate, checkintime1, rooms1);
             if (check==true) {
-                jtxcusFname1.setText("");
-               jtxcusMname1.setText("");
-               jtxcusLname1.setText("");
-               jtxcusAddress1.setText("");
-               jtxcusContact2.setText("");
+                jtxt_cusFname1.setText("");
+               jtxt_cusMname1.setText("");
+               jtxt_cusLname1.setText("");
+               jtxt_cusAddress1.setText("");
+               jtxt_cusContact2.setText("");
                rooms1.removeAllItems();
                roomControll.showRooms(rooms1);
             }
@@ -368,7 +369,7 @@ public class CheckinPanels extends javax.swing.JPanel {
        
      private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (jtxcusFname1.getText().isEmpty()||jtxcusMname1.getText().isEmpty()||jtxcusLname1.getText().isEmpty()||jtxcusAddress1.getText().isEmpty()||jtxcusContact2.getText().isEmpty()){
+        if (jtxt_cusFname1.getText().isEmpty()||jtxt_cusMname1.getText().isEmpty()||jtxt_cusLname1.getText().isEmpty()||jtxt_cusAddress1.getText().isEmpty()||jtxt_cusContact2.getText().isEmpty()){
 //            new Alerts("fillfield").setVisible(true);
                 return true;
         }
@@ -380,7 +381,6 @@ public class CheckinPanels extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkindate;
     private javax.swing.JLabel checkintime1;
-    private javax.swing.JComboBox<String> hoursrange;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -393,14 +393,15 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jtxcusAddress1;
-    private javax.swing.JTextField jtxcusContact2;
-    private javax.swing.JTextField jtxcusFname1;
-    private javax.swing.JTextField jtxcusLname1;
-    private javax.swing.JTextField jtxcusMname1;
-    private javax.swing.JTextField jtxcussearch;
+    private javax.swing.JButton jbtn_checkin;
+    private javax.swing.JComboBox<String> jcbo_hoursrange;
+    private javax.swing.JTable jtbl_roomsTable;
+    private javax.swing.JTextField jtxt_cusAddress1;
+    private javax.swing.JTextField jtxt_cusContact2;
+    private javax.swing.JTextField jtxt_cusFname1;
+    private javax.swing.JTextField jtxt_cusLname1;
+    private javax.swing.JTextField jtxt_cusMname1;
+    private javax.swing.JTextField jtxt_cussearch;
     private javax.swing.JComboBox<String> rooms1;
-    private javax.swing.JTable roomsTable;
-    private javax.swing.JButton save1;
     // End of variables declaration//GEN-END:variables
 }
