@@ -63,7 +63,7 @@ public class UsersPanel extends javax.swing.JPanel {
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
         wc = Webcam.getDefault();
-        wc.setViewSize(WebcamResolution.VGA.getSize());
+//        wc.setViewSize(WebcamResolution.VGA.getSize());
 //        wc.open();
         this.lalagyanan=lalagyanan;
         

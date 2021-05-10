@@ -67,7 +67,7 @@ public class AdminButtons extends javax.swing.JPanel {
         userrole.setForeground(Color.decode("#0039e6"));
         jComboBox1.setBackground(Color.decode("#0039e6"));
         jComboBox1.setOpaque(false);
-        new VideoFeeder().start();
+//        new VideoFeeder().start();
 //        checkCustomerCheckOut();
     }
 
@@ -374,7 +374,7 @@ public class AdminButtons extends javax.swing.JPanel {
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, 30));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("X");
@@ -383,7 +383,7 @@ public class AdminButtons extends javax.swing.JPanel {
                 jLabel2MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, 50, 36));
+        AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -392,13 +392,8 @@ public class AdminButtons extends javax.swing.JPanel {
 //        signOut(out);
     }//GEN-LAST:event_logoutMouseClicked
     public void signOut(JFrame out){
-        int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-        if (result==0){
             new Login().setVisible(true);
             out.dispose();
-        }
     }
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         userButton.checkButtons();
@@ -484,7 +479,12 @@ public class AdminButtons extends javax.swing.JPanel {
                         Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else if (i==1){
-                    signOut(out);
+                    int result = JOptionPane.showConfirmDialog(out,"You want to log out","LogOut",
+                    JOptionPane.YES_NO_OPTION,
+                   JOptionPane.QUESTION_MESSAGE);
+                    if (result==0) {
+                        signOut(out);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(out,"asdasdasd");
                 }
@@ -510,72 +510,72 @@ public class AdminButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     
-    public  SQL sql = new SQL();
-    public Connection con = sql.getConnection();
+//    public  SQL sql = new SQL();
+//    public Connection con = sql.getConnection();
+//    
+//    String kk;
+//    
+//    public String getTimeNow(){
+//         Calendar date = Calendar.getInstance();  
+//        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
+//        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
+////        date.add(Calendar.MINUTE,+1);
+//        Date strTime = date.getTime();
+//        kk = kev.format(strTime);
+////        String kkk = kevs.format(strTime);
+////        orayt.setText(kkk);
+//        return kk;
+//     }
+//    
+//    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
+//            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
+//                        Statement st = con.createStatement();
+//                        ResultSet rs = st.executeQuery(checkOutCheck);
+//                        
+//                        while(rs.next()){
+//                            String checkouttime = rs.getString("timeout");
+////                            JOptionPane.showMessageDialog(null,timess);
+//                            if (timess.equals(checkouttime)) {
+////                                JOptionPane.showMessageDialog(null,checkouttime);
+////                                JOptionPane.showMessageDialog(null,timess);
+//                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
+////                                new VideoFeeder().sleep(5000);
+//                            }
+//                        }
+//         }
     
-    String kk;
-    
-    public String getTimeNow(){
-         Calendar date = Calendar.getInstance();  
-        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
-        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
-//        date.add(Calendar.MINUTE,+1);
-        Date strTime = date.getTime();
-        kk = kev.format(strTime);
-//        String kkk = kevs.format(strTime);
-//        orayt.setText(kkk);
-        return kk;
-     }
-    
-    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
-            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
-                        Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery(checkOutCheck);
-                        
-                        while(rs.next()){
-                            String checkouttime = rs.getString("timeout");
-//                            JOptionPane.showMessageDialog(null,timess);
-                            if (timess.equals(checkouttime)) {
-//                                JOptionPane.showMessageDialog(null,checkouttime);
-//                                JOptionPane.showMessageDialog(null,timess);
-                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
-//                                new VideoFeeder().sleep(5000);
-                            }
-                        }
-         }
-    
-     class VideoFeeder extends Thread {
-    
-          public void run(){
-              try {
-                  
-                  String ss = "00";
-                  
-                  while(true){
-                      Calendar cal = Calendar.getInstance();
-                      int hour = cal.get(Calendar.HOUR_OF_DAY);
-                      int minute = cal.get(Calendar.MINUTE);
-                      int second = cal.get(Calendar.SECOND);
-                      SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
-                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
-                      Date dat = cal.getTime();
-                      String times = kev.format(dat);
-                      String timess = kevs.format(dat);
-                      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                      String strDate = dateFormat.format(dat);
-                      date.setText(strDate);
-                      time.setText(times);
-                      checkCustomerCheckOut(timess);
-                  }
-              } catch (SQLException ex) {
-                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-              } catch (InterruptedException ex) {
-                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-              }
-          
-          }
-    
-    }
+//     class VideoFeeder extends Thread {
+//    
+//          public void run(){
+//              try {
+//                  
+//                  String ss = "00";
+//                  
+//                  while(true){
+//                      Calendar cal = Calendar.getInstance();
+//                      int hour = cal.get(Calendar.HOUR_OF_DAY);
+//                      int minute = cal.get(Calendar.MINUTE);
+//                      int second = cal.get(Calendar.SECOND);
+//                      SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+//                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+//                      Date dat = cal.getTime();
+//                      String times = kev.format(dat);
+//                      String timess = kevs.format(dat);
+//                      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//                      String strDate = dateFormat.format(dat);
+//                      date.setText(strDate);
+//                      time.setText(times);
+//                      checkCustomerCheckOut(timess);
+//                  }
+//              } catch (SQLException ex) {
+//                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+//              } catch (InterruptedException ex) {
+//                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+//              }
+//          
+//          }
+//    
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;

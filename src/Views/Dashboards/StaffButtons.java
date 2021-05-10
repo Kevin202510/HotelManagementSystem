@@ -54,7 +54,7 @@ public class StaffButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-        new VideoFeeder().start();
+//        new VideoFeeder().start();
     }
 
     /**
@@ -86,6 +86,7 @@ public class StaffButtons extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -311,13 +312,24 @@ public class StaffButtons extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 240, 50));
+        StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 20, 240, 50));
 
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         StaffButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
 
         time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         StaffButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 170, 30));
+
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("X");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        StaffButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -394,13 +406,8 @@ public class StaffButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_logoutMouseClicked
     
     public void signOut(JFrame out){
-        int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-        if (result==0){
             new Login().setVisible(true);
             out.dispose();
-        }
     }
     
     private void jLabelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound5MouseClicked
@@ -455,13 +462,22 @@ public class StaffButtons extends javax.swing.JPanel {
                         Logger.getLogger(StaffButtons.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else if (i==1){
-                    signOut(out);
+                    int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                    if (result==0){
+                        signOut(out);
+                    }
                 }else{
                     JOptionPane.showMessageDialog(out,"asdasdasd");
                 }
             }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        signOut(out);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
      
     class VideoFeeder extends Thread {
@@ -504,6 +520,7 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private jroundborder.JLabelRound jLabelRound6;

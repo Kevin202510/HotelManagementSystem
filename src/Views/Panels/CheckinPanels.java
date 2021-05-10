@@ -27,7 +27,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import sweetalerts.Alerts;
 
 /**
@@ -86,6 +88,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         roomsTable = new javax.swing.JTable();
         save1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -188,7 +191,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("HOTEL MANAGEMENT");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 610, 50));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 610, 50));
 
         roomsTable.setBackground(new java.awt.Color(153, 153, 153));
         roomsTable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -228,6 +231,18 @@ public class CheckinPanels extends javax.swing.JPanel {
             }
         });
         add(save1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 126, 50));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 290, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsTableMouseClicked
@@ -301,6 +316,24 @@ public class CheckinPanels extends javax.swing.JPanel {
           }
     }//GEN-LAST:event_cusContact2KeyTyped
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+     public  SQL sql = new SQL();
+     public Connection con = sql.getConnection();
+     
+    
+    
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        DefaultTableModel model = (DefaultTableModel)roomsTable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        roomsTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jTextField1.getText().trim()));
+           
+    }//GEN-LAST:event_jTextField1KeyPressed
+
     private void save1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         
         if (checkInputs()==true) {
@@ -359,6 +392,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> rooms1;
     private javax.swing.JTable roomsTable;
     private javax.swing.JButton save1;
