@@ -38,24 +38,24 @@ public class RoomsPanel extends javax.swing.JPanel {
         
         if(role.equals("Staff")){
                 roomAction.setVisible(false);
-                save.setVisible(false);
-                roomstable.setVisible(false);
+                jbtn_save.setVisible(false);
+                jtbl_rooms.setVisible(false);
                 roomscroll.setVisible(false);
                 roomstablestaff.getTableHeader().setFont(new Font("Tw Cen MT", 0, 18));
                 roomstablestaff.getTableHeader().setBackground(Color.white);
                 roomscrollstaff.setVisible(true);
                 roomstablestaff.setVisible(true);
                 roomControll.Room(roomstablestaff);
-                update.setVisible(false);
+                jbtn_update.setVisible(false);
         }else{
-            roomControll.Room(roomstable);
+            roomControll.Room(jtbl_rooms);
             if (roomlist.size()==0) {
-            jtxRoomid.setText("1");
+            jtxt_Roomid.setText("1");
             InitRun();
         }else{
             index1 = roomlist.size()-1;
             index = roomlist.get(index1).getroom_id() + 1;        
-            jtxRoomid.setText(String.valueOf(index));
+            jtxt_Roomid.setText(String.valueOf(index));
             InitRun();
         }
         }
@@ -64,18 +64,18 @@ public class RoomsPanel extends javax.swing.JPanel {
     
 //    UDF
     private void InitRun(){
-        update.setVisible(false);
-        roomTypeId.setBackground(new Color(0, 0, 0, 0));
-        roomTypeId.setOpaque(false);
-        bedTypeId.setBackground(new Color(0, 0, 0, 0));
-        bedTypeId.setOpaque(false);
-        rateId.setBackground(new Color(0, 0, 0, 0));
-        rateId.setOpaque(false);
-        statusId.setBackground(new Color(0, 0, 0, 0));
-        statusId.setOpaque(false);
-        roomControll.showRoomType(roomTypeId);
-        roomControll.showBedType(bedTypeId);
-        roomControll.showRate(rateId);
+        jbtn_update.setVisible(false);
+        jcbo_roomTypeId.setBackground(new Color(0, 0, 0, 0));
+        jcbo_roomTypeId.setOpaque(false);
+        jcbo_bedTypeId.setBackground(new Color(0, 0, 0, 0));
+        jcbo_bedTypeId.setOpaque(false);
+        jcbo_rateId.setBackground(new Color(0, 0, 0, 0));
+        jcbo_rateId.setOpaque(false);
+        jcbo_statusId.setBackground(new Color(0, 0, 0, 0));
+        jcbo_statusId.setOpaque(false);
+        roomControll.showRoomType(jcbo_roomTypeId);
+        roomControll.showBedType(jcbo_bedTypeId);
+        roomControll.showRate(jcbo_rateId);
         roomscrollstaff.setVisible(false);
         roomstablestaff.setVisible(false);
     }
@@ -92,13 +92,13 @@ public class RoomsPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        update = new javax.swing.JButton();
-        save = new javax.swing.JButton();
-        jtxroom_search = new javax.swing.JTextField();
+        jbtn_update = new javax.swing.JButton();
+        jbtn_save = new javax.swing.JButton();
+        jtxt_room_search = new javax.swing.JTextField();
         roomAction = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtxRoomid = new javax.swing.JTextField();
+        jtxt_Roomid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -108,13 +108,13 @@ public class RoomsPanel extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        statusId = new javax.swing.JComboBox<>();
-        roomTypeId = new javax.swing.JComboBox<>();
-        bedTypeId = new javax.swing.JComboBox<>();
-        rateId = new javax.swing.JComboBox<>();
+        jcbo_statusId = new javax.swing.JComboBox<>();
+        jcbo_roomTypeId = new javax.swing.JComboBox<>();
+        jcbo_bedTypeId = new javax.swing.JComboBox<>();
+        jcbo_rateId = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         roomscroll = new javax.swing.JScrollPane();
-        roomstable = new javax.swing.JTable();
+        jtbl_rooms = new javax.swing.JTable();
         roomscrollstaff = new javax.swing.JScrollPane();
         roomstablestaff = new javax.swing.JTable();
 
@@ -130,26 +130,28 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel1.setText("Rooms");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 220, -1));
 
-        update.setBackground(new java.awt.Color(51, 102, 255));
-        update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        update.setText("UPDATE");
-        update.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_update.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_update.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_update.setText("UPDATE");
+        jbtn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
+                jbtn_updateActionPerformed(evt);
             }
         });
-        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
+        jPanel1.add(jbtn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
 
-        save.setBackground(new java.awt.Color(51, 102, 255));
-        save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        save.setText("SAVE");
-        save.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_save.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_save.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_save.setText("SAVE");
+        jbtn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveActionPerformed(evt);
+                jbtn_saveActionPerformed(evt);
             }
         });
-        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
-        jPanel1.add(jtxroom_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
+        jPanel1.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
+        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
 
@@ -166,12 +168,12 @@ public class RoomsPanel extends javax.swing.JPanel {
         jLabel3.setText("Room ID");
         roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 73, 40));
 
-        jtxRoomid.setEditable(false);
-        jtxRoomid.setBackground(new java.awt.Color(0, 77, 77));
-        jtxRoomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxRoomid.setForeground(new java.awt.Color(255, 255, 255));
-        jtxRoomid.setBorder(null);
-        roomAction.add(jtxRoomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 213, 30));
+        jtxt_Roomid.setEditable(false);
+        jtxt_Roomid.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_Roomid.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_Roomid.setBorder(null);
+        roomAction.add(jtxt_Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 213, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -198,35 +200,35 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 210, -1));
         roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 210, -1));
 
-        statusId.setBackground(new java.awt.Color(0, 77, 77));
-        statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        statusId.setForeground(new java.awt.Color(255, 255, 255));
-        statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
-        roomAction.add(statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 210, 30));
+        jcbo_statusId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jcbo_statusId.setForeground(new java.awt.Color(255, 255, 255));
+        jcbo_statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
+        roomAction.add(jcbo_statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 210, 30));
 
-        roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 210, 30));
+        jcbo_roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jcbo_roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 210, 30));
 
-        bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 30));
+        jcbo_bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jcbo_bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 30));
 
-        rateId.setBackground(new java.awt.Color(0, 77, 77));
-        rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rateId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 30));
+        jcbo_rateId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jcbo_rateId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 30));
 
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 340, 530));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 360, 720));
 
-        roomstable.setBackground(new java.awt.Color(191, 191, 191));
-        roomstable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        roomstable.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_rooms.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_rooms.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_rooms.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -234,12 +236,12 @@ public class RoomsPanel extends javax.swing.JPanel {
                 "ID", "Room Type", "Bed Type", "Rate", "Status"
             }
         ));
-        roomstable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtbl_rooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roomstableMouseClicked(evt);
+                jtbl_roomsMouseClicked(evt);
             }
         });
-        roomscroll.setViewportView(roomstable);
+        roomscroll.setViewportView(jtbl_rooms);
 
         add(roomscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 1120, 690));
 
@@ -277,18 +279,18 @@ public class RoomsPanel extends javax.swing.JPanel {
         add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1480, 690));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        int roomtype=roomTypeId.getSelectedIndex()+1;
-        int bedtype=bedTypeId.getSelectedIndex()+1;
-        int rate=rateId.getSelectedIndex()+1;
-        int status=statusId.getSelectedIndex();
+    private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
+        int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
+        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
+        int rate=jcbo_rateId.getSelectedIndex()+1;
+        int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
             roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
         }else{
             roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
         }
         try {
-            boolean checkRoom = roomControll.createRooms(roomModel,roomstable);
+            boolean checkRoom = roomControll.createRooms(roomModel,jtbl_rooms);
             if (checkRoom==true) {
 //                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
@@ -296,13 +298,13 @@ public class RoomsPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             //            Logger.getLogger(roomsomerActions.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_saveActionPerformed
+    }//GEN-LAST:event_jbtn_saveActionPerformed
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-         int roomtype=roomTypeId.getSelectedIndex()+1;
-        int bedtype=bedTypeId.getSelectedIndex()+1;
-        int rate=rateId.getSelectedIndex()+1;
-        int status=statusId.getSelectedIndex();
+    private void jbtn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_updateActionPerformed
+         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
+        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
+        int rate=jcbo_rateId.getSelectedIndex()+1;
+        int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
             roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
         }else{
@@ -310,25 +312,25 @@ public class RoomsPanel extends javax.swing.JPanel {
         }
         boolean checkUpdate;
         try {
-            checkUpdate = roomControll.updateRooms(roomModel, id, roomstable);
+            checkUpdate = roomControll.updateRooms(roomModel, id, jtbl_rooms);
              if (checkUpdate==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_updateActionPerformed
+    }//GEN-LAST:event_jbtn_updateActionPerformed
 
-    private void roomstableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomstableMouseClicked
-        update.setVisible(true);
-        save.setVisible(false);
-        id = (int) roomstable.getValueAt(roomstable.getSelectedRow(),0);
+    private void jtbl_roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_roomsMouseClicked
+        jbtn_update.setVisible(true);
+        jbtn_save.setVisible(false);
+        id = (int) jtbl_rooms.getValueAt(jtbl_rooms.getSelectedRow(),0);
         try {
-            roomControll.fillRoomForm(id,jtxRoomid, roomTypeId, bedTypeId, rateId, statusId);
+            roomControll.fillRoomForm(id,jtxt_Roomid, jcbo_roomTypeId, jcbo_bedTypeId, jcbo_rateId, jcbo_statusId);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_roomstableMouseClicked
+    }//GEN-LAST:event_jtbl_roomsMouseClicked
 
     private void roomstablestaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomstablestaffMouseClicked
         // TODO add your handling code here:
@@ -336,7 +338,6 @@ public class RoomsPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> bedTypeId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -351,17 +352,18 @@ public class RoomsPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jtxRoomid;
-    private javax.swing.JTextField jtxroom_search;
-    private javax.swing.JComboBox<String> rateId;
+    private javax.swing.JButton jbtn_save;
+    private javax.swing.JButton jbtn_update;
+    private javax.swing.JComboBox<String> jcbo_bedTypeId;
+    private javax.swing.JComboBox<String> jcbo_rateId;
+    private javax.swing.JComboBox<String> jcbo_roomTypeId;
+    private javax.swing.JComboBox<String> jcbo_statusId;
+    private javax.swing.JTable jtbl_rooms;
+    private javax.swing.JTextField jtxt_Roomid;
+    private javax.swing.JTextField jtxt_room_search;
     private javax.swing.JPanel roomAction;
-    private javax.swing.JComboBox<String> roomTypeId;
     private javax.swing.JScrollPane roomscroll;
     private javax.swing.JScrollPane roomscrollstaff;
-    private javax.swing.JTable roomstable;
     private javax.swing.JTable roomstablestaff;
-    private javax.swing.JButton save;
-    private javax.swing.JComboBox<String> statusId;
-    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

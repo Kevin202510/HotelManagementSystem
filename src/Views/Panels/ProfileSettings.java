@@ -66,34 +66,34 @@ public class ProfileSettings extends javax.swing.JFrame {
 
         userActionPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        uaname2 = new javax.swing.JTextField();
+        jtxt_uaname2 = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        umi = new javax.swing.JTextField();
+        jtxt_umi = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        usn = new javax.swing.JTextField();
+        jtxt_usn = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        uadd = new javax.swing.JTextField();
+        jtxt_uadd = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
-        ucon = new javax.swing.JTextField();
+        jtxt_ucon = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        uname = new javax.swing.JTextField();
+        jtxt_uname = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         udob = new com.toedter.calendar.JDateChooser();
         upass = new javax.swing.JPasswordField();
-        Update = new javax.swing.JButton();
-        viewpass = new javax.swing.JButton();
-        hidepass = new javax.swing.JButton();
+        jbtn_Update = new javax.swing.JButton();
+        jbtn_viewpass = new javax.swing.JButton();
+        jbtn_hidepass = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jbtn_addpic = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
@@ -112,25 +112,30 @@ public class ProfileSettings extends javax.swing.JFrame {
         jLabel5.setText("FNAME :");
         userActionPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 240, 70, 30));
 
-        uaname2.setBackground(new java.awt.Color(0, 204, 204));
-        uaname2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uaname2.setForeground(new java.awt.Color(255, 255, 255));
-        uaname2.setBorder(null);
-        uaname2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_uaname2.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_uaname2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_uaname2.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_uaname2.setBorder(null);
+        jtxt_uaname2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                uaname2KeyTyped(evt);
+                jtxt_uaname2KeyTyped(evt);
             }
         });
-        userActionPanel2.add(uaname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 270, 30));
+        userActionPanel2.add(jtxt_uaname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 270, 30));
 
         jSeparator2.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 270, 10));
 
-        umi.setBackground(new java.awt.Color(0, 204, 204));
-        umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        umi.setForeground(new java.awt.Color(255, 255, 255));
-        umi.setBorder(null);
-        userActionPanel2.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 282, 270, 30));
+        jtxt_umi.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_umi.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_umi.setBorder(null);
+        jtxt_umi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_umiActionPerformed(evt);
+            }
+        });
+        userActionPanel2.add(jtxt_umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 282, 270, 30));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,11 +145,11 @@ public class ProfileSettings extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 270, 5));
 
-        usn.setBackground(new java.awt.Color(0, 204, 204));
-        usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        usn.setForeground(new java.awt.Color(255, 255, 255));
-        usn.setBorder(null);
-        userActionPanel2.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 322, 270, 30));
+        jtxt_usn.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_usn.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_usn.setBorder(null);
+        userActionPanel2.add(jtxt_usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 322, 270, 30));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,11 +159,11 @@ public class ProfileSettings extends javax.swing.JFrame {
         jSeparator4.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 270, 5));
 
-        uadd.setBackground(new java.awt.Color(0, 204, 204));
-        uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uadd.setForeground(new java.awt.Color(255, 255, 255));
-        uadd.setBorder(null);
-        userActionPanel2.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 362, 270, 30));
+        jtxt_uadd.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_uadd.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_uadd.setBorder(null);
+        userActionPanel2.add(jtxt_uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 362, 270, 30));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,16 +181,16 @@ public class ProfileSettings extends javax.swing.JFrame {
         jSeparator6.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 270, 5));
 
-        ucon.setBackground(new java.awt.Color(0, 204, 204));
-        ucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        ucon.setForeground(new java.awt.Color(255, 255, 255));
-        ucon.setBorder(null);
-        ucon.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_ucon.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_ucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_ucon.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_ucon.setBorder(null);
+        jtxt_ucon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                uconKeyTyped(evt);
+                jtxt_uconKeyTyped(evt);
             }
         });
-        userActionPanel2.add(ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 442, 270, 30));
+        userActionPanel2.add(jtxt_ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 442, 270, 30));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,16 +200,16 @@ public class ProfileSettings extends javax.swing.JFrame {
         jSeparator7.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 270, -1));
 
-        uname.setBackground(new java.awt.Color(0, 204, 204));
-        uname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uname.setForeground(new java.awt.Color(255, 255, 255));
-        uname.setBorder(null);
-        uname.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_uname.setBackground(new java.awt.Color(0, 204, 204));
+        jtxt_uname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_uname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_uname.setBorder(null);
+        jtxt_uname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameActionPerformed(evt);
+                jtxt_unameActionPerformed(evt);
             }
         });
-        userActionPanel2.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 270, 30));
+        userActionPanel2.add(jtxt_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 270, 30));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -231,47 +236,47 @@ public class ProfileSettings extends javax.swing.JFrame {
         upass.setBorder(null);
         userActionPanel2.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 250, 30));
 
-        Update.setBackground(new java.awt.Color(0, 102, 255));
-        Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Update.setText("UPDATE");
-        Update.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Update.setBackground(new java.awt.Color(0, 102, 255));
+        jbtn_Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Update.setText("UPDATE");
+        jbtn_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateActionPerformed(evt);
+                jbtn_UpdateActionPerformed(evt);
             }
         });
-        userActionPanel2.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 600, 270, 36));
+        userActionPanel2.add(jbtn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 600, 250, 36));
 
-        viewpass.setBackground(new java.awt.Color(0, 204, 255));
-        viewpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyes.png"))); // NOI18N
-        viewpass.setBorderPainted(false);
-        viewpass.setContentAreaFilled(false);
-        viewpass.setFocusPainted(false);
-        viewpass.setFocusable(false);
-        viewpass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        viewpass.setMaximumSize(new java.awt.Dimension(55, 49));
-        viewpass.setMinimumSize(new java.awt.Dimension(55, 49));
-        viewpass.setPreferredSize(new java.awt.Dimension(60, 49));
-        viewpass.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_viewpass.setBackground(new java.awt.Color(0, 204, 255));
+        jbtn_viewpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/eyes.png"))); // NOI18N
+        jbtn_viewpass.setBorderPainted(false);
+        jbtn_viewpass.setContentAreaFilled(false);
+        jbtn_viewpass.setFocusPainted(false);
+        jbtn_viewpass.setFocusable(false);
+        jbtn_viewpass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_viewpass.setMaximumSize(new java.awt.Dimension(55, 49));
+        jbtn_viewpass.setMinimumSize(new java.awt.Dimension(55, 49));
+        jbtn_viewpass.setPreferredSize(new java.awt.Dimension(60, 49));
+        jbtn_viewpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewpassActionPerformed(evt);
+                jbtn_viewpassActionPerformed(evt);
             }
         });
-        userActionPanel2.add(viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 30, 30));
+        userActionPanel2.add(jbtn_viewpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 30, 30));
 
-        hidepass.setBackground(new java.awt.Color(0, 204, 255));
-        hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
-        hidepass.setBorderPainted(false);
-        hidepass.setContentAreaFilled(false);
-        hidepass.setFocusPainted(false);
-        hidepass.setFocusable(false);
-        hidepass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        hidepass.setPreferredSize(new java.awt.Dimension(60, 49));
-        hidepass.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_hidepass.setBackground(new java.awt.Color(0, 204, 255));
+        jbtn_hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hide.png"))); // NOI18N
+        jbtn_hidepass.setBorderPainted(false);
+        jbtn_hidepass.setContentAreaFilled(false);
+        jbtn_hidepass.setFocusPainted(false);
+        jbtn_hidepass.setFocusable(false);
+        jbtn_hidepass.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbtn_hidepass.setPreferredSize(new java.awt.Dimension(60, 49));
+        jbtn_hidepass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hidepassActionPerformed(evt);
+                jbtn_hidepassActionPerformed(evt);
             }
         });
-        userActionPanel2.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 30, 30));
+        userActionPanel2.add(jbtn_hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 30, 30));
 
         jSeparator9.setBackground(new java.awt.Color(102, 102, 102));
         userActionPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 270, 10));
@@ -279,16 +284,16 @@ public class ProfileSettings extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
         userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 650));
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 204));
-        jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jButton2.setText("+");
-        jButton2.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
+        jbtn_addpic.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jbtn_addpic.setText("+");
+        jbtn_addpic.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        jbtn_addpic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbtn_addpicActionPerformed(evt);
             }
         });
-        userActionPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 40, -1));
+        userActionPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 40, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -321,25 +326,25 @@ public class ProfileSettings extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           Camera vin =  new Camera(uaname2.getText());
+    private void jbtn_addpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_addpicActionPerformed
+           Camera vin =  new Camera(jtxt_uaname2.getText());
            JOptionPane.showMessageDialog(this, vin);
 
 //                new VideoFeeder().start();
 //                jButton3.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbtn_addpicActionPerformed
 
-    private void hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidepassActionPerformed
-        viewpass.setVisible(true);
-        hidepass.setVisible(false);
+    private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
+        jbtn_viewpass.setVisible(true);
+        jbtn_hidepass.setVisible(false);
         upass.setEchoChar('*');
-    }//GEN-LAST:event_hidepassActionPerformed
+    }//GEN-LAST:event_jbtn_hidepassActionPerformed
 
-    private void viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewpassActionPerformed
+    private void jbtn_viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_viewpassActionPerformed
         upass.setEchoChar((char)0);
-        hidepass.setVisible(true);
-        viewpass.setVisible(false);
-    }//GEN-LAST:event_viewpassActionPerformed
+        jbtn_hidepass.setVisible(true);
+        jbtn_viewpass.setVisible(false);
+    }//GEN-LAST:event_jbtn_viewpassActionPerformed
 
     public  SQL sql = new SQL();
     public Connection con = sql.getConnection();
@@ -355,13 +360,13 @@ public class ProfileSettings extends javax.swing.JFrame {
             while(rs.next()){
                 role_id=rs.getInt("role_id");
                 userprofile=rs.getString("profile");
-                uaname2.setText(rs.getString("user_Fname"));
-                umi.setText(rs.getString("user_Mname"));
-                usn.setText(rs.getString("user_Lname"));
-                uadd.setText(rs.getString("user_address"));
+                jtxt_uaname2.setText(rs.getString("user_Fname"));
+                jtxt_umi.setText(rs.getString("user_Mname"));
+                jtxt_usn.setText(rs.getString("user_Lname"));
+                jtxt_uadd.setText(rs.getString("user_address"));
                 udob.setDate(rs.getDate("user_DOB"));
-                ucon.setText(rs.getString("user_contactnum"));
-                uname.setText(rs.getString("user_username"));
+                jtxt_ucon.setText(rs.getString("user_contactnum"));
+                jtxt_uname.setText(rs.getString("user_username"));
                 upass.setText(auth.decrypt(rs.getString("user_password")));
             }
             ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+userprofile+".jpg"));
@@ -406,20 +411,20 @@ public class ProfileSettings extends javax.swing.JFrame {
         }
      }
     
-    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
-            userModel=new Users(0,role_id,userProfile.getText(),uaname2.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+    private void jbtn_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_UpdateActionPerformed
+            userModel=new Users(0,role_id,userProfile.getText(),jtxt_uaname2.getText(), jtxt_umi.getText(),jtxt_usn.getText(),jtxt_uadd.getText(),df.format(udob.getDate()),jtxt_ucon.getText(),jtxt_uname.getText(),String.valueOf(upass.getPassword()));
         try {
             updateUser(userModel);
         } catch (SQLException ex) {
             Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_UpdateActionPerformed
+    }//GEN-LAST:event_jbtn_UpdateActionPerformed
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+    private void jtxt_unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_unameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
+    }//GEN-LAST:event_jtxt_unameActionPerformed
 
-    private void uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uconKeyTyped
+    private void jtxt_uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_uconKeyTyped
         char c = evt.getKeyChar();
         if (!((c >= '0') && (c <= '9') ||
             (c == KeyEvent.VK_PERIOD) ||
@@ -428,9 +433,9 @@ public class ProfileSettings extends javax.swing.JFrame {
         getToolkit().beep();
         evt.consume();
         }
-    }//GEN-LAST:event_uconKeyTyped
+    }//GEN-LAST:event_jtxt_uconKeyTyped
 
-    private void uaname2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uaname2KeyTyped
+    private void jtxt_uaname2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_uaname2KeyTyped
         char c = evt.getKeyChar();
         if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
             (c == KeyEvent.VK_PERIOD) ||
@@ -439,7 +444,11 @@ public class ProfileSettings extends javax.swing.JFrame {
         getToolkit().beep();
         evt.consume();
         }
-    }//GEN-LAST:event_uaname2KeyTyped
+    }//GEN-LAST:event_jtxt_uaname2KeyTyped
+
+    private void jtxt_umiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_umiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_umiActionPerformed
 
     Image img;
     
@@ -502,9 +511,6 @@ public class ProfileSettings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Update;
-    private javax.swing.JButton hidepass;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -524,17 +530,20 @@ public class ProfileSettings extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField uadd;
-    public javax.swing.JTextField uaname2;
-    private javax.swing.JTextField ucon;
+    private javax.swing.JButton jbtn_Update;
+    private javax.swing.JButton jbtn_addpic;
+    private javax.swing.JButton jbtn_hidepass;
+    private javax.swing.JButton jbtn_viewpass;
+    private javax.swing.JTextField jtxt_uadd;
+    public javax.swing.JTextField jtxt_uaname2;
+    private javax.swing.JTextField jtxt_ucon;
+    private javax.swing.JTextField jtxt_umi;
+    private javax.swing.JTextField jtxt_uname;
+    private javax.swing.JTextField jtxt_usn;
     private com.toedter.calendar.JDateChooser udob;
-    private javax.swing.JTextField umi;
-    private javax.swing.JTextField uname;
     private javax.swing.JPasswordField upass;
     private javax.swing.JPanel userActionPanel2;
     public javax.swing.JLabel userId;
     private jroundborder.JLabelRound userProfile;
-    private javax.swing.JTextField usn;
-    private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables
 }

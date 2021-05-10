@@ -50,37 +50,37 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         roomtypeControll = new RoomTypesController(lalagyanan);
         ratesControll=new RatesController(lalagyanan);
         bedsControll=new BedsController(lalagyanan);
-        roomtypeControll.showRoomtypes(RTtable);
-        ratesControll.showRates(ratestable);
-       bedsControll.showBeds(bedtable);
+        roomtypeControll.showRoomtypes(jtbl_RTtable);
+        ratesControll.showRates(jtbl_ratestable);
+       bedsControll.showBeds(jtble_bedtable);
           
             if (roomtypelist.size()==0) {
-                jtxRTid.setText("1");
+                jtxt_RTid.setText("1");
           
             }else{
                 index1 = roomtypelist.size()-1;
                 index = roomtypelist.get(index1).getRT_id() + 1;        
-                jtxRTid.setText(String.valueOf(index));
+                jtxt_RTid.setText(String.valueOf(index));
 
             }
 //    }
 
          if (ratelist.size()==0) {
-            jtxRateID.setText("1");
+            jtxt_RateID.setText("1");
           
         }else{
             index1 = ratelist.size()-1;
             index = ratelist.get(index1).getrate_id() + 1;        
-            jtxRateID.setText(String.valueOf(index));
+            jtxt_RateID.setText(String.valueOf(index));
     
         }
           if (bedlist.size()==0) {
-            jtxBedID.setText("1");
+            jtxt_BedID.setText("1");
           
         }else{
             index1 = bedlist.size()-1;
             index = bedlist.get(index1).getbed_id() + 1;        
-            jtxBedID.setText(String.valueOf(index));
+            jtxt_BedID.setText(String.valueOf(index));
           }
           tagokamuna();
 }
@@ -89,15 +89,15 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     
     
     public void tagokamuna(){
-        RTdelete.setVisible(false);
-        Ratedelete.setVisible(false);
-         Beddelete.setVisible(false);
+        jbtn_RTdelete.setVisible(false);
+        jbtn_Ratedelete.setVisible(false);
+         jbtn_Beddelete.setVisible(false);
     }
     
     public void labaskana(){
-        RTdelete.setVisible(true);
-         Ratedelete.setVisible(true);
-          Beddelete.setVisible(true);
+        jbtn_RTdelete.setVisible(true);
+         jbtn_Ratedelete.setVisible(true);
+          jbtn_Beddelete.setVisible(true);
     }
 
     /**
@@ -110,51 +110,51 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        ratestable = new javax.swing.JTable();
+        jtbl_ratestable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        bedtable = new javax.swing.JTable();
+        jtble_bedtable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        RTtable = new javax.swing.JTable();
+        jtbl_RTtable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jtxro_search = new javax.swing.JTextField();
+        jtxt_ro_search = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jtxBedQuantity = new javax.swing.JTextField();
+        jtxt_BedQuantity = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        jtxBedID = new javax.swing.JTextField();
-        Beddelete = new javax.swing.JButton();
-        Bedsave = new javax.swing.JButton();
+        jtxt_BedID = new javax.swing.JTextField();
+        jbtn_Beddelete = new javax.swing.JButton();
+        jbtn_Bedsave = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jtxRateID = new javax.swing.JTextField();
+        jtxt_RateID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jtxRatePrice = new javax.swing.JTextField();
-        Ratesave = new javax.swing.JButton();
-        Ratedelete = new javax.swing.JButton();
+        jtxt_RatePrice = new javax.swing.JTextField();
+        jbtn_Ratesave = new javax.swing.JButton();
+        jbtn_Ratedelete = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jtxRTid = new javax.swing.JTextField();
+        jtxt_RTid = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jtxRoomType = new javax.swing.JTextField();
-        RTsave = new javax.swing.JButton();
-        RTdelete = new javax.swing.JButton();
+        jtxt_RoomType = new javax.swing.JTextField();
+        jbtn_RTsave = new javax.swing.JButton();
+        jbtn_RTdelete = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(213, 221, 221));
         setPreferredSize(new java.awt.Dimension(1480, 790));
 
-        ratestable.setBackground(new java.awt.Color(191, 191, 191));
-        ratestable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        ratestable.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_ratestable.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_ratestable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_ratestable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -170,16 +170,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        ratestable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtbl_ratestable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ratestableMouseClicked(evt);
+                jtbl_ratestableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(ratestable);
+        jScrollPane1.setViewportView(jtbl_ratestable);
 
-        bedtable.setBackground(new java.awt.Color(191, 191, 191));
-        bedtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        bedtable.setModel(new javax.swing.table.DefaultTableModel(
+        jtble_bedtable.setBackground(new java.awt.Color(191, 191, 191));
+        jtble_bedtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtble_bedtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -195,16 +195,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        bedtable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtble_bedtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bedtableMouseClicked(evt);
+                jtble_bedtableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(bedtable);
+        jScrollPane2.setViewportView(jtble_bedtable);
 
-        RTtable.setBackground(new java.awt.Color(191, 191, 191));
-        RTtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        RTtable.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_RTtable.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_RTtable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_RTtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -220,12 +220,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        RTtable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtbl_RTtable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RTtableMouseClicked(evt);
+                jtbl_RTtableMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(RTtable);
+        jScrollPane3.setViewportView(jtbl_RTtable);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -234,7 +234,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ROOMTYPES-RATES-BEDS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 778, -1));
-        jPanel1.add(jtxro_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 30));
+        jPanel1.add(jtxt_ro_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 30));
 
         jPanel2.setBackground(new java.awt.Color(0, 77, 77));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,55 +255,57 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel7.setText("Bed Quantity");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 120, 41));
 
-        jtxBedQuantity.setBackground(new java.awt.Color(0, 77, 77));
-        jtxBedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxBedQuantity.setForeground(new java.awt.Color(255, 255, 255));
-        jtxBedQuantity.setBorder(null);
-        jtxBedQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_BedQuantity.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_BedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_BedQuantity.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_BedQuantity.setBorder(null);
+        jtxt_BedQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxBedQuantityKeyTyped(evt);
+                jtxt_BedQuantityKeyTyped(evt);
             }
         });
-        jPanel2.add(jtxBedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 170, 20));
+        jPanel2.add(jtxt_BedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 170, 20));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 170, 10));
 
-        jtxBedID.setBackground(new java.awt.Color(0, 77, 77));
-        jtxBedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxBedID.setForeground(new java.awt.Color(255, 255, 255));
-        jtxBedID.setBorder(null);
-        jtxBedID.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_BedID.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_BedID.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_BedID.setBorder(null);
+        jtxt_BedID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxBedIDActionPerformed(evt);
+                jtxt_BedIDActionPerformed(evt);
             }
         });
-        jtxBedID.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_BedID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxBedIDKeyTyped(evt);
+                jtxt_BedIDKeyTyped(evt);
             }
         });
-        jPanel2.add(jtxBedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 190, 20));
+        jPanel2.add(jtxt_BedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 190, 20));
 
-        Beddelete.setBackground(new java.awt.Color(51, 102, 255));
-        Beddelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Beddelete.setText("DELETE");
-        Beddelete.setPreferredSize(new java.awt.Dimension(63, 23));
-        Beddelete.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Beddelete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Beddelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Beddelete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Beddelete.setText("DELETE");
+        jbtn_Beddelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        jbtn_Beddelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BeddeleteActionPerformed(evt);
+                jbtn_BeddeleteActionPerformed(evt);
             }
         });
-        jPanel2.add(Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel2.add(jbtn_Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
 
-        Bedsave.setBackground(new java.awt.Color(51, 102, 255));
-        Bedsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Bedsave.setText("SAVE");
-        Bedsave.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Bedsave.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Bedsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Bedsave.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Bedsave.setText("SAVE");
+        jbtn_Bedsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BedsaveActionPerformed(evt);
+                jbtn_BedsaveActionPerformed(evt);
             }
         });
-        jPanel2.add(Bedsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel2.add(jbtn_Bedsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 77, 77));
         jPanel3.setPreferredSize(new java.awt.Dimension(310, 212));
@@ -320,58 +322,60 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel9.setText("Rate ID");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 73, 20));
 
-        jtxRateID.setBackground(new java.awt.Color(0, 77, 77));
-        jtxRateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxRateID.setForeground(new java.awt.Color(255, 255, 255));
-        jtxRateID.setBorder(null);
-        jtxRateID.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_RateID.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_RateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_RateID.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_RateID.setBorder(null);
+        jtxt_RateID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxRateIDActionPerformed(evt);
+                jtxt_RateIDActionPerformed(evt);
             }
         });
-        jtxRateID.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_RateID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxRateIDKeyTyped(evt);
+                jtxt_RateIDKeyTyped(evt);
             }
         });
-        jPanel3.add(jtxRateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 20));
+        jPanel3.add(jtxt_RateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 20));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Room Price");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 41));
 
-        jtxRatePrice.setBackground(new java.awt.Color(0, 77, 77));
-        jtxRatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxRatePrice.setForeground(new java.awt.Color(255, 255, 255));
-        jtxRatePrice.setBorder(null);
-        jtxRatePrice.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_RatePrice.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_RatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_RatePrice.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_RatePrice.setBorder(null);
+        jtxt_RatePrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxRatePriceKeyTyped(evt);
+                jtxt_RatePriceKeyTyped(evt);
             }
         });
-        jPanel3.add(jtxRatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, 20));
+        jPanel3.add(jtxt_RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, 20));
 
-        Ratesave.setBackground(new java.awt.Color(51, 102, 255));
-        Ratesave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Ratesave.setText("SAVE");
-        Ratesave.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Ratesave.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Ratesave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Ratesave.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Ratesave.setText("SAVE");
+        jbtn_Ratesave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RatesaveActionPerformed(evt);
+                jbtn_RatesaveActionPerformed(evt);
             }
         });
-        jPanel3.add(Ratesave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel3.add(jbtn_Ratesave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
 
-        Ratedelete.setBackground(new java.awt.Color(51, 102, 255));
-        Ratedelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        Ratedelete.setText("DELETE");
-        Ratedelete.setPreferredSize(new java.awt.Dimension(63, 23));
-        Ratedelete.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_Ratedelete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Ratedelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Ratedelete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Ratedelete.setText("DELETE");
+        jbtn_Ratedelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        jbtn_Ratedelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RatedeleteActionPerformed(evt);
+                jbtn_RatedeleteActionPerformed(evt);
             }
         });
-        jPanel3.add(Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel3.add(jbtn_Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
         jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 10));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, 10));
 
@@ -389,58 +393,60 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel11.setText("RT ID");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 41));
 
-        jtxRTid.setBackground(new java.awt.Color(0, 77, 77));
-        jtxRTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxRTid.setForeground(new java.awt.Color(255, 255, 255));
-        jtxRTid.setBorder(null);
-        jtxRTid.addActionListener(new java.awt.event.ActionListener() {
+        jtxt_RTid.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_RTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_RTid.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_RTid.setBorder(null);
+        jtxt_RTid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxRTidActionPerformed(evt);
+                jtxt_RTidActionPerformed(evt);
             }
         });
-        jtxRTid.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_RTid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxRTidKeyTyped(evt);
+                jtxt_RTidKeyTyped(evt);
             }
         });
-        jPanel4.add(jtxRTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 62, 200, -1));
+        jPanel4.add(jtxt_RTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 62, 200, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Room Type");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, 41));
 
-        jtxRoomType.setBackground(new java.awt.Color(0, 77, 77));
-        jtxRoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxRoomType.setForeground(new java.awt.Color(255, 255, 255));
-        jtxRoomType.setBorder(null);
-        jtxRoomType.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxt_RoomType.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_RoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_RoomType.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_RoomType.setBorder(null);
+        jtxt_RoomType.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtxRoomTypeKeyTyped(evt);
+                jtxt_RoomTypeKeyTyped(evt);
             }
         });
-        jPanel4.add(jtxRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, 20));
+        jPanel4.add(jtxt_RoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, 20));
 
-        RTsave.setBackground(new java.awt.Color(51, 102, 255));
-        RTsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        RTsave.setText("SAVE");
-        RTsave.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_RTsave.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_RTsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_RTsave.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_RTsave.setText("SAVE");
+        jbtn_RTsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RTsaveActionPerformed(evt);
+                jbtn_RTsaveActionPerformed(evt);
             }
         });
-        jPanel4.add(RTsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel4.add(jbtn_RTsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
 
-        RTdelete.setBackground(new java.awt.Color(51, 102, 255));
-        RTdelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        RTdelete.setText("DELETE");
-        RTdelete.setPreferredSize(new java.awt.Dimension(63, 23));
-        RTdelete.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_RTdelete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_RTdelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_RTdelete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_RTdelete.setText("DELETE");
+        jbtn_RTdelete.setPreferredSize(new java.awt.Dimension(63, 23));
+        jbtn_RTdelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RTdeleteActionPerformed(evt);
+                jbtn_RTdeleteActionPerformed(evt);
             }
         });
-        jPanel4.add(RTdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel4.add(jbtn_RTdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
         jPanel4.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 10));
         jPanel4.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
 
@@ -482,50 +488,50 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ratestableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ratestableMouseClicked
+    private void jtbl_ratestableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_ratestableMouseClicked
      try {
-            id = (int) ratestable.getValueAt(ratestable.getSelectedRow(),0);
-            ratesControll.fillForm(id, jtxRateID, jtxRatePrice);
+            id = (int) jtbl_ratestable.getValueAt(jtbl_ratestable.getSelectedRow(),0);
+            ratesControll.fillForm(id, jtxt_RateID, jtxt_RatePrice);
             labaskana();
-            Ratesave.setVisible(false);
+            jbtn_Ratesave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         
-    }//GEN-LAST:event_ratestableMouseClicked
+    }//GEN-LAST:event_jtbl_ratestableMouseClicked
 
-    private void bedtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bedtableMouseClicked
+    private void jtble_bedtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtble_bedtableMouseClicked
         // TODO add your handling code here:
         
          try {
-            id = (int) bedtable.getValueAt(bedtable.getSelectedRow(),0);
-            bedsControll.fillForm(id, jtxBedID, jtxBedQuantity);
+            id = (int) jtble_bedtable.getValueAt(jtble_bedtable.getSelectedRow(),0);
+            bedsControll.fillForm(id, jtxt_BedID, jtxt_BedQuantity);
             labaskana();
-            Bedsave.setVisible(false);
+            jbtn_Bedsave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_bedtableMouseClicked
+    }//GEN-LAST:event_jtble_bedtableMouseClicked
 
-    private void RTtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RTtableMouseClicked
+    private void jtbl_RTtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_RTtableMouseClicked
         // TODO add your handling code here:
         
          try {
-            id = (int) RTtable.getValueAt(RTtable.getSelectedRow(),0);
-            roomtypeControll.fillForm(id, jtxRTid, jtxRoomType);
+            id = (int) jtbl_RTtable.getValueAt(jtbl_RTtable.getSelectedRow(),0);
+            roomtypeControll.fillForm(id, jtxt_RTid, jtxt_RoomType);
             labaskana();
-            RTsave.setVisible(false);
+            jbtn_RTsave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
-    }//GEN-LAST:event_RTtableMouseClicked
+    }//GEN-LAST:event_jtbl_RTtableMouseClicked
 
-    private void BedsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BedsaveActionPerformed
+    private void jbtn_BedsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BedsaveActionPerformed
 
         
            if (checkInputsBed()==true) {
@@ -533,7 +539,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }else{     
         try {
              
-            bedsControll.saveBeds(jtxBedID, jtxBedQuantity, bedtable);
+            bedsControll.saveBeds(jtxt_BedID, jtxt_BedQuantity, jtble_bedtable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
             
@@ -541,17 +547,17 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     }              
            }   
         
-    }//GEN-LAST:event_BedsaveActionPerformed
+    }//GEN-LAST:event_jbtn_BedsaveActionPerformed
 
-    private void jtxBedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxBedIDActionPerformed
+    private void jtxt_BedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_BedIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxBedIDActionPerformed
+    }//GEN-LAST:event_jtxt_BedIDActionPerformed
 
-    private void jtxRateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxRateIDActionPerformed
+    private void jtxt_RateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_RateIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxRateIDActionPerformed
+    }//GEN-LAST:event_jtxt_RateIDActionPerformed
 
-    private void RatesaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatesaveActionPerformed
+    private void jbtn_RatesaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RatesaveActionPerformed
         // TODO add your handling code here:
         
         
@@ -560,26 +566,26 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }else{     
         try {
              
-            ratesControll.saveRates(jtxRateID, jtxRatePrice, ratestable);
+            ratesControll.saveRates(jtxt_RateID, jtxt_RatePrice, jtbl_ratestable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
             
         }
            }   
-    }//GEN-LAST:event_RatesaveActionPerformed
+    }//GEN-LAST:event_jbtn_RatesaveActionPerformed
 
-    private void jtxRTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxRTidActionPerformed
+    private void jtxt_RTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_RTidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxRTidActionPerformed
+    }//GEN-LAST:event_jtxt_RTidActionPerformed
 
-    private void RTsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTsaveActionPerformed
+    private void jbtn_RTsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RTsaveActionPerformed
       
          if (checkInputsRT()==true) {
              JOptionPane.showMessageDialog(this,"ERROR");
           
       }else{     
         try { 
-            roomtypeControll.saveRT(jtxRTid,jtxRoomType,RTtable);
+            roomtypeControll.saveRT(jtxt_RTid,jtxt_RoomType,jtbl_RTtable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
             
@@ -587,40 +593,40 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
             
         }
          }
-    }//GEN-LAST:event_RTsaveActionPerformed
+    }//GEN-LAST:event_jbtn_RTsaveActionPerformed
 
-    private void RTdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTdeleteActionPerformed
+    private void jbtn_RTdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RTdeleteActionPerformed
         // TODO add your handling code here:
         
           try {
-            boolean checkDeleteRoomtypes = roomtypeControll.deleteRoomtypes(id, RTtable);
+            boolean checkDeleteRoomtypes = roomtypeControll.deleteRoomtypes(id, jtbl_RTtable);
             if (checkDeleteRoomtypes==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_RTdeleteActionPerformed
+    }//GEN-LAST:event_jbtn_RTdeleteActionPerformed
 
-    private void RatedeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatedeleteActionPerformed
+    private void jbtn_RatedeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RatedeleteActionPerformed
         // TODO add your handling code here:
         
         
         try {
-            boolean checkDeleteRates = ratesControll.deleteRates(id, ratestable);
+            boolean checkDeleteRates = ratesControll.deleteRates(id, jtbl_ratestable);
             if (checkDeleteRates==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_RatedeleteActionPerformed
+    }//GEN-LAST:event_jbtn_RatedeleteActionPerformed
 
-    private void BeddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeddeleteActionPerformed
+    private void jbtn_BeddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BeddeleteActionPerformed
         // TODO add your handling code here:
         
         try {
-            boolean checkDeleteBeds = bedsControll.deleteBeds(id, bedtable);
+            boolean checkDeleteBeds = bedsControll.deleteBeds(id, jtble_bedtable);
             if (checkDeleteBeds==true) {
                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
             }
@@ -629,9 +635,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         }
         
         
-    }//GEN-LAST:event_BeddeleteActionPerformed
+    }//GEN-LAST:event_jbtn_BeddeleteActionPerformed
 
-    private void jtxRTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRTidKeyTyped
+    private void jtxt_RTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_RTidKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -641,9 +647,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxRTidKeyTyped
+    }//GEN-LAST:event_jtxt_RTidKeyTyped
 
-    private void jtxRateIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRateIDKeyTyped
+    private void jtxt_RateIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_RateIDKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -654,9 +660,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              evt.consume();
           }     
         
-    }//GEN-LAST:event_jtxRateIDKeyTyped
+    }//GEN-LAST:event_jtxt_RateIDKeyTyped
 
-    private void jtxBedIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxBedIDKeyTyped
+    private void jtxt_BedIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_BedIDKeyTyped
         // TODO add your handling code here:
         
          char c = evt.getKeyChar();
@@ -667,9 +673,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxBedIDKeyTyped
+    }//GEN-LAST:event_jtxt_BedIDKeyTyped
 
-    private void jtxRatePriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRatePriceKeyTyped
+    private void jtxt_RatePriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_RatePriceKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -680,9 +686,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              evt.consume();
           }
         
-    }//GEN-LAST:event_jtxRatePriceKeyTyped
+    }//GEN-LAST:event_jtxt_RatePriceKeyTyped
 
-    private void jtxRoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRoomTypeKeyTyped
+    private void jtxt_RoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_RoomTypeKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -693,9 +699,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxRoomTypeKeyTyped
+    }//GEN-LAST:event_jtxt_RoomTypeKeyTyped
 
-    private void jtxBedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxBedQuantityKeyTyped
+    private void jtxt_BedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_BedQuantityKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -705,12 +711,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_jtxBedQuantityKeyTyped
+    }//GEN-LAST:event_jtxt_BedQuantityKeyTyped
       
     
      private boolean checkInputsRT(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (jtxRTid.getText().isEmpty()||jtxRoomType.getText().isEmpty()){
+        if (jtxt_RTid.getText().isEmpty()||jtxt_RoomType.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -719,7 +725,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }
      private boolean checkInputsRate(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (jtxRateID.getText().isEmpty()||jtxRatePrice.getText().isEmpty()){
+        if (jtxt_RateID.getText().isEmpty()||jtxt_RatePrice.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -728,7 +734,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       } 
     private boolean checkInputsBed(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (jtxBedID.getText().isEmpty()||jtxBedQuantity.getText().isEmpty()){
+        if (jtxt_BedID.getText().isEmpty()||jtxt_BedQuantity.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -740,14 +746,6 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Beddelete;
-    private javax.swing.JButton Bedsave;
-    private javax.swing.JButton RTdelete;
-    private javax.swing.JButton RTsave;
-    private javax.swing.JTable RTtable;
-    private javax.swing.JButton Ratedelete;
-    private javax.swing.JButton Ratesave;
-    private javax.swing.JTable bedtable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -771,13 +769,21 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jtxBedID;
-    private javax.swing.JTextField jtxBedQuantity;
-    private javax.swing.JTextField jtxRTid;
-    private javax.swing.JTextField jtxRateID;
-    private javax.swing.JTextField jtxRatePrice;
-    private javax.swing.JTextField jtxRoomType;
-    private javax.swing.JTextField jtxro_search;
-    private javax.swing.JTable ratestable;
+    private javax.swing.JButton jbtn_Beddelete;
+    private javax.swing.JButton jbtn_Bedsave;
+    private javax.swing.JButton jbtn_RTdelete;
+    private javax.swing.JButton jbtn_RTsave;
+    private javax.swing.JButton jbtn_Ratedelete;
+    private javax.swing.JButton jbtn_Ratesave;
+    private javax.swing.JTable jtbl_RTtable;
+    private javax.swing.JTable jtbl_ratestable;
+    private javax.swing.JTable jtble_bedtable;
+    private javax.swing.JTextField jtxt_BedID;
+    private javax.swing.JTextField jtxt_BedQuantity;
+    private javax.swing.JTextField jtxt_RTid;
+    private javax.swing.JTextField jtxt_RateID;
+    private javax.swing.JTextField jtxt_RatePrice;
+    private javax.swing.JTextField jtxt_RoomType;
+    private javax.swing.JTextField jtxt_ro_search;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,7 +32,7 @@ public class SalesPanel extends javax.swing.JPanel {
     public SaleController salesControll = new SaleController();
     public SalesPanel() throws SQLException {
         initComponents();
-        salesControll.showSales(salesTable);
+        salesControll.showSales(jtbl_sales);
     }
 
     /**
@@ -45,15 +45,16 @@ public class SalesPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        salesTable = new javax.swing.JTable();
+        jtbl_sales = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         Salesfr = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         Salest = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        jbtn_show = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jtxsales_search = new javax.swing.JTextField();
+        jtxt_sales_search = new javax.swing.JTextField();
+        jbtn_Generatereport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -61,9 +62,9 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(300, 300));
 
-        salesTable.setBackground(new java.awt.Color(191, 191, 191));
-        salesTable.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        salesTable.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_sales.setBackground(new java.awt.Color(191, 191, 191));
+        jtbl_sales.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jtbl_sales.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -79,9 +80,9 @@ public class SalesPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(salesTable);
-        if (salesTable.getColumnModel().getColumnCount() > 0) {
-            salesTable.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(jtbl_sales);
+        if (jtbl_sales.getColumnModel().getColumnCount() > 0) {
+            jtbl_sales.getColumnModel().getColumn(3).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 1130, 690));
@@ -113,20 +114,29 @@ public class SalesPanel extends javax.swing.JPanel {
         Salest.setOpaque(false);
         add(Salest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 200, 30));
 
-        jButton1.setText("Show");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_show.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_show.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
+        jbtn_show.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_show.setText("Show");
+        jbtn_show.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtn_showActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
+        add(jbtn_show, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 340));
-        add(jtxsales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 390));
+        add(jtxt_sales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
+
+        jbtn_Generatereport.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Generatereport.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Generatereport.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Generatereport.setText("Generate Report");
+        add(jbtn_Generatereport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 170, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtn_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_showActionPerformed
 
         
         
@@ -151,7 +161,7 @@ public class SalesPanel extends javax.swing.JPanel {
             Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtn_showActionPerformed
     
        private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
@@ -171,13 +181,14 @@ public class SalesPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser Salesfr;
     private com.toedter.calendar.JDateChooser Salest;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jtxsales_search;
-    private javax.swing.JTable salesTable;
+    private javax.swing.JButton jbtn_Generatereport;
+    private javax.swing.JButton jbtn_show;
+    private javax.swing.JTable jtbl_sales;
+    private javax.swing.JTextField jtxt_sales_search;
     // End of variables declaration//GEN-END:variables
 }
