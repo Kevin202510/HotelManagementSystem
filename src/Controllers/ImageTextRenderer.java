@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.sql.Connection;
@@ -15,7 +16,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
+import jroundborder.JLabelRound;
 
 /**
  *
@@ -30,13 +33,13 @@ import javax.swing.ListCellRenderer;
            setText(it.getname());
            
             if (selected) {
-                setBackground(list.getSelectionBackground());
-                setForeground(list.getSelectionForeground());
+                setBackground(Color.decode("#538cc6"));
+                setForeground(Color.WHITE);
             }else{
-                setBackground(list.getSelectionBackground());
-                setForeground(list.getSelectionForeground());
+                setBackground(Color.decode("#538cc6"));
+                setForeground(Color.WHITE);
             }
-           setFont(list.getFont());
+           setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12));
            
            return this;
            
@@ -55,14 +58,16 @@ import javax.swing.ListCellRenderer;
                   fullname = rs.getString("user_Fname") + " " + rs.getString("user_Mname") + " " + rs.getString("user_Lname");
             }
             
+            JLabelRound kkk;
              ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+profile+".jpg"));
             Image kevs = vin.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             ImageIcon shit = new ImageIcon(kevs);
             
+             ImageIcon vin1 = new ImageIcon(getClass().getResource("/Images/gearmoto.gif"));
         DefaultComboBoxModel kev = new DefaultComboBoxModel();
         kev.addElement(new ImagesNText(shit,fullname));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
-        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\logout.png"),"LOG OUT"));
+        kev.addElement(new ImagesNText(new ImageIcon("src\\Images\\checkout.png"),"LOG OUT"));
+        kev.addElement(new ImagesNText(vin1,"Developer Settings"));
         return kev;
     }
         

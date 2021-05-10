@@ -30,9 +30,11 @@ public class Buttons {
     
     JPanel lalagyanan;
     JLabel home,customers,rate_RT_bed,rooms,users,sales,checkOut;
+    int user_ids;
     
-    public Buttons(JPanel lalagyanan){
+    public Buttons(JPanel lalagyanan,int user_id){
         this.lalagyanan=lalagyanan;
+        this.user_ids=user_id;
     }
     
     public void displayDateAndTime(JLabel date,JLabel time){
@@ -109,7 +111,7 @@ public class Buttons {
      public void checkoutButton(JLabel checkOut){
          this.checkOut=checkOut;
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan));
+                new ContainerManipulator(lalagyanan,new Views.Panels.CheckoutPanels(lalagyanan,user_ids));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }

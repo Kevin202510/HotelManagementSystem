@@ -7,7 +7,6 @@ package Controllers;
 
 import Models.CheckinAndOut;
 import Models.Customers;
-import Views.Panels.Receipts;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -203,7 +202,6 @@ public class CheckinAndOutController{
          
 //         checkout filler
          public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime) throws SQLException{
-//            ArrayList<Customers> list = new CustomerController().custList();
             String datein="";
             String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"'";
             Statement st = con.createStatement();
@@ -221,7 +219,7 @@ public class CheckinAndOutController{
              }
          }
          
-         public void payment(int id,String checkindate) throws SQLException{
+         public void payment(int id,String checkindate,int user_ids) throws SQLException{
               String tanongs = "UPDATE checkinandout SET timeout = '"+getTimeNow()+"' , checkout_date = '"+getDateNow()+"'  where id='"+id+"'";
                     Statement sts = con.createStatement();
                     int i = sts.executeUpdate(tanongs);
@@ -233,20 +231,19 @@ public class CheckinAndOutController{
                             JOptionPane.showMessageDialog(null,days);
                             int total = (int) (500 * days);
                             JOptionPane.showMessageDialog(null,"Your Total Amount Is " + total);
+                            addSales(checkoutdate,total,user_ids);
              }
          }
          
-         public void checkCustomerCheckOut() throws SQLException{
-             JOptionPane.showMessageDialog(null,"sdasdas");
-             String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(checkOutCheck);
-
-             while(rs.next()){
-                    String checkouttime = rs.getString("timeout");
-                    if (getTimeNow().equals(checkouttime)) {
-                           JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
-                 }
+         public void addSales(String datenow,int amount,int user_id) throws SQLException{
+             String insert = "INSERT INTO `inventories`(`sales_date`, `amount`, `user_id`) VALUES (?,?,?)";
+            PreparedStatement st = con.prepareStatement(insert);
+            st.setString(1, datenow);
+           st.setInt(2, amount);
+           st.setInt(3, user_id);
+           int i = st.executeUpdate();
+             if (i>0) {
+                 JOptionPane.showMessageDialog(null,"successfully");
              }
          }
 }

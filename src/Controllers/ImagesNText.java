@@ -21,19 +21,19 @@ import javax.swing.ListCellRenderer;
  */
 public class ImagesNText {
 
-         public Icon img;
+         public ImageIcon img;
         public String name;
         
-        public ImagesNText(Icon img,String name) {
+        public ImagesNText(ImageIcon img,String name) {
             this.img=img;
             this.name=name;
         }
         
-        public Icon getImg(){
+        public ImageIcon getImg(){
             return img;
         }
         
-        public void setImg(Icon img){
+        public void setImg(ImageIcon img){
             this.img=img;
         }
         

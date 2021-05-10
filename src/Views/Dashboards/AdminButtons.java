@@ -33,6 +33,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -60,14 +61,14 @@ public class AdminButtons extends javax.swing.JPanel {
         this.out=out;
         this.user_id=user_id;
         this.lalagyanan=lalagyanan;
-        userButton = new Buttons(lalagyanan);
+        userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
         userrole.setForeground(Color.decode("#0039e6"));
-        jComboBox1.setBackground(Color.decode("#0039e6"));
+        jComboBox1.setBackground(new Color(0, 0, 0, 0));
         jComboBox1.setOpaque(false);
-//        new VideoFeeder().start();
+        new VideoFeeder().start();
 //        checkCustomerCheckOut();
     }
 
@@ -82,9 +83,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        logout = new jroundborder.JLabelRound();
         jLabelRound3 = new jroundborder.JLabelRound();
-        jLabelRound1 = new jroundborder.JLabelRound();
         user_fullname = new javax.swing.JLabel();
         userrole = new javax.swing.JLabel();
         hov5 = new javax.swing.JPanel();
@@ -117,14 +116,6 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1 (2).gif"))); // NOI18N
         AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 10, 550, -1));
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-        });
-        AdminButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 41, 39));
-
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,14 +123,6 @@ public class AdminButtons extends javax.swing.JPanel {
             }
         });
         AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 39));
-
-        jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
-        jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRound1MouseClicked(evt);
-            }
-        });
-        AdminButtons.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -387,10 +370,6 @@ public class AdminButtons extends javax.swing.JPanel {
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-//        signOut(out);
-    }//GEN-LAST:event_logoutMouseClicked
     public void signOut(JFrame out){
             new Login().setVisible(true);
             out.dispose();
@@ -398,10 +377,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         userButton.checkButtons();
     }//GEN-LAST:event_jLabelRound3MouseClicked
-
-    private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
-
-    }//GEN-LAST:event_jLabelRound1MouseClicked
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
         userButton.saleButton(sales);
@@ -510,73 +485,48 @@ public class AdminButtons extends javax.swing.JPanel {
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    public  SQL sql = new SQL();
+    public Connection con = sql.getConnection();
     
-//    public  SQL sql = new SQL();
-//    public Connection con = sql.getConnection();
-//    
-//    String kk;
-//    
-//    public String getTimeNow(){
-//         Calendar date = Calendar.getInstance();  
-//        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
-//        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
-////        date.add(Calendar.MINUTE,+1);
-//        Date strTime = date.getTime();
-//        kk = kev.format(strTime);
-////        String kkk = kevs.format(strTime);
-////        orayt.setText(kkk);
-//        return kk;
-//     }
-//    
-//    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
-//            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
-//                        Statement st = con.createStatement();
-//                        ResultSet rs = st.executeQuery(checkOutCheck);
-//                        
-//                        while(rs.next()){
-//                            String checkouttime = rs.getString("timeout");
-////                            JOptionPane.showMessageDialog(null,timess);
-//                            if (timess.equals(checkouttime)) {
-////                                JOptionPane.showMessageDialog(null,checkouttime);
-////                                JOptionPane.showMessageDialog(null,timess);
-//                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
-////                                new VideoFeeder().sleep(5000);
-//                            }
-//                        }
-//         }
+    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
+            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
+                        Statement st = con.createStatement();
+                        ResultSet rs = st.executeQuery(checkOutCheck);
+                        
+                        while(rs.next()){
+                            String checkouttime = rs.getString("timeout");
+                            if (timess.equals(checkouttime)) {
+                            String checkoutnato = "Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out";
+                            new Alerts(checkoutnato).setVisible(true);
+                            new VideoFeeder().sleep(3000);
+                            }
+                        }
+         }
     
-//     class VideoFeeder extends Thread {
-//    
-//          public void run(){
-//              try {
-//                  
-//                  String ss = "00";
-//                  
-//                  while(true){
-//                      Calendar cal = Calendar.getInstance();
-//                      int hour = cal.get(Calendar.HOUR_OF_DAY);
-//                      int minute = cal.get(Calendar.MINUTE);
-//                      int second = cal.get(Calendar.SECOND);
-//                      SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
-//                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
-//                      Date dat = cal.getTime();
-//                      String times = kev.format(dat);
-//                      String timess = kevs.format(dat);
-//                      DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//                      String strDate = dateFormat.format(dat);
-//                      date.setText(strDate);
-//                      time.setText(times);
-//                      checkCustomerCheckOut(timess);
-//                  }
-//              } catch (SQLException ex) {
-//                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-//              } catch (InterruptedException ex) {
-//                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-//              }
-//          
-//          }
-//    
-//    }
+    class VideoFeeder extends Thread {
+    
+          public void run(){
+              try {
+                  
+                  String ss = "00";
+                  
+                  while(true){
+                      Calendar cal = Calendar.getInstance();
+                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+                      Date dat = cal.getTime();
+                      String timess = kevs.format(dat);
+//                      time.setText(timess);
+                      checkCustomerCheckOut(timess);
+                  }
+              } catch (SQLException ex) {
+                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+              } catch (InterruptedException ex) {
+                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+              }
+          
+          }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
@@ -592,9 +542,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound3;
-    private jroundborder.JLabelRound logout;
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;

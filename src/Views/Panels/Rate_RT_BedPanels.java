@@ -30,10 +30,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Chelsea
  */
 public class Rate_RT_BedPanels extends javax.swing.JPanel {
-    
-    
-    
-   
+
         public  SQL sql = new SQL();
         public JPanel lalagyanan;
          public int index,index1,id;
@@ -43,6 +40,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
          ArrayList<Rates> ratelist = ratesControll.rateList();
          BedsController bedsControll = new BedsController(lalagyanan); 
          ArrayList<Beds> bedlist = bedsControll.bedList();
+         
     /**
      * Creates new form Rate_RT_BedPanels
      */
@@ -55,38 +53,34 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         roomtypeControll.showRoomtypes(RTtable);
         ratesControll.showRates(ratestable);
        bedsControll.showBeds(bedtable);
-   
-
-       
-       
+          
             if (roomtypelist.size()==0) {
-                RTid.setText("1");
+                jtxRTid.setText("1");
           
             }else{
                 index1 = roomtypelist.size()-1;
-               // JOptionPane.showMessageDialog(null,index1);
                 index = roomtypelist.get(index1).getRT_id() + 1;        
-                RTid.setText(String.valueOf(index));
+                jtxRTid.setText(String.valueOf(index));
 
             }
 //    }
 
          if (ratelist.size()==0) {
-            RateID.setText("1");
+            jtxRateID.setText("1");
           
         }else{
             index1 = ratelist.size()-1;
             index = ratelist.get(index1).getrate_id() + 1;        
-            RateID.setText(String.valueOf(index));
+            jtxRateID.setText(String.valueOf(index));
     
         }
           if (bedlist.size()==0) {
-            BedID.setText("1");
+            jtxBedID.setText("1");
           
         }else{
             index1 = bedlist.size()-1;
             index = bedlist.get(index1).getbed_id() + 1;        
-            BedID.setText(String.valueOf(index));
+            jtxBedID.setText(String.valueOf(index));
           }
           tagokamuna();
 }
@@ -123,22 +117,23 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         RTtable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jtxro_search = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        BedQuantity = new javax.swing.JTextField();
+        jtxBedQuantity = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
-        BedID = new javax.swing.JTextField();
+        jtxBedID = new javax.swing.JTextField();
         Beddelete = new javax.swing.JButton();
         Bedsave = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        RateID = new javax.swing.JTextField();
+        jtxRateID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        RatePrice = new javax.swing.JTextField();
+        jtxRatePrice = new javax.swing.JTextField();
         Ratesave = new javax.swing.JButton();
         Ratedelete = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
@@ -146,9 +141,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        RTid = new javax.swing.JTextField();
+        jtxRTid = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        RoomType = new javax.swing.JTextField();
+        jtxRoomType = new javax.swing.JTextField();
         RTsave = new javax.swing.JButton();
         RTdelete = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
@@ -238,7 +233,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ROOMTYPES-RATES-BEDS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(721, 26, 778, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 778, -1));
+        jPanel1.add(jtxro_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 30));
 
         jPanel2.setBackground(new java.awt.Color(0, 77, 77));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -247,46 +243,46 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(191, 191, 191));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("BED ACTION");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, 50));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 40));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Bed ID");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 60, 60, 41));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 60, 41));
 
         jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Bed Quantity");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 120, 41));
 
-        BedQuantity.setBackground(new java.awt.Color(0, 77, 77));
-        BedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        BedQuantity.setForeground(new java.awt.Color(255, 255, 255));
-        BedQuantity.setBorder(null);
-        BedQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxBedQuantity.setBackground(new java.awt.Color(0, 77, 77));
+        jtxBedQuantity.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxBedQuantity.setForeground(new java.awt.Color(255, 255, 255));
+        jtxBedQuantity.setBorder(null);
+        jtxBedQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                BedQuantityKeyTyped(evt);
+                jtxBedQuantityKeyTyped(evt);
             }
         });
-        jPanel2.add(BedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 170, 30));
+        jPanel2.add(jtxBedQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 170, 20));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 170, 10));
 
-        BedID.setBackground(new java.awt.Color(153, 255, 51));
-        BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        BedID.setForeground(new java.awt.Color(255, 255, 255));
-        BedID.setBorder(null);
-        BedID.addActionListener(new java.awt.event.ActionListener() {
+        jtxBedID.setBackground(new java.awt.Color(0, 77, 77));
+        jtxBedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxBedID.setForeground(new java.awt.Color(255, 255, 255));
+        jtxBedID.setBorder(null);
+        jtxBedID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BedIDActionPerformed(evt);
+                jtxBedIDActionPerformed(evt);
             }
         });
-        BedID.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxBedID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                BedIDKeyTyped(evt);
+                jtxBedIDKeyTyped(evt);
             }
         });
-        jPanel2.add(BedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 190, 30));
+        jPanel2.add(jtxBedID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 190, 20));
 
         Beddelete.setBackground(new java.awt.Color(51, 102, 255));
         Beddelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -317,44 +313,44 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(191, 191, 191));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("RATE ACTION");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 50));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 50));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Rate ID");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 73, 41));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 73, 20));
 
-        RateID.setBackground(new java.awt.Color(0, 77, 77));
-        RateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        RateID.setForeground(new java.awt.Color(255, 255, 255));
-        RateID.setBorder(null);
-        RateID.addActionListener(new java.awt.event.ActionListener() {
+        jtxRateID.setBackground(new java.awt.Color(0, 77, 77));
+        jtxRateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxRateID.setForeground(new java.awt.Color(255, 255, 255));
+        jtxRateID.setBorder(null);
+        jtxRateID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RateIDActionPerformed(evt);
+                jtxRateIDActionPerformed(evt);
             }
         });
-        RateID.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxRateID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                RateIDKeyTyped(evt);
+                jtxRateIDKeyTyped(evt);
             }
         });
-        jPanel3.add(RateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 190, 30));
+        jPanel3.add(jtxRateID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 20));
 
         jLabel10.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Room Price");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 41));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, 41));
 
-        RatePrice.setBackground(new java.awt.Color(0, 77, 77));
-        RatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        RatePrice.setForeground(new java.awt.Color(255, 255, 255));
-        RatePrice.setBorder(null);
-        RatePrice.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxRatePrice.setBackground(new java.awt.Color(0, 77, 77));
+        jtxRatePrice.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxRatePrice.setForeground(new java.awt.Color(255, 255, 255));
+        jtxRatePrice.setBorder(null);
+        jtxRatePrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                RatePriceKeyTyped(evt);
+                jtxRatePriceKeyTyped(evt);
             }
         });
-        jPanel3.add(RatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 180, 30));
+        jPanel3.add(jtxRatePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, 20));
 
         Ratesave.setBackground(new java.awt.Color(51, 102, 255));
         Ratesave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -364,7 +360,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 RatesaveActionPerformed(evt);
             }
         });
-        jPanel3.add(Ratesave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, 30));
+        jPanel3.add(Ratesave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
 
         Ratedelete.setBackground(new java.awt.Color(51, 102, 255));
         Ratedelete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -375,9 +371,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 RatedeleteActionPerformed(evt);
             }
         });
-        jPanel3.add(Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, 30));
-        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 10));
-        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, 10));
+        jPanel3.add(Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 10));
+        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, 10));
 
         jPanel4.setBackground(new java.awt.Color(0, 77, 77));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,37 +389,37 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel11.setText("RT ID");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 41));
 
-        RTid.setBackground(new java.awt.Color(0, 77, 77));
-        RTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        RTid.setForeground(new java.awt.Color(255, 255, 255));
-        RTid.setBorder(null);
-        RTid.addActionListener(new java.awt.event.ActionListener() {
+        jtxRTid.setBackground(new java.awt.Color(0, 77, 77));
+        jtxRTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxRTid.setForeground(new java.awt.Color(255, 255, 255));
+        jtxRTid.setBorder(null);
+        jtxRTid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RTidActionPerformed(evt);
+                jtxRTidActionPerformed(evt);
             }
         });
-        RTid.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxRTid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                RTidKeyTyped(evt);
+                jtxRTidKeyTyped(evt);
             }
         });
-        jPanel4.add(RTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 200, 30));
+        jPanel4.add(jtxRTid, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 62, 200, -1));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Room Type");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, 41));
 
-        RoomType.setBackground(new java.awt.Color(0, 77, 77));
-        RoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        RoomType.setForeground(new java.awt.Color(255, 255, 255));
-        RoomType.setBorder(null);
-        RoomType.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxRoomType.setBackground(new java.awt.Color(0, 77, 77));
+        jtxRoomType.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxRoomType.setForeground(new java.awt.Color(255, 255, 255));
+        jtxRoomType.setBorder(null);
+        jtxRoomType.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                RoomTypeKeyTyped(evt);
+                jtxRoomTypeKeyTyped(evt);
             }
         });
-        jPanel4.add(RoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 180, 30));
+        jPanel4.add(jtxRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, 20));
 
         RTsave.setBackground(new java.awt.Color(51, 102, 255));
         RTsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -452,16 +448,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1499, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)))
@@ -473,7 +465,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -482,18 +474,18 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void ratestableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ratestableMouseClicked
      try {
             id = (int) ratestable.getValueAt(ratestable.getSelectedRow(),0);
-            ratesControll.fillForm(id, RateID, RatePrice);
+            ratesControll.fillForm(id, jtxRateID, jtxRatePrice);
             labaskana();
             Ratesave.setVisible(false);
         } catch (SQLException ex) {
@@ -509,7 +501,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         
          try {
             id = (int) bedtable.getValueAt(bedtable.getSelectedRow(),0);
-            bedsControll.fillForm(id, BedID, BedQuantity);
+            bedsControll.fillForm(id, jtxBedID, jtxBedQuantity);
             labaskana();
             Bedsave.setVisible(false);
         } catch (SQLException ex) {
@@ -523,7 +515,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         
          try {
             id = (int) RTtable.getValueAt(RTtable.getSelectedRow(),0);
-            roomtypeControll.fillForm(id, RTid, RoomType);
+            roomtypeControll.fillForm(id, jtxRTid, jtxRoomType);
             labaskana();
             RTsave.setVisible(false);
         } catch (SQLException ex) {
@@ -541,7 +533,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }else{     
         try {
              
-            bedsControll.saveBeds(BedID, BedQuantity, bedtable);
+            bedsControll.saveBeds(jtxBedID, jtxBedQuantity, bedtable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
             
@@ -551,13 +543,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BedsaveActionPerformed
 
-    private void BedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BedIDActionPerformed
+    private void jtxBedIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxBedIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BedIDActionPerformed
+    }//GEN-LAST:event_jtxBedIDActionPerformed
 
-    private void RateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RateIDActionPerformed
+    private void jtxRateIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxRateIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RateIDActionPerformed
+    }//GEN-LAST:event_jtxRateIDActionPerformed
 
     private void RatesaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatesaveActionPerformed
         // TODO add your handling code here:
@@ -568,7 +560,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }else{     
         try {
              
-            ratesControll.saveRates(RateID, RatePrice, ratestable);
+            ratesControll.saveRates(jtxRateID, jtxRatePrice, ratestable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
             
@@ -576,9 +568,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
            }   
     }//GEN-LAST:event_RatesaveActionPerformed
 
-    private void RTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTidActionPerformed
+    private void jtxRTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxRTidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RTidActionPerformed
+    }//GEN-LAST:event_jtxRTidActionPerformed
 
     private void RTsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RTsaveActionPerformed
       
@@ -587,7 +579,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
           
       }else{     
         try { 
-            roomtypeControll.saveRT(RTid,RoomType,RTtable);
+            roomtypeControll.saveRT(jtxRTid,jtxRoomType,RTtable);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
             
@@ -639,7 +631,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BeddeleteActionPerformed
 
-    private void RTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RTidKeyTyped
+    private void jtxRTidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRTidKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -649,9 +641,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_RTidKeyTyped
+    }//GEN-LAST:event_jtxRTidKeyTyped
 
-    private void RateIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RateIDKeyTyped
+    private void jtxRateIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRateIDKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -662,9 +654,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              evt.consume();
           }     
         
-    }//GEN-LAST:event_RateIDKeyTyped
+    }//GEN-LAST:event_jtxRateIDKeyTyped
 
-    private void BedIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BedIDKeyTyped
+    private void jtxBedIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxBedIDKeyTyped
         // TODO add your handling code here:
         
          char c = evt.getKeyChar();
@@ -675,9 +667,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_BedIDKeyTyped
+    }//GEN-LAST:event_jtxBedIDKeyTyped
 
-    private void RatePriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RatePriceKeyTyped
+    private void jtxRatePriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRatePriceKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
@@ -688,9 +680,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              evt.consume();
           }
         
-    }//GEN-LAST:event_RatePriceKeyTyped
+    }//GEN-LAST:event_jtxRatePriceKeyTyped
 
-    private void RoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RoomTypeKeyTyped
+    private void jtxRoomTypeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxRoomTypeKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -701,9 +693,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_RoomTypeKeyTyped
+    }//GEN-LAST:event_jtxRoomTypeKeyTyped
 
-    private void BedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BedQuantityKeyTyped
+    private void jtxBedQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxBedQuantityKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
          if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -713,12 +705,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_BedQuantityKeyTyped
+    }//GEN-LAST:event_jtxBedQuantityKeyTyped
       
     
      private boolean checkInputsRT(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (RTid.getText().isEmpty()||RoomType.getText().isEmpty()){
+        if (jtxRTid.getText().isEmpty()||jtxRoomType.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -727,7 +719,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       }
      private boolean checkInputsRate(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (RateID.getText().isEmpty()||RatePrice.getText().isEmpty()){
+        if (jtxRateID.getText().isEmpty()||jtxRatePrice.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -736,7 +728,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
       } 
     private boolean checkInputsBed(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (BedID.getText().isEmpty()||BedQuantity.getText().isEmpty()){
+        if (jtxBedID.getText().isEmpty()||jtxBedQuantity.getText().isEmpty()){
          //   JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -748,19 +740,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BedID;
-    private javax.swing.JTextField BedQuantity;
     private javax.swing.JButton Beddelete;
     private javax.swing.JButton Bedsave;
     private javax.swing.JButton RTdelete;
-    private javax.swing.JTextField RTid;
     private javax.swing.JButton RTsave;
     private javax.swing.JTable RTtable;
-    private javax.swing.JTextField RateID;
-    private javax.swing.JTextField RatePrice;
     private javax.swing.JButton Ratedelete;
     private javax.swing.JButton Ratesave;
-    private javax.swing.JTextField RoomType;
     private javax.swing.JTable bedtable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -785,6 +771,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField jtxBedID;
+    private javax.swing.JTextField jtxBedQuantity;
+    private javax.swing.JTextField jtxRTid;
+    private javax.swing.JTextField jtxRateID;
+    private javax.swing.JTextField jtxRatePrice;
+    private javax.swing.JTextField jtxRoomType;
+    private javax.swing.JTextField jtxro_search;
     private javax.swing.JTable ratestable;
     // End of variables declaration//GEN-END:variables
 }

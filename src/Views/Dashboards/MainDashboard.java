@@ -37,7 +37,7 @@ public class MainDashboard extends javax.swing.JFrame {
     JFrame MainDashboard;
     static int user_id;
     
-    public MainDashboard(int user_id,String fullname,String role) throws SQLException {
+    public MainDashboard(int user_id,String fullname,String role) throws SQLException, InterruptedException {
         initComponents();
         this.user_id=user_id;
         this.MainDashboard=this;
@@ -49,21 +49,17 @@ public class MainDashboard extends javax.swing.JFrame {
         
     }
     
-    private void startTH(boolean val){
+    private void startTH(boolean val) throws SQLException, InterruptedException{
         while(true){
             Calendar cal = Calendar.getInstance();
-            int hour = cal.get(Calendar.HOUR_OF_DAY);
-            int minute = cal.get(Calendar.MINUTE);
-            int second = cal.get(Calendar.SECOND);
             Date dat = cal.getTime();
             SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
-            String times = kevs.format(dat);
             String timess = kevs.format(dat);
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String strDate = dateFormat.format(dat);
-            date.setText(strDate);
-            time.setText(times);
+//            date.setText(strDate);
+//            JOptionPane.showMessageDialog(this,timess);
 //            checkCustomerCheckOut(timess);
+//            new VideoFeeder().start();
+            
         }
     }
     
@@ -96,23 +92,6 @@ public class MainDashboard extends javax.swing.JFrame {
 //        orayt.setText(kkk);
         return kk;
      }
-    
-    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
-            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
-                        Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery(checkOutCheck);
-                        
-                        while(rs.next()){
-                            String checkouttime = rs.getString("timeout");
-//                            JOptionPane.showMessageDialog(null,timess);
-                            if (timess.equals(checkouttime)) {
-//                                JOptionPane.showMessageDialog(null,checkouttime);
-//                                JOptionPane.showMessageDialog(null,timess);
-                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
-//                                new VideoFeeder().sleep(5000);
-                            }
-                        }
-         }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,8 +105,6 @@ public class MainDashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         UserButtonsLalagyanan = new javax.swing.JPanel();
-        time = new javax.swing.JLabel();
-        date = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainDashboard");
@@ -166,13 +143,6 @@ public class MainDashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 950, 1480, 50));
 
         UserButtonsLalagyanan.setLayout(new javax.swing.BoxLayout(UserButtonsLalagyanan, javax.swing.BoxLayout.LINE_AXIS));
-
-        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        UserButtonsLalagyanan.add(time);
-
-        date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        UserButtonsLalagyanan.add(date);
-
         getContentPane().add(UserButtonsLalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         pack();
@@ -220,7 +190,11 @@ public class MainDashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new MainDashboard(user_id,fullname,role).setVisible(true);
+                    try {
+                        new MainDashboard(user_id,fullname,role).setVisible(true);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -230,10 +204,11 @@ public class MainDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel UserButtonsLalagyanan;
-    private javax.swing.JLabel date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
-    private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }

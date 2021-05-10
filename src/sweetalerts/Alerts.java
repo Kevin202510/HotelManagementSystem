@@ -32,31 +32,36 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
         if (notif.equals("success")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("SUCCESSFULLY LOGIN");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("save")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("ADDED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("update")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("UPDATED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("delete")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("DELETED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("checkin")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("CHECKIN SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
+             t.start();
+        }else if (notif.equals("checkout")) {
+            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
+            jLabel1.setText("CHECKIN SUCCESSFULLY");
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else{
-            jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/error.gif")));
-            jLabel1.setText("ERROR");
+           jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
+            jLabel1.setText(notif);
             Timer t = new Timer(5000, this);    // Timer in 10 seconds
              t.start();
         }
@@ -83,20 +88,18 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelRound1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 180, 120));
+        jPanel1.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 180, 120));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 300, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 390, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

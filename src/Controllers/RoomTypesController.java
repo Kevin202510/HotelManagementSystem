@@ -66,27 +66,27 @@ public class RoomTypesController {
     }
      
      
-     public void showsaveRT(JPanel lalagyanan, JTable RTtable,JTextField RTid,JTextField RoomType){
-      Connection con = sql.getConnection();
-        String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
-        try {
-            PreparedStatement st = con.prepareStatement(insert);
-            st.setInt(1, Integer.parseInt(RTid.getText()));
-            st.setString(2, RoomType.getText());
-            int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
-               model.setRowCount(0);
-              
-                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-        //    JOptionPane.showMessageDialog(null,"Successfully Added!!");
-            } else {
-                JOptionPane.showMessageDialog(null,"Error");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//     public void showsaveRT(JPanel lalagyanan, JTable RTtable,JTextField RTid,JTextField RoomType){
+//      Connection con = sql.getConnection();
+//        String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
+//        try {
+//            PreparedStatement st = con.prepareStatement(insert);
+//            st.setInt(1, Integer.parseInt(RTid.getText()));
+//            st.setString(2, RoomType.getText());
+//            int i = st.executeUpdate();
+//            if (i > 0) {
+//                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+//               model.setRowCount(0);
+//              
+//                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+//        //    JOptionPane.showMessageDialog(null,"Successfully Added!!");
+//            } else {
+//                JOptionPane.showMessageDialog(null,"Error");
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
      
      
      public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable) throws SQLException{
