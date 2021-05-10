@@ -65,7 +65,7 @@ public class AdminButtons extends javax.swing.JPanel {
         user_fullname.setText(fullname);
         userrole.setText(role);
         userrole.setForeground(Color.decode("#0039e6"));
-        jComboBox1.setBackground(Color.decode("#0039e6"));
+        jComboBox1.setBackground(new Color(0, 0, 0, 0));
         jComboBox1.setOpaque(false);
         new VideoFeeder().start();
 //        checkCustomerCheckOut();
@@ -82,9 +82,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        logout = new jroundborder.JLabelRound();
         jLabelRound3 = new jroundborder.JLabelRound();
-        jLabelRound1 = new jroundborder.JLabelRound();
         user_fullname = new javax.swing.JLabel();
         userrole = new javax.swing.JLabel();
         hov5 = new javax.swing.JPanel();
@@ -117,14 +115,6 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hotelmanagement.gif"))); // NOI18N
         AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 10, 550, -1));
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-        });
-        AdminButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 41, 39));
-
         jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -132,14 +122,6 @@ public class AdminButtons extends javax.swing.JPanel {
             }
         });
         AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 39));
-
-        jLabelRound1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
-        jLabelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRound1MouseClicked(evt);
-            }
-        });
-        AdminButtons.add(jLabelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -387,10 +369,6 @@ public class AdminButtons extends javax.swing.JPanel {
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-//        signOut(out);
-    }//GEN-LAST:event_logoutMouseClicked
     public void signOut(JFrame out){
         int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
             JOptionPane.YES_NO_OPTION,
@@ -403,10 +381,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
         userButton.checkButtons();
     }//GEN-LAST:event_jLabelRound3MouseClicked
-
-    private void jLabelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound1MouseClicked
-
-    }//GEN-LAST:event_jLabelRound1MouseClicked
 
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
         userButton.saleButton(sales);
@@ -591,9 +565,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private jroundborder.JLabelRound jLabelRound1;
     private jroundborder.JLabelRound jLabelRound3;
-    private jroundborder.JLabelRound logout;
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;

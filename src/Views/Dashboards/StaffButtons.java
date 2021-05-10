@@ -76,9 +76,7 @@ public class StaffButtons extends javax.swing.JPanel {
         checkOut = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
-        logout = new jroundborder.JLabelRound();
         jLabelRound5 = new jroundborder.JLabelRound();
-        jLabelRound6 = new jroundborder.JLabelRound();
         user_fullname = new javax.swing.JLabel();
         userrole = new javax.swing.JLabel();
         hov10 = new javax.swing.JPanel();
@@ -237,14 +235,6 @@ public class StaffButtons extends javax.swing.JPanel {
 
         StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 90, -1, 54));
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout.gif"))); // NOI18N
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-        });
-        StaffButtons.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 41, 39));
-
         jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -252,14 +242,6 @@ public class StaffButtons extends javax.swing.JPanel {
             }
         });
         StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 40, 39));
-
-        jLabelRound6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/gearmoto.gif"))); // NOI18N
-        jLabelRound6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRound6MouseClicked(evt);
-            }
-        });
-        StaffButtons.add(jLabelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -388,10 +370,6 @@ public class StaffButtons extends javax.swing.JPanel {
     private void customersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseExited
         userButton.resetC(hov4);
     }//GEN-LAST:event_customersMouseExited
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        signOut(out);
-    }//GEN-LAST:event_logoutMouseClicked
     
     public void signOut(JFrame out){
         int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
@@ -424,10 +402,6 @@ public class StaffButtons extends javax.swing.JPanel {
 //            hov4.setEnabled(true);
 //        }
     }//GEN-LAST:event_jLabelRound5MouseClicked
-
-    private void jLabelRound6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound6MouseClicked
-
-    }//GEN-LAST:event_jLabelRound6MouseClicked
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         userButton.homeButton(home);
@@ -506,8 +480,6 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
-    private jroundborder.JLabelRound jLabelRound6;
-    private jroundborder.JLabelRound logout;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel time;
     private javax.swing.JLabel user_fullname;

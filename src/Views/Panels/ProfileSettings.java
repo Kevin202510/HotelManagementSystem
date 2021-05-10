@@ -52,6 +52,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         getUserInfo();
         wc = Webcam.getDefault();
         wc.setViewSize(WebcamResolution.VGA.getSize());
+//        jButton3.setVisible(false);
     }
 
     /**
@@ -323,6 +324,9 @@ public class ProfileSettings extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
            Camera vin =  new Camera(uaname2.getText());
            JOptionPane.showMessageDialog(this, vin);
+
+//                new VideoFeeder().start();
+//                jButton3.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidepassActionPerformed
@@ -372,9 +376,9 @@ public class ProfileSettings extends javax.swing.JFrame {
         this.out=out;
         int k = JOptionPane.showConfirmDialog(this,"You need To Logout To Take Effect your Profile Update");
         if (k==0){
-            new Login().setVisible(true);
             out.dispose();
             this.dispose();
+            new Login().setVisible(true);
         }
     }
     
@@ -446,8 +450,8 @@ public class ProfileSettings extends javax.swing.JFrame {
                while(true){
                    try {
                         img = wc.getImage();
-//                        profileimg.setIcon(new ImageIcon(img));
-                       Thread.sleep(5);
+//                        userprofile.setIcon(new ImageIcon(img));
+                       Thread.sleep(5000);
                    } catch (InterruptedException ex) {
                        JOptionPane.showMessageDialog(null,ex);
                        Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);

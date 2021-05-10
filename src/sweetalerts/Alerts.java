@@ -32,32 +32,32 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
         if (notif.equals("success")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("SUCCESSFULLY LOGIN");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("save")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("ADDED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("update")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("UPDATED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("delete")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("DELETED SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else if (notif.equals("checkin")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
             jLabel1.setText("CHECKIN SUCCESSFULLY");
-            Timer t = new Timer(5000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else{
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/error.gif")));
             jLabel1.setText("ERROR");
-            Timer t = new Timer(3000, this);    // Timer in 10 seconds
+            Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }
     }
