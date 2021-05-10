@@ -64,7 +64,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
           
             }else{
                 index1 = roomtypelist.size()-1;
-                JOptionPane.showMessageDialog(null,index1);
+               // JOptionPane.showMessageDialog(null,index1);
                 index = roomtypelist.get(index1).getRT_id() + 1;        
                 RTid.setText(String.valueOf(index));
 
