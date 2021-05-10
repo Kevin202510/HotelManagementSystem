@@ -12,17 +12,21 @@ import Views.Authentication.Login;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 /**
  *
  * @author ❤Kevin Felix Caluag❤
  */
-public class AdminDashboard extends javax.swing.JFrame {
+public class MainDashboard extends javax.swing.JFrame {
 
     /**
      * Creates new form Sample
@@ -33,7 +37,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     JFrame MainDashboard;
     static int user_id;
     
-    public AdminDashboard(int user_id,String fullname,String role) throws SQLException {
+    public MainDashboard(int user_id,String fullname,String role) throws SQLException {
         initComponents();
         this.user_id=user_id;
         this.MainDashboard=this;
@@ -41,7 +45,29 @@ public class AdminDashboard extends javax.swing.JFrame {
         this.role=role; 
         this.fullname=fullname;
         checkRole();
+//        startTH(true);
+        
     }
+    
+    private void startTH(boolean val){
+        while(true){
+            Calendar cal = Calendar.getInstance();
+            int hour = cal.get(Calendar.HOUR_OF_DAY);
+            int minute = cal.get(Calendar.MINUTE);
+            int second = cal.get(Calendar.SECOND);
+            Date dat = cal.getTime();
+            SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+            String times = kevs.format(dat);
+            String timess = kevs.format(dat);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String strDate = dateFormat.format(dat);
+            date.setText(strDate);
+            time.setText(times);
+//            checkCustomerCheckOut(timess);
+        }
+    }
+    
+    
 
     
     private void checkRole() throws SQLException{
@@ -53,6 +79,40 @@ public class AdminDashboard extends javax.swing.JFrame {
             new ContainerManipulator(UserButtonsLalagyanan,new Views.Dashboards.ManagerButtons(user_id,MainDashboard,fullname, role, lalagyanan));
         }
     }
+    
+    public  SQL sql = new SQL();
+    public Connection con = sql.getConnection();
+    
+    String kk;
+    
+    public String getTimeNow(){
+         Calendar date = Calendar.getInstance();  
+        SimpleDateFormat kev = new SimpleDateFormat("hh:mm"); 
+        SimpleDateFormat kevs = new SimpleDateFormat("hh:mm aa");
+//        date.add(Calendar.MINUTE,+1);
+        java.util.Date strTime = date.getTime();
+        kk = kev.format(strTime);
+//        String kkk = kevs.format(strTime);
+//        orayt.setText(kkk);
+        return kk;
+     }
+    
+    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
+            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
+                        Statement st = con.createStatement();
+                        ResultSet rs = st.executeQuery(checkOutCheck);
+                        
+                        while(rs.next()){
+                            String checkouttime = rs.getString("timeout");
+//                            JOptionPane.showMessageDialog(null,timess);
+                            if (timess.equals(checkouttime)) {
+//                                JOptionPane.showMessageDialog(null,checkouttime);
+//                                JOptionPane.showMessageDialog(null,timess);
+                                JOptionPane.showMessageDialog(null,"Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out");
+//                                new VideoFeeder().sleep(5000);
+                            }
+                        }
+         }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,10 +126,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         UserButtonsLalagyanan = new javax.swing.JPanel();
+        time = new javax.swing.JLabel();
+        date = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainDashboard");
         setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -103,6 +166,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 950, 1480, 50));
 
         UserButtonsLalagyanan.setLayout(new javax.swing.BoxLayout(UserButtonsLalagyanan, javax.swing.BoxLayout.LINE_AXIS));
+
+        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        UserButtonsLalagyanan.add(time);
+
+        date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        UserButtonsLalagyanan.add(date);
+
         getContentPane().add(UserButtonsLalagyanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 150));
 
         pack();
@@ -133,14 +203,16 @@ public class AdminDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -148,9 +220,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AdminDashboard(user_id,fullname,role).setVisible(true);
+                    new MainDashboard(user_id,fullname,role).setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(AdminDashboard.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MainDashboard.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -158,8 +230,10 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel UserButtonsLalagyanan;
+    private javax.swing.JLabel date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
+    private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 }

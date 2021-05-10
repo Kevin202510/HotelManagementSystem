@@ -51,7 +51,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-        new VideoFeeder().start();
+//        new VideoFeeder().start();
     }
 
     /**
@@ -83,6 +83,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -316,6 +317,17 @@ public class ManagerButtons extends javax.swing.JPanel {
         time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         StaffButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 170, 30));
 
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("X");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        StaffButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -429,13 +441,8 @@ public class ManagerButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_homeMouseExited
 
     public void signOut(JFrame out){
-        int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-        if (result==0){
             new Login().setVisible(true);
             out.dispose();
-        }
     }
     
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -447,18 +454,27 @@ public class ManagerButtons extends javax.swing.JPanel {
                 if (i==0) {
                     try {
                         //                    JOptionPane.showMessageDialog(out,new ProfileSettings());
-                        new ProfileSettings(user_id).setVisible(true);
+                        new ProfileSettings(user_id,out).setVisible(true);
                     } catch (SQLException ex) {
                         Logger.getLogger(ManagerButtons.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }else if (i==1){
+                    int result = JOptionPane.showConfirmDialog(out,"Are You Sure That You Want To Sign Out", "LogOut",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                if (result==0){
                     signOut(out);
+                }
                 }else{
                     JOptionPane.showMessageDialog(out,"asdasdasd");
                 }
             }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        signOut(out);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
      class VideoFeeder extends Thread {
     
@@ -500,6 +516,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private jroundborder.JLabelRound jLabelRound6;

@@ -65,10 +65,10 @@ public class BedsController {
     }
      public void saveBeds(JTextField BedID,JTextField BedQuantity,JTable bedtable) throws SQLException{
    
-     JOptionPane.showMessageDialog(null,"hello");
+   //  JOptionPane.showMessageDialog(null,"hello");
           Connection con = sql.getConnection();
          String insert = "INSERT INTO beds(bed_id,bed_quantity) VALUES (?,?)";
-            JOptionPane.showMessageDialog(null,"hellolast");
+       //     JOptionPane.showMessageDialog(null,"hellolast");
             PreparedStatement st = con.prepareStatement(insert);
            st.setInt(1, Integer.parseInt(BedID.getText()));
            st.setString(2, BedQuantity.getText());
@@ -100,7 +100,7 @@ public class BedsController {
      public boolean deleteBeds(int id, JTable bedtable) throws SQLException{
        Connection con = sql.getConnection();
         String delete = "DELETE FROM beds WHERE bed_id = ?";
-        JOptionPane.showMessageDialog(null,"hello");
+      //  JOptionPane.showMessageDialog(null,"hello");
         PreparedStatement st = con.prepareStatement(delete);
         st.setInt(1, id);
         int i = st.executeUpdate();

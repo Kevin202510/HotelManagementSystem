@@ -76,6 +76,8 @@ public class RoomsPanel extends javax.swing.JPanel {
         roomControll.showRoomType(roomTypeId);
         roomControll.showBedType(bedTypeId);
         roomControll.showRate(rateId);
+        roomscrollstaff.setVisible(false);
+        roomstablestaff.setVisible(false);
     }
 
 
@@ -270,7 +272,7 @@ public class RoomsPanel extends javax.swing.JPanel {
         });
         roomscrollstaff.setViewportView(roomstablestaff);
 
-        add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1480, 690));
+        add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1480, 710));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed

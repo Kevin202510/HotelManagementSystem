@@ -63,7 +63,7 @@ public class UsersPanel extends javax.swing.JPanel {
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
         wc = Webcam.getDefault();
-        wc.setViewSize(WebcamResolution.VGA.getSize());
+//        wc.setViewSize(WebcamResolution.VGA.getSize());
 //        wc.open();
         this.lalagyanan=lalagyanan;
         
@@ -292,7 +292,7 @@ public class UsersPanel extends javax.swing.JPanel {
                 usnKeyTyped(evt);
             }
         });
-        userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 40));
+        userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -462,7 +462,7 @@ public class UsersPanel extends javax.swing.JPanel {
              System.out.print("hello world");
          }else{
         Role = roles.getSelectedIndex()+1;
-        userModel=new Users(0,Role,uaname.getText(),uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        userModel=new Users(0,Role,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
         
         try {
             boolean checkUser = userControll.createUser(userModel,jTable1);
@@ -514,6 +514,24 @@ public class UsersPanel extends javax.swing.JPanel {
         hidepass.setVisible(true);
         viewpass.setVisible(false);
     }//GEN-LAST:event_viewpassActionPerformed
+
+    private void takepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takepictureActionPerformed
+//        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
+        
+        if (takepicture.getText().equals("TAKE")) {
+            wc.open();
+            new VideoFeeder().start();
+            takepicture.setText("SAVE");
+        }else{
+            try {
+                ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
+                profile.setText(uaname.getText() + ".jpg");
+                wc.close();
+            }catch (IOException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_takepictureActionPerformed
 
     private void uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uconKeyTyped
         char c = evt.getKeyChar();

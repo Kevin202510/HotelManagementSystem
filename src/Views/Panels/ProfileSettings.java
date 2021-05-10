@@ -8,6 +8,9 @@ package Views.Panels;
 import Controllers.Authentication;
 import Controllers.SQL;
 import Models.Users;
+import Views.Authentication.Login;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -21,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.relation.Role;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -38,12 +42,16 @@ public class ProfileSettings extends javax.swing.JFrame {
     static int UserIdSended;
     Users userModel;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    
-    public ProfileSettings(int user_id) throws SQLException {
+     Webcam wc;
+     
+    public ProfileSettings(int user_id,JFrame out) throws SQLException {
         initComponents();
+        this.out=out;
         this.UserIdSended=user_id;
         userId.setText(String.valueOf(UserIdSended));
         getUserInfo();
+        wc = Webcam.getDefault();
+        wc.setViewSize(WebcamResolution.VGA.getSize());
     }
 
     /**
@@ -268,7 +276,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 270, 10));
 
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 650));
+        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 650));
 
         jButton2.setBackground(new java.awt.Color(0, 204, 204));
         jButton2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -313,16 +321,8 @@ public class ProfileSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //        JOptionPane.showMessageDialog(this, new Camera(uaname.getText()));
-        //        //        if (k==0) {
-            //            File f = new File("/Images/Pictures/"+uaname.getText()+".jpg");
-            //            if(f.exists()) {
-                //                ImageIcon vin = new ImageIcon(getClass().getResource("/Images/Pictures/"+uaname.getText()+".jpg"));
-                //                Image kev = vin.getImage().getScaledInstance(150, 80, Image.SCALE_SMOOTH);
-                //                ImageIcon shit = new ImageIcon(kev);
-                //                profileimg.setIcon(shit);
-                //            }
-            //        }
+           Camera vin =  new Camera(uaname2.getText());
+           JOptionPane.showMessageDialog(this, vin);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidepassActionPerformed
@@ -366,22 +366,36 @@ public class ProfileSettings extends javax.swing.JFrame {
             userProfile.setIcon(shit);
     }
     
+    static JFrame out;
+    
+    public void signOut(JFrame out){
+        this.out=out;
+        int k = JOptionPane.showConfirmDialog(this,"You need To Logout To Take Effect your Profile Update");
+        if (k==0){
+            new Login().setVisible(true);
+            out.dispose();
+            this.dispose();
+        }
+    }
+    
     public boolean updateUser(Users users) throws SQLException{
-        String updates = "UPDATE users SET user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + UserIdSended + "'";
+        String updates = "UPDATE users SET profile = ?, user_Fname = ?,user_Mname = ?,user_Lname = ?,user_address = ?,user_DOB = ?,user_contactnum = ?,user_username = ?,user_password = ? WHERE user_id = '" + UserIdSended + "'";
         PreparedStatement st = con.prepareStatement(updates);
         st.setString(1, users.getuser_Fname());
-        st.setString(2, users.getuser_Mname());
-        st.setString(3, users.getuser_Lname());
-        st.setString(4, users.getuser_address());
-        st.setString(5, users.getuser_DOB());
-        st.setString(6, users.getuser_contactnum());
-        st.setString(7, users.getuser_username());
-        st.setString(8, auth.encrypt(users.getuser_password()));
+        st.setString(2, users.getuser_Fname());
+        st.setString(3, users.getuser_Mname());
+        st.setString(4, users.getuser_Lname());
+        st.setString(5, users.getuser_address());
+        st.setString(6, users.getuser_DOB());
+        st.setString(7, users.getuser_contactnum());
+        st.setString(8, users.getuser_username());
+        st.setString(9, auth.encrypt(users.getuser_password()));
         
         int i = st.executeUpdate();
         if (i > 0) {
             new Alerts("update").setVisible(true);
-            this.dispose();
+//            this.dispose();
+            signOut(out);
             return true;
         }else{
             return false;
@@ -423,6 +437,27 @@ public class ProfileSettings extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_uaname2KeyTyped
 
+    Image img;
+    
+    class VideoFeeder extends Thread {
+    
+          public void run(){
+          
+               while(true){
+                   try {
+                        img = wc.getImage();
+//                        profileimg.setIcon(new ImageIcon(img));
+                       Thread.sleep(5);
+                   } catch (InterruptedException ex) {
+                       JOptionPane.showMessageDialog(null,ex);
+                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                }
+          
+          }
+    
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -454,7 +489,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new ProfileSettings(UserIdSended).setVisible(true);
+                    new ProfileSettings(UserIdSended,out).setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Views.Dashboards.AdminDashboard;
+import Views.Dashboards.MainDashboard;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,13 +73,13 @@ public class Authentication {
                     roles = rs.getString("role_displayname");
                     
                     if (role_id==1) {
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();
                     }else if (role_id==2) {
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }else{
-                      new  AdminDashboard(user_id,fullname,roles).setVisible(true);
+                      new  MainDashboard(user_id,fullname,roles).setVisible(true);
                       out.dispose();  
                     }
                     new Alerts("success").setVisible(true);
