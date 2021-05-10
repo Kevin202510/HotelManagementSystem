@@ -53,6 +53,7 @@ public class SalesPanel extends javax.swing.JPanel {
         Salest = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jtxsales_search = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -88,7 +89,7 @@ public class SalesPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Sales");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
         Salesfr.setBackground(new java.awt.Color(0, 77, 77));
         Salesfr.setDateFormatString("yyyy-MM-dd");
@@ -122,6 +123,7 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 340));
+        add(jtxsales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -175,6 +177,7 @@ public class SalesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jtxsales_search;
     private javax.swing.JTable salesTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,8 +11,6 @@ import Models.Users;
 import Controllers.SQL;
 import Controllers.UserController;
 import Views.Dashboards.ContainerManipulator;
-import com.github.sarxos.webcam.WebcamResolution;
-import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -46,7 +44,7 @@ public class UsersPanel extends javax.swing.JPanel {
     Users userModel;
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     Image img;
-    Webcam wc;
+//    Webcam wc;
     
     public UsersPanel(JPanel lalagyanan) throws SQLException {
         initComponents();
@@ -62,7 +60,7 @@ public class UsersPanel extends javax.swing.JPanel {
         roles.setForeground(Color.red);
         userControll.showUsers(jTable1);
         userControll.showRoles(roles);
-        wc = Webcam.getDefault();
+//        wc = Webcam.getDefault();
 //        wc.setViewSize(WebcamResolution.VGA.getSize());
 //        wc.open();
         this.lalagyanan=lalagyanan;
@@ -86,30 +84,31 @@ public class UsersPanel extends javax.swing.JPanel {
         Update = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
         Add = new javax.swing.JButton();
+        jtxussearch = new javax.swing.JTextField();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        uaname = new javax.swing.JTextField();
+        jtxusuaname = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        umi = new javax.swing.JTextField();
+        jtxusumi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
-        usn = new javax.swing.JTextField();
+        jtxususn = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        uadd = new javax.swing.JTextField();
+        jtxusuadd = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
-        ucon = new javax.swing.JTextField();
+        jtxusucon = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        uname = new javax.swing.JTextField();
+        jtxusuname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         udob = new com.toedter.calendar.JDateChooser();
-        upass = new javax.swing.JPasswordField();
+        jtxuspass = new javax.swing.JPasswordField();
         role = new javax.swing.JLabel();
         roles = new javax.swing.JComboBox<>();
         viewpass = new javax.swing.JButton();
@@ -173,7 +172,7 @@ public class UsersPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 1150, 710));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 1150, 690));
 
         jPanel2.setBackground(new java.awt.Color(0, 77, 77));
 
@@ -215,27 +214,35 @@ public class UsersPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(32, 32, 32)
                 .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(jtxussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(588, 588, 588))
+                .addContainerGap(559, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jtxussearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 80));
@@ -249,33 +256,33 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel3.setText("FNAME :");
         userActionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 61, 40));
 
-        uaname.setBackground(new java.awt.Color(0, 77, 77));
-        uaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uaname.setForeground(new java.awt.Color(255, 255, 255));
-        uaname.setBorder(null);
-        uaname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxusuaname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxusuaname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxusuaname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxusuaname.setBorder(null);
+        jtxusuaname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                uanameKeyTyped(evt);
+                jtxusuanameKeyTyped(evt);
             }
         });
-        userActionPanel.add(uaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 20));
+        userActionPanel.add(jtxusuaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 20));
         userActionPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 10));
 
-        umi.setBackground(new java.awt.Color(0, 77, 77));
-        umi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        umi.setForeground(new java.awt.Color(255, 255, 255));
-        umi.setBorder(null);
-        umi.addActionListener(new java.awt.event.ActionListener() {
+        jtxusumi.setBackground(new java.awt.Color(0, 77, 77));
+        jtxusumi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxusumi.setForeground(new java.awt.Color(255, 255, 255));
+        jtxusumi.setBorder(null);
+        jtxusumi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                umiActionPerformed(evt);
+                jtxusumiActionPerformed(evt);
             }
         });
-        umi.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxusumi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                umiKeyTyped(evt);
+                jtxusumiKeyTyped(evt);
             }
         });
-        userActionPanel.add(umi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 20));
+        userActionPanel.add(jtxusumi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 210, 20));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -283,16 +290,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 40, 20));
         userActionPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 210, 5));
 
-        usn.setBackground(new java.awt.Color(0, 77, 77));
-        usn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        usn.setForeground(new java.awt.Color(255, 255, 255));
-        usn.setBorder(null);
-        usn.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxususn.setBackground(new java.awt.Color(0, 77, 77));
+        jtxususn.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxususn.setForeground(new java.awt.Color(255, 255, 255));
+        jtxususn.setBorder(null);
+        jtxususn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                usnKeyTyped(evt);
+                jtxususnKeyTyped(evt);
             }
         });
-        userActionPanel.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
+        userActionPanel.add(jtxususn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 210, 20));
 
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,16 +307,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 50, 20));
         userActionPanel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 10));
 
-        uadd.setBackground(new java.awt.Color(0, 77, 77));
-        uadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uadd.setForeground(new java.awt.Color(255, 255, 255));
-        uadd.setBorder(null);
-        uadd.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxusuadd.setBackground(new java.awt.Color(0, 77, 77));
+        jtxusuadd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxusuadd.setForeground(new java.awt.Color(255, 255, 255));
+        jtxusuadd.setBorder(null);
+        jtxusuadd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                uaddKeyTyped(evt);
+                jtxusuaddKeyTyped(evt);
             }
         });
-        userActionPanel.add(uadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 20));
+        userActionPanel.add(jtxusuadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 210, 20));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -323,16 +330,16 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 61, 30));
         userActionPanel.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 210, 5));
 
-        ucon.setBackground(new java.awt.Color(0, 77, 77));
-        ucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        ucon.setForeground(new java.awt.Color(255, 255, 255));
-        ucon.setBorder(null);
-        ucon.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxusucon.setBackground(new java.awt.Color(0, 77, 77));
+        jtxusucon.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxusucon.setForeground(new java.awt.Color(255, 255, 255));
+        jtxusucon.setBorder(null);
+        jtxusucon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                uconKeyTyped(evt);
+                jtxusuconKeyTyped(evt);
             }
         });
-        userActionPanel.add(ucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 40));
+        userActionPanel.add(jtxusucon, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, 210, 40));
 
         jLabel8.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -340,21 +347,21 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 50, 20));
         userActionPanel.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, 214, -1));
 
-        uname.setBackground(new java.awt.Color(0, 77, 77));
-        uname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        uname.setForeground(new java.awt.Color(255, 255, 255));
-        uname.setBorder(null);
-        uname.addActionListener(new java.awt.event.ActionListener() {
+        jtxusuname.setBackground(new java.awt.Color(0, 77, 77));
+        jtxusuname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxusuname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxusuname.setBorder(null);
+        jtxusuname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unameActionPerformed(evt);
+                jtxusunameActionPerformed(evt);
             }
         });
-        uname.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxusuname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                unameKeyTyped(evt);
+                jtxusunameKeyTyped(evt);
             }
         });
-        userActionPanel.add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, 20));
+        userActionPanel.add(jtxusuname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, 210, 20));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -373,11 +380,11 @@ public class UsersPanel extends javax.swing.JPanel {
         udob.setOpaque(false);
         userActionPanel.add(udob, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 210, 30));
 
-        upass.setBackground(new java.awt.Color(0, 77, 77));
-        upass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        upass.setForeground(new java.awt.Color(255, 255, 255));
-        upass.setBorder(null);
-        userActionPanel.add(upass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 170, 30));
+        jtxuspass.setBackground(new java.awt.Color(0, 77, 77));
+        jtxuspass.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxuspass.setForeground(new java.awt.Color(255, 255, 255));
+        jtxuspass.setBorder(null);
+        userActionPanel.add(jtxuspass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 170, 30));
 
         role.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         role.setForeground(new java.awt.Color(255, 255, 255));
@@ -441,9 +448,9 @@ public class UsersPanel extends javax.swing.JPanel {
         add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 340, 720));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+    private void jtxusunameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxusunameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unameActionPerformed
+    }//GEN-LAST:event_jtxusunameActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         try {
@@ -462,12 +469,12 @@ public class UsersPanel extends javax.swing.JPanel {
              System.out.print("hello world");
          }else{
         Role = roles.getSelectedIndex()+1;
-        userModel=new Users(0,Role,null,uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+        userModel=new Users(0,Role,null,jtxusuaname.getText(), jtxusumi.getText(),jtxususn.getText(),jtxusuadd.getText(),df.format(udob.getDate()),jtxusucon.getText(),jtxusuname.getText(),String.valueOf(jtxuspass.getPassword()));
         
         try {
             boolean checkUser = userControll.createUser(userModel,jTable1);
             if (checkUser==true) {
-                userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+                userControll.clearContent(jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
@@ -478,12 +485,12 @@ public class UsersPanel extends javax.swing.JPanel {
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         Role = roles.getSelectedIndex()+1;
-         userModel=new Users(0,Role,uaname.getText(),uaname.getText(), umi.getText(),usn.getText(),uadd.getText(),df.format(udob.getDate()),ucon.getText(),uname.getText(),String.valueOf(upass.getPassword()));
+         userModel=new Users(0,Role,jtxusuaname.getText(),jtxusuaname.getText(), jtxusumi.getText(),jtxususn.getText(),jtxusuadd.getText(),df.format(udob.getDate()),jtxusucon.getText(),jtxusuname.getText(),String.valueOf(jtxuspass.getPassword()));
         
         try {
             boolean checkUserUpdate = userControll.updateUser(userModel, id, jTable1);
             if (checkUserUpdate==true) {
-                userControll.clearContent(uaname, umi, usn, uadd, udob, ucon, uname, upass);
+                userControll.clearContent(jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
                 new ContainerManipulator(lalagyanan,new Views.Panels.UsersPanel(lalagyanan));
             }
         } catch (SQLException ex) {
@@ -497,7 +504,7 @@ public class UsersPanel extends javax.swing.JPanel {
         
         try { 
             id = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
-            userControll.fillUserForm(id,roles,profileimg,uaname, umi, usn, uadd, udob, ucon, uname, upass);
+            userControll.fillUserForm(id,roles,profileimg,jtxusuaname, jtxusumi, jtxususn, jtxusuadd, udob, jtxusucon, jtxusuname, jtxuspass);
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(UsersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -506,11 +513,11 @@ public class UsersPanel extends javax.swing.JPanel {
     private void hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hidepassActionPerformed
         viewpass.setVisible(true);
         hidepass.setVisible(false);
-        upass.setEchoChar('*');
+        jtxuspass.setEchoChar('*');
     }//GEN-LAST:event_hidepassActionPerformed
 
     private void viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewpassActionPerformed
-        upass.setEchoChar((char)0);
+        jtxuspass.setEchoChar((char)0);
         hidepass.setVisible(true);
         viewpass.setVisible(false);
     }//GEN-LAST:event_viewpassActionPerformed
@@ -518,22 +525,10 @@ public class UsersPanel extends javax.swing.JPanel {
     private void takepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takepictureActionPerformed
 //        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
         
-        if (takepicture.getText().equals("TAKE")) {
-            wc.open();
-            new VideoFeeder().start();
-            takepicture.setText("SAVE");
-        }else{
-            try {
-                ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
-                profile.setText(uaname.getText() + ".jpg");
-                wc.close();
-            }catch (IOException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+  
     }//GEN-LAST:event_takepictureActionPerformed
 
-    private void uconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uconKeyTyped
+    private void jtxusuconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuconKeyTyped
         char c = evt.getKeyChar();
           if (!((c >= '0') && (c <= '9') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -542,9 +537,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_uconKeyTyped
+    }//GEN-LAST:event_jtxusuconKeyTyped
 
-    private void uanameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uanameKeyTyped
+    private void jtxusuanameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuanameKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'A') && (c <= 'Z') || (c >= 'a') && (c <= 'z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -554,9 +549,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_uanameKeyTyped
+    }//GEN-LAST:event_jtxusuanameKeyTyped
 
-    private void umiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_umiKeyTyped
+    private void jtxusumiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusumiKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -567,9 +562,9 @@ public class UsersPanel extends javax.swing.JPanel {
           }
         
         
-    }//GEN-LAST:event_umiKeyTyped
+    }//GEN-LAST:event_jtxusumiKeyTyped
 
-    private void usnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usnKeyTyped
+    private void jtxususnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxususnKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -579,9 +574,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_usnKeyTyped
+    }//GEN-LAST:event_jtxususnKeyTyped
 
-    private void uaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uaddKeyTyped
+    private void jtxusuaddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusuaddKeyTyped
          char c = evt.getKeyChar();
           if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
              (c == KeyEvent.VK_PERIOD) ||
@@ -591,9 +586,9 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_uaddKeyTyped
+    }//GEN-LAST:event_jtxusuaddKeyTyped
 
-    private void unameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unameKeyTyped
+    private void jtxusunameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxusunameKeyTyped
         // TODO add your handling code here:
          char c = evt.getKeyChar();
            if (!((c >= 'a') && (c <= 'z') || (c >= 'A') && (c <= 'Z') ||
@@ -604,19 +599,19 @@ public class UsersPanel extends javax.swing.JPanel {
                getToolkit().beep();
              evt.consume();
           }
-    }//GEN-LAST:event_unameKeyTyped
+    }//GEN-LAST:event_jtxusunameKeyTyped
 
     private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rolesActionPerformed
 
-    private void umiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_umiActionPerformed
+    private void jtxusumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxusumiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_umiActionPerformed
+    }//GEN-LAST:event_jtxusumiActionPerformed
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
-        if (uaname.getText().isEmpty()||umi.getText().isEmpty()||usn.getText().isEmpty()||uadd.getText().isEmpty()||udob.getDate()==null||ucon.getText().isEmpty()||uname.getText().isEmpty()||upass.getPassword().length==0){
+        if (jtxusuaname.getText().isEmpty()||jtxusumi.getText().isEmpty()||jtxususn.getText().isEmpty()||jtxusuadd.getText().isEmpty()||udob.getDate()==null||jtxusucon.getText().isEmpty()||jtxusuname.getText().isEmpty()||jtxuspass.getPassword().length==0){
             JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
@@ -624,24 +619,24 @@ public class UsersPanel extends javax.swing.JPanel {
         }
     }
     
-    class VideoFeeder extends Thread {
-    
-          public void run(){
-          
-               while(true){
-                   try {
-                        img = wc.getImage();
-                        profileimg.setIcon(new ImageIcon(img));
-                       Thread.sleep(5);
-                   } catch (InterruptedException ex) {
-                       JOptionPane.showMessageDialog(null,ex);
-                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-                }
-          
-          }
-    
-    }
+//    class VideoFeeder extends Thread {
+//    
+//          public void run(){
+//          
+//               while(true){
+//                   try {
+//                        img = wc.getImage();
+//                        profileimg.setIcon(new ImageIcon(img));
+//                       Thread.sleep(5);
+//                   } catch (InterruptedException ex) {
+//                       JOptionPane.showMessageDialog(null,ex);
+//                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//                   }
+//                }
+//          
+//          }
+//    
+//    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -671,18 +666,19 @@ public class UsersPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JPasswordField jtxuspass;
+    private javax.swing.JTextField jtxussearch;
+    private javax.swing.JTextField jtxusuadd;
+    private javax.swing.JTextField jtxusuaname;
+    private javax.swing.JTextField jtxusucon;
+    private javax.swing.JTextField jtxusumi;
+    private javax.swing.JTextField jtxusuname;
+    private javax.swing.JTextField jtxususn;
     private jroundborder.JLabelRound profileimg;
     private javax.swing.JLabel role;
     private javax.swing.JComboBox<String> roles;
-    private javax.swing.JTextField uadd;
-    private javax.swing.JTextField uaname;
-    private javax.swing.JTextField ucon;
     private com.toedter.calendar.JDateChooser udob;
-    private javax.swing.JTextField umi;
-    private javax.swing.JTextField uname;
-    private javax.swing.JPasswordField upass;
     private javax.swing.JPanel userActionPanel;
-    private javax.swing.JTextField usn;
     private javax.swing.JButton viewpass;
     // End of variables declaration//GEN-END:variables
 
