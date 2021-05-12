@@ -77,6 +77,8 @@ public class CheckoutPanels extends javax.swing.JPanel {
         searchIcon = new javax.swing.JLabel();
         jtxtsearch_cust_checkin_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         user_id = new javax.swing.JLabel();
 
@@ -87,27 +89,34 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         co_custtime.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jPanel2.add(co_custtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 210, 40));
+        co_custtime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        co_custtime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(co_custtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 210, 50));
 
         jtxtco_custfullname.setEditable(false);
         jtxtco_custfullname.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custfullname.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jtxtco_custfullname.setBorder(null);
-        jPanel2.add(jtxtco_custfullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 300, 40));
+        jtxtco_custfullname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxtco_custfullname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtxtco_custfullname.setCaretColor(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jtxtco_custfullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 420, 40));
 
         jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel12.setText("CHECK OUT DATE");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 331, 160, 50));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("CHECK OUT DATE :");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 160, 50));
 
         jtxtco_custaddress.setEditable(false);
         jtxtco_custaddress.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custaddress.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jtxtco_custaddress.setBorder(null);
-        jPanel2.add(jtxtco_custaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 420, 40));
+        jtxtco_custaddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxtco_custaddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtxtco_custaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 390, 40));
 
         jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("CONTACT # :");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 110, 41));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 110, 41));
 
         jbtn_pay.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_pay.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -119,56 +128,70 @@ public class CheckoutPanels extends javax.swing.JPanel {
                 jbtn_payActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 400, 250, 50));
+        jPanel2.add(jbtn_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 250, 50));
 
         jLabel14.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("ROOMS :");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 186, 73, 40));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 130, 73, 40));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel1.setText("CHECK OUT TIME");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 160, 60));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("CHECK OUT TIME :");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 160, 50));
 
         jtxtco_rooms.setEditable(false);
         jtxtco_rooms.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_rooms.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jtxtco_rooms.setBorder(null);
-        jPanel2.add(jtxtco_rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 260, 30));
+        jtxtco_rooms.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxtco_rooms.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtxtco_rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 130, 150, 40));
 
         jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("FULL NAME :");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 120, 41));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 120, 41));
 
         jLabel16.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("ADDRESS :");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 90, 41));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 41));
 
         jtxtco_custcontact.setEditable(false);
         jtxtco_custcontact.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custcontact.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jtxtco_custcontact.setBorder(null);
-        jPanel2.add(jtxtco_custcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 220, 40));
+        jtxtco_custcontact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxtco_custcontact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtxtco_custcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 190, 40));
 
         co_custdate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jPanel2.add(co_custdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 210, 30));
+        co_custdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        co_custdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(co_custdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 220, 50));
 
         checkindate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 210, 30));
+        checkindate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkindate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 170, 40));
 
         jLabel17.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel17.setText("CHECK IN DATE");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 271, 160, 50));
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("CHECK IN DATE :");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 140, 40));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel4.setText("CHECK IN TIME");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 160, 60));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("CHECK IN TIME :");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 140, 60));
 
         checkintime.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 270, 200, 40));
+        checkintime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        checkintime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 220, 130, 40));
 
         searchIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
-        jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 40, 40));
+        jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 40, 40));
 
         jtxtsearch_cust_checkin_id.setBackground(new java.awt.Color(230, 230, 230));
         jtxtsearch_cust_checkin_id.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -179,13 +202,23 @@ public class CheckoutPanels extends javax.swing.JPanel {
                 jtxtsearch_cust_checkin_idKeyPressed(evt);
             }
         });
-        jPanel2.add(jtxtsearch_cust_checkin_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 210, 40));
+        jPanel2.add(jtxtsearch_cust_checkin_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 210, 40));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel3.setText("QR Code");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 80, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 80, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 1120, 580));
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("TOTAL :");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, 70, 50));
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 160, 50));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 1120, 580));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,21 +230,15 @@ public class CheckoutPanels extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1480, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1490, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -254,6 +281,8 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbtn_pay;

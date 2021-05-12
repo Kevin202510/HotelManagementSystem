@@ -33,10 +33,10 @@ import jroundborder.JLabelRound;
            setText(it.getname());
            
             if (selected) {
-                setBackground(Color.decode("#538cc6"));
+                setBackground(Color.decode("#007a99"));
                 setForeground(Color.WHITE);
             }else{
-                setBackground(Color.decode("#538cc6"));
+                setBackground(Color.decode("#007a99"));
                 setForeground(Color.WHITE);
             }
            setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12));
