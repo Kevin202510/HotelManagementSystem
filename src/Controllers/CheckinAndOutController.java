@@ -192,7 +192,7 @@ public class CheckinAndOutController{
             String checkinDate = checkindate.getText();
             String checkinTime = checkintime.getText();
             Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.HOUR_OF_DAY,hourVal);
+            cal.add(Calendar.HOUR_OF_DAY ,hourVal);
             int hour = cal.get(Calendar.HOUR_OF_DAY);
             int minute = cal.get(Calendar.MINUTE);
             int second = cal.get(Calendar.SECOND);
