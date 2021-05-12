@@ -220,7 +220,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
     private void jbtn_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_payActionPerformed
          try {
-             check_in_out_controll.payment(Integer.parseInt(jtxtsearch_cust_checkin_id.getText()),checkindate.getText(),user_ids);
+             check_in_out_controll.payment(Integer.parseInt(jtxtsearch_cust_checkin_id.getText()),user_ids);
          } catch (SQLException ex) {
              Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
          }

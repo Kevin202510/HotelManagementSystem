@@ -523,21 +523,7 @@ public class UsersPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_viewpassActionPerformed
 
     private void takepictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takepictureActionPerformed
-//        JOptionPane.showMessageDialog(this, new Camera(lalagyanan,uaname.getText()));
-//        
-//        if (takepicture.getText().equals("TAKE")) {
-//            wc.open();
-//            new VideoFeeder().start();
-//            takepicture.setText("SAVE");
-//        }else{
-//            try {
-//                ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname.getText() + ".jpg"));
-//                profile.setText(uaname.getText() + ".jpg");
-//                wc.close();
-//            }catch (IOException ex) {
-//                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+
     }//GEN-LAST:event_takepictureActionPerformed
 
     private void jtxt_usuconKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_usuconKeyTyped
@@ -630,25 +616,6 @@ public class UsersPanel extends javax.swing.JPanel {
             return false;
         }
     }
-    
-//    class VideoFeeder extends Thread {
-//    
-//          public void run(){
-//          
-//               while(true){
-//                   try {
-//                        img = wc.getImage();
-//                        profileimg.setIcon(new ImageIcon(img));
-//                       Thread.sleep(5);
-//                   } catch (InterruptedException ex) {
-//                       JOptionPane.showMessageDialog(null,ex);
-//                       Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//                   }
-//                }
-//          
-//          }
-//    
-//    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

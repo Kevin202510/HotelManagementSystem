@@ -84,6 +84,10 @@ public class CheckinPanels extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         checkintime1 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        co_custdate = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        co_custtime = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_roomsTable = new javax.swing.JTable();
@@ -185,6 +189,20 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jPanel2.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 190, 40));
 
+        jLabel17.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel17.setText("CHECK OUT DATE");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 160, 50));
+
+        co_custdate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jPanel2.add(co_custdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 210, 30));
+
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel4.setText("CHECK OUT TIME");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 160, 60));
+
+        co_custtime.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jPanel2.add(co_custtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 210, 40));
+
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 1120, 380));
 
         jLabel3.setBackground(new java.awt.Color(102, 204, 255));
@@ -247,8 +265,13 @@ public class CheckinPanels extends javax.swing.JPanel {
         add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 290, 30));
 
         jcbo_hoursrange.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jcbo_hoursrange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 Hours\t", "6 Hours", "12 Hours", "24 Hours", " " }));
-        add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 50, 210, 30));
+        jcbo_hoursrange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "6", "12", "24", " " }));
+        jcbo_hoursrange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbo_hoursrangeActionPerformed(evt);
+            }
+        });
+        add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 50, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbl_roomsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_roomsTableMouseClicked
@@ -340,6 +363,13 @@ public class CheckinPanels extends javax.swing.JPanel {
            
     }//GEN-LAST:event_jtxt_cussearchKeyPressed
 
+    int hourVal;
+            
+    private void jcbo_hoursrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeActionPerformed
+        hourVal = Integer.parseInt((String) jcbo_hoursrange.getSelectedItem());
+        JOptionPane.showMessageDialog(null,hourVal);
+    }//GEN-LAST:event_jcbo_hoursrangeActionPerformed
+
     private void jbtn_checkinActionPerformed(java.awt.event.ActionEvent evt) {                                      
         
         if (checkInputs()==true) {
@@ -348,7 +378,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         customers = new Customers(1,jtxt_cusFname1.getText(),jtxt_cusMname1.getText(),jtxt_cusLname1.getText(),jtxt_cusAddress1.getText(),jtxt_cusContact2.getText());   
         try {
             custo.createCustomer(customers);
-            boolean check =  check_in_out_controll.checkIn(jtbl_roomsTable,checkindate, checkintime1, rooms1);
+            boolean check =  check_in_out_controll.checkIn(jtbl_roomsTable,checkindate, checkintime1, rooms1,hourVal);
             if (check==true) {
                 jtxt_cusFname1.setText("");
                jtxt_cusMname1.setText("");
@@ -381,6 +411,8 @@ public class CheckinPanels extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel checkindate;
     private javax.swing.JLabel checkintime1;
+    private javax.swing.JLabel co_custdate;
+    private javax.swing.JLabel co_custtime;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -389,8 +421,10 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_checkin;

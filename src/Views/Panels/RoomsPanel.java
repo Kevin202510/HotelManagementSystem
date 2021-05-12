@@ -87,7 +87,7 @@ public class RoomsPanel extends javax.swing.JPanel{
     }
     
 //    UDF
-    private void InitRun(){
+    private void InitRun() throws SQLException{
         jbtn_update.setVisible(false);
         jcbo_roomTypeId.setBackground(new Color(0, 0, 0, 0));
         jcbo_roomTypeId.setOpaque(false);

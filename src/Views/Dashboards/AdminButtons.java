@@ -10,6 +10,7 @@ import Controllers.CheckinAndOutController;
 import Controllers.ImagesNText;
 import Controllers.ImageTextRenderer;
 import Controllers.SQL;
+import Controllers.VideoFeeder;
 import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
@@ -49,7 +50,7 @@ public class AdminButtons extends javax.swing.JPanel {
     Buttons userButton;
     JFrame out;
     static int user_id;
-//    CheckinAndOutController checks = new CheckinAndOutController();
+    CheckinAndOutController checks = new CheckinAndOutController();
     
 //    ImagesNText vk = new ImagesNText();
     
@@ -68,8 +69,10 @@ public class AdminButtons extends javax.swing.JPanel {
         userrole.setForeground(Color.decode("#0039e6"));
         jComboBox1.setBackground(new Color(0, 0, 0, 0));
         jComboBox1.setOpaque(false);
-        new VideoFeeder().start();
-//        checkCustomerCheckOut();
+//        VideoFeeder vivin = new VideoFeeder();
+//        vivin.start();
+//        date.setText(checks.getDateNow());
+//        time.setText(checks.getTimeNow());
     }
 
     /**
@@ -485,49 +488,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
-
-    public  SQL sql = new SQL();
-    public Connection con = sql.getConnection();
-    
-    public void checkCustomerCheckOut(String timess) throws SQLException, InterruptedException{
-            String checkOutCheck = "SELECT * FROM `checkinandout` LEFT JOIN customers ON customers.cust_id=checkinandout.cust_id LEFT JOIN rooms ON rooms.room_id=checkinandout.room_id";
-                        Statement st = con.createStatement();
-                        ResultSet rs = st.executeQuery(checkOutCheck);
-                        
-                        while(rs.next()){
-                            String checkouttime = rs.getString("timeout");
-                            if (timess.equals(checkouttime)) {
-                            String checkoutnato = "Customer @ room " + " " + rs.getInt("room_id") + " " + "is time out";
-                            new Alerts(checkoutnato).setVisible(true);
-                            new VideoFeeder().sleep(3000);
-                            }
-                        }
-         }
-    
-    class VideoFeeder extends Thread {
-    
-          public void run(){
-              try {
-                  
-                  String ss = "00";
-                  
-                  while(true){
-                      Calendar cal = Calendar.getInstance();
-                      SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
-                      Date dat = cal.getTime();
-                      String timess = kevs.format(dat);
-//                      time.setText(timess);
-                      checkCustomerCheckOut(timess);
-                  }
-              } catch (SQLException ex) {
-                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-              } catch (InterruptedException ex) {
-                  Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-              }
-          
-          }
-    
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;

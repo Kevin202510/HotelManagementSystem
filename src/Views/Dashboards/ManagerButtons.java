@@ -8,6 +8,7 @@ package Views.Dashboards;
 import Controllers.Buttons;
 import Controllers.ImageTextRenderer;
 import Controllers.ImagesNText;
+import Controllers.VideoFeeder;
 import Views.Authentication.Login;
 import Views.Panels.ProfileSettings;
 import java.awt.Color;
@@ -51,7 +52,8 @@ public class ManagerButtons extends javax.swing.JPanel {
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
         user_fullname.setText(fullname);
         userrole.setText(role);
-//        new VideoFeeder().start();
+//        VideoFeeder vivin = new VideoFeeder();
+//        vivin.start();
     }
 
     /**
@@ -381,25 +383,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_customersMouseExited
 
     private void jLabelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound5MouseClicked
-        //        if (rooms.isEnabled()) {
-            //            rooms.setEnabled(false);
-            //            checkIn.setEnabled(false);
-            //            checkOut.setEnabled(false);
-            //            customers.setEnabled(false);
-            //            hov1.setEnabled(false);
-            //            hov2.setEnabled(false);
-            //            hov3.setEnabled(false);
-            //            hov4.setEnabled(false);
-            //        }else{
-            //            rooms.setEnabled(true);
-            //            checkIn.setEnabled(true);
-            //            checkOut.setEnabled(true);
-            //            customers.setEnabled(true);
-            //            hov1.setEnabled(true);
-            //            hov2.setEnabled(true);
-            //            hov3.setEnabled(true);
-            //            hov4.setEnabled(true);
-            //        }
+
     }//GEN-LAST:event_jLabelRound5MouseClicked
 
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
@@ -450,32 +434,6 @@ public class ManagerButtons extends javax.swing.JPanel {
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-     class VideoFeeder extends Thread {
-    
-          public void run(){
-          
-                while(true){
-                    Calendar cal = Calendar.getInstance();
-
-                    int hour = cal.get(Calendar.HOUR_OF_DAY);
-                    int minute = cal.get(Calendar.MINUTE);
-                    int second = cal.get(Calendar.SECOND);
-
-                    SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
-                    Date dat = cal.getTime();
-                    String times = kev.format(dat);
-                    
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-                    String strDate = dateFormat.format(dat);
-                    
-                    date.setText(strDate);
-                    time.setText(times);
-                }
-          
-          }
-    
-    }
-     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StaffButtons;

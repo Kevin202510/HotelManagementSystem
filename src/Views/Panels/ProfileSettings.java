@@ -373,7 +373,7 @@ public class ProfileSettings extends javax.swing.JFrame {
 
             while(rs.next()){
                 role_id=rs.getInt("role_id");
-                userprofile=rs.getString("profile");
+                userprofiles=rs.getString("profile");
                 jtxt_uaname2.setText(rs.getString("user_Fname"));
                 jtxt_umi.setText(rs.getString("user_Mname"));
                 jtxt_usn.setText(rs.getString("user_Lname"));
@@ -472,7 +472,7 @@ public class ProfileSettings extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + uaname2.getText() + ".jpg"));
+             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + jtxt_uaname2.getText() + ".jpg"));
             wc.close();
             Thread.sleep(5000);
         } catch (InterruptedException ex) {
@@ -563,6 +563,7 @@ public class ProfileSettings extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_viewpass;
     private javax.swing.JTextField jtxt_uadd;
     public javax.swing.JTextField jtxt_uaname2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JTextField jtxt_ucon;
     private javax.swing.JTextField jtxt_umi;
     private javax.swing.JTextField jtxt_uname;
