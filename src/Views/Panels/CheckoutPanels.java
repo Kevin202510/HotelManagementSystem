@@ -78,7 +78,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jtxtsearch_cust_checkin_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jlbl_total = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         user_id = new javax.swing.JLabel();
 
@@ -213,10 +213,10 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jLabel5.setText("TOTAL :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, 70, 50));
 
-        jLabel6.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 160, 50));
+        jlbl_total.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jlbl_total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbl_total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jlbl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 160, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 1120, 580));
 
@@ -258,7 +258,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
             searchIcon.setVisible(false);
             id=Integer.parseInt(jtxtsearch_cust_checkin_id.getText());
             try {
-                check_in_out_controll.fillField(id, jtxtco_custfullname, jtxtco_custaddress, jtxtco_custcontact, co_custtime, co_custdate, jtxtco_rooms,checkindate,checkintime);
+                check_in_out_controll.fillField(id, jtxtco_custfullname, jtxtco_custaddress, jtxtco_custcontact, co_custtime, co_custdate, jtxtco_rooms,checkindate,checkintime,jlbl_total);
             } catch (SQLException ex) {
                 Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -282,10 +282,10 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbtn_pay;
+    private javax.swing.JLabel jlbl_total;
     private javax.swing.JTextField jtxtco_custaddress;
     private javax.swing.JTextField jtxtco_custcontact;
     private javax.swing.JTextField jtxtco_custfullname;

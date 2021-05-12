@@ -62,7 +62,7 @@ public class CheckinAndOutController{
         CheckinAndOut checkInandOut;
         
         while(rs.next()){
-            checkInandOut=new CheckinAndOut(rs.getInt("id"),rs.getInt("cust_id"),rs.getInt("room_id"),rs.getString("checkin_date"),rs.getString("checkout_date"),rs.getString("timein"),rs.getString("timeout"));
+            checkInandOut=new CheckinAndOut(rs.getInt("id"),rs.getInt("cust_id"),rs.getInt("room_id"),rs.getString("checkin_date"),rs.getString("checkout_date"),rs.getString("timein"),rs.getString("timeout"),rs.getDouble("total"));
             checkinoutList.add(checkInandOut);
         }
         return checkinoutList;   
@@ -152,12 +152,8 @@ public class CheckinAndOutController{
         return strTime;
      }
      
-         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal) throws SQLException{
-            ArrayList<Customers> list = new CustomerController().custList();
-            int id = list.size()-1;
-             int ids = list.get(id).getcust_id();
-            int room_id =  Integer.parseInt(rooms1.getSelectedItem().toString());
-            String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
+     private void updateRoomStatus(int room_id,JTable roomstable) throws SQLException{
+         String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
             PreparedStatement roomup =con.prepareStatement(roomupdate);
             roomup.setInt(1,0);
             int k = roomup.executeUpdate();
@@ -166,11 +162,36 @@ public class CheckinAndOutController{
                  model.setRowCount(0);
                  roomControll.ShowRoomInCheckin(roomstable);
              }
+     }
+     
+//     updateRoomStatus(room_id,roomstable);/
+     private double getRoomPromoDiscount(int room_id) throws SQLException{
+        String getrateprice = "SELECT * FROM rooms LEFT JOIN rates ON rates.rate_id=rooms.rate_id LEFT JOIN promos ON promos.Id=rooms.promo_id WHERE rooms.room_id = '"+room_id+"'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(getrateprice);
+        double total=0;
+            if (rs.next()) {
+                if (rs.getInt("promo_id")==0) {
+                    total=rs.getInt("rate_price");
+                    JOptionPane.showMessageDialog(null,total);
+                }else{
+                    JOptionPane.showMessageDialog(null,"meron");
+                    total = rs.getInt("rate_price")-(rs.getInt("rate_price")*rs.getDouble("discount"));
+                }
+         }
+       return total;
+     }
+         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal) throws SQLException{
+            ArrayList<Customers> list = new CustomerController().custList();
+            int id = list.size()-1;
+            int ids = list.get(id).getcust_id();
+            int room_id =  Integer.parseInt(rooms1.getSelectedItem().toString());
 
+            
             CheckinAndOut checkin;
             String checkinDate = checkindate.getText();
             String checkinTime = checkintime.getText();
-           Calendar cal = Calendar.getInstance();
+            Calendar cal = Calendar.getInstance();
             cal.add(Calendar.HOUR_OF_DAY,hourVal);
             int hour = cal.get(Calendar.HOUR_OF_DAY);
             int minute = cal.get(Calendar.MINUTE);
@@ -178,15 +199,26 @@ public class CheckinAndOutController{
             SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
             Date dat = cal.getTime();
             String times = kev.format(dat);
-//            Date date = Calendar.getInstance().getTime();  
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-            String strDate = dateFormat.format(dat);
+            String strDate = dateFormat.format(dat);                   
             JOptionPane.showMessageDialog(null,times);
             JOptionPane.showMessageDialog(null,strDate);
-            checkin = new CheckinAndOut(0,ids,room_id,checkinDate,strDate,checkinTime,times);
-//             ArrayList<CheckinAndOut> checkinoutList = checkinandoutlist();
-            String insert = "INSERT INTO checkinandout(hours_checkin,timein,timeout,checkin_date,checkout_date,cust_id,room_id) VALUES (?,?,?,?,?,?,?)";
-           PreparedStatement st = con.prepareStatement(insert);
+            double total=0;
+            
+            if (hourVal<24) {
+                total = getRoomPromoDiscount(room_id);
+                JOptionPane.showMessageDialog(null,total);
+             }else{
+                LocalDate checkinsdate = LocalDate.parse(checkinDate);
+                LocalDate checkoutdate = LocalDate.parse(strDate);
+                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
+                JOptionPane.showMessageDialog(null,days);
+                total = getRoomPromoDiscount(room_id) * days;
+                JOptionPane.showMessageDialog(null,total);
+            }
+            checkin = new CheckinAndOut(0,ids,room_id,checkinDate,strDate,checkinTime,times,total);
+            String insert = "INSERT INTO checkinandout(hours_checkin,timein,timeout,checkin_date,checkout_date,cust_id,room_id,total) VALUES (?,?,?,?,?,?,?,?)";
+           PreparedStatement st = con.prepareStatement(insert);  
            st.setDouble(1, hourVal);
            st.setString(2, checkin.gettimein());
            st.setString(3, checkin.gettimeout());
@@ -194,6 +226,7 @@ public class CheckinAndOutController{
            st.setString(5, checkin.getcheckout_date());
            st.setInt(6, ids);
            st.setInt(7,checkin.getroomId());
+           st.setDouble(8,checkin.gettotal());
            int i = st.executeUpdate();
             if (i>0) {
                 new Alerts("checkin").setVisible(true);
@@ -216,8 +249,20 @@ public class CheckinAndOutController{
          String checkoutdate;
          String checkindates;
          
+         
+//    private double getRates(int room_id) throws SQLException{
+//       String getrateprice = "SELECT * FROM rooms LEFT JOIN rates ON rates.rate_id=rooms.rate_id WHERE rooms.room_id = '"+room_id+"'";
+//        Statement st = con.createStatement();
+//        ResultSet rs = st.executeQuery(getrateprice);
+//        double total=0;
+//            if (rs.next()) {
+//                    total = (int) (rs.getInt("rate_price"));
+//         }
+//       return total;
+//    }
+         
 //         checkout filler
-         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime) throws SQLException{
+         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime,JLabel total) throws SQLException{
             String datein="";
             String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"'";
             Statement st = con.createStatement();
@@ -234,6 +279,7 @@ public class CheckinAndOutController{
                     checkindate.setText(checkindates);
                     checkintime.setText(rs.getString("timein"));
                     co_rooms.setText(String.valueOf(rs.getInt("room_id")));
+                    total.setText(String.valueOf(rs.getDouble("total")));
              }
          }
          
