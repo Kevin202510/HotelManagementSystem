@@ -251,7 +251,7 @@ public class CheckinAndOutController{
                                                     "WHERE checkinandout.id = '"+id+"'";
                             Statement st = con.createStatement();
                             ResultSet rs = st.executeQuery(tanong);
-                             int total=0;
+                            int total=0;
                                 if (rs.next()) {
                                         total = (int) (rs.getInt("rate_price") *days);
                              }

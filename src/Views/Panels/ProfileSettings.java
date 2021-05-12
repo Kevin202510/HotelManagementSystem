@@ -49,12 +49,12 @@ public class ProfileSettings extends javax.swing.JFrame {
      
     public ProfileSettings(int user_id,JFrame out) throws SQLException {
         initComponents();
-        this.out=out;
-        this.UserIdSended=user_id;
+        ProfileSettings.out=out;
+        ProfileSettings.UserIdSended=user_id;
         userId.setText(String.valueOf(UserIdSended));
         getUserInfo();
         wc = Webcam.getDefault();
-        wc.setViewSize(WebcamResolution.VGA.getSize());
+//        wc.setViewSize(WebcamResolution.VGA.getSize());
 //        jButton3.setVisible(false);
     }
 
@@ -339,11 +339,11 @@ public class ProfileSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jbtn_addpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_addpicActionPerformed
-           Camera vin =  new Camera(jtxt_uaname2.getText());
-           JOptionPane.showMessageDialog(this, vin);
-
-//                new VideoFeeder().start();
-//                jButton3.setVisible(true);
+                wc.open();
+                wc.setViewSize(WebcamResolution.VGA.getSize());
+                new VideoFeeder().start();
+                jButton3.setVisible(true);
+                jbtn_addpic.setVisible(false);
     }//GEN-LAST:event_jbtn_addpicActionPerformed
 
     private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
