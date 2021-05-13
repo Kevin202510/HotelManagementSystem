@@ -406,7 +406,7 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 10));
 
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 630));
+        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 620));
         userActionPanel.add(profileimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 270, 180));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
