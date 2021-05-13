@@ -4,13 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CheckinAndOutController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/CheckinAndOut.java</file>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckoutPanels.java</file>
         </group>
         <group>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/CheckinAndOutController.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/CheckinAndOut.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckoutPanels.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/RoomsPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Controllers/PromoController.java</file>
         </group>
     </open-files>
 </project-private>
