@@ -36,12 +36,12 @@ public class RoomController {
     public ArrayList<Rooms> roomList() throws SQLException{
         ArrayList<Rooms> roomList = new ArrayList<>();
 //         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
-        String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id";
+       String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id LEFT JOIN promos on promos.Id = rooms.promo_id WHERE rooms.status = 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getString("bed_quantity"),rs.getString("room_type"),rs.getInt("rate_price"),rs.getInt("status"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getString("bed_quantity"),rs.getString("room_type"),rs.getInt("rate_price"),rs.getString("description"),rs.getInt("status"));
             roomList.add(rooms);
         }
         return roomList;   
@@ -51,12 +51,12 @@ public class RoomController {
      public ArrayList<Rooms> showRoomsCheckin() throws SQLException{
         ArrayList<Rooms> checkinrooms = new ArrayList<>();
 //         LEFT JOIN beds ON rooms.bed_id = beds.bed_id LEFT JOIN roomtypes ON rooms.RT_id = roomtypes.RT_id LEFT JOIN rates on rooms.rate_id = rates.rate_id
-        String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id WHERE rooms.status = 1";
+        String tanong = "SELECT * FROM `rooms` LEFT JOIN beds on beds.bed_id = rooms.bed_id LEFT JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id LEFT JOIN rates on rates.rate_id = rooms.rate_id LEFT JOIN promos on promos.Id = rooms.promo_id WHERE rooms.status = 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         
         while(rs.next()){
-            rooms=new Rooms(rs.getInt("room_id"),rs.getString("bed_quantity"),rs.getString("room_type"),rs.getInt("rate_price"),rs.getInt("status"));
+            rooms=new Rooms(rs.getInt("room_id"),rs.getString("bed_quantity"),rs.getString("room_type"),rs.getInt("rate_price"),rs.getString("description"),rs.getInt("status"));
             checkinrooms.add(rooms);
         }
         return checkinrooms;   
@@ -120,17 +120,32 @@ public class RoomController {
         catch (SQLException ex) {
         }
     }
+    
+    public void showPromo(JComboBox promo){
+        String tanong = "Select * from promos";
+        try{
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        while(rs.next()){
+         String vin =rs.getString("description");
+         promo.addItem(vin);
+        }
+        }
+        catch (SQLException ex) {
+        }
+    }
      
      public void Room(JTable roomstable) throws SQLException{
          ArrayList<Rooms> list = roomList();
          DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
-         Object[] row = new Object[5];
+         Object[] row = new Object[6];
          for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getroom_id();
             row[1] = list.get(i).getroomtype();
             row[2] = list.get(i).getbed();
             row[3] = list.get(i).getrates();
-            row[4] = list.get(i).getstatus();
+            row[4] = list.get(i).getDescription();
+            row[5] = list.get(i).getstatus();
             model.addRow(row);
          }
        }
@@ -153,12 +168,14 @@ public class RoomController {
 
   public boolean createRooms(Rooms rooms,JTable roomstable) throws SQLException{
         Connection con = sql.getConnection();
-        String insert = "INSERT INTO rooms(bed_id,RT_id,rate_id,status) VALUES (?,?,?,?)";
+        JOptionPane.showMessageDialog(null,"create");
+        String insert = "INSERT INTO rooms(bed_id,RT_id,rate_id,promo_id,status) VALUES (?,?,?,?,?)";
         PreparedStatement st = con.prepareStatement(insert);
         st.setInt(1, rooms.getbed_id());
         st.setInt(2, rooms.getRT_id());
         st.setInt(3, rooms.getrate_id());
-        st.setInt(4, rooms.getstatusid());
+        st.setInt(4, rooms.getpromoid());
+        st.setInt(5, rooms.getstatusid());
         int i = st.executeUpdate();
         if (i > 0) {
         DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
@@ -171,9 +188,9 @@ public class RoomController {
         }
     }
   
-  public void fillRoomForm(int id,JTextField Roomid,JComboBox Roomtype,JComboBox Bedtype,JComboBox Rate,JComboBox Status ) throws SQLException{
+  public void fillRoomForm(int id,JTextField Roomid,JComboBox Roomtype,JComboBox Bedtype,JComboBox Rate,JComboBox PromoId,JComboBox Status ) throws SQLException{
         Statement st = con.createStatement();
-        String selectRooms = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id where rooms.room_id ='"+ id +"'";
+        String selectRooms = "SELECT * FROM `rooms` INNER JOIN beds on beds.bed_id = rooms.bed_id INNER JOIN roomtypes ON roomtypes.RT_id = rooms.RT_id INNER JOIN rates on rates.rate_id = rooms.rate_id LEFT JOIN promos on promos.Id = rooms.promo_id where rooms.room_id ='"+ id +"'";
         ResultSet rs = st.executeQuery(selectRooms);
         while(rs.next()){
 //            String vins = rs.getInt("room_id")   +" "+ rs.getInt("bed_id") +" "+ rs.getInt("RT_id")  + " " + rs.getInt("rate_id") + " " + rs.getInt("status");
@@ -181,6 +198,7 @@ public class RoomController {
             Bedtype.setSelectedItem(rs.getString("bed_quantity"));
              Roomtype.setSelectedItem(rs.getString("room_type"));
             Rate.setSelectedItem(String.valueOf(rs.getInt("rate_price")));
+            PromoId.setSelectedItem(rs.getString("description"));
             if (rs.getInt("status")==1) {
               Status.setSelectedIndex(0);  
             }else{
@@ -191,16 +209,13 @@ public class RoomController {
   
   public boolean updateRooms(Rooms rooms,int room_id,JTable usertables) throws SQLException{
       
-        String updateRooms = "UPDATE rooms SET bed_id=?,RT_id=?,rate_id=?,status=? WHERE room_id = '"+room_id+"'";
+        String updateRooms = "UPDATE rooms SET bed_id=?,RT_id=?,rate_id=?,promo_id=?,status=? WHERE room_id = '"+room_id+"'";
         PreparedStatement st = con.prepareStatement(updateRooms);
         st.setInt(1, rooms.getbed_id());
-//        JOptionPane.showMessageDialog(null,rooms.getbed_id());
         st.setInt(2, rooms.getRT_id());
-//        JOptionPane.showMessageDialog(null,rooms.getRT_id());
         st.setInt(3, rooms.getrate_id());
-//        JOptionPane.showMessageDialog(null,rooms.getrate_id());
-        st.setInt(4, rooms.getstatusid());
-//        JOptionPane.showMessageDialog(null,rooms.getstatusid());
+        st.setInt(4, rooms.getpromoid());
+        st.setInt(5, rooms.getstatusid());
          int i = st.executeUpdate();
         if (i > 0) {
            DefaultTableModel model = (DefaultTableModel)usertables.getModel();

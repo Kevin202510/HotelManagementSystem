@@ -5,7 +5,9 @@
  */
 package Views.Panels;
 import Controllers.ImagesNText;
+import Controllers.PromoController;
 import Controllers.RoomController;
+import Models.Promos;
 import Models.Rooms;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
@@ -27,29 +29,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Chelsea
  * 
  */
-//implements ListCellRenderer{
-//
-//        @Override
-//        public Component getListCellRendererComponent(JList list, Object val, int index, boolean selected, boolean focused) {
-//           ImagesNText it  = (ImagesNText) val;
-//           setIcon(it.getImg());
-//           setText(it.getname());
-//           
-//            if (selected) {
-//                setBackground(Color.decode("#538cc6"));
-//                setForeground(Color.WHITE);
-//            }else{
-//                setBackground(Color.decode("#538cc6"));
-//                setForeground(Color.WHITE);
-//            }
-//           setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12));
-//           
-//           return this;
-//           
-//        }
 public class RoomsPanel extends javax.swing.JPanel{
     
     public RoomController roomControll = new RoomController();
+    PromoController promoControll;
     public ArrayList<Rooms> roomlist = roomControll.roomList();
      public Rooms roomModel;
      public JPanel lalagyanan;
@@ -57,6 +40,7 @@ public class RoomsPanel extends javax.swing.JPanel{
     String role;
     
     public RoomsPanel(JPanel lalagyanan,String role) throws SQLException{
+        this.promoControll = new PromoController(lalagyanan,role);
         initComponents();
         this.role=role;
         
@@ -74,8 +58,8 @@ public class RoomsPanel extends javax.swing.JPanel{
         }else{
             roomControll.Room(jtbl_rooms);
             if (roomlist.size()==0) {
-            jtxt_Roomid.setText("1");
-            InitRun();
+                jtxt_Roomid.setText("1");
+                InitRun();
         }else{
             index1 = roomlist.size()-1;
             index = roomlist.get(index1).getroom_id() + 1;        
@@ -97,11 +81,15 @@ public class RoomsPanel extends javax.swing.JPanel{
         jcbo_rateId.setOpaque(false);
         jcbo_statusId.setBackground(new Color(0, 0, 0, 0));
         jcbo_statusId.setOpaque(false);
+        jcbo_promoid.setBackground(new Color(0, 0, 0, 0));
+        jcbo_promoid.setOpaque(false);
         roomControll.showRoomType(jcbo_roomTypeId);
+        roomControll.showPromo(jcbo_promoid);
         roomControll.showBedType(jcbo_bedTypeId);
         roomControll.showRate(jcbo_rateId);
         roomscrollstaff.setVisible(false);
         roomstablestaff.setVisible(false);
+        promoControll.showPromos(jtbl_promos);
     }
 
 
@@ -116,8 +104,6 @@ public class RoomsPanel extends javax.swing.JPanel{
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jbtn_update = new javax.swing.JButton();
-        jbtn_save = new javax.swing.JButton();
         jtxt_room_search = new javax.swing.JTextField();
         roomAction = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -136,9 +122,28 @@ public class RoomsPanel extends javax.swing.JPanel{
         jcbo_roomTypeId = new javax.swing.JComboBox<>();
         jcbo_bedTypeId = new javax.swing.JComboBox<>();
         jcbo_rateId = new javax.swing.JComboBox<>();
+        jbtn_update = new javax.swing.JButton();
+        jbtn_save = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jlbl_promoid = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtxtarea_desciption = new javax.swing.JTextArea();
+        jtxt_discount = new javax.swing.JTextField();
+        jbtn_promosave = new javax.swing.JButton();
+        jbtn_promoupdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jcbo_promoid = new javax.swing.JComboBox<>();
         roomscroll = new javax.swing.JScrollPane();
         jtbl_rooms = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbl_promos = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
         roomscrollstaff = new javax.swing.JScrollPane();
         roomstablestaff = new javax.swing.JTable();
 
@@ -153,6 +158,75 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Rooms");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 220, -1));
+        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
+
+        roomAction.setBackground(new java.awt.Color(0, 77, 77));
+        roomAction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(191, 191, 191));
+        jLabel2.setText("PROMO ACTIONS");
+        roomAction.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, 20));
+
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Room ID");
+        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 73, 40));
+
+        jtxt_Roomid.setEditable(false);
+        jtxt_Roomid.setBackground(new java.awt.Color(0, 77, 77));
+        jtxt_Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jtxt_Roomid.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_Roomid.setBorder(null);
+        roomAction.add(jtxt_Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 213, 30));
+
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Room Type");
+        roomAction.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 30));
+
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("DISCOUNT");
+        roomAction.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 100, 30));
+
+        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Rate");
+        roomAction.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 73, 30));
+
+        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Status");
+        roomAction.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 73, 30));
+        roomAction.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 210, -1));
+        roomAction.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 210, -1));
+        roomAction.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 210, -1));
+        roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 210, -1));
+        roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, -1));
+
+        jcbo_statusId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jcbo_statusId.setForeground(new java.awt.Color(255, 255, 255));
+        jcbo_statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
+        roomAction.add(jcbo_statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 210, 30));
+
+        jcbo_roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jcbo_roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 210, 30));
+
+        jcbo_bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jcbo_bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 210, 30));
+
+        jcbo_rateId.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jcbo_rateId.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 210, 30));
 
         jbtn_update.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -163,7 +237,7 @@ public class RoomsPanel extends javax.swing.JPanel{
                 jbtn_updateActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
+        roomAction.add(jbtn_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
         jbtn_save.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -174,81 +248,69 @@ public class RoomsPanel extends javax.swing.JPanel{
                 jbtn_saveActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 126, 50));
-        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
+        roomAction.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
+        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
+        roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 20, 310));
 
-        roomAction.setBackground(new java.awt.Color(0, 77, 77));
-        roomAction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(191, 191, 191));
+        jLabel11.setText("ROOM ACTIONS");
+        roomAction.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 54));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(191, 191, 191));
-        jLabel2.setText("ROOM ACTIONS");
-        roomAction.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 54));
+        jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Bed Type");
+        roomAction.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 90, 30));
 
-        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Room ID");
-        roomAction.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 73, 40));
+        jlbl_promoid.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jlbl_promoid.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jlbl_promoid, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 170, 30));
 
-        jtxt_Roomid.setEditable(false);
-        jtxt_Roomid.setBackground(new java.awt.Color(0, 77, 77));
-        jtxt_Roomid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jtxt_Roomid.setForeground(new java.awt.Color(255, 255, 255));
-        jtxt_Roomid.setBorder(null);
-        roomAction.add(jtxt_Roomid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 213, 30));
+        jLabel14.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("DESCRIPTION");
+        roomAction.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 320, 30));
 
-        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Room Type");
-        roomAction.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 30));
+        jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("ID");
+        roomAction.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 40, 30));
 
-        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bed Type");
-        roomAction.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 90, 30));
+        jtxtarea_desciption.setColumns(20);
+        jtxtarea_desciption.setRows(5);
+        jScrollPane2.setViewportView(jtxtarea_desciption);
 
-        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Rate");
-        roomAction.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 73, 30));
+        roomAction.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 320, 90));
+        roomAction.add(jtxt_discount, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 620, 220, 30));
 
-        jLabel7.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Status");
-        roomAction.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 73, 30));
-        roomAction.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 210, -1));
-        roomAction.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 210, -1));
-        roomAction.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 210, -1));
-        roomAction.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 210, -1));
-        roomAction.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 210, -1));
+        jbtn_promosave.setText("SAVE");
+        jbtn_promosave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_promosaveActionPerformed(evt);
+            }
+        });
+        roomAction.add(jbtn_promosave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 120, 30));
 
-        jcbo_statusId.setBackground(new java.awt.Color(0, 77, 77));
-        jcbo_statusId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jcbo_statusId.setForeground(new java.awt.Color(255, 255, 255));
-        jcbo_statusId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Not Available" }));
-        roomAction.add(jcbo_statusId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 210, 30));
-
-        jcbo_roomTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        jcbo_roomTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jcbo_roomTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(jcbo_roomTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 210, 30));
-
-        jcbo_bedTypeId.setBackground(new java.awt.Color(0, 77, 77));
-        jcbo_bedTypeId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jcbo_bedTypeId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(jcbo_bedTypeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 210, 30));
-
-        jcbo_rateId.setBackground(new java.awt.Color(0, 77, 77));
-        jcbo_rateId.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jcbo_rateId.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(jcbo_rateId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 210, 30));
+        jbtn_promoupdate.setText("UPDATE");
+        roomAction.add(jbtn_promoupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
 
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 340, 530));
+        roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 340, 260));
 
-        add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 360, 720));
+        jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Promo");
+        roomAction.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 73, 30));
+        roomAction.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 210, -1));
+
+        jcbo_promoid.setBackground(new java.awt.Color(0, 77, 77));
+        jcbo_promoid.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jcbo_promoid.setForeground(new java.awt.Color(255, 255, 255));
+        roomAction.add(jcbo_promoid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, 30));
+
+        add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 360, 710));
 
         jtbl_rooms.setBackground(new java.awt.Color(191, 191, 191));
         jtbl_rooms.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -257,9 +319,17 @@ public class RoomsPanel extends javax.swing.JPanel{
 
             },
             new String [] {
-                "ID", "Room Type", "Bed Type", "Rate", "Status"
+                "ID", "Room Type", "Bed Type", "Rate", "Promo", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jtbl_rooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbl_roomsMouseClicked(evt);
@@ -267,7 +337,34 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomscroll.setViewportView(jtbl_rooms);
 
-        add(roomscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 1120, 690));
+        add(roomscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 1120, 320));
+
+        jtbl_promos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Description", "Discount", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtbl_promos);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 467, 1120, 310));
+
+        jLabel9.setBackground(new java.awt.Color(0, 77, 77));
+        jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("PROMOS");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 400, 320, 60));
 
         roomscrollstaff.setBackground(new java.awt.Color(0, 77, 77));
 
@@ -304,18 +401,22 @@ public class RoomsPanel extends javax.swing.JPanel{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
+//        JOptionPane.showMessageDialog(null,"1");
         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
+        int promoid=jcbo_promoid.getSelectedIndex()+1;
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
-            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
+//            JOptionPane.showMessageDialog(null,"2");
+            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  
         }else{
-            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
+            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status-1);
         }
         try {
             boolean checkRoom = roomControll.createRooms(roomModel,jtbl_rooms);
             if (checkRoom==true) {
+                JOptionPane.showMessageDialog(null,"3");
 //                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             }
@@ -328,11 +429,12 @@ public class RoomsPanel extends javax.swing.JPanel{
          int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
+        int promoid=jcbo_promoid.getSelectedIndex()+1;
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
-            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
+            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  
         }else{
-            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
+            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status-1);
         }
         boolean checkUpdate;
         try {
@@ -350,7 +452,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jbtn_save.setVisible(false);
         id = (int) jtbl_rooms.getValueAt(jtbl_rooms.getSelectedRow(),0);
         try {
-            roomControll.fillRoomForm(id,jtxt_Roomid, jcbo_roomTypeId, jcbo_bedTypeId, jcbo_rateId, jcbo_statusId);
+            roomControll.fillRoomForm(id,jtxt_Roomid, jcbo_roomTypeId, jcbo_bedTypeId, jcbo_rateId,jcbo_promoid,jcbo_statusId);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -360,9 +462,28 @@ public class RoomsPanel extends javax.swing.JPanel{
         // TODO add your handling code here:
     }//GEN-LAST:event_roomstablestaffMouseClicked
 
+    private void jbtn_promosaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promosaveActionPerformed
+//        Promos promosModel;
+//        promosModel = new Promos()
+            jlbl_promoid.setText("6");
+            jtxtarea_desciption.setText("30% discount");
+            jtxt_discount.setText("30");
+        try {
+            promoControll.createNewPromos(jlbl_promoid, jtxtarea_desciption, jtxt_discount,jtbl_promos);
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jbtn_promosaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -370,21 +491,32 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JButton jbtn_promosave;
+    private javax.swing.JButton jbtn_promoupdate;
     private javax.swing.JButton jbtn_save;
     private javax.swing.JButton jbtn_update;
     private javax.swing.JComboBox<String> jcbo_bedTypeId;
+    private javax.swing.JComboBox<String> jcbo_promoid;
     private javax.swing.JComboBox<String> jcbo_rateId;
     private javax.swing.JComboBox<String> jcbo_roomTypeId;
     private javax.swing.JComboBox<String> jcbo_statusId;
+    private javax.swing.JLabel jlbl_promoid;
+    private javax.swing.JTable jtbl_promos;
     private javax.swing.JTable jtbl_rooms;
     private javax.swing.JTextField jtxt_Roomid;
+    private javax.swing.JTextField jtxt_discount;
     private javax.swing.JTextField jtxt_room_search;
+    private javax.swing.JTextArea jtxtarea_desciption;
     private javax.swing.JPanel roomAction;
     private javax.swing.JScrollPane roomscroll;
     private javax.swing.JScrollPane roomscrollstaff;

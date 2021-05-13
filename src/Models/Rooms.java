@@ -13,27 +13,31 @@ public class Rooms {
     
     
         private int room_id ,bed_id,RT_id,rate_id,rates;
-        private String roomtype,bed,statuss;
-        private int status,rate_price;
+        private String roomtype,bed,statuss,promodescription;
+        private int status,rate_price,promoid;
     
-    public Rooms(int room_id,int bed_id,int RT_id,int rate_id,int status){
+    public Rooms(int room_id,int bed_id,int RT_id,int rate_id,int promoid,int status){
         this.room_id=room_id;
         this.bed_id=bed_id;
         this.RT_id=RT_id;
         this.rate_id=rate_id;
+        this.promoid=promoid;
         this.status=status;
     }
     
-    public Rooms(int room_id,String bed_quantity,String room_type,int rate_price,int status){
+    public Rooms(int room_id,String bed_quantity,String room_type,int rate_price,String descriptions,int status){
         this.room_id=room_id;
         this.bed=bed_quantity;
         this.roomtype=room_type;
         this.rate_price=rate_price;
+        this.promodescription=descriptions;
         this.status=status;
     }
     
     public int getroom_id(){
         return room_id;
+    }public int getpromoid(){
+        return promoid;
     }public int getbed_id(){
         return bed_id;
     }public int getRT_id(){
@@ -44,6 +48,8 @@ public class Rooms {
         return rate_price; 
     }public String getbed(){
         return bed; 
+    }public String getDescription(){
+        return promodescription; 
     }public String getroomtype(){
         return roomtype; 
     }public String getstatus(){
