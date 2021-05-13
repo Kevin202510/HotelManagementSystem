@@ -105,6 +105,7 @@ public class AdminButtons extends javax.swing.JPanel {
         time = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        sukicustomers = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,7 +126,7 @@ public class AdminButtons extends javax.swing.JPanel {
                 jLabelRound3MouseClicked(evt);
             }
         });
-        AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 40, 39));
+        AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,14 +162,14 @@ public class AdminButtons extends javax.swing.JPanel {
         hov5.setLayout(hov5Layout);
         hov5Layout.setHorizontalGroup(
             hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         hov5Layout.setVerticalGroup(
             hov5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 90, 150, 50));
+        AdminButtons.add(hov5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 90, 150, 50));
 
         hov6.setBackground(new java.awt.Color(83, 140, 198));
         hov6.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -203,7 +204,7 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 150, 50));
+        AdminButtons.add(hov6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 150, 50));
 
         hov7.setBackground(new java.awt.Color(83, 140, 198));
         hov7.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -231,14 +232,16 @@ public class AdminButtons extends javax.swing.JPanel {
         hov7.setLayout(hov7Layout);
         hov7Layout.setHorizontalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(hov7Layout.createSequentialGroup()
+                .addComponent(users)
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         hov7Layout.setVerticalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 150, 50));
+        AdminButtons.add(hov7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, 50));
 
         hov8.setBackground(new java.awt.Color(83, 140, 198));
         hov8.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -273,7 +276,7 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 150, 50));
+        AdminButtons.add(hov8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 150, 50));
 
         hov9.setBackground(new java.awt.Color(83, 140, 198));
         hov9.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -308,7 +311,7 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 190, 50));
+        AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 190, 50));
 
         jComboBox1.setBackground(new java.awt.Color(0, 128, 128));
         jComboBox1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
@@ -354,7 +357,7 @@ public class AdminButtons extends javax.swing.JPanel {
             .addComponent(rate_rt_bed, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, 210, 50));
+        AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 90, 210, 50));
 
         time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AdminButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 180, 30));
@@ -372,6 +375,21 @@ public class AdminButtons extends javax.swing.JPanel {
             }
         });
         AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
+
+        sukicustomers.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        sukicustomers.setForeground(new java.awt.Color(255, 255, 255));
+        sukicustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sukicustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/card.jpg"))); // NOI18N
+        sukicustomers.setText("SUKI CARD");
+        sukicustomers.setMaximumSize(new java.awt.Dimension(116, 40));
+        sukicustomers.setMinimumSize(new java.awt.Dimension(116, 40));
+        sukicustomers.setPreferredSize(new java.awt.Dimension(116, 40));
+        sukicustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseClicked(evt);
+            }
+        });
+        AdminButtons.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 200, 50));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -490,6 +508,10 @@ public class AdminButtons extends javax.swing.JPanel {
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void sukicustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseClicked
+        userButton.SukiCustomersButton(sukicustomers);
+    }//GEN-LAST:event_sukicustomersMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
     private javax.swing.JLabel customers;
@@ -508,6 +530,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;
+    private javax.swing.JLabel sukicustomers;
     private javax.swing.JLabel time;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;

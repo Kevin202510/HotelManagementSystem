@@ -87,6 +87,7 @@ public class StaffButtons extends javax.swing.JPanel {
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        sukicustomers = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -131,7 +132,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(rooms, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 150, 50));
+        StaffButtons.add(hov2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 50));
 
         hov3.setBackground(new java.awt.Color(83, 140, 198));
         hov3.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -166,7 +167,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(checkIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, -1, 50));
+        StaffButtons.add(hov3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, 50));
 
         hov1.setBackground(new java.awt.Color(83, 140, 198));
         hov1.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -202,7 +203,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(checkOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 90, -1, 50));
+        StaffButtons.add(hov1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, -1, 50));
 
         hov4.setBackground(new java.awt.Color(83, 140, 198));
 
@@ -229,14 +230,14 @@ public class StaffButtons extends javax.swing.JPanel {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 90, -1, 54));
+        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1209, 90, 200, 54));
 
         jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,7 +245,7 @@ public class StaffButtons extends javax.swing.JPanel {
                 jLabelRound5MouseClicked(evt);
             }
         });
-        StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 40, 39));
+        StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
 
         user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         user_fullname.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,7 +288,7 @@ public class StaffButtons extends javax.swing.JPanel {
             .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 170, 50));
+        StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 50));
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -314,6 +315,21 @@ public class StaffButtons extends javax.swing.JPanel {
             }
         });
         StaffButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
+
+        sukicustomers.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        sukicustomers.setForeground(new java.awt.Color(255, 255, 255));
+        sukicustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sukicustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/card.jpg"))); // NOI18N
+        sukicustomers.setText("SUKI CARD");
+        sukicustomers.setMaximumSize(new java.awt.Dimension(116, 40));
+        sukicustomers.setMinimumSize(new java.awt.Dimension(116, 40));
+        sukicustomers.setPreferredSize(new java.awt.Dimension(116, 40));
+        sukicustomers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseClicked(evt);
+            }
+        });
+        StaffButtons.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 200, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -437,6 +453,10 @@ public class StaffButtons extends javax.swing.JPanel {
         signOut(out);
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private void sukicustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseClicked
+        userButton.SukiCustomersButton(sukicustomers);
+    }//GEN-LAST:event_sukicustomersMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StaffButtons;
     private javax.swing.JLabel checkIn;
@@ -454,6 +474,7 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
     private javax.swing.JLabel rooms;
+    private javax.swing.JLabel sukicustomers;
     private javax.swing.JLabel time;
     private javax.swing.JLabel user_fullname;
     private javax.swing.JLabel userrole;

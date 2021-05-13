@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 public class Buttons {
     
     JPanel lalagyanan;
-    JLabel home,customers,rate_RT_bed,rooms,users,sales,checkOut;
+    JLabel home,customers,rate_RT_bed,rooms,users,sales,checkOut,sukicustomers;
     int user_ids;
     
     public Buttons(JPanel lalagyanan,int user_id){
@@ -57,6 +57,11 @@ public class Buttons {
     public void homeButton(JLabel home){
         this.home=home;
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+    }
+    
+    public void SukiCustomersButton(JLabel sukicustomers){
+        this.sukicustomers=sukicustomers;
+            new ContainerManipulator(lalagyanan,new Views.Panels.SukiCustomers(lalagyanan));
     }
     
     
