@@ -6,6 +6,7 @@
 package Controllers;
 
 import Models.Customers;
+import Models.SukiCustomers;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.Hashtable;
 import java.util.Map;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -75,6 +77,44 @@ public class CustomerController {
             row[3] = list.get(i).getcust_contactnum();
             model.addRow(row);
          }
+    }
+      
+      public void showCustomer(JComboBox customer) throws SQLException{
+         ArrayList<Customers> list =custList();
+         for (int i = 0; i < list.size(); i++) {
+           String vin = list.get(i).getcust_fullname();
+           customer.addItem(vin);
+         }
+    }
+      
+    public ArrayList<SukiCustomers> custSukiList() throws SQLException{
+        ArrayList<SukiCustomers> custosukiList = new ArrayList<>();
+        SQL sql = new SQL();
+        Connection con = sql.getConnection();
+        String tanong = "Select * from sukicustomers LEFT JOIN customers ON customers.cust_id=sukicustomers.custo_id";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        SukiCustomers sukicustomers;
+        
+        while(rs.next()){
+         String fullname = rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " + rs.getString("cust_Lname");  
+         sukicustomers=new SukiCustomers(rs.getInt("id"),fullname,rs.getString("sukicode"),rs.getDouble("points"));
+         custosukiList.add(sukicustomers);
+        }
+        return custosukiList;   
+    }
+      
+    public void showSukiCustomer(JTable customerTable) throws SQLException{
+        ArrayList<SukiCustomers> custosukiList = custSukiList();
+        DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
+        Object[] row = new Object[8];
+        for (int i = 0; i < custosukiList.size(); i++) {
+           row[0] = custosukiList.get(i).getId();
+           row[1] = custosukiList.get(i).getcustomerName();
+           row[2] = custosukiList.get(i).getsukiCode();
+           row[3] = custosukiList.get(i).getpoints();
+           model.addRow(row);
+        }
     }
      
 }

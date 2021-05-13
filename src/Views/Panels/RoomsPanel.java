@@ -347,7 +347,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomscroll.setViewportView(jtbl_rooms);
 
-        add(roomscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 1120, 320));
+        add(roomscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 1110, 320));
 
         jtbl_promos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -367,7 +367,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         jScrollPane1.setViewportView(jtbl_promos);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 467, 1120, 310));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 467, 1110, 310));
 
         jLabel9.setBackground(new java.awt.Color(0, 77, 77));
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
@@ -407,7 +407,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomscrollstaff.setViewportView(roomstablestaff);
 
-        add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1480, 690));
+        add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1470, 690));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
@@ -438,7 +438,7 @@ public class RoomsPanel extends javax.swing.JPanel{
          int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
-        int promoid=jcbo_promoid.getSelectedIndex()+1;
+        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
             roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  

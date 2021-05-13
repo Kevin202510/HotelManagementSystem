@@ -59,7 +59,7 @@ public class Buttons {
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
     }
     
-    public void SukiCustomersButton(JLabel sukicustomers){
+    public void SukiCustomersButton(JLabel sukicustomers) throws SQLException{
         this.sukicustomers=sukicustomers;
             new ContainerManipulator(lalagyanan,new Views.Panels.SukiCustomers(lalagyanan));
     }

@@ -181,7 +181,7 @@ public class CheckinAndOutController{
          }
        return total;
      }
-         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal) throws SQLException{
+         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal,JLabel checkoutdates,JLabel checkouttime) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
             int id = list.size()-1;
             int ids = list.get(id).getcust_id();
@@ -200,7 +200,9 @@ public class CheckinAndOutController{
             Date dat = cal.getTime();
             String times = kev.format(dat);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-            String strDate = dateFormat.format(dat);                   
+            String strDate = dateFormat.format(dat); 
+            checkoutdates.setText(strDate);
+            checkouttime.setText(times);
             JOptionPane.showMessageDialog(null,times);
             JOptionPane.showMessageDialog(null,strDate);
             double total=0;
@@ -237,7 +239,7 @@ public class CheckinAndOutController{
                 while(rs.next()){
                     checkid=rs.getInt("MAX(id)");
                 }
-//               JOptionPane.showMessageDialog(null,checkid);
+                updateRoomStatus(room_id,roomstable);
                  GenerateQrCode(checkid);
                 return true;
             }else{

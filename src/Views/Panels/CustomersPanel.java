@@ -112,7 +112,7 @@ import javax.swing.table.DefaultTableModel;
             jtbl_custable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 130, 1120, 660));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 130, 1110, 650));
 
         jPanel1.setBackground(new java.awt.Color(0, 77, 77));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
