@@ -169,7 +169,7 @@ public class UsersPanel extends javax.swing.JPanel {
             jtbl_user.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 1150, 690));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 1140, 680));
 
         jPanel2.setBackground(new java.awt.Color(0, 77, 77));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -406,7 +406,7 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 10));
 
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 310, 650));
+        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 630));
         userActionPanel.add(profileimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 270, 180));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N

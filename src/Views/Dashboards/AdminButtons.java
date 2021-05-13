@@ -105,6 +105,7 @@ public class AdminButtons extends javax.swing.JPanel {
         time = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
@@ -134,7 +135,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
         userrole.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         userrole.setForeground(new java.awt.Color(255, 255, 255));
-        AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 90, 27));
+        AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 70, 27));
 
         hov5.setBackground(new java.awt.Color(83, 140, 198));
         hov5.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -232,9 +233,7 @@ public class AdminButtons extends javax.swing.JPanel {
         hov7.setLayout(hov7Layout);
         hov7Layout.setHorizontalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov7Layout.createSequentialGroup()
-                .addComponent(users)
-                .addGap(0, 33, Short.MAX_VALUE))
+            .addComponent(users, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         hov7Layout.setVerticalGroup(
             hov7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,6 +375,9 @@ public class AdminButtons extends javax.swing.JPanel {
         });
         AdminButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
 
+        jpnl_hov11.setBackground(new java.awt.Color(83, 140, 198));
+        jpnl_hov11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         sukicustomers.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
         sukicustomers.setForeground(new java.awt.Color(255, 255, 255));
         sukicustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -388,8 +390,16 @@ public class AdminButtons extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sukicustomersMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseExited(evt);
+            }
         });
-        AdminButtons.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 200, 50));
+        jpnl_hov11.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 200, 50));
+
+        AdminButtons.add(jpnl_hov11, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 190, 50));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -512,6 +522,14 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.SukiCustomersButton(sukicustomers);
     }//GEN-LAST:event_sukicustomersMouseClicked
 
+    private void sukicustomersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseEntered
+        userButton.setC(jpnl_hov11);
+    }//GEN-LAST:event_sukicustomersMouseEntered
+
+    private void sukicustomersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseExited
+        userButton.resetC(jpnl_hov11);
+    }//GEN-LAST:event_sukicustomersMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
     private javax.swing.JLabel customers;
@@ -527,6 +545,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private jroundborder.JLabelRound jLabelRound3;
+    private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;

@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -166,26 +168,34 @@ public class RoomController {
     
 
 
-  public boolean createRooms(Rooms rooms,JTable roomstable) throws SQLException{
-        Connection con = sql.getConnection();
-        JOptionPane.showMessageDialog(null,"create");
-        String insert = "INSERT INTO rooms(bed_id,RT_id,rate_id,promo_id,status) VALUES (?,?,?,?,?)";
-        PreparedStatement st = con.prepareStatement(insert);
-        st.setInt(1, rooms.getbed_id());
-        st.setInt(2, rooms.getRT_id());
-        st.setInt(3, rooms.getrate_id());
-        st.setInt(4, rooms.getpromoid());
-        st.setInt(5, rooms.getstatusid());
-        int i = st.executeUpdate();
-        if (i > 0) {
-        DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
-        model.setRowCount(0);
-        new Alerts("save").setVisible(true);
-        return true;
-        } else {
-            new Alerts("error").setVisible(true);
-            return false;
+  boolean test;
+     
+  public boolean createRooms(Rooms rooms,JTable roomstable){
+        try {
+            Connection con = sql.getConnection();
+            JOptionPane.showMessageDialog(null,"create");
+            String insert = "INSERT INTO rooms(bed_id,RT_id,rate_id,promo_id,status) VALUES (?,?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(insert);
+            st.setInt(1, rooms.getbed_id());
+            st.setInt(2, rooms.getRT_id());
+            st.setInt(3, rooms.getrate_id());
+            JOptionPane.showMessageDialog(null,rooms.getpromoid());
+            st.setInt(4, rooms.getpromoid());
+            st.setInt(5, rooms.getstatusid());
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
+                model.setRowCount(0);
+                new Alerts("save").setVisible(true);
+                test=true;
+            } else {
+                new Alerts("error").setVisible(true);
+                test=false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return test;
     }
   
   public void fillRoomForm(int id,JTextField Roomid,JComboBox Roomtype,JComboBox Bedtype,JComboBox Rate,JComboBox PromoId,JComboBox Status ) throws SQLException{

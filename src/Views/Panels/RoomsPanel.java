@@ -31,9 +31,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RoomsPanel extends javax.swing.JPanel{
     
+    ArrayList<Promos> promolists;
     public RoomController roomControll = new RoomController();
     PromoController promoControll;
-    public ArrayList<Rooms> roomlist = roomControll.roomList();
+    ArrayList<Rooms> roomlist = roomControll.roomList();
      public Rooms roomModel;
      public JPanel lalagyanan;
     public int index,index1,id;
@@ -66,6 +67,12 @@ public class RoomsPanel extends javax.swing.JPanel{
             jtxt_Roomid.setText(String.valueOf(index));
             InitRun();
         }
+            if(promolists.size()==0){
+                jlbl_promoid.setText("1");
+            }else{
+                int indes = promolists.get(promolists.size()-1).getPromoId()+1;
+                jlbl_promoid.setText(String.valueOf(indes));
+            }
         }
         this.lalagyanan=lalagyanan;
     }
@@ -90,6 +97,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomscrollstaff.setVisible(false);
         roomstablestaff.setVisible(false);
         promoControll.showPromos(jtbl_promos);
+        promolists = promoControll.promoList();
     }
 
 
@@ -157,7 +165,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Rooms");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 220, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 220, -1));
         jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
@@ -279,7 +287,9 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomAction.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 40, 30));
 
         jtxtarea_desciption.setColumns(20);
+        jtxtarea_desciption.setLineWrap(true);
         jtxtarea_desciption.setRows(5);
+        jtxtarea_desciption.setTabSize(4);
         jScrollPane2.setViewportView(jtxtarea_desciption);
 
         roomAction.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 320, 90));
@@ -291,7 +301,7 @@ public class RoomsPanel extends javax.swing.JPanel{
                 jbtn_promosaveActionPerformed(evt);
             }
         });
-        roomAction.add(jbtn_promosave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 120, 30));
+        roomAction.add(jbtn_promosave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
 
         jbtn_promoupdate.setText("UPDATE");
         roomAction.add(jbtn_promoupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
@@ -405,10 +415,9 @@ public class RoomsPanel extends javax.swing.JPanel{
         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
-        int promoid=jcbo_promoid.getSelectedIndex()+1;
+        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
-//            JOptionPane.showMessageDialog(null,"2");
             roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  
         }else{
             roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status-1);
@@ -463,11 +472,6 @@ public class RoomsPanel extends javax.swing.JPanel{
     }//GEN-LAST:event_roomstablestaffMouseClicked
 
     private void jbtn_promosaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promosaveActionPerformed
-//        Promos promosModel;
-//        promosModel = new Promos()
-            jlbl_promoid.setText("6");
-            jtxtarea_desciption.setText("30% discount");
-            jtxt_discount.setText("30");
         try {
             promoControll.createNewPromos(jlbl_promoid, jtxtarea_desciption, jtxt_discount,jtbl_promos);
         } catch (SQLException ex) {
