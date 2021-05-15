@@ -87,6 +87,7 @@ public class StaffButtons extends javax.swing.JPanel {
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
@@ -316,6 +317,9 @@ public class StaffButtons extends javax.swing.JPanel {
         });
         StaffButtons.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1420, 10, 50, 36));
 
+        jpnl_hov11.setBackground(new java.awt.Color(83, 140, 198));
+        jpnl_hov11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         sukicustomers.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
         sukicustomers.setForeground(new java.awt.Color(255, 255, 255));
         sukicustomers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -328,8 +332,16 @@ public class StaffButtons extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sukicustomersMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sukicustomersMouseExited(evt);
+            }
         });
-        StaffButtons.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 200, 50));
+        jpnl_hov11.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 210, 50));
+
+        StaffButtons.add(jpnl_hov11, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, 190, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -454,8 +466,20 @@ public class StaffButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void sukicustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseClicked
-        userButton.SukiCustomersButton(sukicustomers);
+        try {
+            userButton.SukiCustomersButton(sukicustomers);
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffButtons.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sukicustomersMouseClicked
+
+    private void sukicustomersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseEntered
+        userButton.setC(jpnl_hov11);
+    }//GEN-LAST:event_sukicustomersMouseEntered
+
+    private void sukicustomersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseExited
+        userButton.resetC(jpnl_hov11);
+    }//GEN-LAST:event_sukicustomersMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StaffButtons;
@@ -473,6 +497,7 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private jroundborder.JLabelRound jLabelRound5;
+    private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sukicustomers;
     private javax.swing.JLabel time;

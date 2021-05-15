@@ -31,7 +31,6 @@ public class PromoController {
 SQL sql = new SQL();
 JPanel lalagyanan;
 Connection con = sql.getConnection();
- public ArrayList<Promos> PromoList = new ArrayList<>();
  String role;
     
     public PromoController(JPanel lalagyanan,String role){
@@ -41,6 +40,7 @@ Connection con = sql.getConnection();
    
     
     public ArrayList<Promos> promoList() throws SQLException{
+        ArrayList<Promos> PromoList = new ArrayList<>();
         String tanong = "SELECT * FROM promos";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);

@@ -181,7 +181,7 @@ public class CheckinAndOutController{
          }
        return total;
      }
-         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal) throws SQLException{
+         public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal,JLabel checkoutdates,JLabel checkouttime) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
             int id = list.size()-1;
             int ids = list.get(id).getcust_id();
@@ -200,7 +200,9 @@ public class CheckinAndOutController{
             Date dat = cal.getTime();
             String times = kev.format(dat);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-            String strDate = dateFormat.format(dat);                   
+            String strDate = dateFormat.format(dat); 
+            checkoutdates.setText(strDate);
+            checkouttime.setText(times);
             JOptionPane.showMessageDialog(null,times);
             JOptionPane.showMessageDialog(null,strDate);
             double total=0;
@@ -237,7 +239,7 @@ public class CheckinAndOutController{
                 while(rs.next()){
                     checkid=rs.getInt("MAX(id)");
                 }
-//               JOptionPane.showMessageDialog(null,checkid);
+                updateRoomStatus(room_id,roomstable);
                  GenerateQrCode(checkid);
                 return true;
             }else{
@@ -315,6 +317,57 @@ public class CheckinAndOutController{
            int i = st.executeUpdate();
              if (i>0) {
                  JOptionPane.showMessageDialog(null,"successfully");
+             }
+         }
+         
+         double hourvals,totals;
+         int room_id;
+         String checkinDates;
+         
+         public void CheckCustomerCheckInOut(int id,JLabel fname,JLabel mname,JLabel lname,JLabel address,JLabel contactnum,JLabel rooms,JLabel checkintime,JLabel checkindate,JLabel checkouttime,JLabel checkoutdate) throws SQLException{
+            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(tanong);
+            
+            while(rs.next()){
+                hourvals=rs.getDouble("hours_checkin");
+                totals=rs.getDouble("total");
+                fname.setText(rs.getString("cust_Fname"));
+                mname.setText(rs.getString("cust_Mname"));
+                lname.setText(rs.getString("cust_Lname"));
+                address.setText(rs.getString("cust_address"));
+                contactnum.setText(rs.getString("cust_contactnum"));
+                room_id=rs.getInt("room_id");
+                rooms.setText(String.valueOf(room_id));
+                checkintime.setText(rs.getString("timein"));
+                checkinDates=rs.getString("checkin_date");
+                checkindate.setText(checkinDates);
+            }
+         }
+         
+         public void updateCheckInAndOut(int checkid,double hours,String timeout,String checkoutdates) throws SQLException{
+             double total=0;
+            
+            if (hours<24) {
+                total = getRoomPromoDiscount(room_id);
+                JOptionPane.showMessageDialog(null,total);
+             }else{
+                LocalDate checkinsdate = LocalDate.parse(checkinDates);
+                LocalDate checkoutdate = LocalDate.parse(checkoutdates);
+                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
+                JOptionPane.showMessageDialog(null,days);
+                total = getRoomPromoDiscount(room_id) * days;
+                JOptionPane.showMessageDialog(null,total);
+            }
+             String update = "UPDATE checkinandout SET hours_checkin=?,timeout=?,checkout_date=?,total=? where id = '"+checkid+"'";
+             PreparedStatement st = con.prepareStatement(update);
+             st.setInt(1, (int) (hourvals+hours));
+             st.setString(2,timeout);
+             st.setString(3,checkoutdates);
+             st.setDouble(4,totals+total);
+             int i= st.executeUpdate();
+             if(i>0){
+                 JOptionPane.showMessageDialog(null,"updated successfully");
              }
          }
 }

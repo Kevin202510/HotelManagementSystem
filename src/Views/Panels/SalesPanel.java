@@ -85,7 +85,7 @@ public class SalesPanel extends javax.swing.JPanel {
             jtbl_sales.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 1130, 690));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 1120, 680));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
