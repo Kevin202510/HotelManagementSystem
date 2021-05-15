@@ -18,7 +18,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -259,10 +261,13 @@ import javax.swing.table.DefaultTableModel;
         jbtn_GnrateQR.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_GnrateQR.setText("Generate QR");
         add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
-        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 80, 210, 30));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 80, -1, -1));
+        jtxt_cussearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_cussearchKeyPressed(evt);
+            }
+        });
+        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
@@ -339,6 +344,18 @@ import javax.swing.table.DefaultTableModel;
     private void jtxt_cusAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cusAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_cusAddressActionPerformed
+
+    
+    private void jtxt_cussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cussearchKeyPressed
+        // SEARCH
+        
+            DefaultTableModel model = (DefaultTableModel)jtbl_custable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_custable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_cussearch.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_cussearchKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
