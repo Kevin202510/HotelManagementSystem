@@ -286,7 +286,7 @@ public class CheckinPanels extends javax.swing.JPanel {
                 jcbo_hoursrangeActionPerformed(evt);
             }
         });
-        jpnl_checkin.add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 210, 40));
+        jpnl_checkin.add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 210, 40));
 
         jbtn_checkin.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_checkin.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -562,11 +562,11 @@ public class CheckinPanels extends javax.swing.JPanel {
 
     private void jbtn_SaveExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SaveExtendActionPerformed
         double hoursval = Double.parseDouble((String) jcbo_hoursrange1.getSelectedItem());
-            try {
-                check_in_out_controll.updateCheckInAndOut(checkid,hoursval,jlbl_checkouttime.getText(),jlbl_checkoutdate.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                check_in_out_controll.updateCheckInAndOut(checkid,hoursval,jlbl_checkouttime.getText(),jlbl_checkoutdate.getText());
+//            } catch (SQLException ex) {
+//                Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
+//            }
     }//GEN-LAST:event_jbtn_SaveExtendActionPerformed
 
                 

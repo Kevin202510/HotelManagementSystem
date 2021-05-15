@@ -8,9 +8,10 @@
         </group>
         <group>
             <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/SalesPanel.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Models/CheckinAndOut.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CheckinPanels.java</file>
-            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/CustomersPanel.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/SukiCustomers.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/AdminButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Dashboards/StaffButtons.java</file>
+            <file>file:/C:/xampp/htdocs/HotelManagementSystem/src/Views/Panels/UsersPanel.java</file>
         </group>
     </open-files>
 </project-private>

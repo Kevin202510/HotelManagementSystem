@@ -152,7 +152,7 @@ public class CheckinAndOutController{
         return strTime;
      }
      
-     private void updateRoomStatus(int room_id,JTable roomstable) throws SQLException{
+    private void updateRoomStatus(int room_id,JTable roomstable) throws SQLException{
          String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
             PreparedStatement roomup =con.prepareStatement(roomupdate);
             roomup.setInt(1,0);
@@ -164,30 +164,74 @@ public class CheckinAndOutController{
              }
      }
      
-//     updateRoomStatus(room_id,roomstable);/
-     private double getRoomPromoDiscount(int room_id) throws SQLException{
-        String getrateprice = "SELECT * FROM rooms LEFT JOIN rates ON rates.rate_id=rooms.rate_id LEFT JOIN promos ON promos.Id=rooms.promo_id WHERE rooms.room_id = '"+room_id+"'";
+////     updateRoomStatus(room_id,roomstable);/
+     private double getRoomRates(int room_id) throws SQLException{
+        String getrateprice = "SELECT * FROM rooms LEFT JOIN rates ON rates.rate_id=rooms.rate_id WHERE rooms.room_id = '"+room_id+"'";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(getrateprice);
         double total=0;
             if (rs.next()) {
-                if (rs.getInt("promo_id")==0) {
-                    total=rs.getInt("rate_price");
-                    JOptionPane.showMessageDialog(null,total);
-                }else{
-                    JOptionPane.showMessageDialog(null,"meron");
-                    total = rs.getInt("rate_price")-(rs.getInt("rate_price")*rs.getDouble("discount"));
-                }
+               total = rs.getInt("rate_price");
          }
        return total;
+     }
+     double total;
+     private double getDiscountPromo(int room_id,int hourVal,String checkinDate,String strDate) throws SQLException{
+         
+//         double dis1=0;
+//            while(rs.next()){
+//                dis
+//            }
+            
+            if (hourVal==3) {
+                String tanong = "SELECT * FROM promos where id = 1";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(tanong);
+                if (rs.next()) {
+                    double dis1=rs.getDouble("discount");
+                    JOptionPane.showMessageDialog(null,dis1);
+                    total = getRoomRates(room_id)-(getRoomRates(room_id)*dis1);
+                    JOptionPane.showMessageDialog(null,total);
+                }
+                return total;
+             }else if (hourVal==6) {
+                String tanong = "SELECT * FROM promos where id = 2";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(tanong);
+                if (rs.next()) {
+                    double dis2=rs.getDouble("discount");
+                total = getRoomRates(room_id)-(getRoomRates(room_id)*dis2);
+                }
+                return total;
+             }else if (hourVal==12) {
+                String tanong = "SELECT * FROM promos where id = 3";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(tanong);
+                if (rs.next()) {
+                    double dis3=rs.getDouble("discount");
+                    total = getRoomRates(room_id)-(getRoomRates(room_id)*dis3);
+                }
+                return total;
+             }else{
+                String tanong = "SELECT * FROM promos where id = 4";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(tanong);
+                if (rs.next()) {
+                    double dis4=rs.getDouble("discount");
+                LocalDate checkinsdate = LocalDate.parse(checkinDate);
+                LocalDate checkoutdate = LocalDate.parse(strDate);
+                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
+                JOptionPane.showMessageDialog(null,days);
+                total = getRoomRates(room_id) * days-(getRoomRates(room_id)*dis4);
+                }
+                return total;
+            }
      }
          public boolean checkIn(JTable roomstable,JLabel checkindate,JLabel checkintime,JComboBox rooms1,int hourVal,JLabel checkoutdates,JLabel checkouttime) throws SQLException{
             ArrayList<Customers> list = new CustomerController().custList();
             int id = list.size()-1;
             int ids = list.get(id).getcust_id();
             int room_id =  Integer.parseInt(rooms1.getSelectedItem().toString());
-
-            
             CheckinAndOut checkin;
             String checkinDate = checkindate.getText();
             String checkinTime = checkintime.getText();
@@ -203,22 +247,8 @@ public class CheckinAndOutController{
             String strDate = dateFormat.format(dat); 
             checkoutdates.setText(strDate);
             checkouttime.setText(times);
-            JOptionPane.showMessageDialog(null,times);
-            JOptionPane.showMessageDialog(null,strDate);
-            double total=0;
             
-            if (hourVal<24) {
-                total = getRoomPromoDiscount(room_id);
-                JOptionPane.showMessageDialog(null,total);
-             }else{
-                LocalDate checkinsdate = LocalDate.parse(checkinDate);
-                LocalDate checkoutdate = LocalDate.parse(strDate);
-                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
-                JOptionPane.showMessageDialog(null,days);
-                total = getRoomPromoDiscount(room_id) * days;
-                JOptionPane.showMessageDialog(null,total);
-            }
-            checkin = new CheckinAndOut(0,ids,room_id,checkinDate,strDate,checkinTime,times,total);
+            checkin = new CheckinAndOut(0,ids,room_id,checkinDate,strDate,checkinTime,times,getDiscountPromo(room_id,hourVal,checkinDate,strDate));
             String insert = "INSERT INTO checkinandout(hours_checkin,timein,timeout,checkin_date,checkout_date,cust_id,room_id,total) VALUES (?,?,?,?,?,?,?,?)";
            PreparedStatement st = con.prepareStatement(insert);  
            st.setDouble(1, hourVal);
@@ -345,29 +375,29 @@ public class CheckinAndOutController{
             }
          }
          
-         public void updateCheckInAndOut(int checkid,double hours,String timeout,String checkoutdates) throws SQLException{
-             double total=0;
-            
-            if (hours<24) {
-                total = getRoomPromoDiscount(room_id);
-                JOptionPane.showMessageDialog(null,total);
-             }else{
-                LocalDate checkinsdate = LocalDate.parse(checkinDates);
-                LocalDate checkoutdate = LocalDate.parse(checkoutdates);
-                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
-                JOptionPane.showMessageDialog(null,days);
-                total = getRoomPromoDiscount(room_id) * days;
-                JOptionPane.showMessageDialog(null,total);
-            }
-             String update = "UPDATE checkinandout SET hours_checkin=?,timeout=?,checkout_date=?,total=? where id = '"+checkid+"'";
-             PreparedStatement st = con.prepareStatement(update);
-             st.setInt(1, (int) (hourvals+hours));
-             st.setString(2,timeout);
-             st.setString(3,checkoutdates);
-             st.setDouble(4,totals+total);
-             int i= st.executeUpdate();
-             if(i>0){
-                 JOptionPane.showMessageDialog(null,"updated successfully");
-             }
-         }
+//         public void updateCheckInAndOut(int checkid,double hours,String timeout,String checkoutdates) throws SQLException{
+//             double total=0;
+//            
+//            if (hours<24) {
+//                total = getRoomPromoDiscount(room_id);
+//                JOptionPane.showMessageDialog(null,total);
+//             }else{
+//                LocalDate checkinsdate = LocalDate.parse(checkinDates);
+//                LocalDate checkoutdate = LocalDate.parse(checkoutdates);
+//                Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
+//                JOptionPane.showMessageDialog(null,days);
+//                total = getRoomPromoDiscount(room_id) * days;
+//                JOptionPane.showMessageDialog(null,total);
+//            }
+//             String update = "UPDATE checkinandout SET hours_checkin=?,timeout=?,checkout_date=?,total=? where id = '"+checkid+"'";
+//             PreparedStatement st = con.prepareStatement(update);
+//             st.setInt(1, (int) (hourvals+hours));
+//             st.setString(2,timeout);
+//             st.setString(3,checkoutdates);
+//             st.setDouble(4,totals+total);
+//             int i= st.executeUpdate();
+//             if(i>0){
+//                 JOptionPane.showMessageDialog(null,"updated successfully");
+//             }
+//         }
 }
