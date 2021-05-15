@@ -77,6 +77,7 @@ import javax.swing.table.DefaultTableModel;
         jbtn_delete = new javax.swing.JButton();
         jbtn_GnrateQR = new javax.swing.JButton();
         jtxt_cussearch = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
@@ -107,6 +108,7 @@ import javax.swing.table.DefaultTableModel;
                 return canEdit [columnIndex];
             }
         });
+        jtbl_custable.setRowHeight(20);
         jScrollPane1.setViewportView(jtbl_custable);
         if (jtbl_custable.getColumnModel().getColumnCount() > 0) {
             jtbl_custable.getColumnModel().getColumn(3).setResizable(false);
@@ -257,7 +259,10 @@ import javax.swing.table.DefaultTableModel;
         jbtn_GnrateQR.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_GnrateQR.setText("Generate QR");
         add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
-        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
+        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 80, 210, 30));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
@@ -337,6 +342,7 @@ import javax.swing.table.DefaultTableModel;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
