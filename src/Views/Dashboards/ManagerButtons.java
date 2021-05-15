@@ -467,7 +467,11 @@ public class ManagerButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void sukicustomersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseClicked
-        userButton.SukiCustomersButton(sukicustomers);
+        try {
+            userButton.SukiCustomersButton(sukicustomers);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManagerButtons.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_sukicustomersMouseClicked
 
     private void sukicustomersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sukicustomersMouseEntered

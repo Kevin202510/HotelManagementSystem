@@ -47,6 +47,8 @@ public class RoomsPanel extends javax.swing.JPanel{
         
         if(role.equals("Staff")){
                 roomAction.setVisible(false);
+                promoscroll.setVisible(false);
+                jLabel9.setVisible(false);
                 jbtn_save.setVisible(false);
                 jtbl_rooms.setVisible(false);
                 roomscroll.setVisible(false);
@@ -88,10 +90,10 @@ public class RoomsPanel extends javax.swing.JPanel{
         jcbo_rateId.setOpaque(false);
         jcbo_statusId.setBackground(new Color(0, 0, 0, 0));
         jcbo_statusId.setOpaque(false);
-        jcbo_promoid.setBackground(new Color(0, 0, 0, 0));
-        jcbo_promoid.setOpaque(false);
+//        jcbo_promoid.setBackground(new Color(0, 0, 0, 0));
+//        jcbo_promoid.setOpaque(false);
         roomControll.showRoomType(jcbo_roomTypeId);
-        roomControll.showPromo(jcbo_promoid);
+//        roomControll.showPromo(jcbo_promoid);
         roomControll.showBedType(jcbo_bedTypeId);
         roomControll.showRate(jcbo_rateId);
         roomscrollstaff.setVisible(false);
@@ -144,12 +146,9 @@ public class RoomsPanel extends javax.swing.JPanel{
         jbtn_promosave = new javax.swing.JButton();
         jbtn_promoupdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jcbo_promoid = new javax.swing.JComboBox<>();
         roomscroll = new javax.swing.JScrollPane();
         jtbl_rooms = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        promoscroll = new javax.swing.JScrollPane();
         jtbl_promos = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         roomscrollstaff = new javax.swing.JScrollPane();
@@ -309,17 +308,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 340, 260));
 
-        jLabel12.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Promo");
-        roomAction.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 73, 30));
-        roomAction.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 210, -1));
-
-        jcbo_promoid.setBackground(new java.awt.Color(0, 77, 77));
-        jcbo_promoid.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jcbo_promoid.setForeground(new java.awt.Color(255, 255, 255));
-        roomAction.add(jcbo_promoid, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 210, 30));
-
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 360, 710));
 
         jtbl_rooms.setBackground(new java.awt.Color(191, 191, 191));
@@ -329,11 +317,11 @@ public class RoomsPanel extends javax.swing.JPanel{
 
             },
             new String [] {
-                "ID", "Room Type", "Bed Type", "Rate", "Promo", "Status"
+                "ID", "Room Type", "Bed Type", "Rate", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -365,9 +353,9 @@ public class RoomsPanel extends javax.swing.JPanel{
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jtbl_promos);
+        promoscroll.setViewportView(jtbl_promos);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 467, 1110, 310));
+        add(promoscroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 467, 1110, 310));
 
         jLabel9.setBackground(new java.awt.Color(0, 77, 77));
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
@@ -415,17 +403,16 @@ public class RoomsPanel extends javax.swing.JPanel{
         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
-        int promoid=jcbo_promoid.getSelectedIndex();
+//        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
-            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
         }else{
-            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status-1);
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
         }
         try {
             boolean checkRoom = roomControll.createRooms(roomModel,jtbl_rooms);
             if (checkRoom==true) {
-                JOptionPane.showMessageDialog(null,"3");
 //                roomControll.clearContent(Roomid, roomType, Bedtype, Rate, Status);
                 new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
             }
@@ -438,12 +425,12 @@ public class RoomsPanel extends javax.swing.JPanel{
          int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
         int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
         int rate=jcbo_rateId.getSelectedIndex()+1;
-        int promoid=jcbo_promoid.getSelectedIndex();
+//        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
-            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status+1);  
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status+1);  
         }else{
-            roomModel = new Rooms(id,bedtype,roomtype,rate,promoid,status-1);
+            roomModel = new Rooms(id,bedtype,roomtype,rate,status-1);
         }
         boolean checkUpdate;
         try {
@@ -461,7 +448,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jbtn_save.setVisible(false);
         id = (int) jtbl_rooms.getValueAt(jtbl_rooms.getSelectedRow(),0);
         try {
-            roomControll.fillRoomForm(id,jtxt_Roomid, jcbo_roomTypeId, jcbo_bedTypeId, jcbo_rateId,jcbo_promoid,jcbo_statusId);
+            roomControll.fillRoomForm(id,jtxt_Roomid, jcbo_roomTypeId, jcbo_bedTypeId, jcbo_rateId,jcbo_statusId);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -484,7 +471,6 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -497,20 +483,17 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JButton jbtn_promosave;
     private javax.swing.JButton jbtn_promoupdate;
     private javax.swing.JButton jbtn_save;
     private javax.swing.JButton jbtn_update;
     private javax.swing.JComboBox<String> jcbo_bedTypeId;
-    private javax.swing.JComboBox<String> jcbo_promoid;
     private javax.swing.JComboBox<String> jcbo_rateId;
     private javax.swing.JComboBox<String> jcbo_roomTypeId;
     private javax.swing.JComboBox<String> jcbo_statusId;
@@ -521,6 +504,7 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JTextField jtxt_discount;
     private javax.swing.JTextField jtxt_room_search;
     private javax.swing.JTextArea jtxtarea_desciption;
+    private javax.swing.JScrollPane promoscroll;
     private javax.swing.JPanel roomAction;
     private javax.swing.JScrollPane roomscroll;
     private javax.swing.JScrollPane roomscrollstaff;

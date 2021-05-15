@@ -27,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -109,12 +110,32 @@ public class CustomerController {
         DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
         Object[] row = new Object[8];
         for (int i = 0; i < custosukiList.size(); i++) {
-           row[0] = custosukiList.get(i).getId();
+//           row[0] = custosukiList.get(i).getId();
+           row[0] = custosukiList.get(i).getsukiCode();
            row[1] = custosukiList.get(i).getcustomerName();
-           row[2] = custosukiList.get(i).getsukiCode();
-           row[3] = custosukiList.get(i).getpoints();
+           row[2] = custosukiList.get(i).getpoints();
            model.addRow(row);
         }
+    }
+    
+    public boolean addNewSuki(SukiCustomers sukicustomers,JTable sukicustomerstbl) throws SQLException{
+        ArrayList<Customers> list =custList();
+        String insert = "INSERT INTO sukicustomers(custo_id,sukicode,points) VALUES (?,?,?)";
+        PreparedStatement st = con.prepareStatement(insert);
+        st.setInt(1, list.get(sukicustomers.getcustoId()-1).getcust_id());
+        st.setString(2, sukicustomers.getsukiCode());
+        st.setDouble(3, sukicustomers.getpoints());
+       int i = st.executeUpdate();
+       
+       if(i>0){
+            DefaultTableModel model = (DefaultTableModel)sukicustomerstbl.getModel();
+            model.setRowCount(0);
+            new Alerts("save").setVisible(true);
+            return true;
+       }else{
+           return false;
+       }
+    
     }
      
 }
