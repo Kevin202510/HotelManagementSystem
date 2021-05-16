@@ -50,8 +50,8 @@ public class ManagerButtons extends javax.swing.JPanel {
         jComboBox1.setOpaque(false);
         userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        user_fullname.setText(fullname);
-        userrole.setText(role);
+  //      user_fullname.setText(fullname);
+  //      userrole.setText(role);
 //        VideoFeeder vivin = new VideoFeeder();
 //        vivin.start();
     }
@@ -76,13 +76,10 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov4 = new javax.swing.JPanel();
         customers = new javax.swing.JLabel();
         jLabelRound5 = new jroundborder.JLabelRound();
-        user_fullname = new javax.swing.JLabel();
-        userrole = new javax.swing.JLabel();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         date = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
@@ -211,7 +208,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         customers.setForeground(new java.awt.Color(255, 255, 255));
         customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
-        customers.setText("CUSTOMERS");
+        customers.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
         customers.setIconTextGap(10);
         customers.setPreferredSize(new java.awt.Dimension(136, 40));
         customers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,16 +227,14 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(hov4Layout.createSequentialGroup()
-                .addComponent(customers, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 80, 180, 54));
+        StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 90, 200, 54));
 
         jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
         jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,14 +243,6 @@ public class ManagerButtons extends javax.swing.JPanel {
             }
         });
         StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
-
-        user_fullname.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 39));
-
-        userrole.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        userrole.setForeground(new java.awt.Color(255, 255, 255));
-        StaffButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, 27));
 
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -304,10 +291,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         StaffButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
 
-        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        StaffButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 170, 30));
-
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("X");
@@ -367,7 +351,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
-        userButton.roomButton(rooms,userrole.getText());
+ //       userButton.roomButton(rooms,userrole.getText());
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -502,8 +486,5 @@ public class ManagerButtons extends javax.swing.JPanel {
     private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sukicustomers;
-    private javax.swing.JLabel time;
-    private javax.swing.JLabel user_fullname;
-    private javax.swing.JLabel userrole;
     // End of variables declaration//GEN-END:variables
 }
