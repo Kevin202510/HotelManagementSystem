@@ -59,6 +59,11 @@ public class Buttons {
             new ContainerManipulator(lalagyanan,new Views.Panels.Home());
     }
     
+    public void customerCheckins(JButton customercheckin) throws SQLException{
+//        this.home=home;
+            new ContainerManipulator(lalagyanan,new Views.Panels.CustomersCheckINS(lalagyanan));
+    }
+    
     public void SukiCustomersButton(JLabel sukicustomers) throws SQLException{
         this.sukicustomers=sukicustomers;
             new ContainerManipulator(lalagyanan,new Views.Panels.SukiCustomerPanel(lalagyanan));

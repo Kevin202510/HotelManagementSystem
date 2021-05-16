@@ -592,14 +592,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
            if (checkInputsBed()==true) {
              JOptionPane.showMessageDialog(this,"ERROR");        
       }else{     
-        try {
-             
-            bedsControll.saveBeds(jtxt_BedID, jtxt_BedQuantity, jtble_bedtable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
-            
-        
-    }              
+               bedsControll.saveBeds(jtxt_BedID, jtxt_BedQuantity, jtble_bedtable);              
            }   
         
     }//GEN-LAST:event_jbtn_BedsaveActionPerformed
@@ -619,13 +612,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
            if (checkInputsRate()==true) {
              JOptionPane.showMessageDialog(this,"ERROR");        
       }else{     
-        try {
-             
-            ratesControll.saveRates(jtxt_RateID, jtxt_RatePrice, jtbl_ratestable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
-            
-        }
+               ratesControll.saveRates(jtxt_RateID, jtxt_RatePrice, jtbl_ratestable);
            }   
     }//GEN-LAST:event_jbtn_RatesaveActionPerformed
 
@@ -639,14 +626,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(this,"ERROR");
           
       }else{     
-        try { 
-            roomtypeControll.saveRT(jtxt_RTid,jtxt_RoomType,jtbl_RTtable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
-            
-            
-            
-        }
+             roomtypeControll.saveRT(jtxt_RTid,jtxt_RoomType,jtbl_RTtable);
          }
     }//GEN-LAST:event_jbtn_RTsaveActionPerformed
 
