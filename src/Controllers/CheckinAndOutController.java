@@ -310,8 +310,29 @@ public class CheckinAndOutController{
              }
          }
          
+         private void checkSuki() throws SQLException{
+            int kev = JOptionPane.showConfirmDialog(null,"Do You Have A SukiCard?","Ask",JOptionPane.YES_NO_OPTION);
+            if(kev==0){
+                String sukicode = JOptionPane.showInputDialog(null,"Scan Suki Card");
+                String ask = "Select * from sukicustomers LEFT JOIN customers ON customers.cust_id=sukicustomers.custo_id where sukicustomers.sukicode='"+sukicode+"'";
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(ask);
+                if (rs.next()) {
+                    String fullname = rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " +rs.getString("cust_Lname");
+                    JOptionPane.showMessageDialog(null,"Suki " + " " + fullname + " Exist");
+                    double PTS = rs.getDouble("points");
+                    String tanongs = "UPDATE sukicustomers SET points = ? WHERE sukicode='"+sukicode+"'";
+                    PreparedStatement sts = con.prepareStatement(tanongs);
+                    sts.setDouble(1, PTS+1.0);
+                    int i = sts.executeUpdate(); 
+                }else{
+                    JOptionPane.showMessageDialog(null,"Suki Not Already Exist");
+                }
+            }
+         }
+         
          public boolean payment(int id,int user_ids) throws SQLException{
-             
+            checkSuki();
             String tanongs = "UPDATE checkinandout SET status = 1 where id='"+id+"'";
             Statement sts = con.createStatement();
             int i = sts.executeUpdate(tanongs);

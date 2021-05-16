@@ -45,11 +45,9 @@ public class CheckoutPanels extends javax.swing.JPanel {
         initComponents();
         this.user_ids=user_ids;
         this.lalagyanan = lalagyanan;
-        initR();
-    }
-    
-    private void initR(){
-        jtxtsearch_cust_checkin_id.requestFocusInWindow();
+        lalagyanan.setRequestFocusEnabled(true);
+        lalagyanan.setFocusable(true);
+        jtxtsearch_cust_checkin_id.requestFocus();
     }
 
     /**
@@ -87,7 +85,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jlbl_totals = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jlbl_change = new javax.swing.JLabel();
-        test = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         user_id = new javax.swing.JLabel();
 
@@ -202,6 +199,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         jPanel2.add(searchIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 40, 40));
 
+        jtxtsearch_cust_checkin_id.requestFocusInWindow();
         jtxtsearch_cust_checkin_id.setBackground(new java.awt.Color(230, 230, 230));
         jtxtsearch_cust_checkin_id.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jtxtsearch_cust_checkin_id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -229,14 +227,13 @@ public class CheckoutPanels extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("TOTAL :");
+        jLabel6.setText("CHANGE");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 390, 70, 50));
 
         jlbl_change.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbl_change.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 160, 50));
-        jPanel2.add(test, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 430, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 1120, 580));
 
@@ -341,7 +338,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JTextField jtxtco_rooms;
     private javax.swing.JTextField jtxtsearch_cust_checkin_id;
     private javax.swing.JLabel searchIcon;
-    private javax.swing.JTextField test;
     public javax.swing.JLabel user_id;
     // End of variables declaration//GEN-END:variables
 }
