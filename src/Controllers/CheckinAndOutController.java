@@ -152,11 +152,13 @@ public class CheckinAndOutController{
         String strTime = kevs.format(date);
         return strTime;
      }
+     JTable roomstables;
      
-    private void updateRoomStatus(int room_id,JTable roomstable) throws SQLException{
+    private void updateRoomStatus(int roomstat,int room_id,JTable roomstable) throws SQLException{
+        roomstables=roomstable;
          String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +room_id+"'";
             PreparedStatement roomup =con.prepareStatement(roomupdate);
-            roomup.setInt(1,0);
+            roomup.setInt(1,roomstat);
             int k = roomup.executeUpdate();
              if (k>0) {
                  DefaultTableModel model = (DefaultTableModel)roomstable.getModel();
@@ -271,7 +273,7 @@ public class CheckinAndOutController{
                 while(rs.next()){
                     checkid=rs.getInt("MAX(id)");
                 }
-                updateRoomStatus(room_id,roomstable);
+                updateRoomStatus(0,room_id,roomstable);
                  GenerateQrCode(checkid);
                 return true;
             }else{
@@ -283,6 +285,7 @@ public class CheckinAndOutController{
     String checkoutdate;
     String checkindates;  
     double tottal;
+    int rooms_id;
          
          public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime,JLabel total) throws SQLException{
             String datein="";
@@ -300,31 +303,38 @@ public class CheckinAndOutController{
                     checkindates=rs.getString("checkin_date");
                     checkindate.setText(checkindates);
                     checkintime.setText(rs.getString("timein"));
-                    co_rooms.setText(String.valueOf(rs.getInt("room_id")));
+                    rooms_id=rs.getInt("room_id");
+                    co_rooms.setText(String.valueOf(rooms_id));
                     tottal = rs.getDouble("total");
                     total.setText(String.valueOf(rs.getDouble("total")));
              }
          }
          
-         public void payment(int id,int user_ids) throws SQLException{
+         public boolean payment(int id,int user_ids) throws SQLException{
              
-//            String tanongs = "UPDATE checkinandout SET status = 1 where id='"+id+"'";
-//            Statement sts = con.createStatement();
-//            int i = sts.executeUpdate(tanongs);
-//            if (i>0) {
-//                    addSales(checkoutdate,total,user_ids);
-//             }
+            String tanongs = "UPDATE checkinandout SET status = 1 where id='"+id+"'";
+            Statement sts = con.createStatement();
+            int i = sts.executeUpdate(tanongs);
+            if (i>0) {
+                    addSales(checkoutdate,tottal,user_ids);
+                    return true;
+             }
+            return false;
          }
          
-         public void addSales(String datenow,int amount,int user_id) throws SQLException{
+         public void addSales(String datenow,double amount,int user_id) throws SQLException{
              String insert = "INSERT INTO `inventories`(`sales_date`, `amount`, `user_id`) VALUES (?,?,?)";
             PreparedStatement st = con.prepareStatement(insert);
             st.setString(1, datenow);
-           st.setInt(2, amount);
+           st.setDouble(2, amount);
            st.setInt(3, user_id);
            int i = st.executeUpdate();
              if (i>0) {
-                 JOptionPane.showMessageDialog(null,"successfully");
+                JOptionPane.showMessageDialog(null,"successfully");
+                String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +rooms_id+"'";
+                PreparedStatement roomup =con.prepareStatement(roomupdate);
+                roomup.setInt(1,1);
+                roomup.executeUpdate();
              }
          }
          
