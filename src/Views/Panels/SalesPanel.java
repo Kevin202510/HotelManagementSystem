@@ -55,6 +55,8 @@ public class SalesPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jtxt_sales_search = new javax.swing.JTextField();
         jbtn_Generatereport = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -80,6 +82,7 @@ public class SalesPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jtbl_sales.setRowHeight(20);
         jScrollPane1.setViewportView(jtbl_sales);
         if (jtbl_sales.getColumnModel().getColumnCount() > 0) {
             jtbl_sales.getColumnModel().getColumn(3).setResizable(false);
@@ -87,10 +90,10 @@ public class SalesPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 1120, 680));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Sales");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
 
         Salesfr.setBackground(new java.awt.Color(0, 77, 77));
         Salesfr.setDateFormatString("yyyy-MM-dd");
@@ -127,13 +130,21 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 390));
-        add(jtxt_sales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 190, 30));
+        add(jtxt_sales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 200, 30));
 
         jbtn_Generatereport.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_Generatereport.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         jbtn_Generatereport.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Generatereport.setText("Generate Report");
         add(jbtn_Generatereport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 170, 40));
+
+        jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(191, 191, 191));
+        jLabel3.setText("SALES ACTION");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_showActionPerformed
@@ -183,6 +194,8 @@ public class SalesPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser Salest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

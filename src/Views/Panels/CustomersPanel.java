@@ -18,7 +18,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -77,6 +79,7 @@ import javax.swing.table.DefaultTableModel;
         jbtn_delete = new javax.swing.JButton();
         jbtn_GnrateQR = new javax.swing.JButton();
         jtxt_cussearch = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(1480, 790));
@@ -107,6 +110,7 @@ import javax.swing.table.DefaultTableModel;
                 return canEdit [columnIndex];
             }
         });
+        jtbl_custable.setRowHeight(20);
         jScrollPane1.setViewportView(jtbl_custable);
         if (jtbl_custable.getColumnModel().getColumnCount() > 0) {
             jtbl_custable.getColumnModel().getColumn(3).setResizable(false);
@@ -257,6 +261,12 @@ import javax.swing.table.DefaultTableModel;
         jbtn_GnrateQR.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_GnrateQR.setText("Generate QR");
         add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
+
+        jtxt_cussearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_cussearchKeyPressed(evt);
+            }
+        });
         add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -335,8 +345,21 @@ import javax.swing.table.DefaultTableModel;
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_cusAddressActionPerformed
 
+    
+    private void jtxt_cussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cussearchKeyPressed
+        // SEARCH
+        
+            DefaultTableModel model = (DefaultTableModel)jtbl_custable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_custable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_cussearch.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_cussearchKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

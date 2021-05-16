@@ -82,6 +82,7 @@ public class UsersPanel extends javax.swing.JPanel {
         jbtn_Delete = new javax.swing.JButton();
         jbtn_Add = new javax.swing.JButton();
         jtxt_ussearch = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jtxt_usuaname = new javax.swing.JTextField();
@@ -213,7 +214,10 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jbtn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 31, 93, 30));
-        jPanel2.add(jtxt_ussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 54, 196, 28));
+        jPanel2.add(jtxt_ussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 50, 210, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 50, -1, -1));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, 80));
 
@@ -591,6 +595,7 @@ public class UsersPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

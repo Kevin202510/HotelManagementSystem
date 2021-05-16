@@ -164,7 +164,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Rooms");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 220, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 220, -1));
         jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
@@ -258,7 +258,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomAction.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
         jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 20, 310));
+        roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 340, 310));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(191, 191, 191));

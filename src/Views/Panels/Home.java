@@ -114,7 +114,7 @@ public class Home extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Webp.net-gifmaker (1).gif"))); // NOI18N
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 5));
 
-        jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 24)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Script MT Bold", 1, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("<html>”A hotel should relieve travelers of their insecurity and loneliness.  <br ><center> It should make them feel warm and cozy.”</center>\n</html>");
