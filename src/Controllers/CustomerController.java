@@ -26,6 +26,7 @@ import java.util.Map;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import sweetalerts.Alerts;
 
@@ -67,6 +68,22 @@ public class CustomerController {
         return custList;   
     }
      
+     public ArrayList<Customers> custoList() throws SQLException{
+        ArrayList<Customers> custLists = new ArrayList<>();
+        SQL sql = new SQL();
+        Connection con = sql.getConnection();
+        String tanong = "Select * from Customers where cust_status!=1";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        Customers customers;
+        
+        while(rs.next()){
+         customers=new Customers(rs.getInt("cust_id"),rs.getString("cust_Fname"),rs.getString("cust_Mname"),rs.getString("cust_Lname"),rs.getString("cust_address"),rs.getString("cust_contactnum"));
+         custLists.add(customers);
+        }
+        return custLists;   
+    }
+     
       public void showCustomers(JTable customerTable) throws SQLException{
          ArrayList<Customers> list =custList();
          DefaultTableModel model = (DefaultTableModel)customerTable.getModel();
@@ -81,7 +98,7 @@ public class CustomerController {
     }
       
       public void showCustomer(JComboBox customer) throws SQLException{
-         ArrayList<Customers> list =custList();
+         ArrayList<Customers> list =custoList();
          for (int i = 0; i < list.size(); i++) {
            String vin = list.get(i).getcust_fullname();
            customer.addItem(vin);
@@ -137,5 +154,24 @@ public class CustomerController {
        }
     
     }
+    
+    public boolean selectCustomerSuki(String sukicode,JTextField jtxt_SukiCode,JTextField jtxt_SukiPoints) throws SQLException{
+        String tanong = "Select * from sukicustomers where sukicode = '"+sukicode+"'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        if (rs.next()) {
+            
+            return true;
+            
+        }else{
+            int k = JOptionPane.showConfirmDialog(null,"Suki Not Yet Already Register Do You Want To Add New","Ask",JOptionPane.YES_NO_OPTION);
+            if (k==0) {
+                jtxt_SukiCode.setText(sukicode);
+                jtxt_SukiPoints.requestFocusInWindow();
+            }
+            return false;
+        }
+    }
+    
      
 }
