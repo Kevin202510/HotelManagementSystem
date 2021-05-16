@@ -57,6 +57,7 @@ public class AdminButtons extends javax.swing.JPanel {
     public AdminButtons(int user_id,JFrame out,String fullname,String role,JPanel lalagyanan) throws SQLException {
         initComponents();
         this.fullname=fullname;
+        this.role=role;
         jComboBox1.setModel(new ImageTextRenderer().pop(user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         this.out=out;
@@ -96,7 +97,7 @@ public class AdminButtons extends javax.swing.JPanel {
         hov8 = new javax.swing.JPanel();
         rooms = new javax.swing.JLabel();
         hov9 = new javax.swing.JPanel();
-        customers = new javax.swing.JLabel();
+        customerscheckin = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         hov10 = new javax.swing.JPanel();
         rate_rt_bed = new javax.swing.JLabel();
@@ -104,7 +105,6 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -270,22 +270,22 @@ public class AdminButtons extends javax.swing.JPanel {
         hov9.setBackground(new java.awt.Color(83, 140, 198));
         hov9.setPreferredSize(new java.awt.Dimension(230, 40));
 
-        customers.setBackground(new java.awt.Color(51, 51, 255));
-        customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        customers.setForeground(new java.awt.Color(255, 255, 255));
-        customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
-        customers.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
-        customers.setIconTextGap(10);
-        customers.addMouseListener(new java.awt.event.MouseAdapter() {
+        customerscheckin.setBackground(new java.awt.Color(51, 51, 255));
+        customerscheckin.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customerscheckin.setForeground(new java.awt.Color(255, 255, 255));
+        customerscheckin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customerscheckin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
+        customerscheckin.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
+        customerscheckin.setIconTextGap(10);
+        customerscheckin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                customersMouseClicked(evt);
+                customerscheckinMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                customersMouseEntered(evt);
+                customerscheckinMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                customersMouseExited(evt);
+                customerscheckinMouseExited(evt);
             }
         });
 
@@ -293,17 +293,18 @@ public class AdminButtons extends javax.swing.JPanel {
         hov9.setLayout(hov9Layout);
         hov9Layout.setHorizontalGroup(
             hov9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+            .addComponent(customerscheckin, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         hov9Layout.setVerticalGroup(
             hov9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(customerscheckin, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         AdminButtons.add(hov9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 190, 50));
 
         jComboBox1.setBackground(new java.awt.Color(0, 128, 128));
         jComboBox1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 140, 198), 8, true));
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,14 +388,6 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons.add(jpnl_hov11, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 190, 50));
 
-        jButton1.setText("CUSTOMERS CHECKIN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        AdminButtons.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 160, 40));
-
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
     public void signOut(JFrame out){
@@ -443,7 +436,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
- //       userButton.roomButton(rooms,userrole.getText());
+        userButton.roomButton(rooms,role);
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -454,18 +447,22 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(hov8);
     }//GEN-LAST:event_roomsMouseExited
 
-    private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
-        // TODO add your handling code here:
-        userButton.costumerButton(customers);
-    }//GEN-LAST:event_customersMouseClicked
+    private void customerscheckinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseClicked
+        try {
+            // TODO add your handling code here:
+            userButton.customerCheckins(customerscheckin);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_customerscheckinMouseClicked
 
-    private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
+    private void customerscheckinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseEntered
         userButton.setC(hov9);
-    }//GEN-LAST:event_customersMouseEntered
+    }//GEN-LAST:event_customerscheckinMouseEntered
 
-    private void customersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseExited
+    private void customerscheckinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseExited
         userButton.resetC(hov9);
-    }//GEN-LAST:event_customersMouseExited
+    }//GEN-LAST:event_customerscheckinMouseExited
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         DefaultComboBoxModel model = (DefaultComboBoxModel)jComboBox1.getModel();
@@ -528,17 +525,9 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(jpnl_hov11);
     }//GEN-LAST:event_sukicustomersMouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            userButton.customerCheckins(jButton1);
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
-    private javax.swing.JLabel customers;
+    private javax.swing.JLabel customerscheckin;
     private javax.swing.JLabel date;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov10;
@@ -547,7 +536,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov7;
     private javax.swing.JPanel hov8;
     private javax.swing.JPanel hov9;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

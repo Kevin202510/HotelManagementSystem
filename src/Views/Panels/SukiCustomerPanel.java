@@ -52,6 +52,7 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jtxt_SukiName.setVisible(false);
     }
     private void initRun() throws SQLException{
+//        jtbl_suki.setTableHeader(tableHeader);
         jbtn_sudelete1.setVisible(false);
         jcbo_customername.setBackground(new Color(0, 0, 0, 0));
         jcbo_customername.setOpaque(false);
@@ -270,6 +271,7 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
             }
         });
         jtbl_suki.setRowHeight(20);
+        jtbl_suki.getTableHeader().setReorderingAllowed(false);
         jtbl_suki.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbl_sukiMouseClicked(evt);
