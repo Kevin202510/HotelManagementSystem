@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -428,7 +429,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_jtbl_roomsTableMouseClicked
 
     private void jtxt_cussearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_cussearchActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jtxt_cussearchActionPerformed
 
      public  SQL sql = new SQL();
@@ -508,7 +509,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jtxt_cusContact2KeyTyped
 
-    int hourVal;
+    int hourVal,hourVals;
     
     private void jcbo_hoursrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeActionPerformed
         hourVal = Integer.parseInt((String) jcbo_hoursrange.getSelectedItem());
@@ -544,7 +545,13 @@ public class CheckinPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_extendActionPerformed
 
     private void jcbo_hoursrange1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrange1ActionPerformed
-        // TODO add your handling code here:
+        hourVals = Integer.parseInt((String) jcbo_hoursrange1.getSelectedItem());
+        JOptionPane.showMessageDialog(null,hourVals);
+            try {
+                check_in_out_controll.setCheckOutDateAndTime(hourVals, jlbl_checkoutdate, jlbl_checkouttime);
+            } catch (ParseException ex) {
+                Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_jcbo_hoursrange1ActionPerformed
 
     int checkid;
@@ -562,11 +569,24 @@ public class CheckinPanels extends javax.swing.JPanel {
 
     private void jbtn_SaveExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SaveExtendActionPerformed
         double hoursval = Double.parseDouble((String) jcbo_hoursrange1.getSelectedItem());
-//            try {
-//                check_in_out_controll.updateCheckInAndOut(checkid,hoursval,jlbl_checkouttime.getText(),jlbl_checkoutdate.getText());
-//            } catch (SQLException ex) {
-//                Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            try {
+                boolean testcheckextend = check_in_out_controll.updateCheckInAndOut(Integer.parseInt(jlbl_room.getText()),checkid,hoursval,jlbl_checkouttime,jlbl_checkindate.getText(),jlbl_checkoutdate);
+                if (testcheckextend) {
+                    jtxt_checkinandoutId.setText("");
+                    jlbl_fname.setText("");
+                    jlbl_mname.setText("");
+                    jlbl_lname.setText("");
+                    jlbl_address.setText("");
+                    jlbl_contactnum.setText("");
+                    jlbl_room.setText("");
+                    jlbl_checkintime.setText("");
+                    jlbl_checkindate.setText("");
+                    jlbl_checkouttime.setText("");
+                    jlbl_checkoutdate.setText("");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_jbtn_SaveExtendActionPerformed
 
                 
