@@ -96,14 +96,13 @@ public class CheckoutPanels extends javax.swing.JPanel {
 
         jlbl_co_custtime.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_co_custtime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_co_custtime.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_co_custtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, 210, 50));
 
         jtxtco_custfullname.setEditable(false);
         jtxtco_custfullname.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custfullname.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jtxtco_custfullname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtxtco_custfullname.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jtxtco_custfullname.setBorder(null);
         jtxtco_custfullname.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel2.add(jtxtco_custfullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 420, 40));
 
@@ -116,7 +115,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jtxtco_custaddress.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custaddress.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jtxtco_custaddress.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtxtco_custaddress.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jtxtco_custaddress.setBorder(null);
         jPanel2.add(jtxtco_custaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 390, 40));
 
         jLabel13.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -134,7 +133,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
                 jbtn_payActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 250, 50));
+        jPanel2.add(jbtn_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 250, 50));
 
         jLabel14.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +149,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jtxtco_rooms.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_rooms.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jtxtco_rooms.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtxtco_rooms.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jtxtco_rooms.setBorder(null);
         jPanel2.add(jtxtco_rooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 130, 150, 40));
 
         jLabel15.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -167,17 +166,15 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jtxtco_custcontact.setBackground(new java.awt.Color(128, 179, 255));
         jtxtco_custcontact.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jtxtco_custcontact.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtxtco_custcontact.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jtxtco_custcontact.setBorder(null);
         jPanel2.add(jtxtco_custcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 190, 40));
 
         jlbl_co_custdate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_co_custdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_co_custdate.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_co_custdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 220, 50));
 
         jlbl_checkindate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_checkindate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_checkindate.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 170, 40));
 
         jLabel17.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
@@ -192,7 +189,6 @@ public class CheckoutPanels extends javax.swing.JPanel {
 
         jlbl_checkintime.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_checkintime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_checkintime.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 220, 130, 40));
 
         searchIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,22 +214,20 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("TOTAL :");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, 70, 50));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 320, 80, 50));
 
         jlbl_totals.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_totals.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_totals.setBorder(javax.swing.BorderFactory.createLineBorder(null));
-        jPanel2.add(jlbl_totals, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 160, 50));
+        jPanel2.add(jlbl_totals, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 320, 160, 50));
 
         jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("CHANGE");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 390, 70, 50));
+        jLabel6.setText("CHANGE :");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, 90, 50));
 
         jlbl_change.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jlbl_change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_change.setBorder(javax.swing.BorderFactory.createLineBorder(null));
-        jPanel2.add(jlbl_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 160, 50));
+        jPanel2.add(jlbl_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, 160, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 1120, 580));
 

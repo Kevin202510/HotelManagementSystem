@@ -52,6 +52,7 @@ public class Chooser extends javax.swing.JFrame {
         jlbl_extend = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jlbl_GenerateReciept = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -60,13 +61,17 @@ public class Chooser extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 102, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(128, 0, 0));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 163, 26), 3, true));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel2MouseEntered(evt);
             }
         });
 
-        jlbl_extend.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jlbl_extend.setBackground(new java.awt.Color(128, 0, 0));
+        jlbl_extend.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
+        jlbl_extend.setForeground(new java.awt.Color(255, 255, 255));
         jlbl_extend.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbl_extend.setText("EXTEND");
         jlbl_extend.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,24 +90,27 @@ public class Chooser extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbl_extend, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(jlbl_extend, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbl_extend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(jlbl_extend, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 120, 90));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 120, 50));
 
+        jPanel3.setBackground(new java.awt.Color(128, 0, 0));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 163, 26), 3, true));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel3MouseEntered(evt);
             }
         });
 
-        jlbl_GenerateReciept.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jlbl_GenerateReciept.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 12)); // NOI18N
+        jlbl_GenerateReciept.setForeground(new java.awt.Color(255, 255, 255));
         jlbl_GenerateReciept.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbl_GenerateReciept.setText("<html>GENERATE<br>RECIEPT</html>");
+        jlbl_GenerateReciept.setText("<html>GENERATE<br><center>RECEIPT</center></html>");
         jlbl_GenerateReciept.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlbl_GenerateRecieptMouseClicked(evt);
@@ -119,16 +127,19 @@ public class Chooser extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbl_GenerateReciept, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+            .addComponent(jlbl_GenerateReciept, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbl_GenerateReciept, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(jlbl_GenerateReciept, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 120, 90));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 120, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ex.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
 
         pack();
         setLocationRelativeTo(null);
@@ -210,6 +221,7 @@ public class Chooser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -153,6 +153,7 @@ public class CheckinPanels extends javax.swing.JPanel {
             }
         });
         jtbl_roomsTable.setOpaque(false);
+        jtbl_roomsTable.setRowHeight(30);
         jtbl_roomsTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbl_roomsTableMouseClicked(evt);
