@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.Hashtable;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -153,6 +155,25 @@ public class CustomerController {
            return false;
        }
     
+    }
+    
+    public boolean updateSukiPoints(String sukicode,JTable sukicustomerstbl){
+        try {
+            String insert = "UPDATE sukicustomers set points = ? where sukicode = ?";
+            PreparedStatement st = con.prepareStatement(insert);
+            st.setDouble(1, 0);
+            st.setString(2,sukicode);
+            int i = st.executeUpdate();
+            
+            if(i>0){
+                DefaultTableModel model = (DefaultTableModel)sukicustomerstbl.getModel();
+                model.setRowCount(0);
+                new Alerts("update").setVisible(true);
+                return true;
+            }} catch (SQLException ex) {
+            new Alerts("Error" + " " + ex).setVisible(true);
+        }
+        return false;
     }
     
     public boolean selectCustomerSuki(String sukicode,JTextField jtxt_SukiCode,JTextField jtxt_SukiPoints) throws SQLException{

@@ -44,6 +44,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         this.out=out;
         this.lalagyanan=lalagyanan;
         this.user_id=user_id;
+        this.role=role;
          jComboBox1.setModel(new ImageTextRenderer().pop(user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
         jComboBox1.setBackground(new Color(0, 0, 0, 0));
@@ -74,7 +75,7 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov1 = new javax.swing.JPanel();
         checkOut = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
-        customers = new javax.swing.JLabel();
+        customerscheckin = new javax.swing.JLabel();
         jLabelRound5 = new jroundborder.JLabelRound();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
@@ -204,22 +205,22 @@ public class ManagerButtons extends javax.swing.JPanel {
 
         hov4.setBackground(new java.awt.Color(83, 140, 198));
 
-        customers.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
-        customers.setForeground(new java.awt.Color(255, 255, 255));
-        customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
-        customers.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
-        customers.setIconTextGap(10);
-        customers.setPreferredSize(new java.awt.Dimension(136, 40));
-        customers.addMouseListener(new java.awt.event.MouseAdapter() {
+        customerscheckin.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
+        customerscheckin.setForeground(new java.awt.Color(255, 255, 255));
+        customerscheckin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customerscheckin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
+        customerscheckin.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
+        customerscheckin.setIconTextGap(10);
+        customerscheckin.setPreferredSize(new java.awt.Dimension(136, 40));
+        customerscheckin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                customersMouseClicked(evt);
+                customerscheckinMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                customersMouseEntered(evt);
+                customerscheckinMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                customersMouseExited(evt);
+                customerscheckinMouseExited(evt);
             }
         });
 
@@ -227,11 +228,11 @@ public class ManagerButtons extends javax.swing.JPanel {
         hov4.setLayout(hov4Layout);
         hov4Layout.setHorizontalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(customerscheckin, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
         hov4Layout.setVerticalGroup(
             hov4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(customers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(customerscheckin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 90, 200, 54));
@@ -351,7 +352,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
- //       userButton.roomButton(rooms,userrole.getText());
+        userButton.roomButton(rooms,role);
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -386,17 +387,22 @@ public class ManagerButtons extends javax.swing.JPanel {
         userButton.resetC(hov1);
     }//GEN-LAST:event_checkOutMouseExited
 
-    private void customersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseClicked
-        userButton.costumerButton(customers);
-    }//GEN-LAST:event_customersMouseClicked
+    private void customerscheckinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseClicked
+           try {
+            // TODO add your handling code here:
+            userButton.customerCheckins(customerscheckin);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_customerscheckinMouseClicked
 
-    private void customersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseEntered
+    private void customerscheckinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseEntered
         userButton.setC(hov4);
-    }//GEN-LAST:event_customersMouseEntered
+    }//GEN-LAST:event_customerscheckinMouseEntered
 
-    private void customersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersMouseExited
+    private void customerscheckinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerscheckinMouseExited
         userButton.resetC(hov4);
-    }//GEN-LAST:event_customersMouseExited
+    }//GEN-LAST:event_customerscheckinMouseExited
 
     private void jLabelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound5MouseClicked
 
@@ -471,7 +477,7 @@ public class ManagerButtons extends javax.swing.JPanel {
     private javax.swing.JPanel StaffButtons;
     private javax.swing.JLabel checkIn;
     private javax.swing.JLabel checkOut;
-    private javax.swing.JLabel customers;
+    private javax.swing.JLabel customerscheckin;
     private javax.swing.JLabel date;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;

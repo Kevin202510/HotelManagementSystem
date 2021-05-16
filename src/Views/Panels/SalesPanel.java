@@ -35,6 +35,7 @@ public class SalesPanel extends javax.swing.JPanel {
     public SalesPanel() throws SQLException {
         initComponents();
         salesControll.showSales(jtbl_sales);
+        jpnl_salesreport.setVisible(false);
     }
 
     /**
@@ -46,6 +47,8 @@ public class SalesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpnl_salesreport = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_sales = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -63,6 +66,16 @@ public class SalesPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpnl_salesreport.setBackground(new java.awt.Color(255, 255, 255));
+        jpnl_salesreport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("SALES REPORT");
+        jpnl_salesreport.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 200, 40));
+
+        add(jpnl_salesreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 630, 640));
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(300, 300));
 
@@ -131,7 +144,7 @@ public class SalesPanel extends javax.swing.JPanel {
         add(jbtn_show, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 390));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 390));
 
         jtxt_sales_search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -144,6 +157,11 @@ public class SalesPanel extends javax.swing.JPanel {
         jbtn_Generatereport.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         jbtn_Generatereport.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_Generatereport.setText("Generate Report");
+        jbtn_Generatereport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_GeneratereportActionPerformed(evt);
+            }
+        });
         add(jbtn_Generatereport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 170, 40));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 30)); // NOI18N
@@ -191,6 +209,11 @@ public class SalesPanel extends javax.swing.JPanel {
         tr.setRowFilter(RowFilter.regexFilter(jtxt_sales_search.getText().trim()));
            
     }//GEN-LAST:event_jtxt_sales_searchKeyPressed
+
+    private void jbtn_GeneratereportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_GeneratereportActionPerformed
+        jScrollPane1.setVisible(false);
+        jpnl_salesreport.setVisible(true);
+    }//GEN-LAST:event_jbtn_GeneratereportActionPerformed
     
        private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
@@ -214,11 +237,13 @@ public class SalesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_Generatereport;
     private javax.swing.JButton jbtn_show;
+    private javax.swing.JPanel jpnl_salesreport;
     private javax.swing.JTable jtbl_sales;
     private javax.swing.JTextField jtxt_sales_search;
     // End of variables declaration//GEN-END:variables

@@ -54,8 +54,8 @@ public class ProfileSettings extends javax.swing.JFrame {
         userId.setText(String.valueOf(UserIdSended));
         getUserInfo();
         wc = Webcam.getDefault();
-//        wc.setViewSize(WebcamResolution.VGA.getSize());
-//        jButton3.setVisible(false);
+        wc.setViewSize(WebcamResolution.VGA.getSize());
+        jButton3.setVisible(false);
     }
 
     /**
@@ -339,9 +339,8 @@ public class ProfileSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jbtn_addpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_addpicActionPerformed
-                wc.open();
-                wc.setViewSize(WebcamResolution.VGA.getSize());
-                new VideoFeeder().start();
+        wc.open();        
+        new VideoFeeder().start();        
                 jButton3.setVisible(true);
                 jbtn_addpic.setVisible(false);
     }//GEN-LAST:event_jbtn_addpicActionPerformed

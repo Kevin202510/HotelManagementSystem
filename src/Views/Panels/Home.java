@@ -52,6 +52,8 @@ public class Home extends javax.swing.JPanel {
         jLabel22 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
