@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -62,24 +64,28 @@ public class BedsController {
     
   
     }
-     public void saveBeds(JTextField BedID,JTextField BedQuantity,JTable bedtable) throws SQLException{
+     public void saveBeds(JTextField BedID,JTextField BedQuantity,JTable bedtable){
    
-   //  JOptionPane.showMessageDialog(null,"hello");fn
-          Connection con = sql.getConnection();
-         String insert = "INSERT INTO beds(bed_id,bed_quantity) VALUES (?,?)";
-       //     JOptionPane.showMessageDialog(null,"hellolast");
+        try {
+            //  JOptionPane.showMessageDialog(null,"hello");fn
+            Connection con = sql.getConnection();
+            String insert = "INSERT INTO beds(bed_id,bed_quantity) VALUES (?,?)";
+            //     JOptionPane.showMessageDialog(null,"hellolast");
             PreparedStatement st = con.prepareStatement(insert);
-           st.setInt(1, Integer.parseInt(BedID.getText()));
-           st.setString(2, BedQuantity.getText());
-           int i = st.executeUpdate();
+            st.setInt(1, Integer.parseInt(BedID.getText()));
+            st.setString(2, BedQuantity.getText());
+            int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
                 model.setRowCount(0);
-               new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            new Alerts("save").setVisible(true);
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                new Alerts("save").setVisible(true);
             } else {
                 new Alerts("error").setVisible(true);
             }
+        } catch (SQLException ex) {
+            new Alerts("Error" + " " + ex).setVisible(true);
+        }
      }
         public void fillForm(int id,JTextField BedID,JTextField BedQuantity) throws SQLException{
          Connection con = sql.getConnection();

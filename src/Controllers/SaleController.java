@@ -29,13 +29,14 @@ public class SaleController {
     
     public ArrayList<Sales> saleList() throws SQLException{
         Connection con = sql.getConnection();
-        String tanong = "SELECT * FROM inventories";
+        String tanong = "SELECT * FROM inventories LEFT JOIN users ON users.user_id=inventories.user_id";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         Sales sales;
         
         while(rs.next()){
-          sales = new Sales(rs.getInt("id"),rs.getString("sales_date"),rs.getInt("amount"),rs.getInt("user_id"));
+            String FullName = rs.getString("user_Fname")+ " " + rs.getString("user_Mname") + " " + rs.getString("user_Lname");
+          sales = new Sales(rs.getInt("id"),rs.getString("sales_date"),rs.getInt("amount"),FullName);
             saleList.add(sales);
         }
         return saleList;   
@@ -48,7 +49,7 @@ public class SaleController {
             row[0] = list.get(i).getid();
             row[1] = list.get(i).getsales_date();
             row[2] = list.get(i).getamount();
-            row[3] = list.get(i).getuser_id();
+            row[3] = list.get(i).getUserFullname();
             model.addRow(row);
          }
     }

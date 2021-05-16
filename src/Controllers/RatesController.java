@@ -66,26 +66,31 @@ public class RatesController {
 //model.addRow(row);
          }
     }
-        public void saveRates(JTextField RateID,JTextField RatePrice,JTable ratestable) throws SQLException{
-         //for Save Funktion :)
-      //   JOptionPane.showMessageDialog(null,"hello");
-          Connection con = sql.getConnection();
-         String insert = "INSERT INTO rates(rate_id,rate_price) VALUES (?,?)";
-       //     JOptionPane.showMessageDialog(null,"hellolast");
-         PreparedStatement st = con.prepareStatement(insert);   
-           st.setInt(1, Integer.parseInt(RateID.getText()));
-           st.setInt(2, Integer.parseInt(RatePrice.getText()));
-           int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
-                model.setRowCount(0);
-               new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-            new Alerts("save").setVisible(true);
-            } else {
-                new Alerts("error").setVisible(true);
-            }
+        public void saveRates(JTextField RateID,JTextField RatePrice,JTable ratestable){
+          try {
+              //for Save Funktion :)
+              //   JOptionPane.showMessageDialog(null,"hello");
+              Connection con = sql.getConnection();
+              String insert = "INSERT INTO rates(rate_id,rate_price) VALUES (?,?)";
+              //     JOptionPane.showMessageDialog(null,"hellolast");
+              PreparedStatement st = con.prepareStatement(insert);
+              st.setInt(1, Integer.parseInt(RateID.getText()));
+              st.setInt(2, Integer.parseInt(RatePrice.getText()));
+              int i = st.executeUpdate();
+              if (i > 0) {
+                  DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
+                  model.setRowCount(0);
+                  new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                  new Alerts("save").setVisible(true);
+              } else {
+                  new Alerts("error").setVisible(true);
+              }
+          } catch (SQLException ex) {
+                new Alerts("Error " + ex).setVisible(true);
+          }
        
         }
+        
          public void fillForm(int id,JTextField RateID,JTextField RatePrice) throws SQLException{
          Connection con = sql.getConnection();
         String selectrate = "SELECT * FROM rates WHERE rate_id ='"+id+"'";

@@ -18,7 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -130,6 +132,12 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 390));
+
+        jtxt_sales_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_sales_searchKeyPressed(evt);
+            }
+        });
         add(jtxt_sales_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 60, 200, 30));
 
         jbtn_Generatereport.setBackground(new java.awt.Color(51, 102, 255));
@@ -173,6 +181,16 @@ public class SalesPanel extends javax.swing.JPanel {
         }
         }
     }//GEN-LAST:event_jbtn_showActionPerformed
+
+    private void jtxt_sales_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_sales_searchKeyPressed
+        //SALES SEARCH
+         DefaultTableModel model = (DefaultTableModel)jtbl_sales.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_sales.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_sales_search.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_sales_searchKeyPressed
     
        private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";

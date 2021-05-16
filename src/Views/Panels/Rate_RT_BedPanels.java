@@ -23,7 +23,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -117,8 +119,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jtbl_RTtable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jtxt_ro_search = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jtxt_roomtype_search = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -149,6 +151,10 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jbtn_RTdelete = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        jtxt_bed_search1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jtxt_rate_search = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(213, 221, 221));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -235,10 +241,16 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ROOMTYPES-RATES-BEDS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 778, -1));
-        jPanel1.add(jtxt_ro_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 220, 30));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jtxt_roomtype_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_roomtype_searchKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jtxt_roomtype_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 220, 30));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 77, 77));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -319,7 +331,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(191, 191, 191));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("RATE ACTION");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 50));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 50));
 
         jLabel9.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -454,11 +466,33 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel4.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 10));
         jPanel4.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+
+        jtxt_bed_search1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_bed_search1KeyPressed(evt);
+            }
+        });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+
+        jtxt_rate_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_rate_searchKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1480, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtxt_rate_search, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -472,7 +506,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3)))
+                        .addComponent(jScrollPane3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtxt_bed_search1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -483,15 +523,23 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jtxt_rate_search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel13)
+                    .addComponent(jtxt_bed_search1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -544,14 +592,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
            if (checkInputsBed()==true) {
              JOptionPane.showMessageDialog(this,"ERROR");        
       }else{     
-        try {
-             
-            bedsControll.saveBeds(jtxt_BedID, jtxt_BedQuantity, jtble_bedtable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
-            
-        
-    }              
+               bedsControll.saveBeds(jtxt_BedID, jtxt_BedQuantity, jtble_bedtable);              
            }   
         
     }//GEN-LAST:event_jbtn_BedsaveActionPerformed
@@ -571,13 +612,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
            if (checkInputsRate()==true) {
              JOptionPane.showMessageDialog(this,"ERROR");        
       }else{     
-        try {
-             
-            ratesControll.saveRates(jtxt_RateID, jtxt_RatePrice, jtbl_ratestable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);          
-            
-        }
+               ratesControll.saveRates(jtxt_RateID, jtxt_RatePrice, jtbl_ratestable);
            }   
     }//GEN-LAST:event_jbtn_RatesaveActionPerformed
 
@@ -591,14 +626,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              JOptionPane.showMessageDialog(this,"ERROR");
           
       }else{     
-        try { 
-            roomtypeControll.saveRT(jtxt_RTid,jtxt_RoomType,jtbl_RTtable);
-        } catch (SQLException ex) {
-            Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
-            
-            
-            
-        }
+             roomtypeControll.saveRT(jtxt_RTid,jtxt_RoomType,jtbl_RTtable);
          }
     }//GEN-LAST:event_jbtn_RTsaveActionPerformed
 
@@ -719,6 +747,33 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
              evt.consume();
           }
     }//GEN-LAST:event_jtxt_BedQuantityKeyTyped
+
+    private void jtxt_roomtype_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_roomtype_searchKeyPressed
+           DefaultTableModel model = (DefaultTableModel)jtbl_RTtable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_RTtable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_roomtype_search.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_roomtype_searchKeyPressed
+
+    private void jtxt_rate_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_rate_searchKeyPressed
+          DefaultTableModel model = (DefaultTableModel)jtbl_ratestable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_ratestable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_rate_search .getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_rate_searchKeyPressed
+
+    private void jtxt_bed_search1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_bed_search1KeyPressed
+            DefaultTableModel model = (DefaultTableModel)jtble_bedtable.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtble_bedtable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_bed_search1.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_bed_search1KeyPressed
       
     
      private boolean checkInputsRT(){
@@ -757,12 +812,14 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -792,6 +849,8 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JTextField jtxt_RateID;
     private javax.swing.JTextField jtxt_RatePrice;
     private javax.swing.JTextField jtxt_RoomType;
-    private javax.swing.JTextField jtxt_ro_search;
+    private javax.swing.JTextField jtxt_bed_search1;
+    private javax.swing.JTextField jtxt_rate_search;
+    private javax.swing.JTextField jtxt_roomtype_search;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package Views.Panels;
+import Controllers.BedsController;
 import Controllers.ImagesNText;
 import Controllers.PromoController;
+import Controllers.RatesController;
 import Controllers.RoomController;
+import Controllers.RoomTypesController;
+import Models.Beds;
 import Models.Promos;
+import Models.Rates;
 import Models.Rooms;
+import Models.Roomtypes;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,7 +28,9 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -34,7 +42,13 @@ public class RoomsPanel extends javax.swing.JPanel{
     ArrayList<Promos> promolists;
     public RoomController roomControll = new RoomController();
     PromoController promoControll;
+    RoomTypesController RTControll;
     ArrayList<Rooms> roomlist = roomControll.roomList();
+    RatesController RatesControll;
+    BedsController bedsControll;
+    ArrayList<Roomtypes> RTlist;
+    ArrayList<Rates> Rateslist;
+    ArrayList<Beds> Bedslist;
      public Rooms roomModel;
      public JPanel lalagyanan;
     public int index,index1,id;
@@ -42,6 +56,9 @@ public class RoomsPanel extends javax.swing.JPanel{
     
     public RoomsPanel(JPanel lalagyanan,String role) throws SQLException{
         this.promoControll = new PromoController(lalagyanan,role);
+        this.RTControll = new RoomTypesController(lalagyanan); 
+        this.bedsControll = new BedsController(lalagyanan);
+        this.RatesControll = new RatesController(lalagyanan);
         initComponents();
         this.role=role;
         
@@ -100,7 +117,11 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomstablestaff.setVisible(false);
         promoControll.showPromos(jtbl_promos);
         promolists = promoControll.promoList();
+         RTlist = RTControll.roomtypeList();
+         Rateslist = RatesControll.rateList();
+         Bedslist = bedsControll.bedList();
     }
+  
 
 
     /**
@@ -115,6 +136,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtxt_room_search = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         roomAction = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -143,7 +165,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxtarea_desciption = new javax.swing.JTextArea();
         jtxt_discount = new javax.swing.JTextField();
-        jbtn_promosave = new javax.swing.JButton();
         jbtn_promoupdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         roomscroll = new javax.swing.JScrollPane();
@@ -153,6 +174,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel9 = new javax.swing.JLabel();
         roomscrollstaff = new javax.swing.JScrollPane();
         roomstablestaff = new javax.swing.JTable();
+        jtxt_promos_search = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -165,7 +187,16 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Rooms");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 220, -1));
-        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
+
+        jtxt_room_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_room_searchKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 190, 30));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
 
@@ -257,7 +288,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomAction.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
-        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 340, 310));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
@@ -285,6 +315,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel15.setText("ID");
         roomAction.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 40, 30));
 
+        jtxtarea_desciption.setEditable(false);
         jtxtarea_desciption.setColumns(20);
         jtxtarea_desciption.setLineWrap(true);
         jtxtarea_desciption.setRows(5);
@@ -292,20 +323,18 @@ public class RoomsPanel extends javax.swing.JPanel{
         jScrollPane2.setViewportView(jtxtarea_desciption);
 
         roomAction.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 320, 90));
+
+        jtxt_discount.setEditable(false);
         roomAction.add(jtxt_discount, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 620, 220, 30));
 
-        jbtn_promosave.setText("SAVE");
-        jbtn_promosave.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_promoupdate.setText("UPDATE");
+        jbtn_promoupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_promosaveActionPerformed(evt);
+                jbtn_promoupdateActionPerformed(evt);
             }
         });
-        roomAction.add(jbtn_promosave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
-
-        jbtn_promoupdate.setText("UPDATE");
         roomAction.add(jbtn_promoupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
 
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 340, 260));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 360, 710));
@@ -342,15 +371,20 @@ public class RoomsPanel extends javax.swing.JPanel{
 
             },
             new String [] {
-                "ID", "Description", "Discount", "Status"
+                "ID", "Description", "Discount"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jtbl_promos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbl_promosMouseClicked(evt);
             }
         });
         promoscroll.setViewportView(jtbl_promos);
@@ -396,13 +430,23 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomscrollstaff.setViewportView(roomstablestaff);
 
         add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1470, 690));
+
+        jtxt_promos_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_promos_searchKeyPressed(evt);
+            }
+        });
+        add(jtxt_promos_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
 //        JOptionPane.showMessageDialog(null,"1");
-        int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
-        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
-        int rate=jcbo_rateId.getSelectedIndex()+1;
+        int roomtypes=jcbo_roomTypeId.getSelectedIndex();
+        int roomtype = RTlist.get(roomtypes).getRT_id();
+        int bedtypes=jcbo_bedTypeId.getSelectedIndex();
+        int bedtype=Bedslist.get(bedtypes).getbed_id();
+        int rates=jcbo_rateId.getSelectedIndex();
+        int rate=Rateslist.get(rates).getrate_id();
 //        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
@@ -422,9 +466,12 @@ public class RoomsPanel extends javax.swing.JPanel{
     }//GEN-LAST:event_jbtn_saveActionPerformed
 
     private void jbtn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_updateActionPerformed
-         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
-        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
-        int rate=jcbo_rateId.getSelectedIndex()+1;
+         int roomtypes=jcbo_roomTypeId.getSelectedIndex();
+        int roomtype = RTlist.get(roomtypes).getRT_id();
+        int bedtypes=jcbo_bedTypeId.getSelectedIndex();
+        int bedtype=Bedslist.get(bedtypes).getbed_id();
+        int rates=jcbo_rateId.getSelectedIndex();
+        int rate=Rateslist.get(rates).getrate_id();
 //        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
@@ -458,19 +505,65 @@ public class RoomsPanel extends javax.swing.JPanel{
         // TODO add your handling code here:
     }//GEN-LAST:event_roomstablestaffMouseClicked
 
-    private void jbtn_promosaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promosaveActionPerformed
+    private void jbtn_promoupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promoupdateActionPerformed
+        int id = Integer.parseInt(jlbl_promoid.getText());
+        double discount = Double.parseDouble(jtxt_discount.getText());
+        Promos promos;
+        promos = new Promos(id,jtxtarea_desciption.getText(),discount);
         try {
-            promoControll.createNewPromos(jlbl_promoid, jtxtarea_desciption, jtxt_discount,jtbl_promos);
+            promoControll.updatePromos(promos, roomstablestaff);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jbtn_promosaveActionPerformed
+    }//GEN-LAST:event_jbtn_promoupdateActionPerformed
+
+    private void jtxt_room_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_room_searchKeyPressed
+        // ROOMS SEARCH
+        DefaultTableModel model = (DefaultTableModel)jtbl_rooms.getModel(); 
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_rooms.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+        
+         search();
+           
+    }//GEN-LAST:event_jtxt_room_searchKeyPressed
+
+    private void jtxt_promos_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_promos_searchKeyPressed
+        // PROMOS
+           DefaultTableModel model = (DefaultTableModel)jtbl_promos.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_promos.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_promos_search.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_promos_searchKeyPressed
+
+     private void search() {                                            
+        // ROOMS SEARCH
+        DefaultTableModel model = (DefaultTableModel)roomstablestaff.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        roomstablestaff.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+           
+    }                                           
+    
+    
+    private void jtbl_promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_promosMouseClicked
+       jlbl_promoid.setText(String.valueOf(jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),0)));
+       jtxtarea_desciption.setText((String) jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),1));
+       jtxt_discount.setText(String.valueOf(jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),2)));
+       jtxtarea_desciption.setEditable(true);
+       jtxt_discount.setEditable(true);
+    }//GEN-LAST:event_jtbl_promosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -489,7 +582,6 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JButton jbtn_promosave;
     private javax.swing.JButton jbtn_promoupdate;
     private javax.swing.JButton jbtn_save;
     private javax.swing.JButton jbtn_update;
@@ -502,6 +594,7 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JTable jtbl_rooms;
     private javax.swing.JTextField jtxt_Roomid;
     private javax.swing.JTextField jtxt_discount;
+    private javax.swing.JTextField jtxt_promos_search;
     private javax.swing.JTextField jtxt_room_search;
     private javax.swing.JTextArea jtxtarea_desciption;
     private javax.swing.JScrollPane promoscroll;

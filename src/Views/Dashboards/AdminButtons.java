@@ -104,6 +104,7 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1480, 150));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -303,7 +304,6 @@ public class AdminButtons extends javax.swing.JPanel {
 
         jComboBox1.setBackground(new java.awt.Color(0, 128, 128));
         jComboBox1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
-        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 140, 198), 8, true));
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +348,7 @@ public class AdminButtons extends javax.swing.JPanel {
         AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 90, 210, 50));
 
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, 30));
+        AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 50, 30));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,6 +386,14 @@ public class AdminButtons extends javax.swing.JPanel {
         jpnl_hov11.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 200, 50));
 
         AdminButtons.add(jpnl_hov11, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 190, 50));
+
+        jButton1.setText("CUSTOMERS CHECKIN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        AdminButtons.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 160, 40));
 
         add(AdminButtons, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 150));
     }// </editor-fold>//GEN-END:initComponents
@@ -520,6 +528,14 @@ public class AdminButtons extends javax.swing.JPanel {
         userButton.resetC(jpnl_hov11);
     }//GEN-LAST:event_sukicustomersMouseExited
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            userButton.customerCheckins(jButton1);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminButtons.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminButtons;
     private javax.swing.JLabel customers;
@@ -531,6 +547,7 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov7;
     private javax.swing.JPanel hov8;
     private javax.swing.JPanel hov9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

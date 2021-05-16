@@ -67,22 +67,21 @@ Connection con = sql.getConnection();
     
    Promos promosModel;
    
-    public void createNewPromos(JLabel id,JTextArea description,JTextField discount,JTable promostable) throws SQLException{
-        double diss = Integer.parseInt(discount.getText());
+    public void updatePromos(Promos promo,JTable promostable) throws SQLException{
+        double diss = promo.getDiscount();
         double dis = diss/100;
-        promosModel = new Promos(Integer.parseInt(id.getText()),description.getText(),dis);
-        
-        String addPromos = "INSERT INTO promos (description,discount)VALUES(?,?)";
+        String addPromos = "UPDATE promos SET description = ? , discount = ? WHERE id = ?";
         PreparedStatement st = con.prepareStatement(addPromos);
-        st.setString(1,promosModel.getDescription());
-        st.setDouble(2, promosModel.getDiscount());
+        st.setString(1,promo.getDescription());
+        st.setDouble(2,promo.getDiscount());
+        st.setInt(3,promo.getPromoId());
         
         int i = st.executeUpdate();
         if (i>0) {
             DefaultTableModel model = (DefaultTableModel)promostable.getModel();
                 model.setRowCount(0);
                new ContainerManipulator(lalagyanan,new Views.Panels.RoomsPanel(lalagyanan,role));
-            new Alerts("save").setVisible(true);
+            new Alerts("update").setVisible(true);
             } else {
                 new Alerts("error").setVisible(true);
             }

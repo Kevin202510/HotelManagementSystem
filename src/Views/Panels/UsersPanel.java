@@ -28,7 +28,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -214,6 +216,12 @@ public class UsersPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jbtn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 31, 93, 30));
+
+        jtxt_ussearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_ussearchKeyPressed(evt);
+            }
+        });
         jPanel2.add(jtxt_ussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 50, 210, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
@@ -580,6 +588,16 @@ public class UsersPanel extends javax.swing.JPanel {
     private void jtxt_usumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usumiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_usumiActionPerformed
+
+    private void jtxt_ussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_ussearchKeyPressed
+        // USER SEARCH
+         DefaultTableModel model = (DefaultTableModel)jtbl_user.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_user.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_ussearch.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_ussearchKeyPressed
 
     private boolean checkInputs(){
         String notice = "Theres Have A Field That Empty Please make an Input";
