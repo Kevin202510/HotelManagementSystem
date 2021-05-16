@@ -108,7 +108,7 @@ import javax.swing.table.TableRowSorter;
                 return canEdit [columnIndex];
             }
         });
-        jtbl_custable.setRowHeight(20);
+        jtbl_custable.setRowHeight(30);
         jScrollPane1.setViewportView(jtbl_custable);
         if (jtbl_custable.getColumnModel().getColumnCount() > 0) {
             jtbl_custable.getColumnModel().getColumn(3).setResizable(false);

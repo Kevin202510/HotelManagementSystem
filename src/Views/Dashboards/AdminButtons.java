@@ -304,6 +304,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
         jComboBox1.setBackground(new java.awt.Color(0, 128, 128));
         jComboBox1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 140, 198), 8, true));
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
