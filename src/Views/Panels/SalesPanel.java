@@ -211,7 +211,7 @@ public class SalesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jtxt_sales_searchKeyPressed
 
     private void jbtn_GeneratereportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_GeneratereportActionPerformed
-        jtbl_sales.setVisible(false);
+        jScrollPane1.setVisible(false);
         jpnl_salesreport.setVisible(true);
     }//GEN-LAST:event_jbtn_GeneratereportActionPerformed
     
