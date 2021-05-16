@@ -69,11 +69,10 @@ public class BedsController {
         try {
             //  JOptionPane.showMessageDialog(null,"hello");fn
             Connection con = sql.getConnection();
-            String insert = "INSERT INTO beds(bed_id,bed_quantity) VALUES (?,?)";
+            String insert = "INSERT INTO beds(bed_quantity) VALUES (?)";
             //     JOptionPane.showMessageDialog(null,"hellolast");
             PreparedStatement st = con.prepareStatement(insert);
-            st.setInt(1, Integer.parseInt(BedID.getText()));
-            st.setString(2, BedQuantity.getText());
+            st.setString(1, BedQuantity.getText());
             int i = st.executeUpdate();
             if (i > 0) {
                 DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
@@ -87,13 +86,36 @@ public class BedsController {
             new Alerts("Error" + " " + ex).setVisible(true);
         }
      }
+     
+     public void updateBeds(int id,JTextField BedQuantity,JTable bedtable){
+   
+        try {
+            Connection con = sql.getConnection();
+            String insert = "UPDATE beds set bed_quantity=? where bed_id = ?";
+            PreparedStatement st = con.prepareStatement(insert);
+            st.setString(1, BedQuantity.getText());
+            st.setInt(2,id);
+            int i = st.executeUpdate();
+            if (i > 0) {
+                DefaultTableModel model = (DefaultTableModel)bedtable.getModel();
+                model.setRowCount(0);
+                new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                new Alerts("update").setVisible(true);
+            } else {
+                new Alerts("error").setVisible(true);
+            }
+        } catch (SQLException ex) {
+            new Alerts("Error" + " " + ex).setVisible(true);
+        }
+     }
+     
+     
         public void fillForm(int id,JTextField BedID,JTextField BedQuantity) throws SQLException{
          Connection con = sql.getConnection();
         String selectbed = "SELECT * FROM beds WHERE bed_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectbed);
        BedID.setEditable(false);
-       BedQuantity.setEditable(false);
         while(rs.next()){
             BedID.setText(rs.getString("bed_id"));
             BedQuantity.setText(rs.getString("bed_quantity"));

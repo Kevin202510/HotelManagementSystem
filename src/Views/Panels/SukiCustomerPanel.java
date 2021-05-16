@@ -52,9 +52,11 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jtxt_SukiName.setVisible(false);
     }
     private void initRun() throws SQLException{
+        jbtn_sudelete1.setVisible(false);
         jcbo_customername.setBackground(new Color(0, 0, 0, 0));
         jcbo_customername.setOpaque(false);
         custo.showSukiCustomer(jtbl_suki);
+        custo.showCustomer(jcbo_customername);
         jtxt_sukisearch.requestFocusInWindow();
     }
     
@@ -96,12 +98,6 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CUSTOMER SUKI");
-
-        jtxt_sukisearch.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtxt_sukisearchKeyPressed(evt);
-            }
-        });
 
         jtxt_sukisearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -224,20 +220,31 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
                 jbtn_susaveActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_susave, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 110, 40));
+        jPanel2.add(jbtn_susave, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 110, 40));
 
         jbtn_sureset.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_sureset.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         jbtn_sureset.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_sureset.setText("RESET");
-        jPanel2.add(jbtn_sureset, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 110, 40));
+        jbtn_sureset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_suresetActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtn_sureset, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 110, 40));
 
         jbtn_sudelete1.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_sudelete1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
         jbtn_sudelete1.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_sudelete1.setText("DELETE");
-        jPanel2.add(jbtn_sudelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 110, 40));
+        jbtn_sudelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_sudelete1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtn_sudelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 110, 40));
 
+        jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 320, 510));
 
         jcbo_customername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -333,9 +340,9 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         if (evt.getKeyCode()==10) {
             try {
                 boolean hey = custo.selectCustomerSuki(jtxt_sukisearch.getText(),jtxt_SukiCode,jtxt_SukiPoints);
-                if (hey==false) {
-                    custo.showCustomer(jcbo_customername);
-                }
+//                if (hey==false) {
+//                    custo.showCustomer(jcbo_customername);
+//                }
             } catch (SQLException ex) {
                 Logger.getLogger(SukiCustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -351,6 +358,22 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
        jtxt_SukiName.setText((String) jtbl_suki.getValueAt(jtbl_suki.getSelectedRow(),1));
        jtxt_SukiPoints.setText(String.valueOf(jtbl_suki.getValueAt(jtbl_suki.getSelectedRow(),2)));
     }//GEN-LAST:event_jtbl_sukiMouseClicked
+
+    private void jbtn_sudelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_sudelete1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_sudelete1ActionPerformed
+
+    private void jbtn_suresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_suresetActionPerformed
+        String sukicode = jtxt_SukiCode.getText();
+        boolean checksuki = custo.updateSukiPoints(sukicode,jtbl_suki);
+        if (checksuki) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.SukiCustomerPanel(lalagyanan));
+            } catch (SQLException ex) {
+                Logger.getLogger(SukiCustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jbtn_suresetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

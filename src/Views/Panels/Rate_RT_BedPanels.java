@@ -94,12 +94,9 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jbtn_RTdelete.setVisible(false);
         jbtn_Ratedelete.setVisible(false);
          jbtn_Beddelete.setVisible(false);
-    }
-    
-    public void labaskana(){
-        jbtn_RTdelete.setVisible(true);
-         jbtn_Ratedelete.setVisible(true);
-          jbtn_Beddelete.setVisible(true);
+          jbtn_RTupdate.setVisible(false);
+         jbtn_Rateupdate.setVisible(false);
+          jbtn_Bedupdate.setVisible(false);
     }
 
     /**
@@ -131,6 +128,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jtxt_BedID = new javax.swing.JTextField();
         jbtn_Beddelete = new javax.swing.JButton();
         jbtn_Bedsave = new javax.swing.JButton();
+        jbtn_Bedupdate = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -141,6 +139,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jbtn_Ratedelete = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        jbtn_Rateupdate = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -151,6 +150,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jbtn_RTdelete = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        jbtn_RTupdate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jtxt_bed_search1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -284,6 +284,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 190, 10));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 170, 10));
 
+        jtxt_BedID.setEditable(false);
         jtxt_BedID.setBackground(new java.awt.Color(0, 77, 77));
         jtxt_BedID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jtxt_BedID.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,7 +311,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 jbtn_BeddeleteActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel2.add(jbtn_Beddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, 30));
 
         jbtn_Bedsave.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_Bedsave.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -321,7 +322,18 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 jbtn_BedsaveActionPerformed(evt);
             }
         });
-        jPanel2.add(jbtn_Bedsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel2.add(jbtn_Bedsave, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 110, 30));
+
+        jbtn_Bedupdate.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Bedupdate.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Bedupdate.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Bedupdate.setText("UPDATE");
+        jbtn_Bedupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_BedupdateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbtn_Bedupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 77, 77));
         jPanel3.setPreferredSize(new java.awt.Dimension(310, 212));
@@ -338,6 +350,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel9.setText("Rate ID");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 73, 20));
 
+        jtxt_RateID.setEditable(false);
         jtxt_RateID.setBackground(new java.awt.Color(0, 77, 77));
         jtxt_RateID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jtxt_RateID.setForeground(new java.awt.Color(255, 255, 255));
@@ -391,9 +404,20 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 jbtn_RatedeleteActionPerformed(evt);
             }
         });
-        jPanel3.add(jbtn_Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel3.add(jbtn_Ratedelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, 30));
         jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 190, 10));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 180, 10));
+
+        jbtn_Rateupdate.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Rateupdate.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Rateupdate.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Rateupdate.setText("UPDATE");
+        jbtn_Rateupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_RateupdateActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jbtn_Rateupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
         jPanel4.setBackground(new java.awt.Color(0, 77, 77));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -409,6 +433,7 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         jLabel11.setText("RT ID");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 50, 41));
 
+        jtxt_RTid.setEditable(false);
         jtxt_RTid.setBackground(new java.awt.Color(0, 77, 77));
         jtxt_RTid.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jtxt_RTid.setForeground(new java.awt.Color(255, 255, 255));
@@ -462,9 +487,20 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 jbtn_RTdeleteActionPerformed(evt);
             }
         });
-        jPanel4.add(jbtn_RTdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 110, 30));
+        jPanel4.add(jbtn_RTdelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, 30));
         jPanel4.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 200, 10));
         jPanel4.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 180, 10));
+
+        jbtn_RTupdate.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_RTupdate.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_RTupdate.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_RTupdate.setText("UPDATE");
+        jbtn_RTupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_RTupdateActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jbtn_RTupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 110, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
 
@@ -539,16 +575,17 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtbl_ratestableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_ratestableMouseClicked
-     try {
+    jbtn_Rateupdate.setVisible(true);
+          jbtn_Ratedelete.setVisible(true);
+          jbtn_Ratesave.setVisible(false);
+        try {
             id = (int) jtbl_ratestable.getValueAt(jtbl_ratestable.getSelectedRow(),0);
             ratesControll.fillForm(id, jtxt_RateID, jtxt_RatePrice);
-            labaskana();
-            jbtn_Ratesave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -559,12 +596,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
 
     private void jtble_bedtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtble_bedtableMouseClicked
         // TODO add your handling code here:
-        
+        jbtn_Bedupdate.setVisible(true);
+          jbtn_Beddelete.setVisible(true);
+          jbtn_Bedsave.setVisible(false);
          try {
             id = (int) jtble_bedtable.getValueAt(jtble_bedtable.getSelectedRow(),0);
             bedsControll.fillForm(id, jtxt_BedID, jtxt_BedQuantity);
-            labaskana();
-            jbtn_Bedsave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -573,12 +610,12 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
 
     private void jtbl_RTtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_RTtableMouseClicked
         // TODO add your handling code here:
-        
+        jbtn_RTdelete.setVisible(true);
+        jbtn_RTupdate.setVisible(true);
+        jbtn_RTsave.setVisible(false);
          try {
             id = (int) jtbl_RTtable.getValueAt(jtbl_RTtable.getSelectedRow(),0);
             roomtypeControll.fillForm(id, jtxt_RTid, jtxt_RoomType);
-            labaskana();
-            jbtn_RTsave.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(Rate_RT_BedPanels.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -774,6 +811,31 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
         tr.setRowFilter(RowFilter.regexFilter(jtxt_bed_search1.getText().trim()));
            
     }//GEN-LAST:event_jtxt_bed_search1KeyPressed
+
+    private void jbtn_RTupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RTupdateActionPerformed
+        if (checkInputsRT()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");
+          
+      }else{     
+             roomtypeControll.updateRT(id,jtxt_RoomType,jtbl_RTtable);
+         }
+    }//GEN-LAST:event_jbtn_RTupdateActionPerformed
+
+    private void jbtn_RateupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_RateupdateActionPerformed
+       if (checkInputsRate()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+      }else{     
+               ratesControll.updateRates(id, jtxt_RatePrice, jtbl_ratestable);
+           }   
+    }//GEN-LAST:event_jbtn_RateupdateActionPerformed
+
+    private void jbtn_BedupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_BedupdateActionPerformed
+        if (checkInputsBed()==true) {
+             JOptionPane.showMessageDialog(this,"ERROR");        
+      }else{     
+               bedsControll.updateBeds(id, jtxt_BedQuantity, jtble_bedtable);              
+           }   
+    }//GEN-LAST:event_jbtn_BedupdateActionPerformed
       
     
      private boolean checkInputsRT(){
@@ -836,10 +898,13 @@ public class Rate_RT_BedPanels extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JButton jbtn_Beddelete;
     private javax.swing.JButton jbtn_Bedsave;
+    private javax.swing.JButton jbtn_Bedupdate;
     private javax.swing.JButton jbtn_RTdelete;
     private javax.swing.JButton jbtn_RTsave;
+    private javax.swing.JButton jbtn_RTupdate;
     private javax.swing.JButton jbtn_Ratedelete;
     private javax.swing.JButton jbtn_Ratesave;
+    private javax.swing.JButton jbtn_Rateupdate;
     private javax.swing.JTable jtbl_RTtable;
     private javax.swing.JTable jtbl_ratestable;
     private javax.swing.JTable jtble_bedtable;

@@ -71,11 +71,10 @@ public class RatesController {
               //for Save Funktion :)
               //   JOptionPane.showMessageDialog(null,"hello");
               Connection con = sql.getConnection();
-              String insert = "INSERT INTO rates(rate_id,rate_price) VALUES (?,?)";
+              String insert = "INSERT INTO rates(rate_price) VALUES (?)";
               //     JOptionPane.showMessageDialog(null,"hellolast");
               PreparedStatement st = con.prepareStatement(insert);
-              st.setInt(1, Integer.parseInt(RateID.getText()));
-              st.setInt(2, Integer.parseInt(RatePrice.getText()));
+              st.setInt(1, Integer.parseInt(RatePrice.getText()));
               int i = st.executeUpdate();
               if (i > 0) {
                   DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
@@ -91,13 +90,34 @@ public class RatesController {
        
         }
         
+        public void updateRates(int id,JTextField RatePrice,JTable ratestable){
+          try {
+              Connection con = sql.getConnection();
+              String insert = "UPDATE rates set rate_price= ? where rate_id = ?";
+              PreparedStatement st = con.prepareStatement(insert);
+              st.setInt(1, Integer.parseInt(RatePrice.getText()));
+              st.setInt(2, id);
+              int i = st.executeUpdate();
+              if (i > 0) {
+                  DefaultTableModel model = (DefaultTableModel)ratestable.getModel();
+                  model.setRowCount(0);
+                  new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                  new Alerts("update").setVisible(true);
+              } else {
+                  new Alerts("error").setVisible(true);
+              }
+          } catch (SQLException ex) {
+                new Alerts("Error " + ex).setVisible(true);
+          }
+       
+        }
+        
          public void fillForm(int id,JTextField RateID,JTextField RatePrice) throws SQLException{
          Connection con = sql.getConnection();
         String selectrate = "SELECT * FROM rates WHERE rate_id ='"+id+"'";
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectrate);
        RateID.setEditable(false);
-       RatePrice.setEditable(false);
         while(rs.next()){
             RateID.setText(rs.getString("rate_id"));
             RatePrice.setText(rs.getString("rate_price"));

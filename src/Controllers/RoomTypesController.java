@@ -91,13 +91,9 @@ public class RoomTypesController {
      
      public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable){
          try {
-             //for Save Funktion :)
-             //  JOptionPane.showMessageDialog(null,"hello");
              Connection con = sql.getConnection();
              String insert = "INSERT INTO roomtypes(room_type) VALUES (?)";
-             //   JOptionPane.showMessageDialog(null,"hellolast");
              PreparedStatement st = con.prepareStatement(insert);
-//             st.setInt(1, Integer.parseInt(RTid.getText()));
              st.setString(1, RoomType.getText());
              int i = st.executeUpdate();
              if (i > 0) {
@@ -115,6 +111,29 @@ public class RoomTypesController {
      
       }
      
+     public void updateRT(int id,JTextField RoomType,JTable RTtable){
+         try {
+             Connection con = sql.getConnection();
+             String update = "UPDATE roomtypes set room_type=? where RT_id = ?";
+             PreparedStatement st = con.prepareStatement(update);
+             st.setString(1, RoomType.getText());
+             st.setInt(2,id);
+             int i = st.executeUpdate();
+             if (i > 0) {
+                 DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+                 model.setRowCount(0);
+                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                 new Alerts("update").setVisible(true);
+             } else {
+                 new Alerts("Error").setVisible(true);
+             }
+         } catch (SQLException ex) {
+             new Alerts("Error" + " " + ex).setVisible(true);
+         }
+     
+     
+      }
+     
      public void fillForm(int id,JTextField RTid,JTextField RoomType) throws SQLException{
          Connection con = sql.getConnection();
       //   JOptionPane.showMessageDialog(null,id);
@@ -122,7 +141,6 @@ public class RoomTypesController {
         Statement st = con.createStatement();
        ResultSet rs = st.executeQuery(selectRT);
        RTid.setEditable(false);
-       RoomType.setEditable(false);
         while(rs.next()){
             RTid.setText(rs.getString("RT_id"));
             RoomType.setText(rs.getString("room_type"));
