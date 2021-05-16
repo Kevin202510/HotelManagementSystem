@@ -5,6 +5,7 @@
  */
 package sweetalerts;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -56,11 +57,12 @@ public class Alerts extends javax.swing.JFrame implements ActionListener {
              t.start();
         }else if (notif.equals("checkout")) {
             jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
-            jLabel1.setText("CHECKIN SUCCESSFULLY");
+            jLabel1.setText("CHECKOUT SUCCESSFULLY");
             Timer t = new Timer(3000, this);    // Timer in 3 seconds
              t.start();
         }else{
-           jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/sucs.gif")));
+           jLabelRound1.setIcon(new ImageIcon(getClass().getResource("/Images/GifIcon/error.gif")));
+           jLabel1.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 10));
             jLabel1.setText(notif);
             Timer t = new Timer(5000, this);    // Timer in 10 seconds
              t.start();

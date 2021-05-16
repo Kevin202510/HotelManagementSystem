@@ -89,24 +89,28 @@ public class RoomTypesController {
 //    }
      
      
-     public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable) throws SQLException{
-         //for Save Funktion :)
-       //  JOptionPane.showMessageDialog(null,"hello");
-          Connection con = sql.getConnection();
-         String insert = "INSERT INTO roomtypes(RT_id,room_type) VALUES (?,?)";
-         //   JOptionPane.showMessageDialog(null,"hellolast");
-            PreparedStatement st = con.prepareStatement(insert);
-           st.setInt(1, Integer.parseInt(RTid.getText()));
-           st.setString(2, RoomType.getText());
-           int i = st.executeUpdate();
-            if (i > 0) {
-                DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
-                model.setRowCount(0);
-               new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
-             new Alerts("save").setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null,"Error");
-            }
+     public void saveRT(JTextField RTid,JTextField RoomType,JTable RTtable){
+         try {
+             //for Save Funktion :)
+             //  JOptionPane.showMessageDialog(null,"hello");
+             Connection con = sql.getConnection();
+             String insert = "INSERT INTO roomtypes(room_type) VALUES (?)";
+             //   JOptionPane.showMessageDialog(null,"hellolast");
+             PreparedStatement st = con.prepareStatement(insert);
+//             st.setInt(1, Integer.parseInt(RTid.getText()));
+             st.setString(1, RoomType.getText());
+             int i = st.executeUpdate();
+             if (i > 0) {
+                 DefaultTableModel model = (DefaultTableModel)RTtable.getModel();
+                 model.setRowCount(0);
+                 new ContainerManipulator(lalagyanan,new Views.Panels.Rate_RT_BedPanels(lalagyanan));
+                 new Alerts("save").setVisible(true);
+             } else {
+                 new Alerts("Error").setVisible(true);
+             }
+         } catch (SQLException ex) {
+             new Alerts("Error" + " " + ex).setVisible(true);
+         }
      
      
       }

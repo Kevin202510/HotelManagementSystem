@@ -56,6 +56,8 @@ public class CheckinAndOutController{
     public Connection con = sql.getConnection();
     public RoomController roomControll = new RoomController();   
     
+    
+    
     public ArrayList<CheckinAndOut> checkinandoutlist() throws SQLException{
         String tanong = "Select * from checkinandout";
         Statement st = con.createStatement();
@@ -67,6 +69,39 @@ public class CheckinAndOutController{
             checkinoutList.add(checkInandOut);
         }
         return checkinoutList;   
+    }
+    
+     public ArrayList<CheckinAndOut> checkinandoutlists() throws SQLException{
+         ArrayList<CheckinAndOut> checkinoutLists = new ArrayList<>();
+        String tanong = "Select * from checkinandout LEFT JOIN customers ON customers.cust_id = checkinandout.cust_id";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(tanong);
+        CheckinAndOut checkInandOut;
+        
+        while(rs.next()){
+            String fullname = rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " + rs.getString("cust_Lname");  
+            checkInandOut=new CheckinAndOut(rs.getInt("id"),rs.getDouble("hours_checkin"),fullname,rs.getInt("room_id"),rs.getString("checkin_date"),rs.getString("checkout_date"),rs.getString("timein"),rs.getString("timeout"),rs.getDouble("total"));
+            checkinoutLists.add(checkInandOut);
+        }
+        return checkinoutLists;   
+    }
+     
+    public void showCustomersCheckin(JTable customercheckinTable) throws SQLException{
+        ArrayList<CheckinAndOut> checkinoutLists = checkinandoutlists();
+         DefaultTableModel model = (DefaultTableModel)customercheckinTable.getModel();
+         Object[] row = new Object[9];
+         for (int i = 0; i < checkinoutLists.size(); i++) {
+            row[0] = checkinoutLists.get(i).getcheckInOut();
+            row[1] = checkinoutLists.get(i).getCustFullname();
+            row[2] = checkinoutLists.get(i).getroomId();
+            row[3] = checkinoutLists.get(i).getcheckin_date();
+            row[4] = checkinoutLists.get(i).gettimein();
+            row[5] = checkinoutLists.get(i).getcheckout_date();
+            row[6] = checkinoutLists.get(i).gettimeout();
+            row[7] = checkinoutLists.get(i).getHourscheckin();
+            row[8] = checkinoutLists.get(i).gettotal();
+            model.addRow(row);
+         }
     }
     
             // Method For To Print Panel Contents

@@ -146,7 +146,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxtarea_desciption = new javax.swing.JTextArea();
         jtxt_discount = new javax.swing.JTextField();
-        jbtn_promosave = new javax.swing.JButton();
         jbtn_promoupdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         roomscroll = new javax.swing.JScrollPane();
@@ -270,7 +269,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomAction.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
-        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 340, 310));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
@@ -298,6 +296,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel15.setText("ID");
         roomAction.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 40, 30));
 
+        jtxtarea_desciption.setEditable(false);
         jtxtarea_desciption.setColumns(20);
         jtxtarea_desciption.setLineWrap(true);
         jtxtarea_desciption.setRows(5);
@@ -305,20 +304,18 @@ public class RoomsPanel extends javax.swing.JPanel{
         jScrollPane2.setViewportView(jtxtarea_desciption);
 
         roomAction.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 320, 90));
+
+        jtxt_discount.setEditable(false);
         roomAction.add(jtxt_discount, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 620, 220, 30));
 
-        jbtn_promosave.setText("SAVE");
-        jbtn_promosave.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_promoupdate.setText("UPDATE");
+        jbtn_promoupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_promosaveActionPerformed(evt);
+                jbtn_promoupdateActionPerformed(evt);
             }
         });
-        roomAction.add(jbtn_promosave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
-
-        jbtn_promoupdate.setText("UPDATE");
         roomAction.add(jbtn_promoupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
 
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 340, 260));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 360, 710));
@@ -355,15 +352,20 @@ public class RoomsPanel extends javax.swing.JPanel{
 
             },
             new String [] {
-                "ID", "Description", "Discount", "Status"
+                "ID", "Description", "Discount"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jtbl_promos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtbl_promosMouseClicked(evt);
             }
         });
         promoscroll.setViewportView(jtbl_promos);
@@ -478,13 +480,17 @@ public class RoomsPanel extends javax.swing.JPanel{
         // TODO add your handling code here:
     }//GEN-LAST:event_roomstablestaffMouseClicked
 
-    private void jbtn_promosaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promosaveActionPerformed
+    private void jbtn_promoupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_promoupdateActionPerformed
+        int id = Integer.parseInt(jlbl_promoid.getText());
+        double discount = Double.parseDouble(jtxt_discount.getText());
+        Promos promos;
+        promos = new Promos(id,jtxtarea_desciption.getText(),discount);
         try {
-            promoControll.createNewPromos(jlbl_promoid, jtxtarea_desciption, jtxt_discount,jtbl_promos);
+            promoControll.updatePromos(promos, roomstablestaff);
         } catch (SQLException ex) {
             Logger.getLogger(RoomsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jbtn_promosaveActionPerformed
+    }//GEN-LAST:event_jbtn_promoupdateActionPerformed
 
     private void jtxt_room_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_room_searchKeyPressed
         // ROOMS SEARCH
@@ -505,6 +511,14 @@ public class RoomsPanel extends javax.swing.JPanel{
         tr.setRowFilter(RowFilter.regexFilter(jtxt_promos_search.getText().trim()));
            
     }//GEN-LAST:event_jtxt_promos_searchKeyPressed
+
+    private void jtbl_promosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbl_promosMouseClicked
+       jlbl_promoid.setText(String.valueOf(jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),0)));
+       jtxtarea_desciption.setText((String) jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),1));
+       jtxt_discount.setText(String.valueOf(jtbl_promos.getValueAt(jtbl_promos.getSelectedRow(),2)));
+       jtxtarea_desciption.setEditable(true);
+       jtxt_discount.setEditable(true);
+    }//GEN-LAST:event_jtbl_promosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -530,7 +544,6 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JButton jbtn_promosave;
     private javax.swing.JButton jbtn_promoupdate;
     private javax.swing.JButton jbtn_save;
     private javax.swing.JButton jbtn_update;
