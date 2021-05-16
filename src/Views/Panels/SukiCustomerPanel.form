@@ -83,6 +83,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jtxt_sukisearch">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxt_sukisearchKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>

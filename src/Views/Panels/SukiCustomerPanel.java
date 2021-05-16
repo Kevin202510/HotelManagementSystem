@@ -17,6 +17,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -112,6 +115,12 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SUKI CARD");
+
+        jtxt_sukisearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_sukisearchKeyPressed(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
 
@@ -330,6 +339,15 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
             Logger.getLogger(SukiCustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jbtn_susaveActionPerformed
+
+    private void jtxt_sukisearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_sukisearchKeyPressed
+        DefaultTableModel model = (DefaultTableModel)jtbl_suki.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_suki.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_sukisearch .getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_sukisearchKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

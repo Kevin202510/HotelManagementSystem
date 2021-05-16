@@ -347,7 +347,7 @@ import javax.swing.table.TableRowSorter;
 
     
     private void jtxt_cussearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cussearchKeyPressed
-        // SEARCH
+        //joSEARCH 
         
             DefaultTableModel model = (DefaultTableModel)jtbl_custable.getModel();
 //        model.setRowCount(0);
