@@ -75,8 +75,6 @@ import javax.swing.table.TableRowSorter;
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        jbtn_save = new javax.swing.JButton();
-        jbtn_delete = new javax.swing.JButton();
         jbtn_GnrateQR = new javax.swing.JButton();
         jtxt_cussearch = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -239,40 +237,27 @@ import javax.swing.table.TableRowSorter;
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 360, 670));
 
-        jbtn_save.setBackground(new java.awt.Color(51, 102, 255));
-        jbtn_save.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jbtn_save.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_save.setText("SAVE");
-        jbtn_save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_saveActionPerformed(evt);
-            }
-        });
-        add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 126, 50));
-
-        jbtn_delete.setBackground(new java.awt.Color(51, 102, 255));
-        jbtn_delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jbtn_delete.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_delete.setText("DELETE");
-        add(jbtn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 126, 50));
-
         jbtn_GnrateQR.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_GnrateQR.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 12)); // NOI18N
         jbtn_GnrateQR.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_GnrateQR.setText("Generate QR");
-        add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 130, 50));
+        jbtn_GnrateQR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_GnrateQRActionPerformed(evt);
+            }
+        });
+        add(jbtn_GnrateQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 130, 50));
 
         jtxt_cussearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtxt_cussearchKeyPressed(evt);
             }
         });
-        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 190, 30));
+        add(jtxt_cussearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 80, 210, 30));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
-
-    }//GEN-LAST:event_jbtn_saveActionPerformed
 
     private void jtxt_cusFnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_cusFnameKeyTyped
         // TODO add your handling code here:
@@ -357,6 +342,10 @@ import javax.swing.table.TableRowSorter;
            
     }//GEN-LAST:event_jtxt_cussearchKeyPressed
 
+    private void jbtn_GnrateQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_GnrateQRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_GnrateQRActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -376,8 +365,6 @@ import javax.swing.table.TableRowSorter;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JButton jbtn_GnrateQR;
-    private javax.swing.JButton jbtn_delete;
-    private javax.swing.JButton jbtn_save;
     private javax.swing.JComboBox<String> jcbo_rooms;
     private javax.swing.JTable jtbl_custable;
     private javax.swing.JTextField jtxt_cusAddress;
