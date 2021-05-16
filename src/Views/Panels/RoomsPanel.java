@@ -22,7 +22,9 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -115,6 +117,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jtxt_room_search = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         roomAction = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -153,6 +156,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel9 = new javax.swing.JLabel();
         roomscrollstaff = new javax.swing.JScrollPane();
         roomstablestaff = new javax.swing.JTable();
+        jtxt_promos_search = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -165,7 +169,16 @@ public class RoomsPanel extends javax.swing.JPanel{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Rooms");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 220, -1));
-        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
+
+        jtxt_room_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_room_searchKeyPressed(evt);
+            }
+        });
+        jPanel1.add(jtxt_room_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 190, 30));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1480, -1));
 
@@ -396,6 +409,13 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomscrollstaff.setViewportView(roomstablestaff);
 
         add(roomscrollstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1470, 690));
+
+        jtxt_promos_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_promos_searchKeyPressed(evt);
+            }
+        });
+        add(jtxt_promos_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
@@ -466,11 +486,32 @@ public class RoomsPanel extends javax.swing.JPanel{
         }
     }//GEN-LAST:event_jbtn_promosaveActionPerformed
 
+    private void jtxt_room_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_room_searchKeyPressed
+        // ROOMS SEARCH
+        DefaultTableModel model = (DefaultTableModel)jtbl_rooms.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_rooms.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_room_searchKeyPressed
+
+    private void jtxt_promos_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_promos_searchKeyPressed
+        // PROMOS
+           DefaultTableModel model = (DefaultTableModel)jtbl_promos.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        jtbl_promos.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_promos_search.getText().trim()));
+           
+    }//GEN-LAST:event_jtxt_promos_searchKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -502,6 +543,7 @@ public class RoomsPanel extends javax.swing.JPanel{
     private javax.swing.JTable jtbl_rooms;
     private javax.swing.JTextField jtxt_Roomid;
     private javax.swing.JTextField jtxt_discount;
+    private javax.swing.JTextField jtxt_promos_search;
     private javax.swing.JTextField jtxt_room_search;
     private javax.swing.JTextArea jtxtarea_desciption;
     private javax.swing.JScrollPane promoscroll;
