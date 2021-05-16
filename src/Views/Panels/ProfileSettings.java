@@ -286,7 +286,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 270, 10));
 
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
-        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 20, 650));
+        userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 650));
 
         jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
         jbtn_addpic.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N

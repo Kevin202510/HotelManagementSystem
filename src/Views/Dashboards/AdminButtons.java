@@ -64,9 +64,9 @@ public class AdminButtons extends javax.swing.JPanel {
         this.lalagyanan=lalagyanan;
         userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
-        user_fullname.setText(fullname);
-        userrole.setText(role);
-        userrole.setForeground(Color.decode("#0039e6"));
+ //       user_fullname.setText(fullname);
+//        userrole.setText(role);
+//        userrole.setForeground(Color.decode("#0039e6"));
         jComboBox1.setBackground(Color.decode("#007a99"));
         jComboBox1.setOpaque(false);
 //        VideoFeeder vivin = new VideoFeeder();
@@ -87,8 +87,6 @@ public class AdminButtons extends javax.swing.JPanel {
         AdminButtons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabelRound3 = new jroundborder.JLabelRound();
-        user_fullname = new javax.swing.JLabel();
-        userrole = new javax.swing.JLabel();
         hov5 = new javax.swing.JPanel();
         sales = new javax.swing.JLabel();
         hov6 = new javax.swing.JPanel();
@@ -102,7 +100,6 @@ public class AdminButtons extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         hov10 = new javax.swing.JPanel();
         rate_rt_bed = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jpnl_hov11 = new javax.swing.JPanel();
@@ -129,14 +126,6 @@ public class AdminButtons extends javax.swing.JPanel {
             }
         });
         AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
-
-        user_fullname.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        user_fullname.setForeground(new java.awt.Color(255, 255, 255));
-        AdminButtons.add(user_fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 200, 39));
-
-        userrole.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        userrole.setForeground(new java.awt.Color(255, 255, 255));
-        AdminButtons.add(userrole, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 70, 27));
 
         hov5.setBackground(new java.awt.Color(83, 140, 198));
         hov5.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -286,7 +275,7 @@ public class AdminButtons extends javax.swing.JPanel {
         customers.setForeground(new java.awt.Color(255, 255, 255));
         customers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cus2.jpg"))); // NOI18N
-        customers.setText("CUSTOMERS");
+        customers.setText("<html>CUSTOMERS<br><center>CHECK-IN</center></html>");
         customers.setIconTextGap(10);
         customers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -358,13 +347,10 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 90, 210, 50));
 
-        time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        AdminButtons.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 180, 30));
-
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AdminButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 50, 30));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("X");
@@ -457,7 +443,7 @@ public class AdminButtons extends javax.swing.JPanel {
 
     private void roomsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseClicked
         // TODO add your handling code here:
-        userButton.roomButton(rooms,userrole.getText());
+ //       userButton.roomButton(rooms,userrole.getText());
     }//GEN-LAST:event_roomsMouseClicked
 
     private void roomsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsMouseEntered
@@ -571,9 +557,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sales;
     private javax.swing.JLabel sukicustomers;
-    private javax.swing.JLabel time;
-    private javax.swing.JLabel user_fullname;
-    private javax.swing.JLabel userrole;
     private javax.swing.JLabel users;
     // End of variables declaration//GEN-END:variables
 
