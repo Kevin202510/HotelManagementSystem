@@ -52,7 +52,6 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jtxt_SukiName.setVisible(false);
     }
     private void initRun() throws SQLException{
-//        jtbl_suki.setTableHeader(tableHeader);
         jbtn_sudelete1.setVisible(false);
         jcbo_customername.setBackground(new Color(0, 0, 0, 0));
         jcbo_customername.setOpaque(false);
