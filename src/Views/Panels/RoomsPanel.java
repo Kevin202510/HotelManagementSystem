@@ -288,6 +288,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomAction.add(jbtn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 126, 30));
 
+        jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 340, 310));
 
         jLabel11.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 28)); // NOI18N
@@ -335,6 +336,7 @@ public class RoomsPanel extends javax.swing.JPanel{
         });
         roomAction.add(jbtn_promoupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 660, 120, 30));
 
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
         roomAction.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 340, 260));
 
         add(roomAction, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 86, 360, 710));
@@ -357,6 +359,7 @@ public class RoomsPanel extends javax.swing.JPanel{
                 return canEdit [columnIndex];
             }
         });
+        jtbl_rooms.setRowHeight(30);
         jtbl_rooms.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbl_roomsMouseClicked(evt);
@@ -382,6 +385,7 @@ public class RoomsPanel extends javax.swing.JPanel{
                 return canEdit [columnIndex];
             }
         });
+        jtbl_promos.setRowHeight(30);
         jtbl_promos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbl_promosMouseClicked(evt);
