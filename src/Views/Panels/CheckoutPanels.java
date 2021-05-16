@@ -43,11 +43,13 @@ public class CheckoutPanels extends javax.swing.JPanel {
      
     public CheckoutPanels(JPanel lalagyanan,int user_ids) throws SQLException {
         initComponents();
-        jtxtsearch_cust_checkin_id.requestFocusInWindow();
-        JOptionPane.showMessageDialog(null,"Asdasd");
         this.user_ids=user_ids;
         this.lalagyanan = lalagyanan;
-//        user_id.setText(String.valueOf(user_ids));
+        initR();
+    }
+    
+    private void initR(){
+        jtxtsearch_cust_checkin_id.requestFocusInWindow();
     }
 
     /**
@@ -85,6 +87,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jlbl_totals = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jlbl_change = new javax.swing.JLabel();
+        test = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         user_id = new javax.swing.JLabel();
 
@@ -233,6 +236,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         jlbl_change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbl_change.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jPanel2.add(jlbl_change, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 390, 160, 50));
+        jPanel2.add(test, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 430, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 1120, 580));
 
@@ -246,9 +250,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1490, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1425, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,6 +341,7 @@ public class CheckoutPanels extends javax.swing.JPanel {
     private javax.swing.JTextField jtxtco_rooms;
     private javax.swing.JTextField jtxtsearch_cust_checkin_id;
     private javax.swing.JLabel searchIcon;
+    private javax.swing.JTextField test;
     public javax.swing.JLabel user_id;
     // End of variables declaration//GEN-END:variables
 }

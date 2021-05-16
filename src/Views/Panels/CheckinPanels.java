@@ -57,6 +57,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkindate.setText(check_in_out_controll.getDateNow());
         checkintime1.setText(check_in_out_controll.getTimeNow());
         jpnl_checkinextend.setVisible(false);
+        jtxt_cusFname1.requestFocusInWindow();
         
     }
     /**
