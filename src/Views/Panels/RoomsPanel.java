@@ -488,11 +488,13 @@ public class RoomsPanel extends javax.swing.JPanel{
 
     private void jtxt_room_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_room_searchKeyPressed
         // ROOMS SEARCH
-        DefaultTableModel model = (DefaultTableModel)jtbl_rooms.getModel();
+        DefaultTableModel model = (DefaultTableModel)jtbl_rooms.getModel(); 
 //        model.setRowCount(0);
         TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
         jtbl_rooms.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+        
+         search();
            
     }//GEN-LAST:event_jtxt_room_searchKeyPressed
 
@@ -506,6 +508,17 @@ public class RoomsPanel extends javax.swing.JPanel{
            
     }//GEN-LAST:event_jtxt_promos_searchKeyPressed
 
+     private void search() {                                            
+        // ROOMS SEARCH
+        DefaultTableModel model = (DefaultTableModel)roomstablestaff.getModel();
+//        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel>tr = new TableRowSorter<DefaultTableModel>(model);
+        roomstablestaff.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jtxt_room_search.getText().trim()));
+           
+    }                                           
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
