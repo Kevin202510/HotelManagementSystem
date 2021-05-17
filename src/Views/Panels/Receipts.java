@@ -36,13 +36,25 @@ public class Receipts extends javax.swing.JPanel {
     
     public Receipts(int cusid) {
         initComponents();
+        note="CHECK IN RECEIPT";
         this.cusid=cusid;
+        String filePath = "src\\Images\\QRCODE\\"+ cusid + ".png";
+        vin = new ImageIcon(filePath);
+        displayReciept();
+    }
+    String note;
+    
+      public Receipts(int cusid,String note) {
+        initComponents();
+        this.cusid=cusid;
+        this.note=note;
         String filePath = "src\\Images\\QRCODE\\"+ cusid + ".png";
         vin = new ImageIcon(filePath);
         displayReciept();
     }
  
     public void displayReciept(){
+        notice.setText(note);
         Qrcode.setIcon(vin);
      }
 
@@ -59,19 +71,10 @@ public class Receipts extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         Qrcode = new javax.swing.JLabel();
-        Cusname = new javax.swing.JLabel();
-        Cusadd = new javax.swing.JLabel();
-        Cuscontact = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        checkintime = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        checkouttime = new javax.swing.JLabel();
+        notice = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,75 +95,36 @@ public class Receipts extends javax.swing.JPanel {
         jLabel3.setText("Contact # 12345678910");
         Resibo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel4.setText("Customer Name :");
-        Resibo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel5.setText("Address :");
-        Resibo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel6.setText("Contact No. :");
-        Resibo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
         Qrcode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Resibo.add(Qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 290, 220));
-
-        Cusname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Resibo.add(Cusname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 260, 20));
-
-        Cusadd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Resibo.add(Cusadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 320, 20));
-
-        Cuscontact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Resibo.add(Cuscontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 280, 20));
+        Resibo.add(Qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 290, 220));
 
         jLabel7.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Thank you !");
-        Resibo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 290, 40));
+        Resibo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 290, 40));
 
         jLabel8.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Come Visit Us Again ");
-        Resibo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 340, -1));
+        Resibo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 340, -1));
 
-        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel9.setText("Check in time:");
-        Resibo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        notice.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        notice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        notice.setText("CHECK IN RECEIPT");
+        Resibo.add(notice, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, 110, 20));
 
-        checkintime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Resibo.add(checkintime, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 270, 20));
-
-        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel10.setText("Checkout time:");
-        Resibo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-
-        checkouttime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Resibo.add(checkouttime, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 260, 20));
-
-        add(Resibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 570));
+        add(Resibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 510));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Cusadd;
-    private javax.swing.JLabel Cuscontact;
-    private javax.swing.JLabel Cusname;
     public javax.swing.JLabel Qrcode;
     private javax.swing.JPanel Resibo;
-    private javax.swing.JLabel checkintime;
-    private javax.swing.JLabel checkouttime;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel notice;
     // End of variables declaration//GEN-END:variables
 }

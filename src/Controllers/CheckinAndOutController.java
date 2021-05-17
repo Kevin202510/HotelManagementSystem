@@ -73,7 +73,7 @@ public class CheckinAndOutController{
     
      public ArrayList<CheckinAndOut> checkinandoutlists() throws SQLException{
          ArrayList<CheckinAndOut> checkinoutLists = new ArrayList<>();
-        String tanong = "Select * from checkinandout LEFT JOIN customers ON customers.cust_id = checkinandout.cust_id";
+        String tanong = "Select * from checkinandout LEFT JOIN customers ON customers.cust_id = checkinandout.cust_id WHERE checkinandout.status=0";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(tanong);
         CheckinAndOut checkInandOut;
@@ -106,7 +106,7 @@ public class CheckinAndOutController{
     
             // Method For To Print Panel Contents
     public void printReceipt(JPanel panel){
-        JOptionPane.showMessageDialog(null,panel);
+        JOptionPane.showMessageDialog(null,panel,"Print", JOptionPane.PLAIN_MESSAGE);
         // Create PrinterJob Here
         PrinterJob printerJob = PrinterJob.getPrinterJob();
         // Set Printer Job Name
@@ -136,12 +136,20 @@ public class CheckinAndOutController{
             }
         });
         // Store printerDialog as boolean
-        boolean returningResult = printerJob.printDialog();
+//        boolean returningResult = printerJob.printDialog();
         // check if dilog is showing
-        if(returningResult){
+//        
+        boolean returningResult;
+            
+            do{
+                returningResult = printerJob.printDialog();
+                if (!returningResult) {
+                    JOptionPane.showMessageDialog(null,"You Cannot Cancel Printing Receipt");
+                }
+            }while(returningResult==false);
             // Use try catch exeption for failure
+            if(returningResult){
             try{
-                // Now call print method inside printerJob to print
                 printerJob.print();
             }catch (PrinterException printerException){
                 JOptionPane.showMessageDialog(null, "Print Error: " + printerException.getMessage());
@@ -228,7 +236,7 @@ public class CheckinAndOutController{
                 if (rs.next()) {
                     double dis1=rs.getDouble("discount");
                     JOptionPane.showMessageDialog(null,dis1);
-                    total = getRoomRates(room_id)-(getRoomRates(room_id)*dis1);
+                    total =(hourVal/6)*getRoomRates(room_id)-(((hourVal/6)*getRoomRates(room_id))*dis1);
                     JOptionPane.showMessageDialog(null,total);
                 }
                 return total;
@@ -238,7 +246,8 @@ public class CheckinAndOutController{
                 ResultSet rs = st.executeQuery(tanong);
                 if (rs.next()) {
                     double dis2=rs.getDouble("discount");
-                total = getRoomRates(room_id)-(getRoomRates(room_id)*dis2);
+                    total =(hourVal/6)*getRoomRates(room_id)-(((hourVal/6)*getRoomRates(room_id))*dis2);
+                    JOptionPane.showMessageDialog(null,total);
                 }
                 return total;
              }else if (hourVal==12) {
@@ -247,7 +256,9 @@ public class CheckinAndOutController{
                 ResultSet rs = st.executeQuery(tanong);
                 if (rs.next()) {
                     double dis3=rs.getDouble("discount");
-                    total = getRoomRates(room_id)-(getRoomRates(room_id)*dis3);
+                    total =(hourVal/6)*getRoomRates(room_id)-(((hourVal/6)*getRoomRates(room_id))*dis3);
+                    JOptionPane.showMessageDialog(null,total);
+//                     getRoomRates(room_id)-(getRoomRates(room_id)
                 }
                 return total;
              }else{
@@ -260,7 +271,8 @@ public class CheckinAndOutController{
                 LocalDate checkoutdate = LocalDate.parse(strDate);
                 Long days = ChronoUnit.DAYS.between(checkinsdate,checkoutdate);
                 JOptionPane.showMessageDialog(null,days);
-                total = getRoomRates(room_id) * days-(getRoomRates(room_id)*dis4);
+                total =(hourVal/6)*getRoomRates(room_id)-(((hourVal/6)*getRoomRates(room_id))*dis4);
+                JOptionPane.showMessageDialog(null,total);
                 }
                 return total;
             }
@@ -322,13 +334,13 @@ public class CheckinAndOutController{
     double tottal;
     int rooms_id;
          
-         public void fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime,JLabel total) throws SQLException{
+         public boolean fillField(int id,JTextField co_custfullname,JTextField co_custaddress,JTextField co_custcontact,JLabel co_custtime,JLabel co_custdate,JTextField co_rooms,JLabel checkindate,JLabel checkintime,JLabel total) throws SQLException{
             String datein="";
-            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"'";
+            String tanong = "SELECT * FROM `checkinandout` INNER JOIN customers ON customers.cust_id=checkinandout.cust_id where checkinandout.id='"+id+"' AND status=0";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(tanong);
 
-             while(rs.next()){
+             if(rs.next()){
                     co_custfullname.setText(rs.getString("cust_Fname") + " " + rs.getString("cust_Mname") + " " + rs.getString("cust_lname"));
                     co_custaddress.setText(rs.getString("cust_address"));
                     co_custcontact.setText(rs.getString("cust_contactnum"));
@@ -342,7 +354,11 @@ public class CheckinAndOutController{
                     co_rooms.setText(String.valueOf(rooms_id));
                     tottal = rs.getDouble("total");
                     total.setText(String.valueOf(rs.getDouble("total")));
+                    return true;
+             }else{
+                 JOptionPane.showMessageDialog(null,"Customer Already CheckOut");
              }
+             return false;
          }
          
          private void checkSuki() throws SQLException{
@@ -372,6 +388,7 @@ public class CheckinAndOutController{
             Statement sts = con.createStatement();
             int i = sts.executeUpdate(tanongs);
             if (i>0) {
+                    printReceipt(new Views.Panels.Receipts(id,"CHECKOUT RECEIPT"));
                     addSales(checkoutdate,tottal,user_ids);
                     return true;
              }
@@ -386,7 +403,6 @@ public class CheckinAndOutController{
            st.setInt(3, user_id);
            int i = st.executeUpdate();
              if (i>0) {
-                JOptionPane.showMessageDialog(null,"successfully");
                 String roomupdate = "UPDATE rooms SET status=? WHERE room_id='" +rooms_id+"'";
                 PreparedStatement roomup =con.prepareStatement(roomupdate);
                 roomup.setInt(1,1);
@@ -425,6 +441,7 @@ public class CheckinAndOutController{
 //            String checkoutdt = checkoutdates.getText();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss aa");  
             Date dat = dateFormat.parse(checkoutDates+" "+checkouttimes);
+            JOptionPane.showMessageDialog(null,dat);
             Calendar cal = Calendar.getInstance();
             cal.setTime(dat);
             cal.add(Calendar.HOUR_OF_DAY , (int) hours);

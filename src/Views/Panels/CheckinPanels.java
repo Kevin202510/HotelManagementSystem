@@ -26,6 +26,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
@@ -58,6 +60,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1.setText(check_in_out_controll.getTimeNow());
         jpnl_checkinextend.setVisible(false);
         jtxt_cusFname1.requestFocusInWindow();
+        showHourRanges(jcbo_hoursrange);
         
     }
     /**
@@ -99,6 +102,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         jcbo_hoursrange = new javax.swing.JComboBox<>();
         jbtn_checkin = new javax.swing.JButton();
         jbtn_extend = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jpnl_checkinextend = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -188,7 +192,7 @@ public class CheckinPanels extends javax.swing.JPanel {
         jpnl_checkin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, 54));
 
         checkindate.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jpnl_checkin.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 130, 30));
+        jpnl_checkin.add(checkindate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 120, 30));
 
         jtxt_cusFname1.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jtxt_cusFname1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -247,7 +251,7 @@ public class CheckinPanels extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel1.setText("CHECK IN TIME");
-        jpnl_checkin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 110, 30));
+        jpnl_checkin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 130, 30));
 
         jtxt_cusContact2.setFont(new java.awt.Font("Tw Cen MT", 0, 14)); // NOI18N
         jtxt_cusContact2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -266,30 +270,29 @@ public class CheckinPanels extends javax.swing.JPanel {
         jpnl_checkin.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, 41));
 
         checkintime1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jpnl_checkin.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 120, 30));
+        jpnl_checkin.add(checkintime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 120, 30));
 
         jLabel17.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel17.setText("CHECK OUT DATE");
-        jpnl_checkin.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 130, 30));
+        jpnl_checkin.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 150, 30));
 
         jlbl_checkdateout.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jpnl_checkin.add(jlbl_checkdateout, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 120, 30));
+        jpnl_checkin.add(jlbl_checkdateout, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 150, 30));
 
         jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
         jLabel4.setText("CHECK OUT TIME");
-        jpnl_checkin.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 130, 30));
+        jpnl_checkin.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 150, 30));
 
         jlbl_checktimeout.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jpnl_checkin.add(jlbl_checktimeout, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 130, 30));
+        jpnl_checkin.add(jlbl_checktimeout, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 150, 30));
 
         jcbo_hoursrange.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jcbo_hoursrange.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "6", "12", "24", " " }));
         jcbo_hoursrange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbo_hoursrangeActionPerformed(evt);
             }
         });
-        jpnl_checkin.add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 210, 40));
+        jpnl_checkin.add(jcbo_hoursrange, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, 180, 30));
 
         jbtn_checkin.setBackground(new java.awt.Color(51, 102, 255));
         jbtn_checkin.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
@@ -314,6 +317,10 @@ public class CheckinPanels extends javax.swing.JPanel {
             }
         });
         jpnl_checkin.add(jbtn_extend, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 130, 40));
+
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel5.setText("HoursToCheck");
+        jpnl_checkin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 140, 30));
 
         jpnl_formlalagyanan.add(jpnl_checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 380));
 
@@ -514,8 +521,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     int hourVal,hourVals;
     
     private void jcbo_hoursrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeActionPerformed
-        hourVal = Integer.parseInt((String) jcbo_hoursrange.getSelectedItem());
-        JOptionPane.showMessageDialog(null,hourVal);
+        hourVal = hourRange[jcbo_hoursrange.getSelectedIndex()];
     }//GEN-LAST:event_jcbo_hoursrangeActionPerformed
 
     private void jbtn_checkinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_checkinActionPerformed
@@ -605,6 +611,28 @@ public class CheckinPanels extends javax.swing.JPanel {
             return false;
         
       }
+
+     int[] hourRange = {3,6,12,24,48,72,168};
+     
+     public DefaultComboBoxModel showHourRanges(JComboBox hoursrange) throws SQLException{
+         DefaultComboBoxModel kev = (DefaultComboBoxModel)hoursrange.getModel();
+
+         for (int i = 0; i < hourRange.length; i++){
+            if (i==4) {
+                 hoursrange.addItem("2 Days");
+             }
+           else if (i==5) {
+                 hoursrange.addItem("3 Days");
+             } 
+          else  if (i==6) {
+                 hoursrange.addItem("1 Week");
+             }
+          else{
+              hoursrange.addItem(hourRange[i] + "  " + "Hours");
+          }
+        }
+        return kev;
+    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -632,6 +660,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_SaveExtend;
     private javax.swing.JButton jbtn_checkin;

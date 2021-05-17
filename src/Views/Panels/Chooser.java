@@ -48,6 +48,7 @@ public class Chooser extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jlbl_close = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jlbl_extend = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -60,6 +61,17 @@ public class Chooser extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlbl_close.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jlbl_close.setForeground(new java.awt.Color(255, 255, 0));
+        jlbl_close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbl_close.setText("X");
+        jlbl_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlbl_closeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(jlbl_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 10, 40, 30));
 
         jPanel2.setBackground(new java.awt.Color(128, 0, 0));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 163, 26), 3, true));
@@ -137,9 +149,9 @@ public class Chooser extends javax.swing.JFrame {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 120, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ex.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 160));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 160));
 
         pack();
         setLocationRelativeTo(null);
@@ -185,6 +197,10 @@ public class Chooser extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseEntered
 
+    private void jlbl_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbl_closeMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jlbl_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +242,7 @@ public class Chooser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jlbl_GenerateReciept;
+    private javax.swing.JLabel jlbl_close;
     private javax.swing.JLabel jlbl_extend;
     // End of variables declaration//GEN-END:variables
 }

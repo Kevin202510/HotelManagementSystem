@@ -111,7 +111,7 @@ public class Buttons {
      public void saleButton(JLabel sales){
          this.sales=sales;
             try {
-                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel());
+                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel(lalagyanan));
             } catch (SQLException ex) {
                 java.util.logging.Logger.getLogger(MainDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }

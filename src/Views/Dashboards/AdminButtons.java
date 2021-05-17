@@ -65,15 +65,9 @@ public class AdminButtons extends javax.swing.JPanel {
         this.lalagyanan=lalagyanan;
         userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
- //       user_fullname.setText(fullname);
-//        userrole.setText(role);
-//        userrole.setForeground(Color.decode("#0039e6"));
         jComboBox1.setBackground(Color.decode("#007a99"));
         jComboBox1.setOpaque(false);
-//        VideoFeeder vivin = new VideoFeeder();
-//        vivin.start();
-//        date.setText(checks.getDateNow());
-//        time.setText(checks.getTimeNow());
+//        new VideoFeeder().start();
     }
 
     /**

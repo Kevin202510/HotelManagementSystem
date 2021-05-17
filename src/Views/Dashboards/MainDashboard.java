@@ -8,6 +8,7 @@ package Views.Dashboards;
 import Controllers.Buttons;
 import Controllers.CheckinAndOutController;
 import Controllers.SQL;
+import Controllers.VideoFeeder;
 import Views.Authentication.Login;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -45,7 +46,6 @@ public class MainDashboard extends javax.swing.JFrame {
         this.role=role; 
         this.fullname=fullname;
         checkRole();
-//        startTH(true);
         
     }
     
@@ -207,7 +207,5 @@ public class MainDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel lalagyanan;
     // End of variables declaration//GEN-END:variables
-
-    
 
 }

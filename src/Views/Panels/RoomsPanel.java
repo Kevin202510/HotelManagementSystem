@@ -79,19 +79,13 @@ public class RoomsPanel extends javax.swing.JPanel{
             roomControll.Room(jtbl_rooms);
             if (roomlist.size()==0) {
                 jtxt_Roomid.setText("1");
-                InitRun();
+//                InitRun();
         }else{
             index1 = roomlist.size()-1;
             index = roomlist.get(index1).getroom_id() + 1;        
             jtxt_Roomid.setText(String.valueOf(index));
-            InitRun();
         }
-            if(promolists.size()==0){
-                jlbl_promoid.setText("1");
-            }else{
-                int indes = promolists.get(promolists.size()-1).getPromoId()+1;
-                jlbl_promoid.setText(String.valueOf(indes));
-            }
+            InitRun();
         }
         this.lalagyanan=lalagyanan;
     }
@@ -116,7 +110,6 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomscrollstaff.setVisible(false);
         roomstablestaff.setVisible(false);
         promoControll.showPromos(jtbl_promos);
-        promolists = promoControll.promoList();
          RTlist = RTControll.roomtypeList();
          Rateslist = RatesControll.rateList();
          Bedslist = bedsControll.bedList();

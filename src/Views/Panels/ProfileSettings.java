@@ -55,7 +55,6 @@ public class ProfileSettings extends javax.swing.JFrame {
         getUserInfo();
         wc = Webcam.getDefault();
         wc.setViewSize(WebcamResolution.VGA.getSize());
-        jButton3.setVisible(false);
     }
 
     /**
@@ -101,7 +100,6 @@ public class ProfileSettings extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         userId = new javax.swing.JLabel();
         userProfile = new jroundborder.JLabelRound();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -289,15 +287,16 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 440, 650));
 
         jbtn_addpic.setBackground(new java.awt.Color(0, 204, 204));
-        jbtn_addpic.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jbtn_addpic.setFont(new java.awt.Font("Arial Narrow", 0, 1)); // NOI18N
         jbtn_addpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cams.jpg"))); // NOI18N
+        jbtn_addpic.setText("1");
         jbtn_addpic.setMargin(new java.awt.Insets(1, 1, 1, 1));
         jbtn_addpic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_addpicActionPerformed(evt);
             }
         });
-        userActionPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 40, -1));
+        userActionPanel2.add(jbtn_addpic, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 40, -1));
 
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -320,14 +319,6 @@ public class ProfileSettings extends javax.swing.JFrame {
         userActionPanel2.add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 50, 40));
         userActionPanel2.add(userProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 250, 150));
 
-        jButton3.setText("++");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        userActionPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 50, 30));
-
         getContentPane().add(userActionPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 670));
 
         pack();
@@ -339,10 +330,18 @@ public class ProfileSettings extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jbtn_addpicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_addpicActionPerformed
-        wc.open();        
-        new VideoFeeder().start();        
-                jButton3.setVisible(true);
-                jbtn_addpic.setVisible(false);
+        if (jbtn_addpic.getText().equals("1")) {
+            wc.open();
+            jbtn_addpic.setText("0");
+            new VideoFeeder().start();  
+        }else{
+            try {
+                ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + jtxt_uaname2.getText() + ".jpg"));
+               wc.close();
+           } catch (IOException ex) {
+               Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        }
     }//GEN-LAST:event_jbtn_addpicActionPerformed
 
     private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
@@ -469,18 +468,6 @@ public class ProfileSettings extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_umiActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        try {
-             ImageIO.write(wc.getImage(), "JPG", new File("src/Images/Pictures/" + jtxt_uaname2.getText() + ".jpg"));
-            wc.close();
-            Thread.sleep(5000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ProfileSettings.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     Image img;
     
     class VideoFeeder extends Thread {
@@ -537,7 +524,6 @@ public class ProfileSettings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

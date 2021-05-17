@@ -5,9 +5,11 @@
  */
 package Views.Panels;
 
+import Controllers.CheckinAndOutController;
 import Controllers.SQL;
 import Controllers.SaleController;
 import Models.Sales;
+import Views.Dashboards.ContainerManipulator;
 import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,9 +20,11 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import sweetalerts.Alerts;
 
 /**
  *
@@ -32,10 +36,15 @@ public class SalesPanel extends javax.swing.JPanel {
      * Creates new form SalesPanel
      */
     public SaleController salesControll = new SaleController();
-    public SalesPanel() throws SQLException {
+    SaleController sale_controll = new SaleController();
+    JPanel lalagyanan;
+    public SalesPanel(JPanel lalagyanan) throws SQLException {
         initComponents();
+        this.lalagyanan=lalagyanan;
         salesControll.showSales(jtbl_sales);
         jpnl_salesreport.setVisible(false);
+        jbtn_show.setVisible(false);
+        jbtn_printsales.setVisible(false);
     }
 
     /**
@@ -49,6 +58,12 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jpnl_salesreport = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jlbl_salesdates = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jlbl_totalsale = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_sales = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -62,6 +77,7 @@ public class SalesPanel extends javax.swing.JPanel {
         jbtn_Generatereport = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jbtn_printsales = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setPreferredSize(new java.awt.Dimension(1480, 790));
@@ -73,7 +89,35 @@ public class SalesPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SALES REPORT");
-        jpnl_salesreport.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 200, 40));
+        jpnl_salesreport.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 200, 40));
+
+        jlbl_salesdates.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jlbl_salesdates.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jpnl_salesreport.add(jlbl_salesdates, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 380, 30));
+
+        jLabel6.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("HOTEL MANAGEMENT");
+        jpnl_salesreport.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 310, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("TOTAL SALES");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 140, 30));
+
+        jlbl_totalsale.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jlbl_totalsale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jlbl_totalsale, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 200, 30));
+
+        jpnl_salesreport.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 510, 420));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 5)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("INNOVATECH");
+        jpnl_salesreport.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 100, 10));
 
         add(jpnl_salesreport, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 630, 640));
 
@@ -144,7 +188,7 @@ public class SalesPanel extends javax.swing.JPanel {
         add(jbtn_show, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
 
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 390));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 330, 390));
 
         jtxt_sales_search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -162,7 +206,7 @@ public class SalesPanel extends javax.swing.JPanel {
                 jbtn_GeneratereportActionPerformed(evt);
             }
         });
-        add(jbtn_Generatereport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 170, 40));
+        add(jbtn_Generatereport, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
 
         jLabel3.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(191, 191, 191));
@@ -171,18 +215,26 @@ public class SalesPanel extends javax.swing.JPanel {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 60, -1, -1));
+
+        jbtn_printsales.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jbtn_printsales.setText("PRINT");
+        jbtn_printsales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_printsalesActionPerformed(evt);
+            }
+        });
+        add(jbtn_printsales, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 170, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_showActionPerformed
-
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         
         
         if (checkInputs()==true) {
-             JOptionPane.showMessageDialog(this,"ERROR");        
+              new Alerts("Date is required Please Insert A Value").setVisible(true);        
         
          }else{
         try {
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             JOptionPane.showConfirmDialog(null, df.format(Salesfr.getDate()),"",JOptionPane.YES_NO_OPTION);
             JOptionPane.showConfirmDialog(null, df.format(Salest.getDate()),"",JOptionPane.YES_NO_OPTION);
             
@@ -192,7 +244,7 @@ public class SalesPanel extends javax.swing.JPanel {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(benta);
             while(rs.next()){
-                JOptionPane.showMessageDialog(null, rs.getInt("SUM(amount)"));
+                jlbl_totalsale.setText(String.valueOf(rs.getInt("SUM(amount)")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -211,14 +263,48 @@ public class SalesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jtxt_sales_searchKeyPressed
 
     private void jbtn_GeneratereportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_GeneratereportActionPerformed
-        jScrollPane1.setVisible(false);
-        jpnl_salesreport.setVisible(true);
+          if (checkInputs()==true) {
+             new Alerts("Date is required Please Insert A Value").setVisible(true);        
+         }else{
+              jScrollPane1.setVisible(false);
+            jpnl_salesreport.setVisible(true);
+                DateFormat df = new SimpleDateFormat("MMM,dd,yyyy");
+              try {
+                  getSales();
+              } catch (SQLException ex) {
+                  Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
+              }
+               jlbl_salesdates.setText(df.format(Salesfr.getDate()).toString() + "   -   " + df.format(Salest.getDate()).toString());
+               jbtn_Generatereport.setVisible(false);
+               jbtn_printsales.setVisible(true);
+          }
     }//GEN-LAST:event_jbtn_GeneratereportActionPerformed
+
+    private void getSales() throws SQLException{
+         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+         
+         SQL sql = new SQL();
+        Connection con = sql.getConnection();
+        String benta ="SELECT SUM(amount) FROM inventories WHERE sales_date BETWEEN '"+df.format(Salesfr.getDate())+"' AND '"+df.format(Salest.getDate())+"'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(benta);
+        while(rs.next()){
+            jlbl_totalsale.setText(String.valueOf(rs.getInt("SUM(amount)")));
+        }
+    }
+    private void jbtn_printsalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_printsalesActionPerformed
+        boolean test = sale_controll.printReceipt(jpnl_salesreport);
+        if (test) {
+            try {
+                new ContainerManipulator(lalagyanan,new Views.Panels.SalesPanel(lalagyanan));
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jbtn_printsalesActionPerformed
     
        private boolean checkInputs(){
-        String notice = "Theres Have A Field That Empty Please make an Input";
         if (Salesfr.getDate()==null||Salest.getDate()==null){
-            JOptionPane.showMessageDialog(this,notice);
             return true;
         }else{
             return false;
@@ -234,15 +320,22 @@ public class SalesPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser Salesfr;
     private com.toedter.calendar.JDateChooser Salest;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_Generatereport;
+    private javax.swing.JButton jbtn_printsales;
     private javax.swing.JButton jbtn_show;
+    private javax.swing.JLabel jlbl_salesdates;
+    private javax.swing.JLabel jlbl_totalsale;
     private javax.swing.JPanel jpnl_salesreport;
     private javax.swing.JTable jtbl_sales;
     private javax.swing.JTextField jtxt_sales_search;

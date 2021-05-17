@@ -99,6 +99,12 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CUSTOMER SUKI POINTS");
 
+        jtxt_sukisearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxt_sukisearchKeyPressed(evt);
+            }
+        });
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search..png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -336,11 +342,9 @@ public class SukiCustomerPanel extends javax.swing.JPanel {
 
     private void jtxt_sukisearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_sukisearchKeyPressed
         if (evt.getKeyCode()==10) {
+            JOptionPane.showMessageDialog(null,"dasdasdasdasdasd");
             try {
-                boolean hey = custo.selectCustomerSuki(jtxt_sukisearch.getText(),jtxt_SukiCode,jtxt_SukiPoints);
-//                if (hey==false) {
-//                    custo.showCustomer(jcbo_customername);
-//                }
+                custo.selectCustomerSuki(jtxt_sukisearch.getText(),jtxt_SukiCode,jtxt_SukiPoints);
             } catch (SQLException ex) {
                 Logger.getLogger(SukiCustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

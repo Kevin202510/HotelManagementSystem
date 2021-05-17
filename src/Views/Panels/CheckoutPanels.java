@@ -296,10 +296,26 @@ public class CheckoutPanels extends javax.swing.JPanel {
             searchIcon.setVisible(false);
             id=Integer.parseInt(jtxtsearch_cust_checkin_id.getText());
             try {
-                check_in_out_controll.fillField(id, jtxtco_custfullname, jtxtco_custaddress, jtxtco_custcontact, jlbl_co_custtime, jlbl_co_custdate, jtxtco_rooms,jlbl_checkindate,jlbl_checkintime,jlbl_totals);
+                boolean kk = check_in_out_controll.fillField(id, jtxtco_custfullname, jtxtco_custaddress, jtxtco_custcontact, jlbl_co_custtime, jlbl_co_custdate, jtxtco_rooms,jlbl_checkindate,jlbl_checkintime,jlbl_totals);
+                if (!kk) {
+                    jtxtsearch_cust_checkin_id.setText("");
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(CheckoutPanels.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else  if (evt.getKeyCode()==8) {
+             jtxtco_custfullname.setText("");
+            jtxtco_custcontact.setText("");
+            jtxtco_rooms.setText("");
+            jlbl_checkindate.setText("");
+            jtxtco_custaddress.setText("");
+            jlbl_checkintime.setText("");
+            jlbl_co_custdate.setText("");
+            jlbl_co_custtime.setText("");
+            jlbl_totals.setText("");
+            jlbl_change.setText("");
+            jtxtsearch_cust_checkin_id.setText("");
+            jtxtsearch_cust_checkin_id.requestFocusInWindow();
         }
     }//GEN-LAST:event_jtxtsearch_cust_checkin_idKeyPressed
 
