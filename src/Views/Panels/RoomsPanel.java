@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package Views.Panels;
+import Controllers.BedsController;
 import Controllers.ImagesNText;
 import Controllers.PromoController;
+import Controllers.RatesController;
 import Controllers.RoomController;
+import Controllers.RoomTypesController;
+import Models.Beds;
 import Models.Promos;
+import Models.Rates;
 import Models.Rooms;
+import Models.Roomtypes;
 import Views.Dashboards.ContainerManipulator;
 import java.awt.Color;
 import java.awt.Component;
@@ -36,7 +42,13 @@ public class RoomsPanel extends javax.swing.JPanel{
     ArrayList<Promos> promolists;
     public RoomController roomControll = new RoomController();
     PromoController promoControll;
+    RoomTypesController RTControll;
     ArrayList<Rooms> roomlist = roomControll.roomList();
+    RatesController RatesControll;
+    BedsController bedsControll;
+    ArrayList<Roomtypes> RTlist;
+    ArrayList<Rates> Rateslist;
+    ArrayList<Beds> Bedslist;
      public Rooms roomModel;
      public JPanel lalagyanan;
     public int index,index1,id;
@@ -44,6 +56,9 @@ public class RoomsPanel extends javax.swing.JPanel{
     
     public RoomsPanel(JPanel lalagyanan,String role) throws SQLException{
         this.promoControll = new PromoController(lalagyanan,role);
+        this.RTControll = new RoomTypesController(lalagyanan); 
+        this.bedsControll = new BedsController(lalagyanan);
+        this.RatesControll = new RatesController(lalagyanan);
         initComponents();
         this.role=role;
         
@@ -102,7 +117,11 @@ public class RoomsPanel extends javax.swing.JPanel{
         roomstablestaff.setVisible(false);
         promoControll.showPromos(jtbl_promos);
         promolists = promoControll.promoList();
+         RTlist = RTControll.roomtypeList();
+         Rateslist = RatesControll.rateList();
+         Bedslist = bedsControll.bedList();
     }
+  
 
 
     /**
@@ -422,9 +441,12 @@ public class RoomsPanel extends javax.swing.JPanel{
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
 //        JOptionPane.showMessageDialog(null,"1");
-        int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
-        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
-        int rate=jcbo_rateId.getSelectedIndex()+1;
+        int roomtypes=jcbo_roomTypeId.getSelectedIndex();
+        int roomtype = RTlist.get(roomtypes).getRT_id();
+        int bedtypes=jcbo_bedTypeId.getSelectedIndex();
+        int bedtype=Bedslist.get(bedtypes).getbed_id();
+        int rates=jcbo_rateId.getSelectedIndex();
+        int rate=Rateslist.get(rates).getrate_id();
 //        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
@@ -444,9 +466,12 @@ public class RoomsPanel extends javax.swing.JPanel{
     }//GEN-LAST:event_jbtn_saveActionPerformed
 
     private void jbtn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_updateActionPerformed
-         int roomtype=jcbo_roomTypeId.getSelectedIndex()+1;
-        int bedtype=jcbo_bedTypeId.getSelectedIndex()+1;
-        int rate=jcbo_rateId.getSelectedIndex()+1;
+         int roomtypes=jcbo_roomTypeId.getSelectedIndex();
+        int roomtype = RTlist.get(roomtypes).getRT_id();
+        int bedtypes=jcbo_bedTypeId.getSelectedIndex();
+        int bedtype=Bedslist.get(bedtypes).getbed_id();
+        int rates=jcbo_rateId.getSelectedIndex();
+        int rate=Rateslist.get(rates).getrate_id();
 //        int promoid=jcbo_promoid.getSelectedIndex();
         int status=jcbo_statusId.getSelectedIndex();
         if (status==0) {
