@@ -34,6 +34,7 @@ public class VideoFeeder extends Thread {
                           SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
                           Date dat = cal.getTime();
                           String timess = kevs.format(dat);
+                          JOptionPane.showMessageDialog(null, timess);
                           time=timess;
                         checkCustomerCheckOut(timess);
                       } catch (SQLException ex) {

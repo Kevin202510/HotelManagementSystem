@@ -63,6 +63,10 @@ public class SalesPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jlbl_totalsale = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jlbl_totalsale1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jlbl_totalsale2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_sales = new javax.swing.JTable();
@@ -83,13 +87,14 @@ public class SalesPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1480, 790));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpnl_salesreport.setBackground(new java.awt.Color(255, 255, 255));
+        jpnl_salesreport.setBackground(new java.awt.Color(204, 204, 204));
+        jpnl_salesreport.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 5, true));
         jpnl_salesreport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SALES REPORT");
-        jpnl_salesreport.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 200, 40));
+        jpnl_salesreport.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 280, 40));
 
         jlbl_salesdates.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jlbl_salesdates.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -100,17 +105,35 @@ public class SalesPanel extends javax.swing.JPanel {
         jLabel6.setText("HOTEL MANAGEMENT");
         jpnl_salesreport.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 310, 50));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("TOTAL SALES");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 140, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 170, 30));
 
-        jlbl_totalsale.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbl_totalsale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jlbl_totalsale, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 200, 30));
+        jlbl_totalsale.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jlbl_totalsale.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(jlbl_totalsale, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 250, 30));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("TOTAL SALES");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 170, 30));
+
+        jlbl_totalsale1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jlbl_totalsale1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(jlbl_totalsale1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 250, 30));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("TOTAL SALES");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 170, 30));
+
+        jlbl_totalsale2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jlbl_totalsale2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(jlbl_totalsale2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 250, 30));
 
         jpnl_salesreport.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 510, 420));
 
@@ -245,6 +268,8 @@ public class SalesPanel extends javax.swing.JPanel {
             ResultSet rs = st.executeQuery(benta);
             while(rs.next()){
                 jlbl_totalsale.setText(String.valueOf(rs.getInt("SUM(amount)")));
+                jlbl_totalsale1.setText(String.valueOf(rs.getInt("SUM(amount)")));
+                jlbl_totalsale2.setText(String.valueOf(rs.getInt("SUM(amount)")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SalesPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -289,8 +314,10 @@ public class SalesPanel extends javax.swing.JPanel {
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(benta);
         while(rs.next()){
-            jlbl_totalsale.setText(String.valueOf(rs.getInt("SUM(amount)")));
-        }
+             jlbl_totalsale.setText(String.valueOf(rs.getInt("SUM(amount)")));
+            jlbl_totalsale1.setText(String.valueOf(rs.getInt("SUM(amount)")));
+            jlbl_totalsale2.setText(String.valueOf(rs.getInt("SUM(amount)")));
+    }
     }
     private void jbtn_printsalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_printsalesActionPerformed
         boolean test = sale_controll.printReceipt(jpnl_salesreport);
@@ -321,6 +348,8 @@ public class SalesPanel extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser Salest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -336,6 +365,8 @@ public class SalesPanel extends javax.swing.JPanel {
     private javax.swing.JButton jbtn_show;
     private javax.swing.JLabel jlbl_salesdates;
     private javax.swing.JLabel jlbl_totalsale;
+    private javax.swing.JLabel jlbl_totalsale1;
+    private javax.swing.JLabel jlbl_totalsale2;
     private javax.swing.JPanel jpnl_salesreport;
     private javax.swing.JTable jtbl_sales;
     private javax.swing.JTextField jtxt_sales_search;

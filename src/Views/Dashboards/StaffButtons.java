@@ -47,7 +47,7 @@ public class StaffButtons extends javax.swing.JPanel {
          this.user_id=user_id;
         jComboBox1.setModel(new ImageTextRenderer().pop(user_id));
         jComboBox1.setRenderer(new ImageTextRenderer());
-        jComboBox1.setBackground(new Color(0, 0, 0, 0));
+        jComboBox1.setBackground(Color.decode("#007a99"));
         jComboBox1.setOpaque(false);
         this.lalagyanan=lalagyanan;
         this.role=role;
@@ -78,7 +78,6 @@ public class StaffButtons extends javax.swing.JPanel {
         checkOut = new javax.swing.JLabel();
         hov4 = new javax.swing.JPanel();
         customerscheckin = new javax.swing.JLabel();
-        jLabelRound5 = new jroundborder.JLabelRound();
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -237,14 +236,6 @@ public class StaffButtons extends javax.swing.JPanel {
 
         StaffButtons.add(hov4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1209, 90, 200, 54));
 
-        jLabelRound5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
-        jLabelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRound5MouseClicked(evt);
-            }
-        });
-        StaffButtons.add(jLabelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
-
         hov10.setBackground(new java.awt.Color(83, 140, 198));
         hov10.setPreferredSize(new java.awt.Dimension(230, 40));
 
@@ -281,6 +272,7 @@ public class StaffButtons extends javax.swing.JPanel {
         StaffButtons.add(hov10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 170, 50));
 
         jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jComboBox1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(83, 140, 198), 8, true));
         jComboBox1.setPreferredSize(new java.awt.Dimension(40, 40));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,10 +401,6 @@ public class StaffButtons extends javax.swing.JPanel {
             out.dispose();
     }
     
-    private void jLabelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound5MouseClicked
-
-    }//GEN-LAST:event_jLabelRound5MouseClicked
-
     private void homeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseClicked
         userButton.homeButton(home);
     }//GEN-LAST:event_homeMouseClicked
@@ -487,7 +475,6 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
-    private jroundborder.JLabelRound jLabelRound5;
     private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sukicustomers;

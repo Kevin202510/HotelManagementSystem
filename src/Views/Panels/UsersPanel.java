@@ -80,15 +80,13 @@ public class UsersPanel extends javax.swing.JPanel {
         jtbl_user = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jbtn_Update = new javax.swing.JButton();
-        jbtn_Delete = new javax.swing.JButton();
-        jbtn_Add = new javax.swing.JButton();
         jtxt_ussearch = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         userActionPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jtxt_usuaname = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
+        jbtn_Delete = new javax.swing.JButton();
         jtxt_usumi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -117,6 +115,8 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         profileimg = new jroundborder.JLabelRound();
         jLabel1 = new javax.swing.JLabel();
+        jbtn_Update = new javax.swing.JButton();
+        jbtn_Add = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 77, 77));
         setMinimumSize(new java.awt.Dimension(950, 480));
@@ -184,39 +184,6 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel2.setText("USERS");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 22, 270, 45));
 
-        jbtn_Update.setBackground(new java.awt.Color(51, 102, 255));
-        jbtn_Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jbtn_Update.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_Update.setText("UPDATE");
-        jbtn_Update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_UpdateActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jbtn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 31, 93, 30));
-
-        jbtn_Delete.setBackground(new java.awt.Color(51, 102, 255));
-        jbtn_Delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jbtn_Delete.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_Delete.setText("DELETE");
-        jbtn_Delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_DeleteActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jbtn_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 31, 93, 30));
-
-        jbtn_Add.setBackground(new java.awt.Color(51, 102, 255));
-        jbtn_Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
-        jbtn_Add.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_Add.setText("ADD");
-        jbtn_Add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_AddActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jbtn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 31, 93, 30));
-
         jtxt_ussearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jtxt_ussearchKeyPressed(evt);
@@ -249,6 +216,17 @@ public class UsersPanel extends javax.swing.JPanel {
         });
         userActionPanel.add(jtxt_usuaname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 210, 20));
         userActionPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 10));
+
+        jbtn_Delete.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Delete.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Delete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Delete.setText("DELETE");
+        jbtn_Delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_DeleteActionPerformed(evt);
+            }
+        });
+        userActionPanel.add(jbtn_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 110, 30));
 
         jtxt_usumi.setBackground(new java.awt.Color(0, 77, 77));
         jtxt_usumi.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -418,7 +396,7 @@ public class UsersPanel extends javax.swing.JPanel {
         userActionPanel.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 210, 10));
 
         jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(179, 198, 255), 5, true));
-        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 620));
+        userActionPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 630));
         userActionPanel.add(profileimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 270, 180));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
@@ -427,7 +405,29 @@ public class UsersPanel extends javax.swing.JPanel {
         jLabel1.setText("USER ACTION");
         userActionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 220, 38));
 
-        add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 340, 690));
+        jbtn_Update.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Update.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Update.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Update.setText("UPDATE");
+        jbtn_Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_UpdateActionPerformed(evt);
+            }
+        });
+        userActionPanel.add(jbtn_Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 110, 30));
+
+        jbtn_Add.setBackground(new java.awt.Color(51, 102, 255));
+        jbtn_Add.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 11)); // NOI18N
+        jbtn_Add.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_Add.setText("ADD");
+        jbtn_Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_AddActionPerformed(evt);
+            }
+        });
+        userActionPanel.add(jbtn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, 110, 30));
+
+        add(userActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 330, 690));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtxt_usunameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usunameActionPerformed

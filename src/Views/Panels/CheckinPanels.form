@@ -454,6 +454,8 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jcbo_hoursrangeMouseClicked"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jcbo_hoursrangeMouseExited"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbo_hoursrangeActionPerformed"/>
               </Events>
               <AuxValues>
@@ -810,13 +812,7 @@
                   <Font name="Rockwell" size="14" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="3"/>
-                    <StringItem index="1" value="6"/>
-                    <StringItem index="2" value="12"/>
-                    <StringItem index="3" value="24"/>
-                    <StringItem index="4" value=" "/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>

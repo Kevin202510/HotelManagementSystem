@@ -60,8 +60,9 @@ public class CheckinPanels extends javax.swing.JPanel {
         checkintime1.setText(check_in_out_controll.getTimeNow());
         jpnl_checkinextend.setVisible(false);
         jtxt_cusFname1.requestFocusInWindow();
+//        jcbo_hoursrange.setSelectedIndex(-1);
+        showHourRanges(jcbo_hoursrange1);
         showHourRanges(jcbo_hoursrange);
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -287,6 +288,14 @@ public class CheckinPanels extends javax.swing.JPanel {
         jpnl_checkin.add(jlbl_checktimeout, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 150, 30));
 
         jcbo_hoursrange.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jcbo_hoursrange.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbo_hoursrangeMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jcbo_hoursrangeMouseExited(evt);
+            }
+        });
         jcbo_hoursrange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbo_hoursrangeActionPerformed(evt);
@@ -398,7 +407,6 @@ public class CheckinPanels extends javax.swing.JPanel {
         jpnl_checkinextend.add(jlbl_checkoutdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 230, 30));
 
         jcbo_hoursrange1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jcbo_hoursrange1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "6", "12", "24", " " }));
         jcbo_hoursrange1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbo_hoursrange1ActionPerformed(evt);
@@ -522,6 +530,18 @@ public class CheckinPanels extends javax.swing.JPanel {
     
     private void jcbo_hoursrangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeActionPerformed
         hourVal = hourRange[jcbo_hoursrange.getSelectedIndex()];
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.HOUR_OF_DAY ,hourVal);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minute = cal.get(Calendar.MINUTE);
+        int second = cal.get(Calendar.SECOND);
+        SimpleDateFormat kev = new SimpleDateFormat("hh:mm:ss aa");
+        Date dat = cal.getTime();
+        String times = kev.format(dat);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
+        String strDate = dateFormat.format(dat); 
+        jlbl_checkdateout.setText(strDate);
+        jlbl_checktimeout.setText(times);
     }//GEN-LAST:event_jcbo_hoursrangeActionPerformed
 
     private void jbtn_checkinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_checkinActionPerformed
@@ -553,8 +573,7 @@ public class CheckinPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_extendActionPerformed
 
     private void jcbo_hoursrange1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_hoursrange1ActionPerformed
-        hourVals = Integer.parseInt((String) jcbo_hoursrange1.getSelectedItem());
-        JOptionPane.showMessageDialog(null,hourVals);
+        hourVals = hourRange[jcbo_hoursrange1.getSelectedIndex()];
             try {
                 check_in_out_controll.setCheckOutDateAndTime(hourVals, jlbl_checkoutdate, jlbl_checkouttime);
             } catch (ParseException ex) {
@@ -576,9 +595,9 @@ public class CheckinPanels extends javax.swing.JPanel {
     }//GEN-LAST:event_jtxt_checkinandoutIdKeyPressed
 
     private void jbtn_SaveExtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_SaveExtendActionPerformed
-        double hoursval = Double.parseDouble((String) jcbo_hoursrange1.getSelectedItem());
+//        double hoursval = Double.parseDouble((String) jcbo_hoursrange1.getSelectedItem());
             try {
-                boolean testcheckextend = check_in_out_controll.updateCheckInAndOut(Integer.parseInt(jlbl_room.getText()),checkid,hoursval,jlbl_checkouttime,jlbl_checkindate.getText(),jlbl_checkoutdate);
+                boolean testcheckextend = check_in_out_controll.updateCheckInAndOut(Integer.parseInt(jlbl_room.getText()),checkid,hourVals,jlbl_checkouttime,jlbl_checkindate.getText(),jlbl_checkoutdate);
                 if (testcheckextend) {
                     jtxt_checkinandoutId.setText("");
                     jlbl_fname.setText("");
@@ -596,6 +615,14 @@ public class CheckinPanels extends javax.swing.JPanel {
                 Logger.getLogger(CheckinPanels.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_jbtn_SaveExtendActionPerformed
+
+    private void jcbo_hoursrangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeMouseClicked
+        
+    }//GEN-LAST:event_jcbo_hoursrangeMouseClicked
+
+    private void jcbo_hoursrangeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbo_hoursrangeMouseExited
+        
+    }//GEN-LAST:event_jcbo_hoursrangeMouseExited
 
                 
     private void delete1ActionPerformed(java.awt.event.ActionEvent evt) {                                        

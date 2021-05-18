@@ -235,8 +235,9 @@ public class CheckinAndOutController{
                 ResultSet rs = st.executeQuery(tanong);
                 if (rs.next()) {
                     double dis1=rs.getDouble("discount");
-                    JOptionPane.showMessageDialog(null,dis1);
-                    total =(hourVal/6)*getRoomRates(room_id)-(((hourVal/6)*getRoomRates(room_id))*dis1);
+//                    JOptionPane.showMessageDialog(null,dis1);
+                    double initt = (getRoomRates(room_id)/2)*0.05;
+                    total =getRoomRates(room_id)-initt;
                     JOptionPane.showMessageDialog(null,total);
                 }
                 return total;
@@ -296,8 +297,6 @@ public class CheckinAndOutController{
             String times = kev.format(dat);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");  
             String strDate = dateFormat.format(dat); 
-            checkoutdates.setText(strDate);
-            checkouttime.setText(times);
             
             checkin = new CheckinAndOut(0,ids,room_id,checkinDate,strDate,checkinTime,times,getDiscountPromo(room_id,hourVal,checkinDate,strDate));
             String insert = "INSERT INTO checkinandout(hours_checkin,timein,timeout,checkin_date,checkout_date,cust_id,room_id,total) VALUES (?,?,?,?,?,?,?,?)";
@@ -434,6 +433,8 @@ public class CheckinAndOutController{
                 checkindate.setText(checkinDates);
                 checkoutDates=rs.getString("checkout_date");
                 checkouttimes=rs.getString("timeout");
+                checkouttime.setText(checkouttimes);
+                checkoutdate.setText(checkoutDates);
             }
          }
          

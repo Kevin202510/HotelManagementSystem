@@ -52,9 +52,9 @@ public class SaleController {
                 Graphics2D graphics2D = (Graphics2D)graphics;
                 // Set Graphics Translations
                 // A Little Correction here Multiplication was not working so I replaced with addition
-                graphics2D.translate(pageFormat.getImageableX()+10, pageFormat.getImageableY()+10);
+                graphics2D.translate(pageFormat.getImageableX()+1, pageFormat.getImageableY()+10);
                 // This is a page scale. Default should be 0.3 I am using 0.5
-                graphics2D.scale(0.5, 0.5);
+                graphics2D.scale(0.4, 0.4);
                 
                 // Now paint panel as graphics2D
                 panel.paint(graphics2D);

@@ -63,6 +63,8 @@ public class Login extends javax.swing.JFrame {
         hov3 = new javax.swing.JPanel();
         signin = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,6 +84,7 @@ public class Login extends javax.swing.JFrame {
         jtxt_username.setBackground(new java.awt.Color(0, 204, 255));
         jtxt_username.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         jtxt_username.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_username.setBorder(null);
         jtxt_username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -93,11 +96,12 @@ public class Login extends javax.swing.JFrame {
                 jtxt_usernameActionPerformed(evt);
             }
         });
-        jPanel2.add(jtxt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 270, 30));
+        jPanel2.add(jtxt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 220, 30));
 
         jtxt_password.setBackground(new java.awt.Color(0, 204, 255));
         jtxt_password.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         jtxt_password.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_password.setBorder(null);
         jtxt_password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,13 +118,13 @@ public class Login extends javax.swing.JFrame {
                 jtxt_passwordKeyPressed(evt);
             }
         });
-        jPanel2.add(jtxt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 270, 30));
+        jPanel2.add(jtxt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, 30));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 270, -1));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 220, -1));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 270, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 220, 10));
 
         jLabel2.setBackground(new java.awt.Color(0, 204, 255));
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 24)); // NOI18N
@@ -203,6 +207,16 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 50, 40));
 
+        jLabel4.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Password");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 30));
+
+        jLabel5.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Username");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 90, 30));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 5, 380, 480));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
@@ -211,47 +225,18 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    private void setC(JPanel kev){
-         kev.setBackground(new Color(0,153,153));
-    }
-    
-    private void resetC(JPanel kev1){
-          kev1.setBackground(new Color(0,204,255));
-    }
-    private void jtxt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_usernameActionPerformed
-
-    private void jbtn_viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_viewpassActionPerformed
-        jtxt_password.setEchoChar((char)0);
-        jbtn_hidepass.setVisible(true);
-        jbtn_viewpass.setVisible(false);
-    }//GEN-LAST:event_jbtn_viewpassActionPerformed
-
-    private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
-        jbtn_viewpass.setVisible(true);
-        jbtn_hidepass.setVisible(false);
-        jtxt_password.setEchoChar('*');
-    }//GEN-LAST:event_jbtn_hidepassActionPerformed
-
-    private void signinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseEntered
-         setC(hov3);
-    }//GEN-LAST:event_signinMouseEntered
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     private void signinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseExited
-       resetC(hov3);
+        resetC(hov3);
     }//GEN-LAST:event_signinMouseExited
 
-    private void jtxt_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_usernameMouseClicked
-        jtxt_username.setText("");
-    }//GEN-LAST:event_jtxt_usernameMouseClicked
+    private void signinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseEntered
+        setC(hov3);
+    }//GEN-LAST:event_signinMouseEntered
 
-    private void jtxt_passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_passwordMouseClicked
-        jtxt_password.setText("");
-        jtxt_password.setEchoChar('*');
-    }//GEN-LAST:event_jtxt_passwordMouseClicked
-    
     private void signinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinMouseClicked
         try {
             auth.signIn(out,jtxt_username,jtxt_password);
@@ -259,6 +244,18 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_signinMouseClicked
+
+    private void jbtn_hidepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_hidepassActionPerformed
+        jbtn_viewpass.setVisible(true);
+        jbtn_hidepass.setVisible(false);
+        jtxt_password.setEchoChar('*');
+    }//GEN-LAST:event_jbtn_hidepassActionPerformed
+
+    private void jbtn_viewpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_viewpassActionPerformed
+        jtxt_password.setEchoChar((char)0);
+        jbtn_hidepass.setVisible(true);
+        jbtn_viewpass.setVisible(false);
+    }//GEN-LAST:event_jbtn_viewpassActionPerformed
 
     private void jtxt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_passwordKeyPressed
         if(evt.getKeyCode()==10){
@@ -274,10 +271,27 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_passwordActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    private void jtxt_passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_passwordMouseClicked
+        jtxt_password.setText("");
+        jtxt_password.setEchoChar('*');
+    }//GEN-LAST:event_jtxt_passwordMouseClicked
 
+    private void jtxt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_usernameActionPerformed
+
+    private void jtxt_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_usernameMouseClicked
+
+    }//GEN-LAST:event_jtxt_usernameMouseClicked
+
+    
+    private void setC(JPanel kev){
+         kev.setBackground(new Color(0,153,153));
+    }
+    
+    private void resetC(JPanel kev1){
+          kev1.setBackground(new Color(0,204,255));
+    }    
     /**
      * @param args the command line arguments
      */
@@ -323,6 +337,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator4;

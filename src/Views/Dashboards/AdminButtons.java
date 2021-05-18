@@ -81,7 +81,6 @@ public class AdminButtons extends javax.swing.JPanel {
 
         AdminButtons = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabelRound3 = new jroundborder.JLabelRound();
         hov5 = new javax.swing.JPanel();
         sales = new javax.swing.JLabel();
         hov6 = new javax.swing.JPanel();
@@ -112,14 +111,6 @@ public class AdminButtons extends javax.swing.JPanel {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1 (2).gif"))); // NOI18N
         AdminButtons.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 10, 550, -1));
-
-        jLabelRound3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/unlock.gif"))); // NOI18N
-        jLabelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRound3MouseClicked(evt);
-            }
-        });
-        AdminButtons.add(jLabelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 39));
 
         hov5.setBackground(new java.awt.Color(83, 140, 198));
         hov5.setPreferredSize(new java.awt.Dimension(230, 40));
@@ -388,10 +379,6 @@ public class AdminButtons extends javax.swing.JPanel {
             new Login().setVisible(true);
             out.dispose();
     }
-    private void jLabelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRound3MouseClicked
-        userButton.checkButtons();
-    }//GEN-LAST:event_jLabelRound3MouseClicked
-
     private void salesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salesMouseClicked
         userButton.saleButton(sales);
     }//GEN-LAST:event_salesMouseClicked
@@ -533,7 +520,6 @@ public class AdminButtons extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private jroundborder.JLabelRound jLabelRound3;
     private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rate_rt_bed;
     private javax.swing.JLabel rooms;

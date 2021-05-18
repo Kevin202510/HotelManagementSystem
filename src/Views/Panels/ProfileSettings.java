@@ -51,7 +51,7 @@ public class ProfileSettings extends javax.swing.JFrame {
         initComponents();
         ProfileSettings.out=out;
         ProfileSettings.UserIdSended=user_id;
-        userId.setText(String.valueOf(UserIdSended));
+//        userId.setText(String.valueOf(UserIdSended));
         getUserInfo();
         wc = Webcam.getDefault();
         wc.setViewSize(WebcamResolution.VGA.getSize());
