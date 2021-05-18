@@ -236,7 +236,7 @@ public class CheckinAndOutController{
                 if (rs.next()) {
                     double dis1=rs.getDouble("discount");
 //                    JOptionPane.showMessageDialog(null,dis1);
-                    double initt = (getRoomRates(room_id)/2)*0.05;
+                    double initt = getRoomRates(room_id)*0.05;
                     total =getRoomRates(room_id)-initt;
                     JOptionPane.showMessageDialog(null,total);
                 }
@@ -364,7 +364,7 @@ public class CheckinAndOutController{
             int kev = JOptionPane.showConfirmDialog(null,"Do You Have A SukiCard?","Ask",JOptionPane.YES_NO_OPTION);
             if(kev==0){
                 String sukicode = JOptionPane.showInputDialog(null,"Scan Suki Card");
-                String ask = "Select * from sukicustomers LEFT JOIN customers ON customers.cust_id=sukicustomers.custo_id where sukicustomers.sukicode='"+sukicode+"'";
+                String ask = "Select * from sukicustomers LEFT JOIN customers ON customers.cust_id=sukicustomers.custo_id LEFT JOIN checkinandout on checkinandout.cust_id= sukicustomers.custo_id where sukicustomers.sukicode= '"+sukicode+"'";
                 Statement st = con.createStatement();
                 ResultSet rs = st.executeQuery(ask);
                 if (rs.next()) {
