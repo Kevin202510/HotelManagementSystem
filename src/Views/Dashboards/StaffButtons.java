@@ -53,6 +53,8 @@ public class StaffButtons extends javax.swing.JPanel {
         this.role=role;
         userButton = new Buttons(lalagyanan,user_id);
         new ContainerManipulator(lalagyanan,new Views.Panels.Home());
+        new VideoFeeder().start();
+        Date.setText(getDateNow());
   //      user_fullname.setText(fullname);
 //        userrole.setText(role);
 //        VideoFeeder vivin = new VideoFeeder();
@@ -81,10 +83,13 @@ public class StaffButtons extends javax.swing.JPanel {
         hov10 = new javax.swing.JPanel();
         home = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        date = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jpnl_hov11 = new javax.swing.JPanel();
         sukicustomers = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Date = new javax.swing.JLabel();
+        Time = new javax.swing.JLabel();
 
         StaffButtons.setBackground(new java.awt.Color(83, 140, 198));
         StaffButtons.setPreferredSize(new java.awt.Dimension(1480, 894));
@@ -281,9 +286,6 @@ public class StaffButtons extends javax.swing.JPanel {
         });
         StaffButtons.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 20, 240, 50));
 
-        date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        StaffButtons.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 170, 30));
-
         jLabel2.setFont(new java.awt.Font("Rockwell Extra Bold", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -320,6 +322,24 @@ public class StaffButtons extends javax.swing.JPanel {
         jpnl_hov11.add(sukicustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 210, 50));
 
         StaffButtons.add(jpnl_hov11, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, 190, 50));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("TIME :");
+        StaffButtons.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 50, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("DATE : ");
+        StaffButtons.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, -1));
+
+        Date.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        Date.setForeground(new java.awt.Color(255, 255, 255));
+        StaffButtons.add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 200, 30));
+
+        Time.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Time.setForeground(new java.awt.Color(255, 255, 255));
+        StaffButtons.add(Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 200, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -461,11 +481,12 @@ public class StaffButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_sukicustomersMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Date;
     private javax.swing.JPanel StaffButtons;
+    private javax.swing.JLabel Time;
     private javax.swing.JLabel checkIn;
     private javax.swing.JLabel checkOut;
     private javax.swing.JLabel customerscheckin;
-    private javax.swing.JLabel date;
     private javax.swing.JLabel home;
     private javax.swing.JPanel hov1;
     private javax.swing.JPanel hov10;
@@ -473,10 +494,38 @@ public class StaffButtons extends javax.swing.JPanel {
     private javax.swing.JPanel hov3;
     private javax.swing.JPanel hov4;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jpnl_hov11;
     private javax.swing.JLabel rooms;
     private javax.swing.JLabel sukicustomers;
     // End of variables declaration//GEN-END:variables
+
+     public String getDateNow(){
+         java.util.Date date = Calendar.getInstance().getTime();  
+        DateFormat dateFormat = new SimpleDateFormat("MMM-dd-yyyy");  
+        String strDate = dateFormat.format(date);
+        return strDate;
+     }
+    
+    class VideoFeeder extends Thread {
+    
+          public void run(){
+                  
+                  String ss = "00";
+                  
+                  while(true){
+//                      try {
+                          Calendar cal = Calendar.getInstance();
+                          SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
+                          java.util.Date dat = cal.getTime();
+                          String timess = kevs.format(dat);
+                          Time.setText(timess);
+          
+          }
+          }
+    }
+
 }

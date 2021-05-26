@@ -29,19 +29,19 @@ public class VideoFeeder extends Thread {
                   String ss = "00";
                   
                   while(true){
-                      try {
+//                      try {
                           Calendar cal = Calendar.getInstance();
                           SimpleDateFormat kevs = new SimpleDateFormat("hh:mm:ss aa");
                           Date dat = cal.getTime();
                           String timess = kevs.format(dat);
-                          JOptionPane.showMessageDialog(null, timess);
+//                          JOptionPane.showMessageDialog(null, timess);
                           time=timess;
-                        checkCustomerCheckOut(timess);
-                      } catch (SQLException ex) {
-                          Logger.getLogger(VideoFeeder.class.getName()).log(Level.SEVERE, null, ex);
-                      } catch (InterruptedException ex) {
-                          Logger.getLogger(VideoFeeder.class.getName()).log(Level.SEVERE, null, ex);
-                      }
+//                        checkCustomerCheckOut(timess);
+//                      } catch (SQLException ex) {
+//                          Logger.getLogger(VideoFeeder.class.getName()).log(Level.SEVERE, null, ex);
+//                      } catch (InterruptedException ex) {
+//                          Logger.getLogger(VideoFeeder.class.getName()).log(Level.SEVERE, null, ex);
+//                      }
           
           }
           }
